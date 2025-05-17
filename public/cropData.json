@@ -1,0 +1,20 @@
+[
+  {
+    "Crop": "Zinnia",
+    "Type": "flower",
+    "Grow_Zones": "Zone 3, Zone 4, Zone 5, Zone 6, Zone 7, Zone 8",
+    "Days_to_Germination": "5 to 7",
+    "Days_to_Harvest": "60 to 70",
+    "Sow_Indoors": "4 to 6 before",
+    "Sow_Outdoors": "1 to 2 after"
+  },
+  {
+    "Crop": "Basil",
+    "Type": "herb",
+    "Grow_Zones": "Zone 4, Zone 5, Zone 6, Zone 7, Zone 8, Zone 9",
+    "Days_to_Germination": "7 to 10",
+    "Days_to_Harvest": "60 to 90",
+    "Sow_Indoors": "6 to 8 before",
+    "Sow_Outdoors": "2 after"
+  }
+]
