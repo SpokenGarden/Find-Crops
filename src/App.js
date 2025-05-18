@@ -95,6 +95,13 @@ export default function GardenPlannerApp() {
         Find Crops
       </button>
 
+      {filteredCrops.length > 0 ? (
+  <div>We have {filteredCrops.length} crops to show!</div>
+) : (
+  <div>No crops found yet. Try searching.</div>
+)}
+
+
       {filteredCrops.length > 0 && (
         <div style={{ marginTop: "2rem" }}>
           <h2 style={{ color: "#40916c" }}>🌼 Recommended Crops</h2>
