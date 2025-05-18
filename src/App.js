@@ -29,7 +29,7 @@ export default function GardenPlannerApp() {
     }
   };
 
- const parseSowWindow = (text, baseDate) => {
+const parseSowWindow = (text, baseDate) => {
   if (!text || !baseDate) return "N/A";
   const match = text.match(/(\d+)\s*(to|-)?\s*(\d+)?\s*(before|after)/i);
   if (!match) return "N/A";
@@ -39,13 +39,12 @@ export default function GardenPlannerApp() {
   const endWeeks = parseInt(to || from);
   const sign = direction.toLowerCase() === "before" ? -1 : 1;
 
-  const firstDate = new Date(baseDate);
-  const secondDate = new Date(baseDate);
-  firstDate.setDate(firstDate.getDate() + sign * startWeeks * 7);
-  secondDate.setDate(secondDate.getDate() + sign * endWeeks * 7);
+  const startDate = new Date(baseDate);
+  startDate.setDate(startDate.getDate() + sign * startWeeks * 7);
+  const endDate = new Date(baseDate);
+  endDate.setDate(endDate.getDate() + sign * endWeeks * 7);
 
-  const sortedDates = [firstDate, secondDate].sort((a, b) => a - b);
-  return `${sortedDates[0].toLocaleDateString()} – ${sortedDates[1].toLocaleDateString()}`;
+  return `${startDate.toLocaleDateString()} – ${endDate.toLocaleDateString()}`;
 };
 
 
