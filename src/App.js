@@ -18,7 +18,7 @@ export default function GardenPlannerApp() {
 
   const handleSearch = () => {
     const results = (cropData || []).filter((crop) => {
-      if (!crop || !crop.Grow_Zones || !crop.Type) return false;
+      if (!crop || !crop.Grow_Zones || !crop.Type || !crop.Crop) return false;
 
       const userZone = zone.trim();
       const zoneList = crop.Grow_Zones.match(/\d+/g) || [];
@@ -30,9 +30,16 @@ export default function GardenPlannerApp() {
       return zoneMatch && categoryMatch;
     });
 
+    console.log("User Zone:", zone);
+    console.log("Category:", category);
+    console.log("Filtered Crops:", results);
+
     const sorted = results.sort((a, b) => {
       const aDays = parseInt(a.Days_to_Germination);
       const bDays = parseInt(b.Days_to_Germination);
+
+      if (isNaN(aDays)) return 1;
+      if (isNaN(bDays)) return -1;
       return aDays - bDays;
     });
 
