@@ -39,13 +39,15 @@ const parseSowWindow = (text, baseDate) => {
   const endWeeks = parseInt(to || from);
   const sign = direction.toLowerCase() === "before" ? -1 : 1;
 
-  const startDate = new Date(baseDate);
-  startDate.setDate(startDate.getDate() + sign * startWeeks * 7);
-  const endDate = new Date(baseDate);
-  endDate.setDate(endDate.getDate() + sign * endWeeks * 7);
+  const firstDate = new Date(baseDate);
+  const secondDate = new Date(baseDate);
+  firstDate.setDate(firstDate.getDate() + sign * startWeeks * 7);
+  secondDate.setDate(secondDate.getDate() + sign * endWeeks * 7);
 
-  return `${startDate.toLocaleDateString()} – ${endDate.toLocaleDateString()}`;
+  const sortedDates = [firstDate, secondDate].sort((a, b) => a - b);
+  return `${sortedDates[0].toLocaleDateString()} – ${sortedDates[1].toLocaleDateString()}`;
 };
+
 
 
   const handleSearch = () => {
