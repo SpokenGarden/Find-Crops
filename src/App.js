@@ -9,14 +9,18 @@ export default function GardenPlannerApp() {
   useEffect(() => {
     fetch("/cropData.json")
       .then((res) => res.json())
-      .then((data) => setCropData(data))
+      .then((data) => {
+        console.log("Loaded crop data:", data); // Debug log
+        setCropData(data);
+      })
       .catch((err) => console.error("Failed to load crop data:", err));
   }, []);
 
   const handleSearch = () => {
     const zonePattern = new RegExp(`Zone\\s*${zone}`, "i");
 
-    const results = cropData.filter((crop) => {
+    const results = (cropData || []).filter((crop) => {
+      if (!crop || !crop.Grow_Zones || !crop.Type) return false;
       const zoneMatch =
         zone === "" || zonePattern.test(crop.Grow_Zones);
       const categoryMatch =
