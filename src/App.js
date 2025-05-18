@@ -108,7 +108,7 @@ export default function GardenPlannerApp() {
           <ul style={{ listStyleType: "none", padding: 0 }}>
             {filteredCrops.map((crop, index) => (
               <li
-                key={index}
+                key={crop.Crop + index}
                 style={{
                   background: "#ffffff",
                   border: "1px solid #ddd",
