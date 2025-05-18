@@ -5,6 +5,7 @@ export default function GardenPlannerApp() {
   const [zone, setZone] = useState("");
   const [category, setCategory] = useState("all");
   const [filteredCrops, setFilteredCrops] = useState([]);
+  const [frostDate, setFrostDate] = useState("");
 
   useEffect(() => {
     fetch("/cropData.json")
@@ -16,21 +17,50 @@ export default function GardenPlannerApp() {
       .catch((err) => console.error("Failed to load crop data:", err));
   }, []);
 
+  const handleGetLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        console.log("User Location:", latitude, longitude);
+        // Placeholder: You could call a frost-date or zone API here using lat/lon
+      });
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  };
+
+  const parseSowWindow = (text, baseDate) => {
+    if (!text || !baseDate) return "N/A";
+    const match = text.match(/(\d+)\s*(to|-)?\s*(\d+)?\s*(before|after)/i);
+    if (!match) return "N/A";
+
+    const [, from, , to, direction] = match;
+    const startWeeks = parseInt(from);
+    const endWeeks = parseInt(to || from);
+    const sign = direction.toLowerCase() === "before" ? -1 : 1;
+
+    const startDate = new Date(baseDate);
+    startDate.setDate(startDate.getDate() + sign * startWeeks * 7);
+    const endDate = new Date(baseDate);
+    endDate.setDate(endDate.getDate() + sign * endWeeks * 7);
+
+    return `${startDate.toLocaleDateString()} – ${endDate.toLocaleDateString()}`;
+  };
+
   const handleSearch = () => {
     const results = (cropData || []).filter((crop) => {
       if (!crop || !crop.Grow_Zones || !crop.Type || !crop.Crop) return false;
 
       const userZone = zone.trim();
       const zoneList = crop.Grow_Zones.replace(/[^\d\-\s,]/g, '')
-  .split(/[\s,]+/)
-  .flatMap(z => {
-    if (z.includes('-')) {
-      const [start, end] = z.split('-').map(Number);
-      return Array.from({ length: end - start + 1 }, (_, i) => (start + i).toString());
-    }
-    return z ? [z] : [];
-  });
-
+        .split(/[\s,]+/)
+        .flatMap(z => {
+          if (z.includes('-')) {
+            const [start, end] = z.split('-').map(Number);
+            return Array.from({ length: end - start + 1 }, (_, i) => (start + i).toString());
+          }
+          return z ? [z] : [];
+        });
 
       const zoneMatch = userZone === "" || zoneList.includes(userZone);
       const categoryMatch =
@@ -83,6 +113,19 @@ export default function GardenPlannerApp() {
 
       <div style={{ marginBottom: "1rem" }}>
         <label>
+          Average Last Frost Date:
+          <input
+            type="date"
+            value={frostDate}
+            onChange={(e) => setFrostDate(e.target.value)}
+            style={{ marginLeft: "0.5rem", padding: "0.3rem 0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
+          />
+        </label>
+        <button onClick={handleGetLocation} style={{ marginLeft: "1rem", padding: "0.3rem 0.6rem" }}>📍 Use My Location</button>
+      </div>
+
+      <div style={{ marginBottom: "1rem" }}>
+        <label>
           Select Category:
           <select
             value={category}
@@ -105,11 +148,10 @@ export default function GardenPlannerApp() {
       </button>
 
       {filteredCrops.length > 0 ? (
-  <div>We have {filteredCrops.length} crops to show!</div>
-) : (
-  <div>No crops found yet. Try searching.</div>
-)}
-
+        <div>We have {filteredCrops.length} crops to show!</div>
+      ) : (
+        <div>No crops found yet. Try searching.</div>
+      )}
 
       {filteredCrops.length > 0 && (
         <div style={{ marginTop: "2rem" }}>
@@ -128,8 +170,8 @@ export default function GardenPlannerApp() {
                 }}
               >
                 <strong style={{ fontSize: "1.1rem" }}>{crop.Crop}</strong> <em>({crop.Type})</em><br />
-                🌱 Sow Indoors: {enhanceText(crop.Sow_Indoors || "N/A")}<br />
-                🌿 Sow Outdoors: {enhanceText(crop.Sow_Outdoors || "N/A")}<br />
+                🌱 Sow Indoors: {parseSowWindow(crop.Sow_Indoors, frostDate)}<br />
+                🌿 Sow Outdoors: {parseSowWindow(crop.Sow_Outdoors, frostDate)}<br />
                 ⏱ Days to Germination: {crop.Days_to_Germination || "N/A"}<br />
                 🍅 Days to Harvest: {crop.Days_to_Harvest || "N/A"}<br />
                 🌞 Sun: {crop.Sun_Requirements || "N/A"}<br />
