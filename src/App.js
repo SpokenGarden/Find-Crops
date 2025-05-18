@@ -21,7 +21,16 @@ export default function GardenPlannerApp() {
       if (!crop || !crop.Grow_Zones || !crop.Type || !crop.Crop) return false;
 
       const userZone = zone.trim();
-      const zoneList = crop.Grow_Zones.match(/\d+/g) || [];
+      const zoneList = crop.Grow_Zones.replace(/[^\d\-\s,]/g, '')
+  .split(/[\s,]+/)
+  .flatMap(z => {
+    if (z.includes('-')) {
+      const [start, end] = z.split('-').map(Number);
+      return Array.from({ length: end - start + 1 }, (_, i) => (start + i).toString());
+    }
+    return z ? [z] : [];
+  });
+
 
       const zoneMatch = userZone === "" || zoneList.includes(userZone);
       const categoryMatch =
