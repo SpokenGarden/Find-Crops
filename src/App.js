@@ -17,14 +17,16 @@ export default function GardenPlannerApp() {
   }, []);
 
   const handleSearch = () => {
-    const zonePattern = new RegExp(`Zone\\s*${zone}`, "i");
-
     const results = (cropData || []).filter((crop) => {
       if (!crop || !crop.Grow_Zones || !crop.Type) return false;
-      const zoneMatch =
-        zone === "" || zonePattern.test(crop.Grow_Zones);
+
+      const userZone = zone.trim();
+      const zoneList = crop.Grow_Zones.match(/\d+/g) || [];
+
+      const zoneMatch = userZone === "" || zoneList.includes(userZone);
       const categoryMatch =
         category === "all" || crop.Type.toLowerCase() === category.toLowerCase();
+
       return zoneMatch && categoryMatch;
     });
 
