@@ -128,11 +128,14 @@ export default function GardenPlannerApp() {
                 }}
               >
                 <strong style={{ fontSize: "1.1rem" }}>{crop.Crop}</strong> <em>({crop.Type})</em><br />
-                🌱 Sow Indoors: {enhanceText(crop.Sow_Indoors)}<br />
-                🌿 Sow Outdoors: {enhanceText(crop.Sow_Outdoors)}<br />
-                ⏱ Days to Germination: {crop.Days_to_Germination}<br />
-                🍅 Days to Harvest: {crop.Days_to_Harvest}<br />
-                📍 Grow Zones: {formatZones(crop.Grow_Zones)}
+                🌱 Sow Indoors: {enhanceText(crop.Sow_Indoors || "N/A")}<br />
+                🌿 Sow Outdoors: {enhanceText(crop.Sow_Outdoors || "N/A")}<br />
+                ⏱ Days to Germination: {crop.Days_to_Germination || "N/A"}<br />
+                🍅 Days to Harvest: {crop.Days_to_Harvest || "N/A"}<br />
+                🌞 Sun: {crop.Sun_Requirements || "N/A"}<br />
+                💧 Water: {crop.Water_Needs || "N/A"}<br />
+                🪨 Soil: {crop.Soil_Preferences || "N/A"}<br />
+                📍 Grow Zones: {formatZones(crop.Grow_Zones || "")}
               </li>
             ))}
           </ul>
