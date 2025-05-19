@@ -6,6 +6,9 @@ export default function GardenPlannerApp() {
   const [category, setCategory] = useState("all");
   const [filteredCrops, setFilteredCrops] = useState([]);
   const [frostDate, setFrostDate] = useState("");
+  const [sunRequirement, setSunRequirement] = useState("all");
+  const [waterNeed, setWaterNeed] = useState("all");
+  const [soilPreference, setSoilPreference] = useState("all");
 
   useEffect(() => {
     fetch("/cropData.json")
@@ -139,6 +142,55 @@ export default function GardenPlannerApp() {
             <option value="flower">Flowers</option>
             <option value="herb">Herbs</option>
             <option value="vegetable">Vegetables</option>
+          </select>
+        </label>
+      </div>
+
+      <div style={{ marginBottom: "1rem" }}>
+        <label>
+          Sun Requirement:
+          <select
+            value={sunRequirement}
+            onChange={(e) => setSunRequirement(e.target.value)}
+            style={{ marginLeft: "0.5rem", padding: "0.3rem 0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
+          >
+            <option value="all">All</option>
+            <option value="full sun">Full Sun</option>
+            <option value="part shade">Part Shade</option>
+            <option value="full shade">Full Shade</option>
+          </select>
+        </label>
+      </div>
+
+      <div style={{ marginBottom: "1rem" }}>
+        <label>
+          Water Need:
+          <select
+            value={waterNeed}
+            onChange={(e) => setWaterNeed(e.target.value)}
+            style={{ marginLeft: "0.5rem", padding: "0.3rem 0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
+          >
+            <option value="all">All</option>
+            <option value="low">Low</option>
+            <option value="moderate">Moderate</option>
+            <option value="high">High</option>
+          </select>
+        </label>
+      </div>
+
+      <div style={{ marginBottom: "1rem" }}>
+        <label>
+          Soil Preference:
+          <select
+            value={soilPreference}
+            onChange={(e) => setSoilPreference(e.target.value)}
+            style={{ marginLeft: "0.5rem", padding: "0.3rem 0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
+          >
+            <option value="all">All</option>
+            <option value="loamy">Loamy</option>
+            <option value="sandy">Sandy</option>
+            <option value="clay">Clay</option>
+            <option value="well-drained">Well-drained</option>
           </select>
         </label>
       </div>
