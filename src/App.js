@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export default function GardenPlannerApp() {
+  const [started, setStarted] = useState(false);
   const [cropData, setCropData] = useState([]);
   const [zone, setZone] = useState("");
   const [category, setCategory] = useState("all");
@@ -99,44 +100,111 @@ export default function GardenPlannerApp() {
   const enhanceText = (text) => {
     return text.replace(/before/gi, "before your average last frost date");
   };
+  const months = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
+const generateSowingCalendar = () => {
+  const monthMap = {};
+
+  filteredCrops.forEach((crop) => {
+    const sowText = crop.Sow_Indoors || crop.Sow_Outdoors;
+    if (!sowText || !frostDate) return;
+
+    const match = sowText.match(/(\d+).*?(before|after)/i);
+    if (!match) return;
+    const weeks = parseInt(match[1]);
+    const direction = match[2].toLowerCase();
+
+    const base = new Date(frostDate);
+    const sowDate = new Date(base);
+    sowDate.setDate(base.getDate() + (direction === "before" ? -1 : 1) * weeks * 7);
+
+    const monthName = months[sowDate.getMonth()];
+    if (!monthMap[monthName]) monthMap[monthName] = [];
+    monthMap[monthName].push({
+      crop: crop,
+      method: crop.Sow_Indoors ? 'indoors' : 'outdoors'
+    });
+  });
+
+  const calendarWindow = window.open("", "_blank");
+  if (calendarWindow) {
+    calendarWindow.document.write("<html><head><title>Sowing Calendar</title>
+<style>
+  @media print {
+    button { display: none; }
+  }
+</style></head><body style='font-family:sans-serif;'>");
+    calendarWindow.document.write("<h1>📅 Sowing Calendar</h1>
+<button onclick="window.print()" style="margin-bottom: 1rem; padding: 0.5rem 1rem; font-size: 1rem;">🖨️ Print Calendar</button>");
+    Object.keys(monthMap)
+      .sort((a, b) => months.indexOf(a) - months.indexOf(b))
+      .forEach((month) => {
+        calendarWindow.document.write(`<h2>${month}</h2><ul>`);
+        monthMap[month].forEach(({ crop, method }) => {
+          const icon = method === 'indoors' ? '🏠' : '🌿';
+          calendarWindow.document.write(`<li>${icon} <strong>${crop.Crop}</strong> (${crop.Type})</li>`);
+        });
+        calendarWindow.document.write("</ul>");
+      });
+    calendarWindow.document.write("</body></html>");
+    calendarWindow.document.close();
+  }
+};
+
 
   return (
-    <div style={{ fontFamily: "Poppins, sans-serif", padding: "2rem", maxWidth: "800px", margin: "0 auto", backgroundColor: "#fdfdfc" }}>
-      <h1 style={{ fontSize: "2rem", marginBottom: "1.5rem", color: "#2d6a4f" }}>🌱 Little Dibby Garden Planner</h1>
+    <div style={{ fontFamily: "Poppins, sans-serif", padding: "1rem", margin: "0 auto", backgroundColor: "#fdfdfc", maxWidth: "100%" }}>
+      {!started ? (
+        <div style={{ textAlign: "center", padding: "2rem" }}>
+          <h1 style={{ fontSize: "2rem", color: "#2d6a4f" }}>🌱 Welcome to the Little Dibby Garden Planner</h1>
+          <p style={{ fontSize: "1.1rem", margin: "1rem 0" }}>Plan what to grow and when to sow with your frost date and grow zone.</p>
+          <button
+            onClick={() => setStarted(true)}
+            style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#52b788", color: "white", border: "none", borderRadius: "8px", cursor: "pointer" }}
+          >
+            🌿 Start Planning
+          </button>
+        </div>
+      ) : (
+      <div style={{ display: "flex", flexDirection: "column", gap: "1rem", width: "100%" }}>
+      <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>🌱 Little Dibby Garden Planner</h1>
 
-      <div style={{ marginBottom: "1rem" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
         <label>
           Enter Your Grow Zone:
           <input
             type="text"
             value={zone}
             onChange={(e) => setZone(e.target.value)}
-            style={{ marginLeft: "0.5rem", padding: "0.3rem 0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
+            style={{ width: "100%", padding: "0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
             placeholder="e.g., 7"
           />
         </label>
       </div>
 
-      <div style={{ marginBottom: "1rem" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
         <label>
           Average Last Frost Date:
           <input
             type="date"
             value={frostDate}
             onChange={(e) => setFrostDate(e.target.value)}
-            style={{ marginLeft: "0.5rem", padding: "0.3rem 0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
+            style={{ width: "100%", padding: "0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
           />
         </label>
         <button onClick={handleGetLocation} style={{ marginLeft: "1rem", padding: "0.3rem 0.6rem" }}>📍 Use My Location</button>
       </div>
 
-      <div style={{ marginBottom: "1rem" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
         <label>
           Select Category:
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            style={{ marginLeft: "0.5rem", padding: "0.3rem 0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
+            style={{ width: "100%", padding: "0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
           >
             <option value="all">All</option>
             <option value="flower">Flowers</option>
@@ -146,13 +214,13 @@ export default function GardenPlannerApp() {
         </label>
       </div>
 
-      <div style={{ marginBottom: "1rem" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
         <label>
           Sun Requirement:
           <select
             value={sunRequirement}
             onChange={(e) => setSunRequirement(e.target.value)}
-            style={{ marginLeft: "0.5rem", padding: "0.3rem 0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
+            style={{ width: "100%", padding: "0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
           >
             <option value="all">All</option>
             <option value="full sun">Full Sun</option>
@@ -162,13 +230,13 @@ export default function GardenPlannerApp() {
         </label>
       </div>
 
-      <div style={{ marginBottom: "1rem" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
         <label>
           Water Need:
           <select
             value={waterNeed}
             onChange={(e) => setWaterNeed(e.target.value)}
-            style={{ marginLeft: "0.5rem", padding: "0.3rem 0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
+            style={{ width: "100%", padding: "0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
           >
             <option value="all">All</option>
             <option value="low">Low</option>
@@ -178,13 +246,13 @@ export default function GardenPlannerApp() {
         </label>
       </div>
 
-      <div style={{ marginBottom: "1rem" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
         <label>
           Soil Preference:
           <select
             value={soilPreference}
             onChange={(e) => setSoilPreference(e.target.value)}
-            style={{ marginLeft: "0.5rem", padding: "0.3rem 0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
+            style={{ width: "100%", padding: "0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
           >
             <option value="all">All</option>
             <option value="loamy">Loamy</option>
@@ -197,9 +265,16 @@ export default function GardenPlannerApp() {
 
 <button
         onClick={handleSearch}
-        style={{ padding: "0.5rem 1rem", backgroundColor: "#52b788", color: "white", border: "none", borderRadius: "6px", cursor: "pointer" }}
+        style={{ padding: "0.75rem 1rem", backgroundColor: "#52b788", color: "white", border: "none", borderRadius: "6px", cursor: "pointer", width: "100%" }}
       >
         Find Crops
+      </button>
+
+      <button
+        onClick={generateSowingCalendar}
+        style={{ padding: "0.5rem 1rem", backgroundColor: "#40916c", color: "white", border: "none", borderRadius: "6px", cursor: "pointer" }}
+      >
+        📅 View Sowing Calendar
       </button>
 
       {filteredCrops.length > 0 ? (
@@ -208,30 +283,7 @@ export default function GardenPlannerApp() {
             We found {filteredCrops.length} matching crops:
           </p>
           <h2 style={{ color: "#40916c" }}>🌼 Recommended Crops</h2>
-          <ul style={{ listStyleType: "none", padding: 0 }}>
-            {filteredCrops.map((crop, index) => (
-              <li
-                key={crop.Crop + index}
-                style={{
-                  background: "#ffffff",
-                  border: "1px solid #ddd",
-                  borderRadius: "10px",
-                  padding: "1rem",
-                  marginBottom: "1rem",
-                  boxShadow: "0 2px 5px rgba(0,0,0,0.05)"
-                }}
-              >
-                <strong style={{ fontSize: "1.1rem" }}>{crop.Crop}</strong> <em>({crop.Type})</em><br />
-                🌱 Sow Indoors: {parseSowWindow(crop.Sow_Indoors, frostDate)}<br />
-                🌿 Sow Outdoors: {parseSowWindow(crop.Sow_Outdoors, frostDate)}<br />
-                ⏱ Days to Germination: {crop.Days_to_Germination || "N/A"}<br />
-                🍅 Days to Harvest: {crop.Days_to_Harvest || "N/A"}<br />
-                📍 Grow Zones: {formatZones(crop.Grow_Zones || "")}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ) : (
+          </div>) : (
         <div style={{ marginTop: "2rem", color: "#6c757d", fontStyle: "italic" }}>
           No crops matched your search criteria. Please try different filters.
         </div>
@@ -243,28 +295,7 @@ export default function GardenPlannerApp() {
   </div>
 )}
 
-          <ul style={{ listStyleType: "none", padding: 0 }}>
-            {filteredCrops.map((crop, index) => (
-              <li
-                key={crop.Crop + index}
-                style={{
-                  background: "#ffffff",
-                  border: "1px solid #ddd",
-                  borderRadius: "10px",
-                  padding: "1rem",
-                  marginBottom: "1rem",
-                  boxShadow: "0 2px 5px rgba(0,0,0,0.05)"
-                }}
-              >
-                <strong style={{ fontSize: "1.1rem" }}>{crop.Crop}</strong> <em>({crop.Type})</em><br />
-                🌱 Sow Indoors: {parseSowWindow(crop.Sow_Indoors, frostDate)}<br />
-                🌿 Sow Outdoors: {parseSowWindow(crop.Sow_Outdoors, frostDate)}<br />
-                ⏱ Days to Germination: {crop.Days_to_Germination || "N/A"}<br />
-                🍅 Days to Harvest: {crop.Days_to_Harvest || "N/A"}<br />
-                📍 Grow Zones: {formatZones(crop.Grow_Zones || "")}
-              </li>
-            ))}
-          </ul>
+          
         </div>
       ) : (
         <div style={{ marginTop: "2rem", color: "#6c757d", fontStyle: "italic" }}>
