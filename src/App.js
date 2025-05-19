@@ -5,17 +5,13 @@ export default function GardenPlannerApp() {
   const [zone, setZone] = useState("");
   const [category, setCategory] = useState("all");
   const [filteredCrops, setFilteredCrops] = useState([]);
-  const [sunRequirement, setSunRequirement] = useState("all");
-  const [waterNeed, setWaterNeed] = useState("all");
-  const [soilPreference, setSoilPreference] = useState("all");
   const [frostDate, setFrostDate] = useState("");
-  const [advancedFilteredCrops, setAdvancedFilteredCrops] = useState([]);
 
   useEffect(() => {
     fetch("/cropData.json")
       .then((res) => res.json())
       .then((data) => {
-        console.log("Loaded crop data:", data); // Debug log
+        console.log("Loaded crop data:", data);
         setCropData(data);
       })
       .catch((err) => console.error("Failed to load crop data:", err));
@@ -27,13 +23,10 @@ export default function GardenPlannerApp() {
         const { latitude, longitude } = position.coords;
         console.log("User Location:", latitude, longitude);
 
-        // Example API call to Open-Meteo for last frost data (replace with a real frost date API if needed)
         try {
           const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_min&timezone=auto`);
           const data = await response.json();
           console.log("Weather data:", data);
-          // Example: setFrostDate("2025-04-15");
-          // You'd need to parse the actual last frost from response if supported
         } catch (error) {
           console.error("Error fetching frost date:", error);
         }
@@ -62,57 +55,38 @@ export default function GardenPlannerApp() {
     return `${sortedDates[0].toLocaleDateString()} – ${sortedDates[1].toLocaleDateString()}`;
   };
 
-const handleSearch = () => {
-  const userZone = zone.trim();
+  const handleSearch = () => {
+    const userZone = zone.trim();
 
-  const results = (cropData || []).filter((crop) => {
-    if (!crop || !crop.Grow_Zones || !crop.Type || !crop.Crop) return false;
+    const results = (cropData || []).filter((crop) => {
+      if (!crop || !crop.Grow_Zones || !crop.Type || !crop.Crop) return false;
 
-    const zoneList = crop.Grow_Zones.replace(/[^\d\-\s,]/g, '')
-      .split(/[\s,]+/)
-      .flatMap(z => {
-        if (z.includes('-')) {
-          const [start, end] = z.split('-').map(Number);
-          return Array.from({ length: end - start + 1 }, (_, i) => (start + i).toString());
-        }
-        return z ? [z] : [];
-      });
+      const zoneList = crop.Grow_Zones.replace(/[^\d\-\s,]/g, '')
+        .split(/[\s,]+/)
+        .flatMap(z => {
+          if (z.includes('-')) {
+            const [start, end] = z.split('-').map(Number);
+            return Array.from({ length: end - start + 1 }, (_, i) => (start + i).toString());
+          }
+          return z ? [z] : [];
+        });
 
-    const zoneMatch = userZone === "" || zoneList.includes(userZone);
-    const categoryMatch = category === "all" || crop.Type.toLowerCase() === category.toLowerCase();
+      const zoneMatch = userZone === "" || zoneList.includes(userZone);
+      const categoryMatch = category === "all" || crop.Type.toLowerCase() === category.toLowerCase();
 
-    return zoneMatch && categoryMatch;
-  });
+      return zoneMatch && categoryMatch;
+    });
 
-  const sorted = results.sort((a, b) => {
-    const aDays = parseInt(a.Days_to_Germination);
-    const bDays = parseInt(b.Days_to_Germination);
-    if (isNaN(aDays)) return 1;
-    if (isNaN(bDays)) return -1;
-    return aDays - bDays;
-  });
+    const sorted = results.sort((a, b) => {
+      const aDays = parseInt(a.Days_to_Germination);
+      const bDays = parseInt(b.Days_to_Germination);
+      if (isNaN(aDays)) return 1;
+      if (isNaN(bDays)) return -1;
+      return aDays - bDays;
+    });
 
-  setFilteredCrops(sorted);
-  setAdvancedFilteredCrops([]);
-};
-
-
-const handleAdvancedFilter = () => {
-  const sun = sunRequirement.trim().toLowerCase();
-  const water = waterNeed.trim().toLowerCase();
-  const soil = soilPreference.trim().toLowerCase();
-
-  const results = filteredCrops.filter((crop) => {
-    const sunMatch = sun === "all" || (crop.Sun_Requirements && crop.Sun_Requirements.toLowerCase() === sun);
-    const waterMatch = water === "all" || (crop.Water_Needs && crop.Water_Needs.toLowerCase() === water);
-    const soilMatch = soil === "all" || (crop.Soil_Preferences && crop.Soil_Preferences.toLowerCase() === soil);
-
-    return sunMatch && waterMatch && soilMatch;
-  });
-
-  setAdvancedFilteredCrops(results);
-};
-
+    setFilteredCrops(sorted);
+  };
 
   const formatZones = (zones) => {
     const numbers = zones.match(/\d+/g);
@@ -122,8 +96,6 @@ const handleAdvancedFilter = () => {
   const enhanceText = (text) => {
     return text.replace(/before/gi, "before your average last frost date");
   };
-
-
 
   return (
     <div style={{ fontFamily: "Poppins, sans-serif", padding: "2rem", maxWidth: "800px", margin: "0 auto", backgroundColor: "#fdfdfc" }}>
@@ -171,80 +143,18 @@ const handleAdvancedFilter = () => {
         </label>
       </div>
 
-      <div style={{ marginBottom: "1rem" }}>
-        <label>
-          Sun Requirement:
-          <select
-            value={sunRequirement}
-            onChange={(e) => setSunRequirement(e.target.value)}
-            style={{ marginLeft: "0.5rem", padding: "0.3rem 0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
-          >
-            <option value="all">All</option>
-            <option value="full sun">Full Sun</option>
-            <option value="part shade">Part Shade</option>
-            <option value="full shade">Full Shade</option>
-          </select>
-        </label>
-      </div>
-
-      <div style={{ marginBottom: "1rem" }}>
-        <label>
-          Water Need:
-          <select
-            value={waterNeed}
-            onChange={(e) => setWaterNeed(e.target.value)}
-            style={{ marginLeft: "0.5rem", padding: "0.3rem 0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
-          >
-            <option value="all">All</option>
-            <option value="low">Low</option>
-            <option value="moderate">Moderate</option>
-            <option value="high">High</option>
-          </select>
-        </label>
-      </div>
-
-      <div style={{ marginBottom: "1rem" }}>
-        <label>
-          Soil Preference:
-          <select
-            value={soilPreference}
-            onChange={(e) => setSoilPreference(e.target.value)}
-            style={{ marginLeft: "0.5rem", padding: "0.3rem 0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
-          >
-            <option value="all">All</option>
-            <option value="loamy">Loamy</option>
-            <option value="sandy">Sandy</option>
-            <option value="clay">Clay</option>
-            <option value="well-drained">Well-drained</option>
-          </select>
-        </label>
-      </div>
-
       <button
         onClick={handleSearch}
-        style={{ padding: "0.5rem 1rem", backgroundColor: "#52b788", color: "white", border: "none", borderRadius: "6px", cursor: "pointer", marginRight: "0.5rem" }}
+        style={{ padding: "0.5rem 1rem", backgroundColor: "#52b788", color: "white", border: "none", borderRadius: "6px", cursor: "pointer" }}
       >
         Find Crops
       </button>
 
-      <button
-        onClick={handleAdvancedFilter}
-        style={{ padding: "0.5rem 1rem", backgroundColor: "#40916c", color: "white", border: "none", borderRadius: "6px", cursor: "pointer" }}
-      >
-        Refine Search
-      </button>
-
       {filteredCrops.length > 0 ? (
-        <div>We have {filteredCrops.length} crops to show!</div>
-      ) : (
-        <div>No crops found yet. Try searching.</div>
-      )}
-
-      {(advancedFilteredCrops.length > 0 ? advancedFilteredCrops : filteredCrops).length > 0 && (
         <div style={{ marginTop: "2rem" }}>
           <h2 style={{ color: "#40916c" }}>🌼 Recommended Crops</h2>
           <ul style={{ listStyleType: "none", padding: 0 }}>
-            {(advancedFilteredCrops.length > 0 ? advancedFilteredCrops : filteredCrops).map((crop, index) => (
+            {filteredCrops.map((crop, index) => (
               <li
                 key={crop.Crop + index}
                 style={{
@@ -261,15 +171,14 @@ const handleAdvancedFilter = () => {
                 🌿 Sow Outdoors: {parseSowWindow(crop.Sow_Outdoors, frostDate)}<br />
                 ⏱ Days to Germination: {crop.Days_to_Germination || "N/A"}<br />
                 🍅 Days to Harvest: {crop.Days_to_Harvest || "N/A"}<br />
-                🌞 Sun: {crop.Sun_Requirements || "N/A"}<br />
-                💧 Water: {crop.Water_Needs || "N/A"}<br />
-                🪨 Soil: {crop.Soil_Preferences || "N/A"}<br />
                 📍 Grow Zones: {formatZones(crop.Grow_Zones || "")}
               </li>
             ))}
           </ul>
         </div>
+      ) : (
+        <div>No crops found yet. Try searching.</div>
       )}
     </div>
   );
-
+}
