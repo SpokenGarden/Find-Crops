@@ -202,8 +202,7 @@ export default function GardenPlannerApp() {
         Find Crops
       </button>
 
-      {filteredCrops.length > 0 ? (
-        <div style={{ marginTop: "2rem" }}>
+      $1<p style={{ fontWeight: "bold", fontSize: "1.1rem", marginBottom: "0.5rem" }}>We found {filteredCrops.length} matching crops:</p>
           <h2 style={{ color: "#40916c" }}>🌼 Recommended Crops</h2>
           <ul style={{ listStyleType: "none", padding: 0 }}>
             {filteredCrops.map((crop, index) => (
@@ -229,7 +228,9 @@ export default function GardenPlannerApp() {
           </ul>
         </div>
       ) : (
-        <div>No crops found yet. Try searching.</div>
+        <div style={{ marginTop: "2rem", color: "#6c757d", fontStyle: "italic" }}>
+          No crops matched your search criteria. Please try different filters.
+        </div>
       )}
     </div>
   );
