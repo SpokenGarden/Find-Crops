@@ -283,25 +283,16 @@ const generateSowingCalendar = () => {
             We found {filteredCrops.length} matching crops:
           </p>
           <h2 style={{ color: "#40916c" }}>🌼 Recommended Crops</h2>
-          </div>) : (
-        <div style={{ marginTop: "2rem", color: "#6c757d", fontStyle: "italic" }}>
-          No crops matched your search criteria. Please try different filters.
         </div>
-      )
-  </div>
 ) : (
   <div style={{ marginTop: "2rem", color: "#6c757d", fontStyle: "italic" }}>
     No crops matched your search criteria. Please try different filters.
   </div>
 )}
 
-          
-        </div>
-      ) : (
-        <div style={{ marginTop: "2rem", color: "#6c757d", fontStyle: "italic" }}>
-          No crops matched your search criteria. Please try different filters.
-        </div>
-      )}
-    </div>
+       </div> {/* end of form container inside started block */}
+    )}
+  </div> {/* closes main app container */}
   );
 }
+
