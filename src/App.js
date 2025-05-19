@@ -131,7 +131,7 @@ const generateSowingCalendar = () => {
 
   const calendarWindow = window.open("", "_blank");
   if (calendarWindow) {
-    calendarWindow.document.write("<html><head><title>Sowing Calendar</title>
+    calendarWindow.document.write("<html><head><title>Sowing Calendar</title>)
 <style>
   @media print {
     button { display: none; }
