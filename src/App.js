@@ -62,57 +62,49 @@ export default function GardenPlannerApp() {
   };
 
   const handleSearch = () => {
-    const results = (cropData || []).filter((crop) => {
-      if (!crop || !crop.Grow_Zones || !crop.Type || !crop.Crop) return false;
+  const userZone = zone.trim();
+  const sun = sunRequirement.trim().toLowerCase();
+  const water = waterNeed.trim().toLowerCase();
+  const soil = soilPreference.trim().toLowerCase();
 
-      const userZone = zone.trim();
-      const zoneList = crop.Grow_Zones.replace(/[^\d\-\s,]/g, '')
-        .split(/[\s,]+/)
-        .flatMap(z => {
-          if (z.includes('-')) {
-            const [start, end] = z.split('-').map(Number);
-            return Array.from({ length: end - start + 1 }, (_, i) => (start + i).toString());
-          }
-          return z ? [z] : [];
-        });
+  const results = (cropData || []).filter((crop) => {
+    if (!crop || !crop.Grow_Zones || !crop.Type || !crop.Crop) return false;
 
-      const zoneMatch = userZone === "" || zoneList.includes(userZone);
-      const categoryMatch =
-                category === "all" || crop.Type.toLowerCase() === category.toLowerCase();
-      const sunMatch =
-  sunRequirement === "all" ||
-  (crop.Sun_Requirements &&
-    crop.Sun_Requirements.toLowerCase() === sunRequirement.toLowerCase());
+    const zoneList = crop.Grow_Zones.replace(/[^\d\-\s,]/g, '')
+      .split(/[\s,]+/)
+      .flatMap(z => {
+        if (z.includes('-')) {
+          const [start, end] = z.split('-').map(Number);
+          return Array.from({ length: end - start + 1 }, (_, i) => (start + i).toString());
+        }
+        return z ? [z] : [];
+      });
 
-const waterMatch =
-  waterNeed === "all" ||
-  (crop.Water_Needs &&
-    crop.Water_Needs.toLowerCase() === waterNeed.toLowerCase());
+    const zoneMatch = userZone === "" || zoneList.includes(userZone);
+    const categoryMatch = category === "all" || crop.Type.toLowerCase() === category.toLowerCase();
+    const sunMatch = sun === "all" || (crop.Sun_Requirements && crop.Sun_Requirements.toLowerCase() === sun);
+    const waterMatch = water === "all" || (crop.Water_Needs && crop.Water_Needs.toLowerCase() === water);
+    const soilMatch = soil === "all" || (crop.Soil_Preferences && crop.Soil_Preferences.toLowerCase() === soil);
 
-const soilMatch =
-  soilPreference === "all" ||
-  (crop.Soil_Preferences &&
-    crop.Soil_Preferences.toLowerCase() === soilPreference.toLowerCase());
+    return zoneMatch && categoryMatch && sunMatch && waterMatch && soilMatch;
+  });
 
-      return zoneMatch && categoryMatch && sunMatch && waterMatch && soilMatch;
-      
-    });
+  console.log("User Zone:", zone);
+  console.log("Category:", category);
+  console.log("Filtered Crops:", results);
 
-    console.log("User Zone:", zone);
-    console.log("Category:", category);
-    console.log("Filtered Crops:", results);
+  const sorted = results.sort((a, b) => {
+    const aDays = parseInt(a.Days_to_Germination);
+    const bDays = parseInt(b.Days_to_Germination);
 
-    const sorted = results.sort((a, b) => {
-      const aDays = parseInt(a.Days_to_Germination);
-      const bDays = parseInt(b.Days_to_Germination);
+    if (isNaN(aDays)) return 1;
+    if (isNaN(bDays)) return -1;
+    return aDays - bDays;
+  });
 
-      if (isNaN(aDays)) return 1;
-      if (isNaN(bDays)) return -1;
-      return aDays - bDays;
-    });
+  setFilteredCrops(sorted);
+};
 
-    setFilteredCrops(sorted);
-  };
 
   const formatZones = (zones) => {
     const numbers = zones.match(/\d+/g);
