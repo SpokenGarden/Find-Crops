@@ -202,7 +202,9 @@ export default function GardenPlannerApp() {
         Find Crops
       </button>
 
-      $1<p style={{ fontWeight: "bold", fontSize: "1.1rem", marginBottom: "0.5rem" }}>We found {filteredCrops.length} matching crops:</p>
+<p style={{ fontWeight: "bold", fontSize: "1.1rem", marginBottom: "0.5rem" }}>
+  We found {filteredCrops.length} matching crops:
+</p>
           <h2 style={{ color: "#40916c" }}>🌼 Recommended Crops</h2>
           <ul style={{ listStyleType: "none", padding: 0 }}>
             {filteredCrops.map((crop, index) => (
