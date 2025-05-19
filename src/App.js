@@ -62,48 +62,7 @@ export default function GardenPlannerApp() {
     return `${sortedDates[0].toLocaleDateString()} – ${sortedDates[1].toLocaleDateString()}`;
   };
 
-  const handleSearch = () => {
-  const userZone = zone.trim();
-  const sun = sunRequirement.trim().toLowerCase();
-  const water = waterNeed.trim().toLowerCase();
-  const soil = soilPreference.trim().toLowerCase();
 
-  const results = (cropData || []).filter((crop) => {
-    if (!crop || !crop.Grow_Zones || !crop.Type || !crop.Crop) return false;
-
-    const zoneList = crop.Grow_Zones.replace(/[^\d\-\s,]/g, '')
-      .split(/[\s,]+/)
-      .flatMap(z => {
-        if (z.includes('-')) {
-          const [start, end] = z.split('-').map(Number);
-          return Array.from({ length: end - start + 1 }, (_, i) => (start + i).toString());
-        }
-        return z ? [z] : [];
-      });
-
-    const zoneMatch = userZone === "" || zoneList.includes(userZone);
-    const categoryMatch = category === "all" || crop.Type.toLowerCase() === category.toLowerCase();
-    const sunMatch = sun === "all" || (crop.Sun_Requirements && crop.Sun_Requirements.toLowerCase() === sun);
-    const waterMatch = water === "all" || (crop.Water_Needs && crop.Water_Needs.toLowerCase() === water);
-    const soilMatch = soil === "all" || (crop.Soil_Preferences && crop.Soil_Preferences.toLowerCase() === soil);
-
-    return zoneMatch && categoryMatch && sunMatch && waterMatch && soilMatch;
-  });
-
-  console.log("User Zone:", zone);
-  console.log("Category:", category);
-  console.log("Filtered Crops:", results);
-
-  const sorted = results.sort((a, b) => {
-    const aDays = parseInt(a.Days_to_Germination);
-    const bDays = parseInt(b.Days_to_Germination);
-
-    if (isNaN(aDays)) return 1;
-    if (isNaN(bDays)) return -1;
-    return aDays - bDays;
-  });
-
-  setFilteredCrops(sorted);
 }const handleSearch = () => {
   const userZone = zone.trim();
 
