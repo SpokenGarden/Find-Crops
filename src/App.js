@@ -62,8 +62,7 @@ export default function GardenPlannerApp() {
     return `${sortedDates[0].toLocaleDateString()} – ${sortedDates[1].toLocaleDateString()}`;
   };
 
-
-}const handleSearch = () => {
+const handleSearch = () => {
   const userZone = zone.trim();
 
   const results = (cropData || []).filter((crop) => {
@@ -97,6 +96,7 @@ export default function GardenPlannerApp() {
   setAdvancedFilteredCrops([]);
 };
 
+
 const handleAdvancedFilter = () => {
   const sun = sunRequirement.trim().toLowerCase();
   const water = waterNeed.trim().toLowerCase();
@@ -122,6 +122,8 @@ const handleAdvancedFilter = () => {
   const enhanceText = (text) => {
     return text.replace(/before/gi, "before your average last frost date");
   };
+
+}
 
   return (
     <div style={{ fontFamily: "Poppins, sans-serif", padding: "2rem", maxWidth: "800px", margin: "0 auto", backgroundColor: "#fdfdfc" }}>
@@ -270,4 +272,4 @@ const handleAdvancedFilter = () => {
       )}
     </div>
   );
-}
+
