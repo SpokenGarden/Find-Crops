@@ -195,17 +195,48 @@ export default function GardenPlannerApp() {
         </label>
       </div>
 
-      <button
-        onClick={handleSearch}
-        style={{ padding: "0.5rem 1rem", backgroundColor: "#52b788", color: "white", border: "none", borderRadius: "6px", cursor: "pointer" }}
-      >
-        Find Crops
-      </button>
+<button
+  onClick={handleSearch}
+  style={{ padding: "0.5rem 1rem", backgroundColor: "#52b788", color: "white", border: "none", borderRadius: "6px", cursor: "pointer" }}
+>
+  Find Crops
+</button>
 
-<p style={{ fontWeight: "bold", fontSize: "1.1rem", marginBottom: "0.5rem" }}>
-  We found {filteredCrops.length} matching crops:
-</p>
-          <h2 style={{ color: "#40916c" }}>🌼 Recommended Crops</h2>
+{filteredCrops.length > 0 ? (
+  <div style={{ marginTop: "2rem" }}>
+    <p style={{ fontWeight: "bold", fontSize: "1.1rem", marginBottom: "0.5rem" }}>
+      We found {filteredCrops.length} matching crops:
+    </p>
+    <h2 style={{ color: "#40916c" }}>🌼 Recommended Crops</h2>
+    <ul style={{ listStyleType: "none", padding: 0 }}>
+      {filteredCrops.map((crop, index) => (
+        <li
+          key={crop.Crop + index}
+          style={{
+            background: "#ffffff",
+            border: "1px solid #ddd",
+            borderRadius: "10px",
+            padding: "1rem",
+            marginBottom: "1rem",
+            boxShadow: "0 2px 5px rgba(0,0,0,0.05)"
+          }}
+        >
+          <strong style={{ fontSize: "1.1rem" }}>{crop.Crop}</strong> <em>({crop.Type})</em><br />
+          🌱 Sow Indoors: {parseSowWindow(crop.Sow_Indoors, frostDate)}<br />
+          🌿 Sow Outdoors: {parseSowWindow(crop.Sow_Outdoors, frostDate)}<br />
+          ⏱ Days to Germination: {crop.Days_to_Germination || "N/A"}<br />
+          🍅 Days to Harvest: {crop.Days_to_Harvest || "N/A"}<br />
+          📍 Grow Zones: {formatZones(crop.Grow_Zones || "")}
+        </li>
+      ))}
+    </ul>
+  </div>
+) : (
+  <div style={{ marginTop: "2rem", color: "#6c757d", fontStyle: "italic" }}>
+    No crops matched your search criteria. Please try different filters.
+  </div>
+)}
+
           <ul style={{ listStyleType: "none", padding: 0 }}>
             {filteredCrops.map((crop, index) => (
               <li
