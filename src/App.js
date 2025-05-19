@@ -123,7 +123,7 @@ const handleAdvancedFilter = () => {
     return text.replace(/before/gi, "before your average last frost date");
   };
 
-}
+
 
   return (
     <div style={{ fontFamily: "Poppins, sans-serif", padding: "2rem", maxWidth: "800px", margin: "0 auto", backgroundColor: "#fdfdfc" }}>
