@@ -9,6 +9,7 @@ export default function GardenPlannerApp() {
   const [waterNeed, setWaterNeed] = useState("all");
   const [soilPreference, setSoilPreference] = useState("all");
   const [frostDate, setFrostDate] = useState("");
+  const [advancedFilteredCrops, setAdvancedFilteredCrops] = useState([]);
 
   useEffect(() => {
     fetch("/cropData.json")
@@ -103,6 +104,54 @@ export default function GardenPlannerApp() {
   });
 
   setFilteredCrops(sorted);
+}const handleSearch = () => {
+  const userZone = zone.trim();
+
+  const results = (cropData || []).filter((crop) => {
+    if (!crop || !crop.Grow_Zones || !crop.Type || !crop.Crop) return false;
+
+    const zoneList = crop.Grow_Zones.replace(/[^\d\-\s,]/g, '')
+      .split(/[\s,]+/)
+      .flatMap(z => {
+        if (z.includes('-')) {
+          const [start, end] = z.split('-').map(Number);
+          return Array.from({ length: end - start + 1 }, (_, i) => (start + i).toString());
+        }
+        return z ? [z] : [];
+      });
+
+    const zoneMatch = userZone === "" || zoneList.includes(userZone);
+    const categoryMatch = category === "all" || crop.Type.toLowerCase() === category.toLowerCase();
+
+    return zoneMatch && categoryMatch;
+  });
+
+  const sorted = results.sort((a, b) => {
+    const aDays = parseInt(a.Days_to_Germination);
+    const bDays = parseInt(b.Days_to_Germination);
+    if (isNaN(aDays)) return 1;
+    if (isNaN(bDays)) return -1;
+    return aDays - bDays;
+  });
+
+  setFilteredCrops(sorted);
+  setAdvancedFilteredCrops([]);
+};
+
+const handleAdvancedFilter = () => {
+  const sun = sunRequirement.trim().toLowerCase();
+  const water = waterNeed.trim().toLowerCase();
+  const soil = soilPreference.trim().toLowerCase();
+
+  const results = filteredCrops.filter((crop) => {
+    const sunMatch = sun === "all" || (crop.Sun_Requirements && crop.Sun_Requirements.toLowerCase() === sun);
+    const waterMatch = water === "all" || (crop.Water_Needs && crop.Water_Needs.toLowerCase() === water);
+    const soilMatch = soil === "all" || (crop.Soil_Preferences && crop.Soil_Preferences.toLowerCase() === soil);
+
+    return sunMatch && waterMatch && soilMatch;
+  });
+
+  setAdvancedFilteredCrops(results);
 };
 
 
@@ -212,9 +261,16 @@ export default function GardenPlannerApp() {
 
       <button
         onClick={handleSearch}
-        style={{ padding: "0.5rem 1rem", backgroundColor: "#52b788", color: "white", border: "none", borderRadius: "6px", cursor: "pointer" }}
+        style={{ padding: "0.5rem 1rem", backgroundColor: "#52b788", color: "white", border: "none", borderRadius: "6px", cursor: "pointer", marginRight: "0.5rem" }}
       >
         Find Crops
+      </button>
+
+      <button
+        onClick={handleAdvancedFilter}
+        style={{ padding: "0.5rem 1rem", backgroundColor: "#40916c", color: "white", border: "none", borderRadius: "6px", cursor: "pointer" }}
+      >
+        Refine Search
       </button>
 
       {filteredCrops.length > 0 ? (
@@ -223,11 +279,11 @@ export default function GardenPlannerApp() {
         <div>No crops found yet. Try searching.</div>
       )}
 
-      {filteredCrops.length > 0 && (
+      {(advancedFilteredCrops.length > 0 ? advancedFilteredCrops : filteredCrops).length > 0 && (
         <div style={{ marginTop: "2rem" }}>
           <h2 style={{ color: "#40916c" }}>🌼 Recommended Crops</h2>
           <ul style={{ listStyleType: "none", padding: 0 }}>
-            {filteredCrops.map((crop, index) => (
+            {(advancedFilteredCrops.length > 0 ? advancedFilteredCrops : filteredCrops).map((crop, index) => (
               <li
                 key={crop.Crop + index}
                 style={{
