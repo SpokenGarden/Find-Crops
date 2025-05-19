@@ -5,6 +5,9 @@ export default function GardenPlannerApp() {
   const [zone, setZone] = useState("");
   const [category, setCategory] = useState("all");
   const [filteredCrops, setFilteredCrops] = useState([]);
+  const [sunRequirement, setSunRequirement] = useState("all");
+  const [waterNeed, setWaterNeed] = useState("all");
+  const [soilPreference, setSoilPreference] = useState("all");
   const [frostDate, setFrostDate] = useState("");
 
   useEffect(() => {
@@ -19,37 +22,44 @@ export default function GardenPlannerApp() {
 
   const handleGetLocation = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
+      navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
         console.log("User Location:", latitude, longitude);
-        // Placeholder: You could call a frost-date or zone API here using lat/lon
+
+        // Example API call to Open-Meteo for last frost data (replace with a real frost date API if needed)
+        try {
+          const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_min&timezone=auto`);
+          const data = await response.json();
+          console.log("Weather data:", data);
+          // Example: setFrostDate("2025-04-15");
+          // You'd need to parse the actual last frost from response if supported
+        } catch (error) {
+          console.error("Error fetching frost date:", error);
+        }
       });
     } else {
       alert("Geolocation is not supported by your browser.");
     }
   };
 
-const parseSowWindow = (text, baseDate) => {
-  if (!text || !baseDate) return "N/A";
-  const match = text.match(/(\d+)\s*(to|-)?\s*(\d+)?\s*(before|after)/i);
-  if (!match) return "N/A";
+  const parseSowWindow = (text, baseDate) => {
+    if (!text || !baseDate) return "N/A";
+    const match = text.match(/(\d+)\s*(to|-)?\s*(\d+)?\s*(before|after)/i);
+    if (!match) return "N/A";
 
-  const [, from, , to, direction] = match;
-  const startWeeks = parseInt(from);
-  const endWeeks = parseInt(to || from);
-  const sign = direction.toLowerCase() === "before" ? -1 : 1;
+    const [, from, , to, direction] = match;
+    const startWeeks = parseInt(from);
+    const endWeeks = parseInt(to || from);
+    const sign = direction.toLowerCase() === "before" ? -1 : 1;
 
-  const firstDate = new Date(baseDate);
-  const secondDate = new Date(baseDate);
-  firstDate.setDate(firstDate.getDate() + sign * startWeeks * 7);
-  secondDate.setDate(secondDate.getDate() + sign * endWeeks * 7);
+    const firstDate = new Date(baseDate);
+    const secondDate = new Date(baseDate);
+    firstDate.setDate(firstDate.getDate() + sign * startWeeks * 7);
+    secondDate.setDate(secondDate.getDate() + sign * endWeeks * 7);
 
-  const sortedDates = [firstDate, secondDate].sort((a, b) => a - b);
-  return `${sortedDates[0].toLocaleDateString()} – ${sortedDates[1].toLocaleDateString()}`;
-};
-
-
-
+    const sortedDates = [firstDate, secondDate].sort((a, b) => a - b);
+    return `${sortedDates[0].toLocaleDateString()} – ${sortedDates[1].toLocaleDateString()}`;
+  };
 
   const handleSearch = () => {
     const results = (cropData || []).filter((crop) => {
@@ -68,9 +78,24 @@ const parseSowWindow = (text, baseDate) => {
 
       const zoneMatch = userZone === "" || zoneList.includes(userZone);
       const categoryMatch =
-        category === "all" || crop.Type.toLowerCase() === category.toLowerCase();
+                category === "all" || crop.Type.toLowerCase() === category.toLowerCase();
+      const sunMatch =
+  sunRequirement === "all" ||
+  (crop.Sun_Requirements &&
+    crop.Sun_Requirements.toLowerCase() === sunRequirement.toLowerCase());
 
-      return zoneMatch && categoryMatch;
+const waterMatch =
+  waterNeed === "all" ||
+  (crop.Water_Needs &&
+    crop.Water_Needs.toLowerCase() === waterNeed.toLowerCase());
+
+const soilMatch =
+  soilPreference === "all" ||
+  (crop.Soil_Preferences &&
+    crop.Soil_Preferences.toLowerCase() === soilPreference.toLowerCase());
+
+      return zoneMatch && categoryMatch && sunMatch && waterMatch && soilMatch;
+      
     });
 
     console.log("User Zone:", zone);
@@ -140,6 +165,55 @@ const parseSowWindow = (text, baseDate) => {
             <option value="flower">Flowers</option>
             <option value="herb">Herbs</option>
             <option value="vegetable">Vegetables</option>
+          </select>
+        </label>
+      </div>
+
+      <div style={{ marginBottom: "1rem" }}>
+        <label>
+          Sun Requirement:
+          <select
+            value={sunRequirement}
+            onChange={(e) => setSunRequirement(e.target.value)}
+            style={{ marginLeft: "0.5rem", padding: "0.3rem 0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
+          >
+            <option value="all">All</option>
+            <option value="full sun">Full Sun</option>
+            <option value="part shade">Part Shade</option>
+            <option value="full shade">Full Shade</option>
+          </select>
+        </label>
+      </div>
+
+      <div style={{ marginBottom: "1rem" }}>
+        <label>
+          Water Need:
+          <select
+            value={waterNeed}
+            onChange={(e) => setWaterNeed(e.target.value)}
+            style={{ marginLeft: "0.5rem", padding: "0.3rem 0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
+          >
+            <option value="all">All</option>
+            <option value="low">Low</option>
+            <option value="moderate">Moderate</option>
+            <option value="high">High</option>
+          </select>
+        </label>
+      </div>
+
+      <div style={{ marginBottom: "1rem" }}>
+        <label>
+          Soil Preference:
+          <select
+            value={soilPreference}
+            onChange={(e) => setSoilPreference(e.target.value)}
+            style={{ marginLeft: "0.5rem", padding: "0.3rem 0.6rem", borderRadius: "5px", border: "1px solid #ccc" }}
+          >
+            <option value="all">All</option>
+            <option value="loamy">Loamy</option>
+            <option value="sandy">Sandy</option>
+            <option value="clay">Clay</option>
+            <option value="well-drained">Well-drained</option>
           </select>
         </label>
       </div>
