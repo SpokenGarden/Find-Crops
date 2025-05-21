@@ -171,7 +171,7 @@ const generateSowingCalendar = () => {
       });
       calendarWindow.document.write("</div>");
     });
-    });
+
 
     calendarWindow.document.write("</body></html>");
     calendarWindow.document.close();
