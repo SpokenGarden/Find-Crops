@@ -331,9 +331,13 @@ if (calendarWindow) {
   </div>
 )}
 
-       </div> {/* end of form container inside started block */}
+{/* end of form container inside started block */}
+</div>
+
     )}
-  </div> {/* closes main app container */}
-  );
+{/* closes main app container */}
+</div>
+
+      );
 }
 
