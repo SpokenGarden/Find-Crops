@@ -118,6 +118,8 @@ const generateSowingCalendar = () => {
       { type: 'Sow_Outdoors', icon: '🌿' },
     ].forEach(({ type, icon }) => {
       const sowText = crop[type];
+      console.log(`Checking ${crop.Crop}: ${type} = ${sowText}`);
+
       if (!sowText) return;
 
       const match = sowText.match(/(\d+)\s*(?:to|-)?\s*(\d+)?\s*(before|after)/i);
