@@ -141,10 +141,11 @@ const generateSowingCalendar = () => {
         const weekKey = startOfWeek.toISOString().split('T')[0];
         if (!weekMap[weekKey]) weekMap[weekKey] = [];
 
-const label = `${icon} <strong>${crop.Crop}</strong> (${crop.Type} - ${type === "Sow_Indoors" ? "indoors" : "outdoors"})`;
-        if (!weekMap[weekKey].includes(label)) {
-          weekMap[weekKey].push(label);
-        }
+const label = `${icon} <strong>${crop.Crop}</strong> (${crop.Type}) - ${type === "Sow_Indoors" ? "🏠 Indoors" : "🌿 Outdoors"}`;
+if (!weekMap[weekKey].some(item => item.includes(crop.Crop) && item.includes(type))) {
+  weekMap[weekKey].push(label);
+}
+
 
         current.setDate(current.getDate() + 1);
       }
