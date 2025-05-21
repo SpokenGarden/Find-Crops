@@ -131,7 +131,7 @@ const generateSowingCalendar = () => {
 
   const calendarWindow = window.open("", "_blank");
   if (calendarWindow) {
-    calendarWindow.document.write("<html><head><title>Sowing Calendar</title></head></html>")
+    calendarWindow.document.write("<html><head><title>Sowing Calendar</title>
 <style>
   @media print {
     button { display: none; }
@@ -278,23 +278,27 @@ const generateSowingCalendar = () => {
       </button>
 
       {filteredCrops.length > 0 ? (
-        <div style={{ marginTop: "2rem" }}>
-          <p style={{ fontWeight: "bold", fontSize: "1.1rem", marginBottom: "0.75rem", textAlign: "center" }}>
-            We found {filteredCrops.length} matching crops:
-          </p>
-          <h2 style={{ color: "#40916c", textAlign: "center", fontSize: "1.25rem", marginBottom: "1rem" }}>🌼 Recommended Crops</h2>
-        </div>
-          <div style={{ marginTop: "1.5rem", padding: "1rem", backgroundColor: "#e8f5e9", borderRadius: "8px" }}>
-            <h3 style={{ color: "#2d6a4f", textAlign: "center" }}>🌟 What to Do Next</h3>
-            <ul style={{ listStyle: "none", paddingLeft: 0, marginTop: "0.5rem" }}>
-              <li><label><input type="checkbox" style={{ marginRight: "0.5rem" }} /> 🛒 Get your garden tools & supplies</label></li>
-              <li><label><input type="checkbox" style={{ marginRight: "0.5rem" }} /> 📅 View or print your sowing calendar</label></li>
-              <li><label><input type="checkbox" style={{ marginRight: "0.5rem" }} /> 🌱 Start sowing seeds indoors or outdoors</label></li>
-              <li><label><input type="checkbox" style={{ marginRight: "0.5rem" }} /> 📷 Take notes or photos of your progress</label></li>
-              <li><label><input type="checkbox" style={{ marginRight: "0.5rem" }} /> 🔔 Set reminders for transplanting or thinning</label></li>
-            </ul>
-          </div>
+  <>
+    <div style={{ marginTop: "2rem" }}>
+      <p style={{ fontWeight: "bold", fontSize: "1.1rem", marginBottom: "0.75rem", textAlign: "center" }}>
+        We found {filteredCrops.length} matching crops:
+      </p>
+      <h2 style={{ color: "#40916c", textAlign: "center", fontSize: "1.25rem", marginBottom: "1rem" }}>🌼 Recommended Crops</h2>
+    </div>
+
+    <div style={{ marginTop: "1.5rem", padding: "1rem", backgroundColor: "#e8f5e9", borderRadius: "8px" }}>
+      <h3 style={{ color: "#2d6a4f", textAlign: "center" }}>🌟 What to Do Next</h3>
+      <ul style={{ listStyle: "none", paddingLeft: 0, marginTop: "0.5rem" }}>
+        <li><label><input type="checkbox" style={{ marginRight: "0.5rem" }} /> 🛒 Get your garden tools & supplies</label></li>
+        <li><label><input type="checkbox" style={{ marginRight: "0.5rem" }} /> 📅 View or print your sowing calendar</label></li>
+        <li><label><input type="checkbox" style={{ marginRight: "0.5rem" }} /> 🌱 Start sowing seeds indoors or outdoors</label></li>
+        <li><label><input type="checkbox" style={{ marginRight: "0.5rem" }} /> 📷 Take notes or photos of your progress</label></li>
+        <li><label><input type="checkbox" style={{ marginRight: "0.5rem" }} /> 🔔 Set reminders for transplanting or thinning</label></li>
+      </ul>
+    </div>
+  </>
 ) : (
+
   <div style={{ marginTop: "2rem", color: "#6c757d", fontStyle: "italic" }}>
     No crops matched your search criteria. Please try different filters.
   </div>
