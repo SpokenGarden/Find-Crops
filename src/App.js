@@ -112,14 +112,17 @@ const generateSowingCalendar = () => {
     const sowText = crop.Sow_Indoors || crop.Sow_Outdoors;
     if (!sowText || !frostDate) return;
 
-    const match = sowText.match(/(\d+).*?(before|after)/i);
-    if (!match) return;
-    const weeks = parseInt(match[1]);
-    const direction = match[2].toLowerCase();
+const match = sowText.match(/(\d+)\s*(?:to|-)?\s*(\d+)?\s*(before|after)/i);
+if (!match) return;
 
-    const base = new Date(frostDate);
-    const sowDate = new Date(base);
-    sowDate.setDate(base.getDate() + (direction === "before" ? -1 : 1) * weeks * 7);
+const startWeeks = parseInt(match[1]);
+const endWeeks = parseInt(match[2] || match[1]);
+const direction = match[3].toLowerCase();
+
+const base = new Date(frostDate);
+const sowDate = new Date(base);
+sowDate.setDate(base.getDate() + (direction === "before" ? -1 : 1) * startWeeks * 7);
+
 
     const monthName = months[sowDate.getMonth()];
     if (!monthMap[monthName]) monthMap[monthName] = [];
@@ -129,16 +132,13 @@ const generateSowingCalendar = () => {
     });
   });
 
-  const calendarWindow = window.open("", "_blank");
-  if (calendarWindow) {
-    calendarWindow.document.write("<html><head><title>Sowing Calendar</title>
-<style>
-  @media print {
-    button { display: none; }
-  }
-</style></head><body style='font-family:sans-serif;'>");
-    calendarWindow.document.write("<h1>📅 Sowing Calendar</h1>
-<button onclick="window.print()" style="margin-bottom: 1rem; padding: 0.5rem 1rem; font-size: 1rem;">🖨️ Print Calendar</button>");
+const calendarWindow = window.open("", "_blank");
+if (calendarWindow) {
+  calendarWindow.document.write("<html><head><title>Sowing Calendar</title><style>@media print { button { display: none; }}</style></head>");
+  calendarWindow.document.write("<body style='font-family:sans-serif;'>");
+  calendarWindow.document.write("<h1>📅 Sowing Calendar</h1>");
+  calendarWindow.document.write("<button onclick=\"window.print()\" style=\"margin-bottom: 1rem; padding: 0.5rem 1rem; font-size: 1rem;\">🖨️ Print Calendar</button>");
+
     Object.keys(monthMap)
       .sort((a, b) => months.indexOf(a) - months.indexOf(b))
       .forEach((month) => {
