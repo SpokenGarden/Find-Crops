@@ -296,6 +296,30 @@ if (calendarWindow) {
         <li><label><input type="checkbox" style={{ marginRight: "0.5rem" }} /> 🔔 Set reminders for transplanting or thinning</label></li>
       </ul>
     </div>
+
+    <ul style={{ listStyleType: "none", padding: 0 }}>
+  {filteredCrops.map((crop, index) => (
+    <li
+      key={crop.Crop + index}
+      style={{
+        background: "#ffffff",
+        border: "1px solid #ddd",
+        borderRadius: "10px",
+        padding: "1rem",
+        marginBottom: "1rem",
+        boxShadow: "0 2px 5px rgba(0,0,0,0.05)"
+      }}
+    >
+      <strong style={{ fontSize: "1.1rem" }}>{crop.Crop}</strong> <em>({crop.Type})</em><br />
+      🌱 Sow Indoors: {parseSowWindow(crop.Sow_Indoors, frostDate)}<br />
+      🌿 Sow Outdoors: {parseSowWindow(crop.Sow_Outdoors, frostDate)}<br />
+      ⏱ Days to Germination: {crop.Days_to_Germination || "N/A"}<br />
+      🍅 Days to Harvest: {crop.Days_to_Harvest || "N/A"}<br />
+      📍 Grow Zones: {formatZones(crop.Grow_Zones || "")}
+    </li>
+  ))}
+</ul>
+
   </>
 ) : (
 
