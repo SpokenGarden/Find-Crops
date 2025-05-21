@@ -146,7 +146,6 @@ const generateSowingCalendar = () => {
 
         current.setDate(current.getDate() + 1);
       }
-      }
     });
   });
 
