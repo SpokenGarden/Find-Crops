@@ -162,7 +162,7 @@ if (calendarWindow) {
     <div style={{ fontFamily: "Poppins, sans-serif", padding: "1rem", margin: "0 auto", backgroundColor: "#fdfdfc", maxWidth: "100%" }}>
       {!started ? (
         <div style={{ textAlign: "center", padding: "2rem" }}>
-          <h1 style={{ fontSize: "2rem", color: "#2d6a4f" }}>🌱 Welcome to the Little Dibby Garden Planner</h1>
+          <h1 style={{ fontSize: "2rem", color: "#2d6a4f" }}>🌱 Welcome to GrowBuddy</h1>
           <p style={{ fontSize: "1.1rem", margin: "1rem 0" }}>Plan what to grow and when to sow with your frost date and grow zone.</p>
           <button
             onClick={() => setStarted(true)}
@@ -173,7 +173,7 @@ if (calendarWindow) {
         </div>
       ) : (
       <div style={{ display: "flex", flexDirection: "column", gap: "1rem", width: "100%" }}>
-      <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>🌱 Little Dibby Garden Planner</h1>
+      <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>🌱 GrowBuddy Garden Planner</h1>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
         <label>
@@ -273,12 +273,14 @@ if (calendarWindow) {
         Find Crops
       </button>
 
-      <button
-        onClick={generateSowingCalendar}
-        style={{ padding: "0.75rem 1rem", backgroundColor: "#40916c", color: "white", border: "none", borderRadius: "6px", cursor: "pointer", width: "100%" }}
-      >
-        📅 View Sowing Calendar
-      </button>
+      {filteredCrops.length > 0 && (
+        <button
+          onClick={generateSowingCalendar}
+          style={{ padding: "0.75rem 1rem", backgroundColor: "#40916c", color: "white", border: "none", borderRadius: "6px", cursor: "pointer", width: "100%" }}
+        >
+          📅 View Sowing Calendar
+        </button>
+      )}
 
       {filteredCrops.length > 0 ? (
   <>
