@@ -142,10 +142,11 @@ const sowText = crop[type] || crop[type.toLowerCase()] || crop[type.replace("_",
         const weekKey = startOfWeek.toISOString().split('T')[0];
         if (!weekMap[weekKey]) weekMap[weekKey] = [];
 
-const label = `${icon} <strong>${crop.Crop}</strong> (${crop.Type}) - ${type === "Sow_Indoors" ? "🏠 Indoors" : "🌿 Outdoors"}`;
-if (!weekMap[weekKey].some(item => item.includes(crop.Crop) && item.includes(type))) {
+const label = `${icon} <strong>${crop.Crop}</strong> (${crop.Type}) - ${icon === "🏠" ? "Indoors" : "Outdoors"}`;
+if (!weekMap[weekKey].some(item => item.includes(crop.Crop) && item.includes(icon))) {
   weekMap[weekKey].push(label);
 }
+
 
 
         current.setDate(current.getDate() + 1);
