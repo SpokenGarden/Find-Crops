@@ -144,17 +144,33 @@ const generateSowingCalendar = () => {
 
   const calendarWindow = window.open("", "_blank");
   if (calendarWindow) {
-    calendarWindow.document.write("<html><head><title>Sowing Calendar</title><style>body { font-family:sans-serif; } .date-block { margin-bottom: 1rem; } .date-header { font-weight: bold; margin-bottom: 0.3rem; } @media print { button { display: none; }}</style></head>");
+    calendarWindow.document.write("<html><head><title>Sowing Calendar</title><style>body { font-family:sans-serif; } .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; } .day-box { border: 1px solid #ccc; border-radius: 6px; padding: 0.5rem; min-height: 100px; } .date-label { font-weight: bold; font-size: 0.9rem; margin-bottom: 0.3rem; } .crop-entry { font-size: 0.8rem; margin: 0.2rem 0; } @media print { button { display: none; }}</style></head>");
     calendarWindow.document.write("<body>");
     calendarWindow.document.write("<h1>📅 Detailed Sowing Calendar</h1>");
     calendarWindow.document.write("<button onclick=\"window.print()\" style=\"margin-bottom: 1rem; padding: 0.5rem 1rem; font-size: 1rem;\">🖨️ Print Calendar</button>");
 
+    const groupedByMonth = {};
     Object.keys(dayMap).sort().forEach(date => {
-      calendarWindow.document.write(`<div class='date-block'><div class='date-header'>${new Date(date).toDateString()}</div><ul>`);
-      dayMap[date].forEach(entry => {
-        calendarWindow.document.write(`<li>${entry}</li>`);
+      const dt = new Date(date);
+      const monthYear = `${months[dt.getMonth()]} ${dt.getFullYear()}`;
+      if (!groupedByMonth[monthYear]) groupedByMonth[monthYear] = {};
+      groupedByMonth[monthYear][date] = dayMap[date];
+    });
+
+    Object.keys(groupedByMonth).forEach(month => {
+      calendarWindow.document.write(`<h2>${month}</h2><div class='calendar-grid'>`);
+      const dates = Object.keys(groupedByMonth[month]);
+      dates.forEach(date => {
+        const displayDate = new Date(date);
+        calendarWindow.document.write("<div class='day-box'>");
+        calendarWindow.document.write(`<div class='date-label'>${displayDate.getDate()} ${months[displayDate.getMonth()]}</div>`);
+        groupedByMonth[month][date].forEach(entry => {
+          calendarWindow.document.write(`<div class='crop-entry'>${entry}</div>`);
+        });
+        calendarWindow.document.write("</div>");
       });
-      calendarWindow.document.write("</ul></div>");
+      calendarWindow.document.write("</div>");
+    });
     });
 
     calendarWindow.document.write("</body></html>");
