@@ -174,8 +174,6 @@ const generateSowingCalendar = () => {
           calendarWindow.document.write(`<div class='crop-entry'>${entry}</div>`);
         });
         calendarWindow.document.write("</div>");
-      });
-      calendarWindow.document.write("</div>");
     });
       });
       calendarWindow.document.write("</div>");
