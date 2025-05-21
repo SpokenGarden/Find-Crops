@@ -109,9 +109,9 @@ return `${sortedDates[0].toLocaleDateString()} - ${sortedDates[1].toLocaleDateSt
 ];
 
 const generateSowingCalendar = () => {
-  const dayMap = {};
+  const weekMap = {};
   const base = new Date(frostDate);
-
+  
   filteredCrops.forEach((crop) => {
     [
       { type: 'Sow_Indoors', icon: '🏠' },
@@ -134,10 +134,18 @@ const generateSowingCalendar = () => {
 
       const current = new Date(sowStart);
       while (current <= sowEnd) {
-        const dateStr = current.toISOString().split('T')[0];
-        if (!dayMap[dateStr]) dayMap[dateStr] = [];
-        dayMap[dateStr].push(`${icon} <strong>${crop.Crop}</strong> (${crop.Type})`);
+        const startOfWeek = new Date(current);
+        startOfWeek.setDate(current.getDate() - current.getDay());
+        const weekKey = startOfWeek.toISOString().split('T')[0];
+        if (!weekMap[weekKey]) weekMap[weekKey] = [];
+
+        const label = `${icon} <strong>${crop.Crop}</strong> (${crop.Type})`;
+        if (!weekMap[weekKey].includes(label)) {
+          weekMap[weekKey].push(label);
+        }
+
         current.setDate(current.getDate() + 1);
+      }
       }
     });
   });
@@ -150,24 +158,25 @@ const generateSowingCalendar = () => {
     calendarWindow.document.write("<button onclick=\"window.print()\" style=\"margin-bottom: 1rem; padding: 0.5rem 1rem; font-size: 1rem;\">🖨️ Print Calendar</button>");
 
     const groupedByMonth = {};
-    Object.keys(dayMap).sort().forEach(date => {
+    Object.keys(weekMap).sort().forEach(date => {
       const dt = new Date(date);
       const monthYear = `${months[dt.getMonth()]} ${dt.getFullYear()}`;
-      if (!groupedByMonth[monthYear]) groupedByMonth[monthYear] = {};
-      groupedByMonth[monthYear][date] = dayMap[date];
+      if (!groupedByMonth[monthYear]) groupedByMonth[monthYear] = [];
+      groupedByMonth[monthYear].push({ week: dt, entries: weekMap[date] });
     });
 
     Object.keys(groupedByMonth).forEach(month => {
       calendarWindow.document.write(`<h2>${month}</h2><div class='calendar-grid'>`);
-      const dates = Object.keys(groupedByMonth[month]);
-      dates.forEach(date => {
-        const displayDate = new Date(date);
+      groupedByMonth[month].forEach(({ week, entries }) => {
         calendarWindow.document.write("<div class='day-box'>");
-        calendarWindow.document.write(`<div class='date-label'>${displayDate.getDate()} ${months[displayDate.getMonth()]}</div>`);
-        groupedByMonth[month][date].forEach(entry => {
+        calendarWindow.document.write(`<div class='date-label'>Week of ${week.toLocaleDateString()}</div>`);
+        entries.forEach(entry => {
           calendarWindow.document.write(`<div class='crop-entry'>${entry}</div>`);
         });
         calendarWindow.document.write("</div>");
+      });
+      calendarWindow.document.write("</div>");
+    });
       });
       calendarWindow.document.write("</div>");
     });
