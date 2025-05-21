@@ -117,7 +117,8 @@ const generateSowingCalendar = () => {
       { type: 'Sow_Indoors', icon: '🏠' },
       { type: 'Sow_Outdoors', icon: '🌿' },
     ].forEach(({ type, icon }) => {
-      const sowText = crop[type];
+const sowText = crop[type] || crop[type.toLowerCase()] || crop[type.replace("_", " ")] || "";
+
       console.log(`Checking ${crop.Crop}: ${type} = ${sowText}`);
 
       if (!sowText) return;
