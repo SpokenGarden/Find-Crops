@@ -42,21 +42,24 @@ export default function GardenPlannerApp() {
 
   const parseSowWindow = (text, baseDate) => {
     if (!text || !baseDate) return "N/A";
-    const match = text.match(/(\d+)\s*(to|-)?\s*(\d+)?\s*(before|after)/i);
-    if (!match) return "N/A";
+   const match = text.match(/(\d+)\s*(?:to|-)?\s*(\d+)?\s*(before|after)/i);
+if (!match) return "N/A";
 
-    const [, from, , to, direction] = match;
-    const startWeeks = parseInt(from);
-    const endWeeks = parseInt(to || from);
-    const sign = direction.toLowerCase() === "before" ? -1 : 1;
+const from = match[1];
+const to = match[2];
+const direction = match[3];
+const startWeeks = parseInt(from);
+const endWeeks = parseInt(to || from);
+const sign = direction.toLowerCase() === "before" ? -1 : 1;
 
-    const firstDate = new Date(baseDate);
-    const secondDate = new Date(baseDate);
-    firstDate.setDate(firstDate.getDate() + sign * startWeeks * 7);
-    secondDate.setDate(secondDate.getDate() + sign * endWeeks * 7);
+const firstDate = new Date(baseDate);
+const secondDate = new Date(baseDate);
+firstDate.setDate(firstDate.getDate() + sign * startWeeks * 7);
+secondDate.setDate(secondDate.getDate() + sign * endWeeks * 7);
 
-    const sortedDates = [firstDate, secondDate].sort((a, b) => a - b);
-    return `${sortedDates[0].toLocaleDateString()} – ${sortedDates[1].toLocaleDateString()}`;
+const sortedDates = [firstDate, secondDate].sort((a, b) => a - b);
+return `${sortedDates[0].toLocaleDateString()} - ${sortedDates[1].toLocaleDateString()}`;
+
   };
 
   const handleSearch = () => {
