@@ -109,53 +109,59 @@ return `${sortedDates[0].toLocaleDateString()} - ${sortedDates[1].toLocaleDateSt
 ];
 
 const generateSowingCalendar = () => {
-  const monthMap = {};
+  const dayMap = {};
+  const base = new Date(frostDate);
 
   filteredCrops.forEach((crop) => {
-    const sowText = crop.Sow_Indoors || crop.Sow_Outdoors;
-    if (!sowText || !frostDate) return;
+    [
+      { type: 'Sow_Indoors', icon: '🏠' },
+      { type: 'Sow_Outdoors', icon: '🌿' },
+    ].forEach(({ type, icon }) => {
+      const sowText = crop[type];
+      if (!sowText) return;
 
-const match = sowText.match(/(\d+)\s*(?:to|-)?\s*(\d+)?\s*(before|after)/i);
-if (!match) return;
+      const match = sowText.match(/(\d+)\s*(?:to|-)?\s*(\d+)?\s*(before|after)/i);
+      if (!match) return;
 
-const startWeeks = parseInt(match[1]);
-const endWeeks = parseInt(match[2] || match[1]);
-const direction = match[3].toLowerCase();
+      const startWeeks = parseInt(match[1]);
+      const endWeeks = parseInt(match[2] || match[1]);
+      const direction = match[3].toLowerCase();
 
-const base = new Date(frostDate);
-const sowDate = new Date(base);
-sowDate.setDate(base.getDate() + (direction === "before" ? -1 : 1) * startWeeks * 7);
+      const sowStart = new Date(base);
+      const sowEnd = new Date(base);
+      sowStart.setDate(base.getDate() + (direction === 'before' ? -1 : 1) * startWeeks * 7);
+      sowEnd.setDate(base.getDate() + (direction === 'before' ? -1 : 1) * endWeeks * 7);
 
-
-    const monthName = months[sowDate.getMonth()];
-    if (!monthMap[monthName]) monthMap[monthName] = [];
-    monthMap[monthName].push({
-      crop: crop,
-      method: crop.Sow_Indoors ? 'indoors' : 'outdoors'
+      const current = new Date(sowStart);
+      while (current <= sowEnd) {
+        const dateStr = current.toISOString().split('T')[0];
+        if (!dayMap[dateStr]) dayMap[dateStr] = [];
+        dayMap[dateStr].push(`${icon} <strong>${crop.Crop}</strong> (${crop.Type})`);
+        current.setDate(current.getDate() + 1);
+      }
     });
   });
 
-const calendarWindow = window.open("", "_blank");
-if (calendarWindow) {
-  calendarWindow.document.write("<html><head><title>Sowing Calendar</title><style>@media print { button { display: none; }}</style></head>");
-  calendarWindow.document.write("<body style='font-family:sans-serif;'>");
-  calendarWindow.document.write("<h1>📅 Sowing Calendar</h1>");
-  calendarWindow.document.write("<button onclick=\"window.print()\" style=\"margin-bottom: 1rem; padding: 0.5rem 1rem; font-size: 1rem;\">🖨️ Print Calendar</button>");
+  const calendarWindow = window.open("", "_blank");
+  if (calendarWindow) {
+    calendarWindow.document.write("<html><head><title>Sowing Calendar</title><style>body { font-family:sans-serif; } .date-block { margin-bottom: 1rem; } .date-header { font-weight: bold; margin-bottom: 0.3rem; } @media print { button { display: none; }}</style></head>");
+    calendarWindow.document.write("<body>");
+    calendarWindow.document.write("<h1>📅 Detailed Sowing Calendar</h1>");
+    calendarWindow.document.write("<button onclick=\"window.print()\" style=\"margin-bottom: 1rem; padding: 0.5rem 1rem; font-size: 1rem;\">🖨️ Print Calendar</button>");
 
-    Object.keys(monthMap)
-      .sort((a, b) => months.indexOf(a) - months.indexOf(b))
-      .forEach((month) => {
-        calendarWindow.document.write(`<h2>${month}</h2><ul>`);
-        monthMap[month].forEach(({ crop, method }) => {
-          const icon = method === 'indoors' ? '🏠' : '🌿';
-          calendarWindow.document.write(`<li>${icon} <strong>${crop.Crop}</strong> (${crop.Type})</li>`);
-        });
-        calendarWindow.document.write("</ul>");
+    Object.keys(dayMap).sort().forEach(date => {
+      calendarWindow.document.write(`<div class='date-block'><div class='date-header'>${new Date(date).toDateString()}</div><ul>`);
+      dayMap[date].forEach(entry => {
+        calendarWindow.document.write(`<li>${entry}</li>`);
       });
+      calendarWindow.document.write("</ul></div>");
+    });
+
     calendarWindow.document.write("</body></html>");
     calendarWindow.document.close();
   }
 };
+
 
 
   return (
