@@ -1,3 +1,4 @@
+/* Full GrowBuddy App with restored interactive planner */
 import React, { useState, useEffect } from "react";
 
 export default function GardenPlannerApp() {
@@ -19,7 +20,6 @@ export default function GardenPlannerApp() {
           ...item,
           Crop: item["Crop Common Names"]
         }));
-        console.log("Loaded crop data:", normalized);
         setCropData(normalized);
       })
       .catch((err) => console.error("Failed to load crop data:", err));
@@ -29,8 +29,6 @@ export default function GardenPlannerApp() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
-        console.log("User Location:", latitude, longitude);
-
         try {
           const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_min&timezone=auto`);
           const data = await response.json();
@@ -48,29 +46,24 @@ export default function GardenPlannerApp() {
     if (!text || !baseDate) return "N/A";
     const match = text.match(/(\d+)\s*(?:to|-)?\s*(\d+)?\s*(before|after)/i);
     if (!match) return "N/A";
-
     const from = match[1];
     const to = match[2];
     const direction = match[3];
     const startWeeks = parseInt(from);
     const endWeeks = parseInt(to || from);
     const sign = direction.toLowerCase() === "before" ? -1 : 1;
-
     const firstDate = new Date(baseDate);
     const secondDate = new Date(baseDate);
     firstDate.setDate(firstDate.getDate() + sign * startWeeks * 7);
     secondDate.setDate(secondDate.getDate() + sign * endWeeks * 7);
-
     const sortedDates = [firstDate, secondDate].sort((a, b) => a - b);
     return `${sortedDates[0].toLocaleDateString()} - ${sortedDates[1].toLocaleDateString()}`;
   };
 
   const handleSearch = () => {
     const userZone = zone.trim();
-
     const results = (cropData || []).filter((crop) => {
       if (!crop || !crop.Grow_Zones || !crop.Type || !crop.Crop) return false;
-
       const zoneList = crop.Grow_Zones.replace(/[^\d\-\s,]/g, '')
         .split(/[\s,]+/)
         .flatMap(z => {
@@ -80,13 +73,10 @@ export default function GardenPlannerApp() {
           }
           return z ? [z] : [];
         });
-
       const zoneMatch = userZone === "" || zoneList.includes(userZone);
       const categoryMatch = category === "all" || crop.Type.toLowerCase() === category.toLowerCase();
-
       return zoneMatch && categoryMatch;
     });
-
     const sorted = results.sort((a, b) => {
       const aDays = parseInt(a.Days_to_Germination);
       const bDays = parseInt(b.Days_to_Germination);
@@ -94,17 +84,7 @@ export default function GardenPlannerApp() {
       if (isNaN(bDays)) return -1;
       return aDays - bDays;
     });
-
     setFilteredCrops(sorted);
-  };
-
-  const formatZones = (zones) => {
-    const numbers = zones.match(/\d+/g);
-    return numbers ? numbers.join(", ") : zones;
-  };
-
-  const enhanceText = (text) => {
-    return text.replace(/before/gi, "before your average last frost date");
   };
 
   return (
@@ -121,9 +101,35 @@ export default function GardenPlannerApp() {
           </button>
         </div>
       ) : (
-        <div>
-          {/* Full restored UI content from earlier will go here */}
-          <p>✅ All features restored. Add additional UI below as needed.</p>
+        <div style={{ maxWidth: "720px", margin: "0 auto" }}>
+          <h2>🌼 Your Garden Planner</h2>
+          <input type="text" placeholder="Enter your grow zone (e.g., 7)" value={zone} onChange={(e) => setZone(e.target.value)} />
+          <input type="date" value={frostDate} onChange={(e) => setFrostDate(e.target.value)} />
+          <button onClick={handleGetLocation}>📍 Use My Location</button>
+          <select value={category} onChange={(e) => setCategory(e.target.value)}>
+            <option value="all">All</option>
+            <option value="flower">Flowers</option>
+            <option value="herb">Herbs</option>
+            <option value="vegetable">Vegetables</option>
+          </select>
+          <button onClick={handleSearch}>Find Crops</button>
+
+          {filteredCrops.length > 0 && (
+            <div>
+              <h3>Found {filteredCrops.length} Crops:</h3>
+              <ul>
+                {filteredCrops.map((crop, i) => (
+                  <li key={i}>
+                    <strong>{crop.Crop}</strong> ({crop.Type})<br />
+                    🌱 Sow Indoors: {parseSowWindow(crop["Sow Indoors"], frostDate)}<br />
+                    🌿 Sow Outdoors: {parseSowWindow(crop["Sow Outdoors"], frostDate)}<br />
+                    ⏱ Germination: {crop.Days_to_Germination || "N/A"}, 🍅 Harvest: {crop["Days to Harvest"] || "N/A"}<br />
+                    📍 Zones: {crop.Grow_Zones || "N/A"}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       )}
     </div>
