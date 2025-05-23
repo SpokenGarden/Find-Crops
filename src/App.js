@@ -1,4 +1,4 @@
-/* Full GrowBuddy App with restored filters and output */
+/* Full GrowBuddy App with corrected key normalization */
 import React, { useState, useEffect } from "react";
 
 export default function GardenPlannerApp() {
@@ -18,7 +18,11 @@ export default function GardenPlannerApp() {
       .then((data) => {
         const normalized = data.map(item => ({
           ...item,
-          Crop: item["Crop Common Names"]
+          Crop: item["Crop Common Names"],
+          Days_to_Germination: item["Days to Germination"],
+          Days_to_Harvest: item["Days to Harvest or Maturity (after germination)"],
+          Sow_Indoors: item["Sow Indoors (weeks before or after last spring frost)"],
+          Sow_Outdoors: item["Sow Outdoors (weeks before or after last spring frost)"]
         }));
         setCropData(normalized);
       })
@@ -151,9 +155,9 @@ export default function GardenPlannerApp() {
                 {filteredCrops.map((crop, i) => (
                   <li key={i}>
                     <strong>{crop.Crop}</strong> ({crop.Type})<br />
-                    🌱 Sow Indoors: {parseSowWindow(crop["Sow Indoors"], frostDate)}<br />
-                    🌿 Sow Outdoors: {parseSowWindow(crop["Sow Outdoors"], frostDate)}<br />
-                    ⏱ Germination: {crop.Days_to_Germination || "N/A"}, 🍅 Harvest: {crop["Days to Harvest"] || "N/A"}<br />
+                    🌱 Sow Indoors: {parseSowWindow(crop.Sow_Indoors, frostDate)}<br />
+                    🌿 Sow Outdoors: {parseSowWindow(crop.Sow_Outdoors, frostDate)}<br />
+                    ⏱ Germination: {crop.Days_to_Germination || "N/A"}, 🍅 Harvest: {crop.Days_to_Harvest || "N/A"}<br />
                     📍 Zones: {crop.Grow_Zones || "N/A"}
                   </li>
                 ))}
