@@ -80,9 +80,9 @@ return `${sortedDates[0].toLocaleDateString()} - ${sortedDates[1].toLocaleDateSt
 
       const zoneMatch = userZone === "" || zoneList.includes(userZone);
 const categoryMatch = category === "all" || crop.Type.toLowerCase() === category.toLowerCase();
-const sunMatch = sunRequirement === "all" || (crop.Sun_Requirement && crop.Sun_Requirement.toLowerCase() === sunRequirement.toLowerCase());
-const waterMatch = waterNeed === "all" || (crop.Water_Need && crop.Water_Need.toLowerCase() === waterNeed.toLowerCase());
-const soilMatch = soilPreference === "all" || (crop.Soil_Preference && crop.Soil_Preference.toLowerCase() === soilPreference.toLowerCase());
+const sunMatch = sunRequirement === "all" || (crop.Sun_Requirement && crop.Sun_Requirement.toLowerCase().trim() === sunRequirement.toLowerCase().trim());
+const waterMatch = waterNeed === "all" || (crop.Water_Need && crop.Water_Need.toLowerCase().trim() === waterNeed.toLowerCase().trim());
+const soilMatch = soilPreference === "all" || (crop.Soil_Preference && crop.Soil_Preference.toLowerCase().trim() === soilPreference.toLowerCase().trim());
 
 return zoneMatch && categoryMatch && sunMatch && waterMatch && soilMatch;
     });
