@@ -1,4 +1,4 @@
-/* Full GrowBuddy App with restored interactive planner */
+/* Full GrowBuddy App with restored filters and output */
 import React, { useState, useEffect } from "react";
 
 export default function GardenPlannerApp() {
@@ -75,7 +75,10 @@ export default function GardenPlannerApp() {
         });
       const zoneMatch = userZone === "" || zoneList.includes(userZone);
       const categoryMatch = category === "all" || crop.Type.toLowerCase() === category.toLowerCase();
-      return zoneMatch && categoryMatch;
+      const sunMatch = sunRequirement === "all" || crop["Sun Requirements"].toLowerCase().includes(sunRequirement);
+      const waterMatch = waterNeed === "all" || crop["Water Needs"].toLowerCase().includes(waterNeed);
+      const soilMatch = soilPreference === "all" || crop["Soil Preferences"].toLowerCase().includes(soilPreference);
+      return zoneMatch && categoryMatch && sunMatch && waterMatch && soilMatch;
     });
     const sorted = results.sort((a, b) => {
       const aDays = parseInt(a.Days_to_Germination);
@@ -103,15 +106,42 @@ export default function GardenPlannerApp() {
       ) : (
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           <h2>🌼 Your Garden Planner</h2>
-          <input type="text" placeholder="Enter your grow zone (e.g., 7)" value={zone} onChange={(e) => setZone(e.target.value)} />
-          <input type="date" value={frostDate} onChange={(e) => setFrostDate(e.target.value)} />
+          <label>Grow Zone: <input type="text" value={zone} onChange={(e) => setZone(e.target.value)} /></label>
+          <label>Average Last Frost Date: <input type="date" value={frostDate} onChange={(e) => setFrostDate(e.target.value)} /></label>
           <button onClick={handleGetLocation}>📍 Use My Location</button>
-          <select value={category} onChange={(e) => setCategory(e.target.value)}>
-            <option value="all">All</option>
-            <option value="flower">Flowers</option>
-            <option value="herb">Herbs</option>
-            <option value="vegetable">Vegetables</option>
-          </select>
+          <label>Category:
+            <select value={category} onChange={(e) => setCategory(e.target.value)}>
+              <option value="all">All</option>
+              <option value="flower">Flowers</option>
+              <option value="herb">Herbs</option>
+              <option value="vegetable">Vegetables</option>
+            </select>
+          </label>
+          <label>Sun Requirement:
+            <select value={sunRequirement} onChange={(e) => setSunRequirement(e.target.value)}>
+              <option value="all">All</option>
+              <option value="full sun">Full Sun</option>
+              <option value="partial sun">Partial Sun</option>
+              <option value="shade">Shade</option>
+            </select>
+          </label>
+          <label>Water Need:
+            <select value={waterNeed} onChange={(e) => setWaterNeed(e.target.value)}>
+              <option value="all">All</option>
+              <option value="low">Low</option>
+              <option value="average">Average</option>
+              <option value="high">High</option>
+            </select>
+          </label>
+          <label>Soil Preference:
+            <select value={soilPreference} onChange={(e) => setSoilPreference(e.target.value)}>
+              <option value="all">All</option>
+              <option value="loamy">Loamy</option>
+              <option value="sandy">Sandy</option>
+              <option value="clay">Clay</option>
+              <option value="well draining">Well Draining</option>
+            </select>
+          </label>
           <button onClick={handleSearch}>Find Crops</button>
 
           {filteredCrops.length > 0 && (
