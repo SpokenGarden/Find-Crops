@@ -79,9 +79,15 @@ export default function GardenPlannerApp() {
         });
       const zoneMatch = userZone === "" || zoneList.includes(userZone);
       const categoryMatch = category === "all" || crop.Type.toLowerCase() === category.toLowerCase();
-      const sunMatch = sunRequirement === "all" || crop["Sun Requirements"].toLowerCase().includes(sunRequirement);
-      const waterMatch = waterNeed === "all" || crop["Water Needs"].toLowerCase().includes(waterNeed);
-      const soilMatch = soilPreference === "all" || crop["Soil Preferences"].toLowerCase().includes(soilPreference);
+      const sunMatch = sunRequirement === "all" ||
+  (typeof crop["Sun Requirements"] === "string" &&
+   crop["Sun Requirements"].toLowerCase().includes(sunRequirement));
+      const waterMatch = waterNeed === "all" ||
+  (typeof crop["Water Needs"] === "string" &&
+   crop["Water Needs"].toLowerCase().includes(waterNeed));
+      const soilMatch = soilPreference === "all" ||
+  (typeof crop["Soil Preferences"] === "string" &&
+   crop["Soil Preferences"].toLowerCase().includes(soilPreference));
       return zoneMatch && categoryMatch && sunMatch && waterMatch && soilMatch;
     });
     const sorted = results.sort((a, b) => {
