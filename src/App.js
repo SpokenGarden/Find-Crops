@@ -49,8 +49,7 @@ export default function GardenPlannerApp() {
       return zoneMatch && categoryMatch && sunMatch && waterMatch && soilMatch;
     });
     setFilteredCrops(matches);
-  });
-    setFilteredCrops(matches);
+  };
   };
 
   return (
