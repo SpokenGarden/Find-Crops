@@ -63,7 +63,7 @@ export default function GardenPlannerApp() {
           >
             🌿 Start Planning
           </button>
-        $1
+        
           {filteredCrops.length > 0 && (
             <div style={{ marginTop: "2rem" }}>
               <h2 style={{ color: "#2d6a4f" }}>🌾 {filteredCrops.length} Crop(s) Found:</h2>
