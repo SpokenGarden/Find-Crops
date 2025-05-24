@@ -38,6 +38,18 @@ export default function GardenPlannerApp() {
     }
   };
 
+  const handleSearch = () => {
+    const matches = cropData.filter((crop) => {
+      const zoneMatch = crop.Grow_Zones && crop.Grow_Zones.includes(zone);
+      const categoryMatch = category === "all" || crop.Type === category;
+      const sunMatch = sunRequirement === "all" || crop.Sun_Requirement === sunRequirement;
+      const waterMatch = waterNeed === "all" || crop.Water_Need === waterNeed;
+      const soilMatch = soilPreference === "all" || crop.Soil_Preference === soilPreference;
+      return zoneMatch && categoryMatch && sunMatch && waterMatch && soilMatch;
+    });
+    setFilteredCrops(matches);
+  };
+
   return (
     <div style={{ fontFamily: "Poppins, sans-serif", padding: "1rem", margin: "0 auto", backgroundColor: "#fdfdfc", maxWidth: "100%" }}>
       {!started ? (
@@ -103,7 +115,10 @@ export default function GardenPlannerApp() {
               </select>
             </label>
 
-            <button style={{ backgroundColor: "#40916c", color: "white", padding: "0.75rem", border: "none", borderRadius: "6px", fontSize: "1rem" }}>
+            <button
+              onClick={handleSearch}
+              style={{ backgroundColor: "#40916c", color: "white", padding: "0.75rem", border: "none", borderRadius: "6px", fontSize: "1rem" }}
+            >
               Find Crops
             </button>
           </div>
