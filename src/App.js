@@ -50,7 +50,6 @@ export default function GardenPlannerApp() {
     });
     setFilteredCrops(matches);
   };
-  };
 
   return (
     <div style={{ fontFamily: "Poppins, sans-serif", padding: "1rem", margin: "0 auto", backgroundColor: "#fdfdfc", maxWidth: "100%" }}>
