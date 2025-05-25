@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sowing Calendar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #2d6a4f;
+    }
+    .month {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .week {
+      margin-top: 1rem;
+    }
+    .label {
+      font-weight: bold;
+    }
+    .indoor {
+      color: #2a9d8f;
+    }
+    .outdoor {
+      color: #e76f51;
+    }
+  </style>
+</head>
+<body>
+  <h1>📅 Your Sowing Calendar</h1>
+  <div id="calendar"></div>
+
+  <script>
+    const crops = JSON.parse(localStorage.getItem('sowingCalendar')) || [];
+
+    function getMonth(dateStr) {
+      const date = new Date(dateStr);
+      return date.toLocaleString('default', { month: 'long', year: 'numeric' });
+    }
+
+    function getWeek(dateStr) {
+      const date = new Date(dateStr);
+      const first = date.getDate() - date.getDay();
+      const weekStart = new Date(date.setDate(first));
+      return `Week of ${weekStart.toLocaleDateString()}`;
+    }
+
+    const monthMap = {};
+
+    crops.forEach(crop => {
+      ['Sow_Indoors_Start', 'Sow_Outdoors_Start'].forEach(type => {
+        const label = type === 'Sow_Indoors_Start' ? '🌱 Sow Indoors' : '🌿 Sow Outdoors';
+        const start = crop[type];
+        if (!start) return;
+        const month = getMonth(start);
+        const week = getWeek(start);
+        if (!monthMap[month]) monthMap[month] = {};
+        if (!monthMap[month][week]) monthMap[month][week] = [];
+        monthMap[month][week].push(`${label}: ${crop.Crop}`);
+      });
+    });
+
+    const calendar = document.getElementById('calendar');
+    for (const month of Object.keys(monthMap)) {
+      const monthDiv = document.createElement('div');
+      monthDiv.className = 'month';
+      monthDiv.innerHTML = `<h2>${month}</h2>`;
+
+      for (const week of Object.keys(monthMap[month])) {
+        const weekDiv = document.createElement('div');
+        weekDiv.className = 'week';
+        weekDiv.innerHTML = `<p class="label">${week}</p><ul>` +
+          monthMap[month][week].map(item => `<li>${item}</li>`).join('') +
+          '</ul>';
+        monthDiv.appendChild(weekDiv);
+      }
+
+      calendar.appendChild(monthDiv);
+    }
+  </script>
+</body>
+</html>
