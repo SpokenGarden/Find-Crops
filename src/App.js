@@ -223,8 +223,11 @@ export default function GardenPlannerApp() {
                   {filteredCrops.length === 0 && <li>No crops found for your criteria.</li>}
                   {filteredCrops.map((crop, index) => (
                     <li key={index} style={{ marginBottom: "1rem", padding: "1rem", backgroundColor: "#e6f4ea", borderRadius: "8px" }}>
-                      <strong>{crop.Crop}</strong> – {crop.Type}<br />
-                      Sun: {crop.Sun_Requirement} | Water: {crop.Water_Need} | Soil: {crop.Soil_Preference}
+<strong>{crop.Crop}</strong> – {crop.Type}<br />
+☀️ <strong>Sun:</strong> {crop.Sun_Requirement} &nbsp;&nbsp;
+💧 <strong>Water:</strong> {crop.Water_Need} &nbsp;&nbsp;
+🌱 <strong>Soil:</strong> {crop.Soil_Preference}
+}
                     </li>
                   ))}
                 </ul>
