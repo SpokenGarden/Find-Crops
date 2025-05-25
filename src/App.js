@@ -147,8 +147,11 @@ export default function GardenPlannerApp() {
               </ul>
             </div>
           )}
+        </div>
         </>
-      )}
+      )
+    }</div>
+  );
     </div>
   );
 }
