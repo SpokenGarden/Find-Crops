@@ -166,6 +166,25 @@ export default function GardenPlannerApp() {
             {!loading && (
               <>
                 <h2 style={{ color: '#2d6a4f', marginTop: '2rem' }}>📆 Complete Sowing Calendar</h2>
+<button
+  onClick={() => {
+    localStorage.setItem("sowingCalendar", JSON.stringify(filteredCrops));
+    window.open("/calendar.html", "_blank");
+  }}
+  style={{
+    marginTop: "1rem",
+    backgroundColor: "#457b9d",
+    color: "white",
+    padding: "0.75rem",
+    border: "none",
+    borderRadius: "6px",
+    fontSize: "1rem",
+    cursor: "pointer"
+  }}
+>
+  📅 Open Sowing Calendar
+</button>
+
                 {sowingCalendar.length === 0 && (
                   <div style={{ color: "#b7b7b7", textAlign: "center" }}>
                     No calendar to show. Please enter a last frost date and search for crops.
