@@ -144,14 +144,11 @@ export default function GardenPlannerApp() {
                     Sun: {crop.Sun_Requirement} | Water: {crop.Water_Need} | Soil: {crop.Soil_Preference}
                   </li>
                 ))}
-              </ul>
-            </div>
-          )}
-        </div>
-        </>
-      )
-    }</div>
-  );
-    </div>
+            </ul>
+</div>
+</>
+)}
+</div>
   );
 }
+
