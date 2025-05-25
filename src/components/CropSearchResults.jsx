@@ -1,7 +1,6 @@
 import React from "react";
 
 const CropSearchResults = ({ crops, calendarData }) => {
-  // Generate the calendar HTML as a string
   const renderCalendarTable = () => {
     if (!calendarData || calendarData.length === 0) {
       return "<div style='color:#b7b7b7;text-align:center;'>No calendar to show. Please enter a last frost date and search for crops.</div>";
@@ -55,6 +54,7 @@ const CropSearchResults = ({ crops, calendarData }) => {
 
   return (
     <div>
+      {/* Crops Found Section */}
       <h2 style={{ color: "#2d6a4f", marginTop: "2rem" }}>
         🌾 {crops.length} Crop(s) Found:
       </h2>
@@ -78,6 +78,7 @@ const CropSearchResults = ({ crops, calendarData }) => {
           </li>
         ))}
       </ul>
+      {/* Sowing Calendar Button Only */}
       <button
         style={{
           marginTop: "1.5rem",
