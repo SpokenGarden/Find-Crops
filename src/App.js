@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { filterCrops } from "./utils/filterCrops";
 import { buildSowingCalendar } from "./utils/sowingCalendar";
+import CropSearchResults from "./components/CropSearchResults";
 
 // Simple helpers for persistent state
 const getLocal = (key, fallback) => {
@@ -157,59 +158,12 @@ export default function GardenPlannerApp() {
           </div>
 
           <div>
-            {loading && (
+            {loading ? (
               <div style={{ textAlign: "center", color: "#40916c", marginTop: "2rem" }}>
                 Loading...
               </div>
-            )}
-
-            {!loading && (
-              <>
-                <h2 style={{ color: '#2d6a4f', marginTop: '2rem' }}>📆 Complete Sowing Calendar</h2>
-                {sowingCalendar.length === 0 && (
-                  <div style={{ color: "#b7b7b7", textAlign: "center" }}>
-                    No calendar to show. Please enter a last frost date and search for crops.
-                  </div>
-                )}
-                {sowingCalendar.length > 0 && (
-                  <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "1rem" }}>
-                    <thead>
-                      <tr style={{ background: "#e6f4ea" }}>
-                        <th style={{ padding: "0.5rem", border: "1px solid #ccc" }}>Week of</th>
-                        <th style={{ padding: "0.5rem", border: "1px solid #ccc" }}>Sow Indoors</th>
-                        <th style={{ padding: "0.5rem", border: "1px solid #ccc" }}>Sow Outdoors</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {sowingCalendar.map((week, i) => (
-                        <tr key={i}>
-                          <td style={{ border: "1px solid #ccc", padding: "0.5rem" }}>
-                            {week.weekStart.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}
-                            {week.week === 0 ? " (Frost)" : ""}
-                          </td>
-                          <td style={{ border: "1px solid #ccc", padding: "0.5rem" }}>
-                            {week.indoors.length ? week.indoors.join(", ") : "-"}
-                          </td>
-                          <td style={{ border: "1px solid #ccc", padding: "0.5rem" }}>
-                            {week.outdoors.length ? week.outdoors.join(", ") : "-"}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                )}
-
-                <h2 style={{ color: "#2d6a4f", marginTop: "2rem" }}>🌾 {filteredCrops.length} Crop(s) Found:</h2>
-                <ul style={{ listStyle: "none", padding: 0 }}>
-                  {filteredCrops.length === 0 && <li>No crops found for your criteria.</li>}
-                  {filteredCrops.map((crop, index) => (
-                    <li key={index} style={{ marginBottom: "1rem", padding: "1rem", backgroundColor: "#e6f4ea", borderRadius: "8px" }}>
-                      <strong>{crop.Crop}</strong> – {crop.Type}<br />
-                      Sun: {crop.Sun_Requirement} | Water: {crop.Water_Need} | Soil: {crop.Soil_Preference}
-                    </li>
-                  ))}
-                </ul>
-              </>
+            ) : (
+              <CropSearchResults crops={filteredCrops} calendarData={sowingCalendar} />
             )}
           </div>
         </>
