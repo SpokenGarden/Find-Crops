@@ -219,18 +219,52 @@ export default function GardenPlannerApp() {
                 )}
 
                 <h2 style={{ color: "#2d6a4f", marginTop: "2rem" }}>🌾 {filteredCrops.length} Crop(s) Found:</h2>
-                <ul style={{ listStyle: "none", padding: 0 }}>
-                  {filteredCrops.length === 0 && <li>No crops found for your criteria.</li>}
-                  {filteredCrops.map((crop, index) => (
-                    <li key={index} style={{ marginBottom: "1rem", padding: "1rem", backgroundColor: "#e6f4ea", borderRadius: "8px" }}>
-<strong>{crop.Crop}</strong> – {crop.Type}<br />
-☀️ <strong>Sun:</strong> {crop.Sun_Requirement} &nbsp;&nbsp;
-💧 <strong>Water:</strong> {crop.Water_Need} &nbsp;&nbsp;
-🌱 <strong>Soil:</strong> {crop.Soil_Preference}
-}
-                    </li>
-                  ))}
-                </ul>
+                  <ul style={{ listStyle: "none", padding: 0 }}>
+  {filteredCrops.length === 0 && <li>No crops found for your criteria.</li>}
+  {filteredCrops.map((crop, index) => (
+    <li
+      key={index}
+      style={{
+        marginBottom: "1rem",
+        padding: "1rem",
+        backgroundColor: "#e6f4ea",
+        borderRadius: "8px",
+        boxShadow: "0 2px 4px rgba(0,0,0,0.05)"
+      }}
+    >
+      <strong style={{ fontSize: "1.1rem" }}>{crop.Crop}</strong> – {crop.Type}
+      <ul style={{ paddingLeft: "1rem", marginTop: "0.5rem" }}>
+        <li>☀️ <strong>Sun:</strong> {crop.Sun_Requirement}</li>
+        <li>💧 <strong>Water:</strong> {crop.Water_Need}</li>
+        <li>🌱 <strong>Soil:</strong> {crop.Soil_Preference}</li>
+        <li>📦 <strong>Zones:</strong> {crop.Grow_Zones || "N/A"}</li>
+        <li>🪴 <strong>Sow Indoors:</strong> {crop.Sow_Indoors_Start || "?"} → {crop.Sow_Indoors_End || "?"}</li>
+        <li>🌿 <strong>Sow Outdoors:</strong> {crop.Sow_Outdoors_Start || "?"} → {crop.Sow_Outdoors_End || "?"}</li>
+        <li>⏳ <strong>Days to Harvest:</strong> {crop.Days_to_Harvest || "N/A"}</li>
+      </ul>
+      {crop.Link && (
+        <a
+          href={crop.Link}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-block",
+            marginTop: "0.5rem",
+            padding: "0.5rem 1rem",
+            backgroundColor: "#2d6a4f",
+            color: "white",
+            borderRadius: "6px",
+            textDecoration: "none",
+            fontWeight: "bold"
+          }}
+        >
+          🔗 Buy Now
+        </a>
+      )}
+    </li>
+  ))}
+</ul>
+
               </>
             )}
           </div>
