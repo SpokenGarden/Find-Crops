@@ -126,8 +126,17 @@ export default function GardenPlannerApp() {
             </div>
           </div>
 
-          {filteredCrops.length > 0 && (
-            <div style={{ marginTop: "2rem" }}>
+          $1
+          <h2 style={{ color: '#2d6a4f', marginTop: '2rem' }}>📆 Sowing Calendar</h2>
+          <ul style={{ listStyle: 'none', padding: 0 }}>
+            {filteredCrops.map((crop, index) => (
+              <li key={`calendar-${index}`} style={{ marginBottom: '1rem', padding: '1rem', backgroundColor: '#fefae0', borderRadius: '8px' }}>
+                <strong>{crop.Crop}</strong><br />
+                🌱 <strong>Sow Indoors:</strong> Week of {crop.Sow_Indoors_Start || 'N/A'} – {crop.Sow_Indoors_End || 'N/A'}<br />
+                🌿 <strong>Sow Outdoors:</strong> Week of {crop.Sow_Outdoors_Start || 'N/A'} – {crop.Sow_Outdoors_End || 'N/A'}
+              </li>
+            ))}
+          </ul>
               <h2 style={{ color: "#2d6a4f" }}>🌾 {filteredCrops.length} Crop(s) Found:</h2>
               <ul style={{ listStyle: "none", padding: 0 }}>
                 {filteredCrops.map((crop, index) => (
