@@ -145,10 +145,10 @@ export default function GardenPlannerApp() {
                   </li>
                 ))}
             </ul>
-</div>
-</>
-)}
-</div>
+            </div>
+          </>
+        )}
+      </div>
   );
 }
 
