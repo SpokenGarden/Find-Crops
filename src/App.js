@@ -63,7 +63,69 @@ export default function GardenPlannerApp() {
           >
             🌿 Start Planning
           </button>
-        
+        </div>
+      ) : (
+        <>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "1rem", width: "100%", maxWidth: "500px" }}>
+              <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>🌱 GrowBuddy Garden Planner</h1>
+
+              <label>Grow Zone:
+                <input type="text" value={zone} onChange={(e) => setZone(e.target.value)} style={{ width: "100%", padding: "0.5rem" }} />
+              </label>
+
+              <label>Last Frost Date:
+                <input type="date" value={frostDate} onChange={(e) => setFrostDate(e.target.value)} style={{ width: "100%", padding: "0.5rem" }} />
+              </label>
+
+              <button onClick={handleGetLocation} style={{ padding: "0.6rem", borderRadius: "4px", backgroundColor: "#d3f9d8" }}>📍 Use My Location</button>
+
+              <label>Category:
+                <select value={category} onChange={(e) => setCategory(e.target.value)} style={{ width: "100%", padding: "0.5rem" }}>
+                  <option value="all">All</option>
+                  <option value="flower">Flowers</option>
+                  <option value="herb">Herbs</option>
+                  <option value="vegetable">Vegetables</option>
+                </select>
+              </label>
+
+              <label>Sun Requirement:
+                <select value={sunRequirement} onChange={(e) => setSunRequirement(e.target.value)} style={{ width: "100%", padding: "0.5rem" }}>
+                  <option value="all">All</option>
+                  <option value="full sun">Full Sun</option>
+                  <option value="part shade">Part Shade</option>
+                  <option value="full shade">Full Shade</option>
+                </select>
+              </label>
+
+              <label>Water Need:
+                <select value={waterNeed} onChange={(e) => setWaterNeed(e.target.value)} style={{ width: "100%", padding: "0.5rem" }}>
+                  <option value="all">All</option>
+                  <option value="low">Low</option>
+                  <option value="moderate">Moderate</option>
+                  <option value="high">High</option>
+                </select>
+              </label>
+
+              <label>Soil Preference:
+                <select value={soilPreference} onChange={(e) => setSoilPreference(e.target.value)} style={{ width: "100%", padding: "0.5rem" }}>
+                  <option value="all">All</option>
+                  <option value="loamy">Loamy</option>
+                  <option value="sandy">Sandy</option>
+                  <option value="clay">Clay</option>
+                  <option value="well-drained">Well-drained</option>
+                </select>
+              </label>
+
+              <button
+                onClick={handleSearch}
+                style={{ backgroundColor: "#40916c", color: "white", padding: "0.75rem", border: "none", borderRadius: "6px", fontSize: "1rem", cursor: "pointer" }}
+              >
+                Find Crops
+              </button>
+            </div>
+          </div>
+
           {filteredCrops.length > 0 && (
             <div style={{ marginTop: "2rem" }}>
               <h2 style={{ color: "#2d6a4f" }}>🌾 {filteredCrops.length} Crop(s) Found:</h2>
@@ -77,65 +139,7 @@ export default function GardenPlannerApp() {
               </ul>
             </div>
           )}
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "1rem", width: "100%", maxWidth: "500px" }}>
-            <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>🌱 GrowBuddy Garden Planner</h1>
-
-            <label>Grow Zone:
-              <input type="text" value={zone} onChange={(e) => setZone(e.target.value)} style={{ width: "100%", padding: "0.5rem" }} />
-            </label>
-
-            <label>Last Frost Date:
-              <input type="date" value={frostDate} onChange={(e) => setFrostDate(e.target.value)} style={{ width: "100%", padding: "0.5rem" }} />
-            </label>
-
-            <button onClick={handleGetLocation} style={{ padding: "0.6rem", borderRadius: "4px", backgroundColor: "#d3f9d8" }}>📍 Use My Location</button>
-
-            <label>Category:
-              <select value={category} onChange={(e) => setCategory(e.target.value)} style={{ width: "100%", padding: "0.5rem" }}>
-                <option value="all">All</option>
-                <option value="flower">Flowers</option>
-                <option value="herb">Herbs</option>
-                <option value="vegetable">Vegetables</option>
-              </select>
-            </label>
-
-            <label>Sun Requirement:
-              <select value={sunRequirement} onChange={(e) => setSunRequirement(e.target.value)} style={{ width: "100%", padding: "0.5rem" }}>
-                <option value="all">All</option>
-                <option value="full sun">Full Sun</option>
-                <option value="part shade">Part Shade</option>
-                <option value="full shade">Full Shade</option>
-              </select>
-            </label>
-
-            <label>Water Need:
-              <select value={waterNeed} onChange={(e) => setWaterNeed(e.target.value)} style={{ width: "100%", padding: "0.5rem" }}>
-                <option value="all">All</option>
-                <option value="low">Low</option>
-                <option value="moderate">Moderate</option>
-                <option value="high">High</option>
-              </select>
-            </label>
-
-            <label>Soil Preference:
-              <select value={soilPreference} onChange={(e) => setSoilPreference(e.target.value)} style={{ width: "100%", padding: "0.5rem" }}>
-                <option value="all">All</option>
-                <option value="loamy">Loamy</option>
-                <option value="sandy">Sandy</option>
-                <option value="clay">Clay</option>
-                <option value="well-drained">Well-drained</option>
-              </select>
-            </label>
-
-            <button
-              onClick={handleSearch}
-              style={{ backgroundColor: "#40916c", color: "white", padding: "0.75rem", border: "none", borderRadius: "6px", fontSize: "1rem", cursor: "pointer" }}
-            >
-              Find Crops
-            </button>
-          </div>
-        </div>
+        </>
       )}
     </div>
   );
