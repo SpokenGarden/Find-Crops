@@ -126,6 +126,7 @@ export default function GardenPlannerApp() {
             </div>
           </div>
 
+          </div>
           <h2 style={{ color: '#2d6a4f', marginTop: '2rem' }}>📆 Sowing Calendar</h2>
           <ul style={{ listStyle: 'none', padding: 0 }}>
             {filteredCrops.map((crop, index) => (
