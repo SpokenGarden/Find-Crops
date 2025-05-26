@@ -241,8 +241,19 @@ export default function GardenPlannerApp() {
         <li>💧 <strong>Water:</strong> {crop.Water_Need}</li>
         <li>🌱 <strong>Soil:</strong> {crop.Soil_Preference}</li>
         <li>📦 <strong>Zones:</strong> {crop.Grow_Zones || "N/A"}</li>
-        <li>🪴 <strong>Sow Indoors:</strong> {crop.Sow_Indoors_Start || "?"} → {crop.Sow_Indoors_End || "?"}</li>
-        <li>🌿 <strong>Sow Outdoors:</strong> {crop.Sow_Outdoors_Start || "?"} → {crop.Sow_Outdoors_End || "?"}</li>
+       <li>
+  🪴 <strong>Sow Indoors:</strong>
+  {crop.Sow_Indoors_Start && crop.Sow_Indoors_End
+    ? ` Week of ${new Date(crop.Sow_Indoors_Start).toLocaleDateString()} – ${new Date(crop.Sow_Indoors_End).toLocaleDateString()}`
+    : " N/A"}
+</li>
+<li>
+  🌿 <strong>Sow Outdoors:</strong>
+  {crop.Sow_Outdoors_Start && crop.Sow_Outdoors_End
+    ? ` Week of ${new Date(crop.Sow_Outdoors_Start).toLocaleDateString()} – ${new Date(crop.Sow_Outdoors_End).toLocaleDateString()}`
+    : " N/A"}
+</li>
+
         <li>⏳ <strong>Days to Harvest:</strong> {crop.Days_to_Harvest || "N/A"}</li>
       </ul>
       {crop.Link && (
