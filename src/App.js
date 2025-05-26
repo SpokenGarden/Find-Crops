@@ -165,19 +165,27 @@ export default function GardenPlannerApp() {
                 ))}
               </ul>
 
-              <h2 style={{ color: "#2d6a4f", marginTop: "2.5rem" }}>📆 Plan Your Sowing</h2>
-              <button
-                onClick={() => {
-                  const calendarData = encodeURIComponent(JSON.stringify({
-                    crops: filteredCrops,
-                    frostDate
-                  }));
-                  window.open(`/calendar.html?data=${calendarData}`, "_blank");
-                }}
-                style={{ marginTop: "1rem", backgroundColor: "#457b9d", color: "white", padding: "0.75rem", border: "none", borderRadius: "6px", fontSize: "1rem", cursor: "pointer" }}
-              >
-                📅 Open Sowing Calendar
-              </button>
+             <h2 style={{ color: "#2d6a4f", marginTop: "2.5rem" }}>📆 Plan Your Sowing</h2>
+<button
+  onClick={() => {
+    const encodedData = encodeURIComponent(JSON.stringify(filteredCrops));
+    const encodedDate = encodeURIComponent(frostDate);
+    window.open(`/calendar.html?calendar=${encodedData}&frostDate=${encodedDate}`, "_blank");
+  }}
+  style={{
+    marginTop: "1rem",
+    backgroundColor: "#457b9d",
+    color: "white",
+    padding: "0.75rem",
+    border: "none",
+    borderRadius: "6px",
+    fontSize: "1rem",
+    cursor: "pointer"
+  }}
+>
+  📅 Open Sowing Calendar
+</button>
+
 
               {sowingCalendar.length === 0 && (
                 <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "1rem" }}>
