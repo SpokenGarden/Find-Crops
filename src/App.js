@@ -70,23 +70,17 @@ export default function GardenPlannerApp() {
     }
   };
 
-const handleSearch = () => {
-  setLoading(true);
-  setTimeout(() => {
-    const matches = filterCrops(cropData, { zone, category, sunRequirement, waterNeed, soilPreference });
-    console.log("Search results:", matches);  // <-- NEW
-    console.log("Saving to localStorage:", matches, frostDate); // <-- NEW
-
-    setFilteredCrops(matches);
-    setSowingCalendar(buildSowingCalendar(matches, frostDate));
-
-    localStorage.setItem("sowingCalendar", JSON.stringify(matches));
-    localStorage.setItem("frostDate", JSON.stringify(frostDate));
-
-    setLoading(false);
-  }, 150);
-};
-
+  const handleSearch = () => {
+    setLoading(true);
+    setTimeout(() => {
+      const matches = filterCrops(cropData, { zone, category, sunRequirement, waterNeed, soilPreference });
+      setFilteredCrops(matches);
+      setSowingCalendar(buildSowingCalendar(matches, frostDate));
+      localStorage.setItem("sowingCalendar", JSON.stringify(matches));
+      localStorage.setItem("frostDate", JSON.stringify(frostDate));
+      setLoading(false);
+    }, 150);
+  };
 
   return (
     <div style={{ fontFamily: "Poppins, sans-serif", padding: "1rem", margin: "0 auto", backgroundColor: "#fdfdfc", maxWidth: "100%" }}>
@@ -172,29 +166,14 @@ const handleSearch = () => {
               </ul>
 
               <h2 style={{ color: "#2d6a4f", marginTop: "2.5rem" }}>📆 Plan Your Sowing</h2>
-<button
-  onClick={() => {
-    const calendarData = encodeURIComponent(JSON.stringify({
-      crops: filteredCrops,
-      frostDate
-    }));
-    window.open(`/calendar.html?data=${calendarData}`, "_blank");
-  }}
-  style={{
-    marginTop: "1rem",
-    backgroundColor: "#457b9d",
-    color: "white",
-    padding: "0.75rem",
-    border: "none",
-    borderRadius: "6px",
-    fontSize: "1rem",
-    cursor: "pointer"
-  }}
->
-  📅 Open Sowing Calendar
-</button>
-
-
+              <button
+                onClick={() => {
+                  const calendarData = encodeURIComponent(JSON.stringify({
+                    crops: filteredCrops,
+                    frostDate
+                  }));
+                  window.open(`/calendar.html?data=${calendarData}`, "_blank");
+                }}
                 style={{ marginTop: "1rem", backgroundColor: "#457b9d", color: "white", padding: "0.75rem", border: "none", borderRadius: "6px", fontSize: "1rem", cursor: "pointer" }}
               >
                 📅 Open Sowing Calendar
