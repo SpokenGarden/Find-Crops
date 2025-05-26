@@ -3,87 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sowing Calendar</title>
+  <title>Your Sowing Calendar</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 2rem;
-      background: #f9f9f9;
-      color: #333;
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 1rem;
+      background-color: #fdfdfc;
+      color: #2d6a4f;
     }
     h1 {
       text-align: center;
-      color: #2d6a4f;
+      font-size: 2rem;
     }
     .month {
-      margin-top: 2rem;
-      padding: 1rem;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    .month h2 {
+      margin-bottom: 0.5rem;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.25rem;
     }
     .week {
-      margin-top: 1rem;
+      margin-left: 1rem;
+      margin-bottom: 0.75rem;
     }
     .label {
       font-weight: bold;
+      margin-top: 0.3rem;
+    }
+    .list {
+      margin-left: 1rem;
+      margin-bottom: 0.5rem;
     }
   </style>
 </head>
 <body>
-  <h1>📅 Your Sowing Calendar</h1>
-  <div id="calendar">Loading...</div>
+  <h1>Your Sowing Calendar</h1>
+  <div id="calendar"></div>
 
   <script>
-    const rawCrops = JSON.parse(localStorage.getItem("sowingCalendar") || "[]");
+    const crops = JSON.parse(localStorage.getItem("sowingCalendar") || "[]");
+    const frostDate = new Date(JSON.parse(localStorage.getItem("frostDate") || null));
 
-    function getWeekStart(dateStr) {
-      const date = new Date(dateStr);
-      const day = date.getDay();
-      const diff = date.getDate() - day;
-      return new Date(date.setDate(diff));
+    function addDays(date, days) {
+      const d = new Date(date);
+      d.setDate(d.getDate() + days);
+      return d;
     }
 
-    function buildSowingCalendar(crops, frostDateStr) {
-      const calendar = {};
-      crops.forEach(crop => {
-        const indoorsStart = crop.Sow_Indoors_Start;
-        const outdoorsStart = crop.Sow_Outdoors_Start;
+    function getMonday(date) {
+      const d = new Date(date);
+      const day = d.getDay();
+      const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+      return new Date(d.setDate(diff));
+    }
 
-        if (indoorsStart) {
-          const week = getWeekStart(indoorsStart).toLocaleDateString();
-          if (!calendar[week]) calendar[week] = { indoors: [], outdoors: [] };
-          calendar[week].indoors.push(crop.Crop);
-        }
+    function getWeeks(crops, frostDate) {
+      const calendar = new Map();
+      for (const crop of crops) {
+        const inStart = new Date(crop.Sow_Indoors_Start);
+        const inEnd = new Date(crop.Sow_Indoors_End);
+        const outStart = new Date(crop.Sow_Outdoors_Start);
+        const outEnd = new Date(crop.Sow_Outdoors_End);
 
-        if (outdoorsStart) {
-          const week = getWeekStart(outdoorsStart).toLocaleDateString();
-          if (!calendar[week]) calendar[week] = { indoors: [], outdoors: [] };
-          calendar[week].outdoors.push(crop.Crop);
+        const ranges = [
+          { start: inStart, end: inEnd, type: "indoors" },
+          { start: outStart, end: outEnd, type: "outdoors" },
+        ];
+
+        for (const { start, end, type } of ranges) {
+          if (!start || !end || isNaN(start) || isNaN(end)) continue;
+          let current = getMonday(start);
+          while (current <= end) {
+            const monthKey = `${current.getFullYear()}-${String(current.getMonth() + 1).padStart(2, "0")}`;
+            if (!calendar.has(monthKey)) calendar.set(monthKey, []);
+            const label = `${current.toLocaleDateString(undefined, { month: "short", day: "numeric" })}`;
+            let weekEntry = calendar.get(monthKey).find(w => w.label === label);
+            if (!weekEntry) {
+              weekEntry = { label, indoors: [], outdoors: [] };
+              calendar.get(monthKey).push(weekEntry);
+            }
+            weekEntry[type].push(crop.Crop);
+            current.setDate(current.getDate() + 7);
+          }
         }
+      }
+
+      // Sort months and weeks within each month
+      return Array.from(calendar.entries())
+        .sort(([a], [b]) => new Date(a) - new Date(b))
+        .map(([month, weeks]) => ({
+          month: new Date(month + "-01").toLocaleString(undefined, { month: "long", year: "numeric" }),
+          weeks: weeks.sort((a, b) => new Date(a.label) - new Date(b.label)),
+        }));
+    }
+
+    function renderCalendar() {
+      const calendar = getWeeks(crops, frostDate);
+      const container = document.getElementById("calendar");
+      if (calendar.length === 0) {
+        container.innerHTML = "<p style='text-align:center;color:#888;'>No sowing dates available.</p>";
+        return;
+      }
+
+      calendar.forEach(({ month, weeks }) => {
+        const monthEl = document.createElement("div");
+        monthEl.className = "month";
+        monthEl.innerHTML = `<h2>${month}</h2>`;
+        weeks.forEach(week => {
+          const weekEl = document.createElement("div");
+          weekEl.className = "week";
+          weekEl.innerHTML = `<div><strong>Week of ${week.label}</strong></div>`;
+          if (week.indoors.length)
+            weekEl.innerHTML += `<div class="label">🌱 Indoors:</div><div class="list">${[...new Set(week.indoors)].join(", ")}</div>`;
+          if (week.outdoors.length)
+            weekEl.innerHTML += `<div class="label">🌿 Outdoors:</div><div class="list">${[...new Set(week.outdoors)].join(", ")}</div>`;
+          monthEl.appendChild(weekEl);
+        });
+        container.appendChild(monthEl);
       });
-
-      return Object.entries(calendar).sort((a, b) => new Date(a[0]) - new Date(b[0]));
     }
 
-    const frostDate = localStorage.getItem("frostDate") || new Date().toISOString().slice(0, 10);
-    const calendarData = buildSowingCalendar(rawCrops, frostDate);
-
-    const calendarContainer = document.getElementById("calendar");
-    calendarContainer.innerHTML = "";
-
-    if (calendarData.length === 0) {
-      calendarContainer.innerHTML = "<p>No sowing dates available.</p>";
-    }
-
-    calendarData.forEach(([week, crops]) => {
-      const wrapper = document.createElement("div");
-      wrapper.className = "month";
-      wrapper.innerHTML = `<h2>📅 Week of ${week}</h2>
-        <p class="label">🌱 Indoors: ${crops.indoors.join(", ") || "-"}</p>
-        <p class="label">🌿 Outdoors: ${crops.outdoors.join(", ") || "-"}</p>`;
-      calendarContainer.appendChild(wrapper);
-    });
+    renderCalendar();
   </script>
 </body>
 </html>
