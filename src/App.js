@@ -70,17 +70,23 @@ export default function GardenPlannerApp() {
     }
   };
 
-  const handleSearch = () => {
-    setLoading(true);
-    setTimeout(() => {
-      const matches = filterCrops(cropData, { zone, category, sunRequirement, waterNeed, soilPreference });
-      setFilteredCrops(matches);
-      setSowingCalendar(buildSowingCalendar(matches, frostDate));
-      localStorage.setItem("sowingCalendar", JSON.stringify(matches));
-      localStorage.setItem("frostDate", JSON.stringify(frostDate));
-      setLoading(false);
-    }, 150);
-  };
+const handleSearch = () => {
+  setLoading(true);
+  setTimeout(() => {
+    const matches = filterCrops(cropData, { zone, category, sunRequirement, waterNeed, soilPreference });
+    console.log("Search results:", matches);  // <-- NEW
+    console.log("Saving to localStorage:", matches, frostDate); // <-- NEW
+
+    setFilteredCrops(matches);
+    setSowingCalendar(buildSowingCalendar(matches, frostDate));
+
+    localStorage.setItem("sowingCalendar", JSON.stringify(matches));
+    localStorage.setItem("frostDate", JSON.stringify(frostDate));
+
+    setLoading(false);
+  }, 150);
+};
+
 
   return (
     <div style={{ fontFamily: "Poppins, sans-serif", padding: "1rem", margin: "0 auto", backgroundColor: "#fdfdfc", maxWidth: "100%" }}>
