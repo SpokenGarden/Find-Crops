@@ -225,11 +225,14 @@ export default function GardenPlannerApp() {
     <li
       key={index}
       style={{
-        marginBottom: "1rem",
+        margin: "1rem auto",
         padding: "1rem",
         backgroundColor: "#e6f4ea",
         borderRadius: "8px",
-        boxShadow: "0 2px 4px rgba(0,0,0,0.05)"
+        boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+        maxWidth: "600px",
+        width: "90%",
+        textAlign: "left"
       }}
     >
       <strong style={{ fontSize: "1.1rem" }}>{crop.Crop}</strong> – {crop.Type}
@@ -264,6 +267,7 @@ export default function GardenPlannerApp() {
     </li>
   ))}
 </ul>
+
 
               </>
             )}
