@@ -43,103 +43,24 @@
   <div id="calendar"></div>
 
   <script>
-const queryParams = new URLSearchParams(window.location.search);
-const rawData = queryParams.get("data");
+  const params = new URLSearchParams(window.location.search);
+  const calendarData = JSON.parse(decodeURIComponent(params.get("calendar") || "[]"));
+  const frostDate = decodeURIComponent(params.get("frostDate") || "");
 
-let crops = [];
-let frostDate = null;
-if (rawData) {
-  try {
-    const parsed = JSON.parse(decodeURIComponent(rawData));
-    crops = parsed.crops || [];
-    frostDate = new Date(parsed.frostDate);
-  } catch (e) {
-    console.error("Failed to parse calendar data:", e);
+  console.log("Loaded data from URL:", calendarData, frostDate);
+
+  if (!calendarData.length) {
+    document.getElementById("calendar-output").innerHTML = "<p>No sowing dates available.</p>";
+  } else {
+    const list = document.createElement("ul");
+    calendarData.forEach(crop => {
+      const item = document.createElement("li");
+      item.textContent = `${crop.Crop} (Zones: ${crop.Zones})`;
+      list.appendChild(item);
+    });
+    document.getElementById("calendar-output").appendChild(list);
   }
-}
+</script>
 
-    const frostDate = new Date(JSON.parse(localStorage.getItem("frostDate") || null));
-
-    function addDays(date, days) {
-      const d = new Date(date);
-      d.setDate(d.getDate() + days);
-      return d;
-    }
-
-    function getMonday(date) {
-      const d = new Date(date);
-      const day = d.getDay();
-      const diff = d.getDate() - day + (day === 0 ? -6 : 1);
-      return new Date(d.setDate(diff));
-    }
-
-    function getWeeks(crops, frostDate) {
-      const calendar = new Map();
-      for (const crop of crops) {
-        const inStart = new Date(crop.Sow_Indoors_Start);
-        const inEnd = new Date(crop.Sow_Indoors_End);
-        const outStart = new Date(crop.Sow_Outdoors_Start);
-        const outEnd = new Date(crop.Sow_Outdoors_End);
-
-        const ranges = [
-          { start: inStart, end: inEnd, type: "indoors" },
-          { start: outStart, end: outEnd, type: "outdoors" },
-        ];
-
-        for (const { start, end, type } of ranges) {
-          if (!start || !end || isNaN(start) || isNaN(end)) continue;
-          let current = getMonday(start);
-          while (current <= end) {
-            const monthKey = `${current.getFullYear()}-${String(current.getMonth() + 1).padStart(2, "0")}`;
-            if (!calendar.has(monthKey)) calendar.set(monthKey, []);
-            const label = `${current.toLocaleDateString(undefined, { month: "short", day: "numeric" })}`;
-            let weekEntry = calendar.get(monthKey).find(w => w.label === label);
-            if (!weekEntry) {
-              weekEntry = { label, indoors: [], outdoors: [] };
-              calendar.get(monthKey).push(weekEntry);
-            }
-            weekEntry[type].push(crop.Crop);
-            current.setDate(current.getDate() + 7);
-          }
-        }
-      }
-
-      // Sort months and weeks within each month
-      return Array.from(calendar.entries())
-        .sort(([a], [b]) => new Date(a) - new Date(b))
-        .map(([month, weeks]) => ({
-          month: new Date(month + "-01").toLocaleString(undefined, { month: "long", year: "numeric" }),
-          weeks: weeks.sort((a, b) => new Date(a.label) - new Date(b.label)),
-        }));
-    }
-
-    function renderCalendar() {
-      const calendar = getWeeks(crops, frostDate);
-      const container = document.getElementById("calendar");
-      if (calendar.length === 0) {
-        container.innerHTML = "<p style='text-align:center;color:#888;'>No sowing dates available.</p>";
-        return;
-      }
-
-      calendar.forEach(({ month, weeks }) => {
-        const monthEl = document.createElement("div");
-        monthEl.className = "month";
-        monthEl.innerHTML = `<h2>${month}</h2>`;
-        weeks.forEach(week => {
-          const weekEl = document.createElement("div");
-          weekEl.className = "week";
-          weekEl.innerHTML = `<div><strong>Week of ${week.label}</strong></div>`;
-          if (week.indoors.length)
-            weekEl.innerHTML += `<div class="label">🌱 Indoors:</div><div class="list">${[...new Set(week.indoors)].join(", ")}</div>`;
-          if (week.outdoors.length)
-            weekEl.innerHTML += `<div class="label">🌿 Outdoors:</div><div class="list">${[...new Set(week.outdoors)].join(", ")}</div>`;
-          monthEl.appendChild(weekEl);
-        });
-        container.appendChild(monthEl);
-      });
-    }
-
-    renderCalendar();
-  </script>
 </body>
 </html>
