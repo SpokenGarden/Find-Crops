@@ -167,13 +167,14 @@ export default function GardenPlannerApp() {
 
               <h2 style={{ color: "#2d6a4f", marginTop: "2.5rem" }}>📆 Plan Your Sowing</h2>
               <button
-                onClick={() => {
-                  localStorage.setItem("sowingCalendar", JSON.stringify(filteredCrops));
-                  localStorage.setItem("frostDate", JSON.stringify(frostDate));
-                  setTimeout(() => {
-                    window.open("/calendar.html", "_blank");
-                  }, 300);
-                }}
+onClick={() => {
+  localStorage.setItem("sowingCalendar", JSON.stringify(filteredCrops));
+  localStorage.setItem("frostDate", JSON.stringify(frostDate));
+  setTimeout(() => {
+    window.open("/calendar.html", "_blank");
+  }, 250); // small delay ensures data is saved
+}}
+
                 style={{ marginTop: "1rem", backgroundColor: "#457b9d", color: "white", padding: "0.75rem", border: "none", borderRadius: "6px", fontSize: "1rem", cursor: "pointer" }}
               >
                 📅 Open Sowing Calendar
