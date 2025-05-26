@@ -74,6 +74,85 @@
   }
 </script>
 
+<script>
+  function parseQueryParam(key) {
+    const params = new URLSearchParams(window.location.search);
+    const value = params.get(key);
+    try {
+      return value ? JSON.parse(decodeURIComponent(value)) : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function buildSowingCalendar(crops, frostDateStr) {
+    if (!frostDateStr || !crops.length) return [];
+
+    const frostDate = new Date(frostDateStr);
+    const weeks = [];
+
+    for (let i = -12; i <= 24; i++) {
+      const start = new Date(frostDate);
+      start.setDate(start.getDate() + i * 7);
+      weeks.push({ weekStart: start, indoors: [], outdoors: [] });
+    }
+
+    crops.forEach(crop => {
+      const indoorStart = crop.Sow_Indoors_Start ? new Date(crop.Sow_Indoors_Start) : null;
+      const indoorEnd = crop.Sow_Indoors_End ? new Date(crop.Sow_Indoors_End) : null;
+      const outdoorStart = crop.Sow_Outdoors_Start ? new Date(crop.Sow_Outdoors_Start) : null;
+      const outdoorEnd = crop.Sow_Outdoors_End ? new Date(crop.Sow_Outdoors_End) : null;
+
+      weeks.forEach(week => {
+        const date = week.weekStart;
+
+        if (indoorStart && indoorEnd && date >= indoorStart && date <= indoorEnd) {
+          week.indoors.push(crop.Crop);
+        }
+        if (outdoorStart && outdoorEnd && date >= outdoorStart && date <= outdoorEnd) {
+          week.outdoors.push(crop.Crop);
+        }
+      });
+    });
+
+    return weeks;
+  }
+
+  const crops = parseQueryParam("calendar") || [];
+  const frostDate = parseQueryParam("frostDate");
+  const calendar = buildSowingCalendar(crops, frostDate);
+  const output = document.getElementById("calendar-output");
+
+  if (!calendar.length) {
+    output.innerHTML = "<p style='text-align:center; color:#888;'>No sowing dates available.</p>";
+  } else {
+    const groupedByMonth = {};
+
+    calendar.forEach(week => {
+      const label = week.weekStart.toLocaleDateString(undefined, { month: "long", year: "numeric" });
+      if (!groupedByMonth[label]) groupedByMonth[label] = [];
+      groupedByMonth[label].push(week);
+    });
+
+    for (const [month, weeks] of Object.entries(groupedByMonth)) {
+      const section = document.createElement("div");
+      section.innerHTML = `<h2>${month}</h2><table border="1" cellspacing="0" cellpadding="6" style="width:100%; margin-bottom:2rem;"><thead><tr style="background:#eef;"><th>Week Of</th><th>Sow Indoors</th><th>Sow Outdoors</th></tr></thead><tbody></tbody></table>`;
+      const tbody = section.querySelector("tbody");
+
+      weeks.forEach(week => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${week.weekStart.toLocaleDateString()}</td>
+          <td>${week.indoors.length ? week.indoors.join(", ") : "-"}</td>
+          <td>${week.outdoors.length ? week.outdoors.join(", ") : "-"}</td>
+        `;
+        tbody.appendChild(row);
+      });
+
+      output.appendChild(section);
+    }
+  }
+</script>
 
 </body>
 </html>
