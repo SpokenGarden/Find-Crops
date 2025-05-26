@@ -43,7 +43,21 @@
   <div id="calendar"></div>
 
   <script>
-    const crops = JSON.parse(localStorage.getItem("sowingCalendar") || "[]");
+const queryParams = new URLSearchParams(window.location.search);
+const rawData = queryParams.get("data");
+
+let crops = [];
+let frostDate = null;
+if (rawData) {
+  try {
+    const parsed = JSON.parse(decodeURIComponent(rawData));
+    crops = parsed.crops || [];
+    frostDate = new Date(parsed.frostDate);
+  } catch (e) {
+    console.error("Failed to parse calendar data:", e);
+  }
+}
+
     const frostDate = new Date(JSON.parse(localStorage.getItem("frostDate") || null));
 
     function addDays(date, days) {
