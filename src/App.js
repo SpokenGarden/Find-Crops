@@ -152,7 +152,7 @@ export default function GardenPlannerApp() {
                       <li>💧 Water: {crop.Water_Need}</li>
                       <li>🪱 Soil: {crop.Soil_Preference}</li>
                       <li>📦 Zones: {crop.Grow_Zones}</li>
-                      <li>🗓️ Sow Indoors: {crop.Sow_Indoors_Start || "N/A"} – {crop.Sow_Indoors_End || "N/A"}</li>
+                      <li>🗓️ Sow Indoors: {crop.Sow_Indoors}</li>
                       <li>🌿 Sow Outdoors: {crop.Sow_Outdoors_Start || "N/A"} – {crop.Sow_Outdoors_End || "N/A"}</li>
                       <li>⏳ Days to Harvest: {crop.Days_To_Harvest || "N/A"}</li>
                       {crop.Link && (
