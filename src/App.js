@@ -153,8 +153,8 @@ export default function GardenPlannerApp() {
                       <li>🪱 Soil: {crop.Soil_Preference}</li>
                       <li>📦 Zones: {crop.Grow_Zones}</li>
                       <li>🗓️ Sow Indoors: {crop.Sow_Indoors}</li>
-                      <li>🌿 Sow Outdoors: {crop.Sow_Outdoors_Start || "N/A"} – {crop.Sow_Outdoors_End || "N/A"}</li>
-                      <li>⏳ Days to Harvest: {crop.Days_To_Harvest || "N/A"}</li>
+                      <li>🌿 Sow Outdoors: {crop.Sow_Outdoors_Start}</li>
+                      <li>⏳ Days to Harvest: {crop.Days_To_Harvest}</li>
                       {crop.Link && (
                         <li>
                           <a href={crop.Link} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: "0.5rem", padding: "0.4rem 0.75rem", backgroundColor: "#40916c", color: "#fff", textDecoration: "none", borderRadius: "4px", fontSize: "0.9rem" }}>🛒 Buy Now</a>
