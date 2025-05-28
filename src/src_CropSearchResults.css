@@ -1,0 +1,13 @@
+.crops-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+@media (max-width: 800px) {
+  .crops-grid {
+    grid-template-columns: 1fr;
+  }
+}
