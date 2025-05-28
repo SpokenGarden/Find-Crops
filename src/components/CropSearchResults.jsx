@@ -1,5 +1,5 @@
 import React from "react";
-
+import './CropSearchResults.css';
 // Map of field keys to friendly labels and icons (using emojis for simplicity)
 const FIELD_DETAILS = {
   Type: { label: "Type", icon: "📦" },
@@ -63,7 +63,6 @@ const cardBg = "linear-gradient(135deg, #f3fcf7 0%, #e6f9ee 100%)";
 const CropSearchResults = ({ crops }) => {
   return (
    <div className="crops-grid">
-     import './CropSearchResults.css';
   {crops.map((crop, index) => {
     const link = crop.Link || crop.link;
     const clickable = !!link;
