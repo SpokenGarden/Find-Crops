@@ -153,7 +153,7 @@ export default function GardenPlannerApp() {
                       <li>🌿 Sow Outdoors: {crop.Sow_Outdoors}</li>
                       <li>🌱 Days to Germinate: {crop.Days_to_Germination}</li>
                       <li>⏳ Days to Harvest: {crop.Days_to_Harvest}</li>
-                      <li>⏲️ Harvest Season: {crop.Harvest Season}</li>
+                      <li>⏲️ Harvest Season: {crop.Harvest_Season}</li>
                       <li>🌞 Sun: {crop.Sun_Requirement}</li>
                       <li>💧 Water: {crop.Water_Need}</li>
                       <li>🪱 Soil: {crop.Soil_Preference}</li>
