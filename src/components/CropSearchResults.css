@@ -6,11 +6,14 @@
   margin: 0 auto;
   padding: 1rem 0;
 }
+
 @media (max-width: 800px) {
   .crops-grid {
     grid-template-columns: 1fr;
   }
 }
+
+/* Add this for the fields inside each crop card */
 .fields-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -18,8 +21,21 @@
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
 @media (max-width: 600px) {
   .fields-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Optional: You can add some extra spacing for crop cards, if desired */
+.crops-grid > * {
+  /* This makes sure each card or link is sized consistently in the grid */
+  min-width: 0;
+}
+
+/* Optional: Style for the button container at the bottom */
+.button-center {
+  display: flex;
+  justify-content: center;
 }
