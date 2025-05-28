@@ -149,8 +149,11 @@ export default function GardenPlannerApp() {
                     <strong>{crop.Crop}</strong> – {crop.Type}
                     <ul style={{ paddingLeft: "1rem", marginTop: "0.5rem" }}>
                       <li>📦 Zones: {crop.Grow_Zones}</li>
+                      <li>🌼 Type: {crop.Annual_/_Perennial_/_Biennial}</li>
+                      <li>⌚ Sow When: {crop.Sow_Spring_or_Fall}</li>
                       <li>🗓️ Sow Indoors: {crop.Sow_Indoors}</li>
                       <li>🌿 Sow Outdoors: {crop.Sow_Outdoors}</li>
+                      <li>💦 Seed Treatement: {crop.Seed_Treatment}</li>
                       <li>🌱 Days to Germinate: {crop.Days_to_Germination}</li>
                       <li>⏳ Days to Harvest: {crop.Days_to_Harvest}</li>
                       <li>⏲️ Harvest Season: {crop.Harvest_Season}</li>
