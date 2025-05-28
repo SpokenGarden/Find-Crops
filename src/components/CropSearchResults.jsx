@@ -63,6 +63,7 @@ const cardBg = "linear-gradient(135deg, #f3fcf7 0%, #e6f9ee 100%)";
 const CropSearchResults = ({ crops }) => {
   return (
    <div className="crops-grid">
+     import './CropSearchResults.css';
   {crops.map((crop, index) => {
     const link = crop.Link || crop.link;
     const clickable = !!link;
