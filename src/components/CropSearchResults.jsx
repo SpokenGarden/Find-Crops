@@ -109,7 +109,9 @@ const CropSearchResults = ({ crops }) => {
                   {crop.Crop || "Unnamed Crop"}
                 </span>
               </div>
-              {getAllFields(crop)}
+             <div className="fields-grid">
+  {getAllFields(crop)}
+</div>
             </div>
           );
 
