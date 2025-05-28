@@ -21,7 +21,7 @@ const getFieldDisplay = (key, value) => {
   const field = FIELD_DETAILS[key];
   if (!field) return null;
   return (
-    <div style={{ display: "flex", alignItems: "center", marginBottom: 6 }}>
+    <div style={{ marginBottom: 6 }}>
       <span style={{ fontSize: "1.1em", marginRight: 7 }}>{field.icon}</span>
       <span style={{ fontWeight: 600, color: "#22543d" }}>{field.label}:</span>
       <span style={{ marginLeft: 7 }}>{value}</span>
@@ -44,7 +44,7 @@ const getAllFields = (crop) => {
     // For extra (unknown) fields, show with a generic icon and friendly label
     if (!FIELD_DETAILS[key]) {
       return (
-        <div key={key} style={{ display: "flex", alignItems: "center", marginBottom: 6 }}>
+        <div key={key} style={{ marginBottom: 6 }}>
           <span style={{ fontSize: "1.1em", marginRight: 7 }}>🔹</span>
           <span style={{ fontWeight: 600, color: "#22543d" }}>
             {key.replace(/_/g, " ").replace(/\b\w/g, (l) => l.toUpperCase())}:
@@ -77,7 +77,6 @@ const CropSearchResults = ({ crops }) => {
                 border: cardBorder,
                 padding: "1.2rem 1.5rem",
                 marginBottom: "1rem",
-                // Only use flex for the card content layout, not the grid container
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "stretch",
@@ -109,9 +108,9 @@ const CropSearchResults = ({ crops }) => {
                   {crop.Crop || "Unnamed Crop"}
                 </span>
               </div>
-             <div className="fields-grid">
-  {getAllFields(crop)}
-</div>
+              <div className="fields-grid">
+                {getAllFields(crop)}
+              </div>
             </div>
           );
 
