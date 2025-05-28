@@ -62,77 +62,71 @@ const cardBg = "linear-gradient(135deg, #f3fcf7 0%, #e6f9ee 100%)";
 
 const CropSearchResults = ({ crops }) => {
   return (
-    <div>
-      <h2 style={{
-        color: "#2d6a4f",
-        marginTop: "2rem",
-        textAlign: crops.length > 1 ? "left" : "center"
-      }}>
-        🌾 {crops.length} Crop{crops.length === 1 ? "" : "s"} Found
-      </h2>
+   <div className="crops-grid">
+  {crops.map((crop, index) => {
+    const link = crop.Link || crop.link;
+    const clickable = !!link;
+    const CardContent = (
       <div
         style={{
+          background: cardBg,
+          borderRadius: "14px",
+          boxShadow: cardShadow,
+          border: cardBorder,
+          padding: "1.2rem 1.5rem",
+          marginBottom: "1rem",
           display: "flex",
-          flexWrap: "wrap",
-          gap: "2rem",
-          justifyContent: "center",
-          marginTop: "1.5rem"
+          flexDirection: "column",
+          alignItems: "stretch",
+          transition: "box-shadow 0.2s, transform 0.15s",
+          position: "relative",
+          cursor: clickable ? "pointer" : "default",
+          outline: "none",
+          ...(clickable && {
+            boxShadow: "0 4px 24px rgba(34,74,66,0.14)",
+            border: "2px solid #95e1c3",
+            transition: "box-shadow 0.2s, border 0.2s, transform 0.15s",
+          }),
+          // Removed minWidth and maxWidth to allow grid sizing
         }}
+        tabIndex={clickable ? 0 : -1}
+        aria-label={crop.Crop || "Crop card"}
       >
-        {crops.length === 0 && (
-          <div>No crops found for your criteria.</div>
-        )}
-        {crops.map((crop, index) => {
-          // Each crop may have a "Link" field, used for the card's href
-          const link = crop.Link || crop.link;
-          const clickable = !!link;
-          const CardContent = (
-            <div
-              style={{
-                minWidth: 260,
-                maxWidth: 350,
-                background: cardBg,
-                borderRadius: "14px",
-                boxShadow: cardShadow,
-                border: cardBorder,
-                padding: "1.2rem 1.5rem",
-                marginBottom: "1rem",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "stretch",
-                transition: "box-shadow 0.2s, transform 0.15s",
-                position: "relative",
-                cursor: clickable ? "pointer" : "default",
-                outline: "none",
-                ...(clickable && {
-                  boxShadow: "0 4px 24px rgba(34,74,66,0.14)",
-                  border: "2px solid #95e1c3",
-                  transition: "box-shadow 0.2s, border 0.2s, transform 0.15s",
-                }),
-                ...(clickable ? { ":hover": { transform: "translateY(-2px) scale(1.02)" } } : {}),
-              }}
-              tabIndex={clickable ? 0 : -1}
-              aria-label={crop.Crop || "Crop card"}
-            >
-              <div style={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: 12
-              }}>
-                <span style={{ fontSize: "1.7rem", marginRight: 10 }}>🌱</span>
-                <span style={{
-                  color: "#155943",
-                  fontWeight: 700,
-                  fontSize: "1.23rem",
-                  letterSpacing: 0.5
-                }}>
-                  {crop.Crop || "Unnamed Crop"}
-                </span>
-              </div>
-              <div style={{ flexGrow: 1, marginLeft: 8, marginBottom: 0 }}>
-                {getAllFields(crop)}
-              </div>
-            </div>
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          marginBottom: 12
+        }}>
+          <span style={{ fontSize: "1.7rem", marginRight: 10 }}>🌱</span>
+          <span style={{
+            color: "#155943",
+            fontWeight: 700,
+            fontSize: "1.23rem",
+            letterSpacing: 0.5
+          }}>
+            {crop.Crop || "Unnamed Crop"}
+          </span>
+        </div>
+        {/* Add other crop fields here as needed */}
+      </div>
+    );
+
+    // Wrap in <a> if clickable, else just render the card
+    return clickable ? (
+      <a
+        key={index}
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        {CardContent}
+      </a>
+    ) : (
+      <div key={index}>{CardContent}</div>
+    );
+  })}
+</div>
           );
           return clickable ? (
             <a
