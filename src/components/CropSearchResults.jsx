@@ -1,5 +1,6 @@
 import React from "react";
 import './CropSearchResults.css';
+
 // Map of field keys to friendly labels and icons (using emojis for simplicity)
 const FIELD_DETAILS = {
   Type: { label: "Type", icon: "📦" },
@@ -62,72 +63,56 @@ const cardBg = "linear-gradient(135deg, #f3fcf7 0%, #e6f9ee 100%)";
 
 const CropSearchResults = ({ crops }) => {
   return (
-   <div className="crops-grid">
-  {crops.map((crop, index) => {
-    const link = crop.Link || crop.link;
-    const clickable = !!link;
-    const CardContent = (
-      <div
-        style={{
-          background: cardBg,
-          borderRadius: "14px",
-          boxShadow: cardShadow,
-          border: cardBorder,
-          padding: "1.2rem 1.5rem",
-          marginBottom: "1rem",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "stretch",
-          transition: "box-shadow 0.2s, transform 0.15s",
-          position: "relative",
-          cursor: clickable ? "pointer" : "default",
-          outline: "none",
-          ...(clickable && {
-            boxShadow: "0 4px 24px rgba(34,74,66,0.14)",
-            border: "2px solid #95e1c3",
-            transition: "box-shadow 0.2s, border 0.2s, transform 0.15s",
-          }),
-          // Removed minWidth and maxWidth to allow grid sizing
-        }}
-        tabIndex={clickable ? 0 : -1}
-        aria-label={crop.Crop || "Crop card"}
-      >
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          marginBottom: 12
-        }}>
-          <span style={{ fontSize: "1.7rem", marginRight: 10 }}>🌱</span>
-          <span style={{
-            color: "#155943",
-            fontWeight: 700,
-            fontSize: "1.23rem",
-            letterSpacing: 0.5
-          }}>
-            {crop.Crop || "Unnamed Crop"}
-          </span>
-        </div>
-        {/* Add other crop fields here as needed */}
-      </div>
-    );
-
-    // Wrap in <a> if clickable, else just render the card
-    return clickable ? (
-      <a
-        key={index}
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ textDecoration: "none", color: "inherit" }}
-      >
-        {CardContent}
-      </a>
-    ) : (
-      <div key={index}>{CardContent}</div>
-    );
-  })}
-</div>
+    <div>
+      <div className="crops-grid">
+        {crops.map((crop, index) => {
+          const link = crop.Link || crop.link;
+          const clickable = !!link;
+          const CardContent = (
+            <div
+              style={{
+                background: cardBg,
+                borderRadius: "14px",
+                boxShadow: cardShadow,
+                border: cardBorder,
+                padding: "1.2rem 1.5rem",
+                marginBottom: "1rem",
+                // Only use flex for the card content layout, not the grid container
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "stretch",
+                transition: "box-shadow 0.2s, transform 0.15s",
+                position: "relative",
+                cursor: clickable ? "pointer" : "default",
+                outline: "none",
+                ...(clickable && {
+                  boxShadow: "0 4px 24px rgba(34,74,66,0.14)",
+                  border: "2px solid #95e1c3",
+                  transition: "box-shadow 0.2s, border 0.2s, transform 0.15s",
+                }),
+              }}
+              tabIndex={clickable ? 0 : -1}
+              aria-label={crop.Crop || "Crop card"}
+            >
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: 12
+              }}>
+                <span style={{ fontSize: "1.7rem", marginRight: 10 }}>🌱</span>
+                <span style={{
+                  color: "#155943",
+                  fontWeight: 700,
+                  fontSize: "1.23rem",
+                  letterSpacing: 0.5
+                }}>
+                  {crop.Crop || "Unnamed Crop"}
+                </span>
+              </div>
+              {getAllFields(crop)}
+            </div>
           );
+
           return clickable ? (
             <a
               key={index}
@@ -137,8 +122,8 @@ const CropSearchResults = ({ crops }) => {
               style={{
                 textDecoration: "none",
                 color: "inherit",
-                display: "block",
                 borderRadius: "14px",
+                display: "block"
               }}
               tabIndex={0}
             >
