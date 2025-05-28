@@ -86,8 +86,8 @@ export default function GardenPlannerApp() {
     <div style={{ fontFamily: "Poppins, sans-serif", padding: "1rem", margin: "0 auto", backgroundColor: "#fdfdfc", maxWidth: "100%" }}>
       {!started ? (
         <div style={{ textAlign: "center", padding: "2rem" }}>
-          <h1 style={{ fontSize: "2rem", color: "#2d6a4f" }}>🌱 Welcome to GrowBuddy</h1>
-          <p style={{ fontSize: "1.1rem", margin: "1rem 0" }}>Plan what to grow and when to sow with your frost date and grow zone.</p>
+          <h1 style={{ fontSize: "2rem", color: "#2d6a4f" }}>🌱 Welcome to What-Grows Garden Planner</h1>
+          <p style={{ fontSize: "1.1rem", margin: "1rem 0" }}>Plan what to grow, when to sow with your frost date, grow zone, specific planting depts and spacings, and a whole lot more.</p>
           <button
             onClick={() => setStarted(true)}
             style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#52b788", color: "white", border: "none", borderRadius: "8px", cursor: "pointer" }}
@@ -99,7 +99,7 @@ export default function GardenPlannerApp() {
         <>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem", width: "100%", maxWidth: "500px" }}>
-              <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>🌱 GrowBuddy Garden Planner</h1>
+              <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>🌱 What Grows Garden Planner</h1>
               <label>Grow Zone:<input type="text" value={zone} onChange={e => setZone(e.target.value)} style={{ width: "100%", padding: "0.5rem" }} /></label>
               <label>Last Frost Date:<input type="date" value={frostDate} onChange={e => setFrostDate(e.target.value)} style={{ width: "100%", padding: "0.5rem" }} /></label>
               <button onClick={handleGetLocation} style={{ padding: "0.6rem", borderRadius: "4px", backgroundColor: "#d3f9d8" }}>📍 Use My Location</button>
