@@ -12,7 +12,7 @@ const FIELD_DETAILS = {
   Height: { label: "Height", icon: "🌿" },
   Color: { label: "Color", icon: "🎨" },
   Notes: { label: "Notes", icon: "📝" },
-  Annual_Perrenial_Biennial: { label: "Kind", icon: "🌼" },
+  Kind: { label: "Kind", icon: "🌼" },
   // Add more as needed
 };
 
