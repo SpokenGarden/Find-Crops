@@ -2,7 +2,7 @@
   {
     "Crop": "Bachelor's Button",
     "Type": "flower",
-    "Annual_Perennial_Biennial": "Annual",
+    "Kind": "Annual",
     "Grow_Zones": "2 to 10",
     "Sow_Spring_or_Fall": "Spring",
     "Seed_Treatment": "None",
@@ -19,7 +19,7 @@
   {
     "Crop": "Black-eyed Susan",
     "Type": "flower",
-    "Annual_Perennial_Biennial": "Biennial",
+    "Kind": "Biennial",
     "Grow_Zones": "3, 4, 5, 6, 7, 8, 9",
     "Sow_Spring_or_Fall": "Fall or Spring",
     "Seed_Treatment": "Stratify (cold)",
@@ -36,7 +36,7 @@
   {
     "Crop": "Cape Daisy",
     "Type": "flower",
-    "Annual_Perennial_Biennial": "Perennial",
+    "Kind": "Perennial",
     "Grow_Zones": "9, 10, 11",
     "Sow_Spring_or_Fall": "Spring",
     "Seed_Treatment": "None",
@@ -53,7 +53,7 @@
   {
     "Crop": "Dahlia",
     "Type": "flower",
-    "Annual_Perennial_Biennial": "Perennial",
+    "Kind": "Perennial",
     "Grow_Zones": "8, 9, 10, 11",
     "Sow_Spring_or_Fall": "Spring",
     "Seed_Treatment": "No",
@@ -70,7 +70,7 @@
   {
     "Crop": "Zinnia",
     "Type": "flower",
-    "Annual_Perennial_Biennial": "Annual",
+    "Kind": "Annual",
     "Grow_Zones": "3, 4, 5, 6, 7, 8, 9, 10",
     "Sow_Spring_or_Fall": "Spring",
     "Seed Treatment": "No",
@@ -87,7 +87,7 @@
   {
     "Crop": "Basil",
     "Type": "vegetable",
-    "Annual_Perennial_Biennial": "Annual",
+    "Kind": "Annual",
     "Grow_Zones": "4, 5, 6, 7, 8, 9, 10",
     "Sow Spring or Fall": "Spring",
     "Seed_Treatment": "None",
@@ -104,7 +104,7 @@
   {
     "Crop": "Beet",
     "Type": "vegetable",
-    "Annual_Perennial_Biennial": "Annual",
+    "Kind": "Annual",
     "Grow_Zones": "2, 3, 4, 5, 6, 7, 8, 9, 10",
     "Sow_Spring_or_Fall": "Spring",
     "Seed_Treatment": "Soak Over Night",
@@ -121,7 +121,7 @@
   {
     "Crop": "Melon",
     "Type": "vegetable",
-    "Annual_Perennial_Biennial": "Annual",
+    "Kind": "Annual",
     "Grow_Zones": "2, 3, 4, 5, 6, 7, 8, 9, 10",
     "Sow_Spring_or_Fall": "Spring",
     "Seed_Treatment": "No",
@@ -138,7 +138,7 @@
   {
     "Crop": "Pea",
     "Type": "vegetable",
-    "Annual_Perennial_Biennial": "Annual",
+    "Kind": "Annual",
     "Grow_Zones": "1, 2, 3, 4, 5, 6, 7, 8, 9",
     "Sow_Spring_or_Fall": "Spring",
     "Seed_Treatment": "Soak Over Night",
@@ -155,7 +155,7 @@
   {
     "Crop": "Radish",
     "Type": "vegetable",
-    "Annual_Perennial_Biennial": "Annual",
+    "Kind": "Annual",
     "Grow_Zones": "3, 4, 5, 6, 7, 8, 9, 10",
     "Sow_Spring_or_Fall": "Spring",
     "Seed_Treatment": "Soak Over Night",
@@ -172,7 +172,7 @@
   {
     "Crop": "Watermelon",
     "Type": "vegetable",
-    "Annual_Perennial_Biennial": "Annual",
+    "Kind": "Annual",
     "Grow_Zones": "3, 4, 5, 6, 7, 8, 9, 10",
     "Sow Spring_or_Fall": "Spring",
     "Seed_Treatment": "No",
