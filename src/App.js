@@ -145,7 +145,7 @@ export default function GardenPlannerApp() {
               <ul style={{ listStyle: "none", padding: 0 }}>
                 {filteredCrops.length === 0 && <li>No crops found for your criteria.</li>}
                 {filteredCrops.map((crop, index) => (
-                  <li key={index} style={{ marginBottom: "1rem", padding: "1rem", backgroundColor: "#e6f4ea", borderRadius: "8px", boxShadow: "0 2px 4px rgba(0,0,0,0.05)", maxWidth: "600px", width: "90%", textAlign: "left", marginLeft: "auto", marginRight: "auto" }}>
+                  <li key={index} style={{ marginBottom: "1rem", padding: "1rem", backgroundColor: "#e6f4ea", borderRadius: "14px", boxShadow: "0 2px 4px rgba(0,0,0,0.05)", maxWidth: "600px", width: "90%", textAlign: "left", marginLeft: "auto", marginRight: "auto" }}>
                     <strong>{crop.Crop}</strong> – {crop.Type}
                     <ul style={{ paddingLeft: "1rem", marginTop: "0.5rem" }}>
                       <li>📦 Zones: {crop.Grow_Zones}</li>
