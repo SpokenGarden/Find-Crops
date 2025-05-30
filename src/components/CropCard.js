@@ -4,10 +4,10 @@ function CropCard({ cropName, cropData }) {
   if (!cropData) return null;
 
   return (
-    <div className="crop-card">
+    <div>
       <h2>{cropName}</h2>
       {Object.entries(cropData).map(([section, fields]) => (
-        <div key={section} className="crop-section">
+        <div key={section}>
           <h3>{section}</h3>
           <ul>
             {fields.map(({ label, value }) => (
