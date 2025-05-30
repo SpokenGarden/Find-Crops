@@ -28,17 +28,22 @@ function CropCard({ cropName, cropData }) {
     };
   }
 
-  // Extract Buy Now info from Link section (if exists), remove Link from displayData
+  // Extract Buy Now URL from Link section and remove Link from displayData
   let buyNowUrl = "";
-  if (displayData["Link"]) {
-    const linkFields = displayData["Link"];
+  if ("Link" in displayData) {
+    const linkFields = Array.isArray(displayData["Link"]) ? displayData["Link"] : [];
+    // Find field labeled "Buy Now" with a http(s) url
     const buyNowField = linkFields.find(
       (field) =>
-        field.label.toLowerCase() === "buy now" &&
+        typeof field.label === "string" &&
+        field.label.trim().toLowerCase() === "buy now" &&
         typeof field.value === "string" &&
-        (field.value.startsWith("https://") || field.value.startsWith("http://"))
+        /^https?:\/\//i.test(field.value.trim())
     );
-    if (buyNowField) buyNowUrl = buyNowField.value;
+    if (buyNowField) {
+      buyNowUrl = buyNowField.value.trim();
+    }
+    // Remove Link section from displayData to not render it as a section
     delete displayData["Link"];
   }
 
