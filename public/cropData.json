@@ -1,189 +1,730 @@
-[
-  {
-    "Crop": "Bachelor's Button",
-    "Type": "flower",
-    "Kind": "Annual",
-    "Grow_Zones": "2 to 10",
-    "Sow_Spring_or_Fall": "Spring",
-    "Seed_Treatment": "None",
-    "Days_to_Germination": "7 to 14",
-    "Days_to_Harvest": "60 to 90",
-    "Harvest_Season": "Spring through Fall",
-    "Sow_Indoors": "4 to 6 before",
-    "Sow_Outdoors": "1 to 2 after",
-    "Sun_Requirement": "part shade",
-    "Water_Need": "moderate",
-    "Soil_Preference": "well-drained",
-    "Link": "https://bit.ly/3YFe6Mh"
+{
+  "African Daisy": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "2, 3, 4, 5, 6, 7, 8, 9, 10" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring or Fall" },
+      { "label": "Sow Indoors", "value": "6 to 8 before" },
+      { "label": "Sow Outdoors", "value": "1 to 2 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "7 to 21" },
+      { "label": "Days to Harvest", "value": "60 to 90" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "" },
+      { "label": "Water", "value": "" },
+      { "label": "Soil", "value": "" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "" }
+    ]
   },
-  {
-    "Crop": "Black-eyed Susan",
-    "Type": "flower",
-    "Kind": "Biennial",
-    "Grow_Zones": "3, 4, 5, 6, 7, 8, 9",
-    "Sow_Spring_or_Fall": "Fall or Spring",
-    "Seed_Treatment": "Stratify (cold)",
-    "Days_to_Germination": "7 to 21",
-    "Days_to_Harvest": "60 to 90",
-    "Harvest_Season": "Spring through Fall",
-    "Sow_Indoors": "6 to 8 before",
-    "Sow_Outdoors": "2 to 4 after",
-    "Sun_Requirement": "part shade",
-    "Water_Need": "moderate",
-    "Soil_Preference": "well-drained",
-    "Link": "https://bit.ly/BEyedSusan"
+  "Ageratum": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "3, 4, 5, 6, 7, 8, 9, 10" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "8 to 10 before" },
+      { "label": "Sow Outdoors", "value": "1 to 2 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "7 to 10" },
+      { "label": "Days to Harvest", "value": "60 to 90" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer through Fall" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "" },
+      { "label": "Water", "value": "" },
+      { "label": "Soil", "value": "" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "" }
+    ]
   },
-  {
-    "Crop": "Cape Daisy",
-    "Type": "flower",
-    "Kind": "Perennial",
-    "Grow_Zones": "9, 10, 11",
-    "Sow_Spring_or_Fall": "Spring",
-    "Seed_Treatment": "None",
-    "Days_to_Germination": "10 to 21",
-    "Days_to_Harvest": "60 to 80",
-    "Harvest_Season": "Spring to Fall",
-    "Sow_Indoors": "8 to 10 before",
-    "Sow_Outdoors": "1 to 2 after",
-    "Sun_Requirement": "full sun",
-    "Water_Need": "moderate",
-    "Soil_Preference": "well-drained",
-    "Link": "https://bit.ly/EBShastas"
+  "Alyssum": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "3, 4, 5, 6, 7, 8, 9, 10" },
+      { "label": "Kind", "value": "Perennial" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Fall or Spring" },
+      { "label": "Sow Indoors", "value": "4 to 6 before" },
+      { "label": "Sow Outdoors", "value": "1 to 2 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "7 to 14" },
+      { "label": "Days to Harvest", "value": "60 to 90" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Spring through Fall" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "" },
+      { "label": "Water", "value": "" },
+      { "label": "Soil", "value": "" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "" }
+    ]
   },
-  {
-    "Crop": "Dahlia",
-    "Type": "flower",
-    "Kind": "Perennial",
-    "Grow_Zones": "8, 9, 10, 11",
-    "Sow_Spring_or_Fall": "Spring",
-    "Seed_Treatment": "No",
-    "Days_to_Germination": "8 to 11",
-    "Days_to_Harvest": "",
-    "Harvest_Season": "Summer",
-    "Sow_Indoors": "8 to 10 before",
-    "Sow_Outdoors": "2 to 4 after",
-    "Sun_Requirement": "full sun",
-    "Water_Need": "moderate",
-    "Soil_Preference": "well-drained",
-    "Link": "https://bit.ly/4bExCvy"
+  "Amaranthus": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "3, 4, 5, 6, 7, 8, 9, 10" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "6 to 8 before" },
+      { "label": "Sow Outdoors", "value": "1 to 2 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "3 to 10" },
+      { "label": "Days to Harvest", "value": "90 to 110" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer through Fall" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "" },
+      { "label": "Water", "value": "" },
+      { "label": "Soil", "value": "" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "" }
+    ]
   },
-  {
-    "Crop": "Zinnia",
-    "Type": "flower",
-    "Kind": "Annual",
-    "Grow_Zones": "3, 4, 5, 6, 7, 8, 9, 10",
-    "Sow_Spring_or_Fall": "Spring",
-    "Seed Treatment": "No",
-    "Days_to_Germination": "7 to 10",
-    "Days_to_Harvest": "55 to 80",
-    "Harvest_Season": "Summer",
-    "Sow_Indoors": "4 to 6 before",
-    "Sow_Outdoors": "1 to 2 after",
-    "Sun_Requirement": "full sun",
-    "Water_Need": "moderate",
-    "Soil_Preference": "well-drained",
-    "Link": "https://bit.ly/4cZRPfE"
+  "Aster": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "3, 4, 5, 6, 7, 8, 9" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "6 to 8 before" },
+      { "label": "Sow Outdoors", "value": "1 to 2 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "7 to 21" },
+      { "label": "Days to Harvest", "value": "90 to 120" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer through Fall" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "" },
+      { "label": "Water", "value": "" },
+      { "label": "Soil", "value": "" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "" }
+    ]
   },
-  {
-    "Crop": "Basil",
-    "Type": "vegetable",
-    "Kind": "Annual",
-    "Grow_Zones": "4, 5, 6, 7, 8, 9, 10",
-    "Sow Spring or Fall": "Spring",
-    "Seed_Treatment": "None",
-    "Days_to_Germination": "7 to 10",
-    "Days_to_Harvest": "60 to 90",
-    "Harvest_Season": "Summer through Fall",
-    "Sow_Indoors": "4 to 6 before",
-    "Sow_Outdoors": "1 to 2 after",
-    "Sun_Requirement": "full sun",
-    "Water_Need": "moderate",
-    "Soil_Preference": "well-drained",
-    "Link": "https://bit.ly/EB-LemonBasil"
+  "Balsam (Impatiens)": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "3, 4, 5, 6, 7, 8, 9, 10" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "6 to 8 before" },
+      { "label": "Sow Outdoors", "value": "2 to 4 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "10 to 21" },
+      { "label": "Days to Harvest", "value": "60 to 70" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "" },
+      { "label": "Water", "value": "" },
+      { "label": "Soil", "value": "" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "" }
+    ]
   },
-  {
-    "Crop": "Beet",
-    "Type": "vegetable",
-    "Kind": "Annual",
-    "Grow_Zones": "2, 3, 4, 5, 6, 7, 8, 9, 10",
-    "Sow_Spring_or_Fall": "Spring",
-    "Seed_Treatment": "Soak Over Night",
-    "Days_to_Germination": "10 to 14",
-    "Days_to_Harvest": "50 to 60",
-    "Harvest_Season": "Spring",
-    "Sow_Indoors": "",
-    "Sow_Outdoors": "2 to 4 before",
-    "Sun_Requirement": "full sun",
-    "Water_Need": "moderate",
-    "Soil_Preference": "well-drained",
-    "Link": "https://bit.ly/3Sj8djy"
+  "Bells of Ireland": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "6 to 8 before" },
+      { "label": "Sow Outdoors", "value": "1 to 2 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "21 to 25" },
+      { "label": "Days to Harvest", "value": "90 to 110" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "" },
+      { "label": "Water", "value": "" },
+      { "label": "Soil", "value": "" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "" }
+    ]
   },
-  {
-    "Crop": "Melon",
-    "Type": "vegetable",
-    "Kind": "Annual",
-    "Grow_Zones": "2, 3, 4, 5, 6, 7, 8, 9, 10",
-    "Sow_Spring_or_Fall": "Spring",
-    "Seed_Treatment": "No",
-    "Days_to_Germination": "7 to 10",
-    "Days_to_Harvest": "80 to 100",
-    "Harvest_Season": "Summer",
-    "Sow_Indoors": "3 to 4 before",
-    "Sow_Outdoors": "2 to 3 after",
-    "Sun_Requirement": "full sun",
-    "Water_Need": "moderate",
-    "Soil_Preference": "well-drained",
-    "Link": "https://bit.ly/4kxNrbJ"
+  "Black-eyed Susan Vine": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "4, 5, 6, 7, 8, 9" },
+      { "label": "Kind", "value": "Perennial" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Fall or Spring" },
+      { "label": "Sow Indoors", "value": "6 to 8 before" },
+      { "label": "Sow Outdoors", "value": "2 to 3 before" },
+      { "label": "Seed Treatments", "value": "Stratify (Cold+Moisture)" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "7 to 21" },
+      { "label": "Days to Harvest", "value": "60 to 90" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer through Fall" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "" },
+      { "label": "Water", "value": "" },
+      { "label": "Soil", "value": "" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "" }
+    ]
   },
-  {
-    "Crop": "Pea",
-    "Type": "vegetable",
-    "Kind": "Annual",
-    "Grow_Zones": "1, 2, 3, 4, 5, 6, 7, 8, 9",
-    "Sow_Spring_or_Fall": "Spring",
-    "Seed_Treatment": "Soak Over Night",
-    "Days_to_Germination": "6 to 17",
-    "Days_to_Harvest": "40",
-    "Harvest_Season": "Spring and Fall",
-    "Sow_Indoors": "",
-    "Sow_Outdoors": "4 to 6 before",
-    "Sun_Requirement": "full sun",
-    "Water_Need": "moderate",
-    "Soil_Preference": "well-drained",
-    "Link": "https://bit.ly/4kCAJc3"
+  "Calendula": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "3, 4, 5, 6, 7, 8, 9, 10" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Fall or Spring" },
+      { "label": "Sow Indoors", "value": "3 to 4 before" },
+      { "label": "Sow Outdoors", "value": "1 to 2 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "7 to 14" },
+      { "label": "Days to Harvest", "value": "60 to 90" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Spring and Fall" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "" },
+      { "label": "Water", "value": "" },
+      { "label": "Soil", "value": "" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "" }
+    ]
   },
-  {
-    "Crop": "Radish",
-    "Type": "vegetable",
-    "Kind": "Annual",
-    "Grow_Zones": "3, 4, 5, 6, 7, 8, 9, 10",
-    "Sow_Spring_or_Fall": "Spring",
-    "Seed_Treatment": "Soak Over Night",
-    "Days_to_Germination": "10 to 14",
-    "Days_to_Harvest": "27 to 35",
-    "Harvest_Season": "Spring and Fall",
-    "Sow_Indoors": "",
-    "Sow_Outdoors": "4 to 6 before",
-    "Sun_Requirement": "part shade",
-    "Water_Need": "moderate",
-    "Soil_Preference": "well-drained",
-    "Link": "https://bit.ly/3SNEH5A"
+  "Canterbury Bells": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "3, 4, 5, 6, 7, 8, 9" },
+      { "label": "Kind", "value": "Biennial" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Fall or Spring" },
+      { "label": "Sow Indoors", "value": "4 to 6 before" },
+      { "label": "Sow Outdoors", "value": "1 to 2 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "14 to 21" },
+      { "label": "Days to Harvest", "value": "60 to 90" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Spring and Summer" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "" },
+      { "label": "Water", "value": "" },
+      { "label": "Soil", "value": "" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "" }
+    ]
   },
-  {
-    "Crop": "Watermelon",
-    "Type": "vegetable",
-    "Kind": "Annual",
-    "Grow_Zones": "3, 4, 5, 6, 7, 8, 9, 10",
-    "Sow Spring_or_Fall": "Spring",
-    "Seed_Treatment": "No",
-    "Days_to_Germination": "4 to 12",
-    "Days_to_Harvest": "60 to 90",
-    "Harvest_Season": "Summer",
-    "Sow_Indoors": "4 to 6 before",
-    "Sow_Outdoors": "3 to 4 after",
-    "Sun_Requirement": "full sun",
-    "Water_Need": "high",
-    "Soil_Preference": "well-drained",
-    "Link": "https://bit.ly/3SimVao"
+  "Carnation": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "3, 4, 5, 6, 7, 8, 9" },
+      { "label": "Kind", "value": "Perennial" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "6 to 8 before" },
+      { "label": "Sow Outdoors", "value": "1 to 2 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "7 to 14" },
+      { "label": "Days to Harvest", "value": "60 to 90" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "" },
+      { "label": "Water", "value": "" },
+      { "label": "Soil", "value": "" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "" }
+    ]
+  },
+  "Celosia": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "3, 4, 5, 6, 7, 8, 9, 10" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "6 to 8 before" },
+      { "label": "Sow Outdoors", "value": "2 to 4 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "7 to 14" },
+      { "label": "Days to Harvest", "value": "60 to 90" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer through Fall" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "" },
+      { "label": "Water", "value": "" },
+      { "label": "Soil", "value": "" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "" }
+    ]
+  },
+  "Gazania": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "8, 9, 10, 11" },
+      { "label": "Kind", "value": "Perennial" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "6 to 8 before" },
+      { "label": "Sow Outdoors", "value": "6 to 8 before" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "7 to 14" },
+      { "label": "Days to Harvest", "value": "90 to 110" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "" },
+      { "label": "Water", "value": "" },
+      { "label": "Soil", "value": "" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "" }
+    ]
+  },
+  "Gomphrena": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "2, 3, 4, 5, 6, 7, 8, 9, 10, 11" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "6 to 8 before" },
+      { "label": "Sow Outdoors", "value": "2 to 4 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "7 to 14" },
+      { "label": "Days to Harvest", "value": "80 to 100" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "" },
+      { "label": "Water", "value": "" },
+      { "label": "Soil", "value": "" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "" }
+    ]
+  },
+  "Hollyhock": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12" },
+      { "label": "Kind", "value": "Biennial" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Fall or Spring" },
+      { "label": "Sow Indoors", "value": "8 to 10 before" },
+      { "label": "Sow Outdoors", "value": "1 to 2 before" },
+      { "label": "Seed Treatments", "value": "soak over night" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "" },
+      { "label": "Days to Harvest", "value": "" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer through Fall" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "" },
+      { "label": "Water", "value": "" },
+      { "label": "Soil", "value": "" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "" }
+    ]
+  },
+  "Bachelor's Button": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "2, 3, 4, 5, 6, 7, 8, 9, 10" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "4 to 6 before" },
+      { "label": "Sow Outdoors", "value": "1 to 2 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "7 to 14" },
+      { "label": "Days to Harvest", "value": "60 to 90" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Spring through Fall" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "Full to Partial Sun" },
+      { "label": "Water", "value": "Average" },
+      { "label": "Soil", "value": "rich well draining" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "https://bit.ly/3YFe6Mh" }
+    ]
+  },
+  "Black-eyed Susan": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "3, 4, 5, 6, 7, 8, 9" },
+      { "label": "Kind", "value": "Biennial" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Fall or Spring" },
+      { "label": "Sow Indoors", "value": "6 to 8 before" },
+      { "label": "Sow Outdoors", "value": "2 to 4 after" },
+      { "label": "Seed Treatments", "value": "Stratify (Cold)" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "7 to 21" },
+      { "label": "Days to Harvest", "value": "60 to 90" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Spring through Fall" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "Full to Partial Sun" },
+      { "label": "Water", "value": "Average" },
+      { "label": "Soil", "value": "rich moist well draining" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "https://bit.ly/BEyedSusan" }
+    ]
+  },
+  "Cape Daisy": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "9, 10, 11" },
+      { "label": "Kind", "value": "Perennial" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "8 to 10 before" },
+      { "label": "Sow Outdoors", "value": "1 to 2 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "10 to 21" },
+      { "label": "Days to Harvest", "value": "60 to 80" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Spring to Fall" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "Full Sun" },
+      { "label": "Water", "value": "Average" },
+      { "label": "Soil", "value": "rich well draining" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "https://bit.ly/EBShastas" }
+    ]
+  },
+  "Dahlia": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "8, 9, 10, 11" },
+      { "label": "Kind", "value": "Perennial" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "8 to 10 before" },
+      { "label": "Sow Outdoors", "value": "2 to 4 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "8 to 11" },
+      { "label": "Days to Harvest", "value": "NA" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "Full Sun" },
+      { "label": "Water", "value": "Average" },
+      { "label": "Soil", "value": "rich well draining" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "https://bit.ly/4bExCvy" }
+    ]
+  },
+  "Zinnia": {
+    "Basics": [
+      { "label": "Type", "value": "Flower" },
+      { "label": "Grow Zone", "value": "3, 4, 5, 6, 7, 8, 9, 10" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "4 to 6 before" },
+      { "label": "Sow Outdoors", "value": "1 to 2 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "7 to 10" },
+      { "label": "Days to Harvest", "value": "55 to 80" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "Full Sun" },
+      { "label": "Water", "value": "Average" },
+      { "label": "Soil", "value": "rich moist well draining" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "https://bit.ly/4cZRPfE" }
+    ]
+  },
+  "Basil": {
+    "Basics": [
+      { "label": "Type", "value": "Vegetable" },
+      { "label": "Grow Zone", "value": "4, 5, 6, 7, 8, 9, 10" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "4 to 6 before" },
+      { "label": "Sow Outdoors", "value": "1 to 2 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "7 to 10" },
+      { "label": "Days to Harvest", "value": "60 to 90" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer through Fall" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "Full Sun" },
+      { "label": "Water", "value": "Average" },
+      { "label": "Soil", "value": "gravely poor well draining" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "https://bit.ly/EB-LemonBasil" }
+    ]
+  },
+  "Beet": {
+    "Basics": [
+      { "label": "Type", "value": "Vegetable" },
+      { "label": "Grow Zone", "value": "2, 3, 4, 5, 6, 7, 8, 9, 10" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "" },
+      { "label": "Sow Outdoors", "value": "2 to 4 before" },
+      { "label": "Seed Treatments", "value": "soak over night" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "10 to 14" },
+      { "label": "Days to Harvest", "value": "50 to 60" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Spring or Fall" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "Full Sun" },
+      { "label": "Water", "value": "Average" },
+      { "label": "Soil", "value": "rich moist well draining" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "https://bit.ly/3Sj8djy" }
+    ]
+  },
+  "Melon": {
+    "Basics": [
+      { "label": "Type", "value": "Vegetable" },
+      { "label": "Grow Zone", "value": "2, 3, 4, 5, 6, 7, 8, 9, 10" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "3 to 4 before" },
+      { "label": "Sow Outdoors", "value": "2 to 3 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "7 to 10" },
+      { "label": "Days to Harvest", "value": "80 to 100" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "Full Sun" },
+      { "label": "Water", "value": "Average" },
+      { "label": "Soil", "value": "rich moist well draining" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "https://bit.ly/4kxNrbJ" }
+    ]
+  },
+  "Pea": {
+    "Basics": [
+      { "label": "Type", "value": "Vegetable" },
+      { "label": "Grow Zone", "value": "1, 2, 3, 4, 5, 6, 7, 8, 9" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "NA" },
+      { "label": "Sow Outdoors", "value": "4 to 6 before" },
+      { "label": "Seed Treatments", "value": "soak over night" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "6 to 17" },
+      { "label": "Days to Harvest", "value": "40" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Spring and Fall" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "Full Sun" },
+      { "label": "Water", "value": "Average" },
+      { "label": "Soil", "value": "rich moist well draining" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "https://bit.ly/4kCAJc3" }
+    ]
+  },
+  "Radish": {
+    "Basics": [
+      { "label": "Type", "value": "Vegetable" },
+      { "label": "Grow Zone", "value": "3, 4, 5, 6, 7, 8, 9, 10" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "NA" },
+      { "label": "Sow Outdoors", "value": "4 to 6 before" },
+      { "label": "Seed Treatments", "value": "soak over night" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "10 to 14" },
+      { "label": "Days to Harvest", "value": "27 to 35" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Spring and Fall" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "Full to Partial Sun" },
+      { "label": "Water", "value": "Average" },
+      { "label": "Soil", "value": "rich moist well draining" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "https://bit.ly/3SNEH5A" }
+    ]
+  },
+  "Watermelon": {
+    "Basics": [
+      { "label": "Type", "value": "Vegetable" },
+      { "label": "Grow Zone", "value": "3, 4, 5, 6, 7, 8, 9, 10" },
+      { "label": "Kind", "value": "Annual" }
+    ],
+    "Sowing": [
+      { "label": "Sow When", "value": "Spring" },
+      { "label": "Sow Indoors", "value": "4 to 6 before" },
+      { "label": "Sow Outdoors", "value": "3 to 4 after" },
+      { "label": "Seed Treatments", "value": "None" }
+    ],
+    "Growth": [
+      { "label": "Days to Germination", "value": "4 to 12" },
+      { "label": "Days to Harvest", "value": "60 to 90" }
+    ],
+    "Harvest": [
+      { "label": "Harvest Season", "value": "Summer" }
+    ],
+    "Care": [
+      { "label": "Sun", "value": "Full Sun" },
+      { "label": "Water", "value": "High" },
+      { "label": "Soil", "value": "rich moist well draining" }
+    ],
+    "Links": [
+      { "label": "Buy Now", "value": "https://bit.ly/3SimVao" }
+    ]
   }
-]
+}
