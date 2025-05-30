@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { filterCrops } from "./utils/filterCrops";
 import { buildSowingCalendar } from "./utils/sowingCalendar";
+import CropCard from "./components/CropCard";
 
 const getLocal = (key, fallback) => {
   try {
@@ -20,7 +21,7 @@ const setLocal = (key, value) => {
 
 export default function GardenPlannerApp() {
   const [started, setStarted] = useState(getLocal("started", false));
-  const [cropData, setCropData] = useState([]);
+  const [cropData, setCropData] = useState({});
   const [zone, setZone] = useState(getLocal("zone", ""));
   const [category, setCategory] = useState(getLocal("category", "all"));
   const [filteredCrops, setFilteredCrops] = useState([]);
@@ -73,8 +74,17 @@ export default function GardenPlannerApp() {
   const handleSearch = () => {
     setLoading(true);
     setTimeout(() => {
-      const matches = filterCrops(cropData, { zone, category, sunRequirement, waterNeed, soilPreference });
-      setFilteredCrops(matches);
+      // Convert cropData object to array of [name, data] pairs for filtering
+      const cropArray = Object.entries(cropData).map(([name, data]) => ({
+        name,
+        ...data,
+        _raw: data // keep original data as _raw for rendering in CropCard
+      }));
+      // filterCrops should be updated to work with this structure or use your existing logic
+      const matches = filterCrops(cropArray, { zone, category, sunRequirement, waterNeed, soilPreference });
+      // Store as [name, cropData] pairs for CropCard rendering
+      const filtered = matches.map(crop => [crop.name, crop._raw]);
+      setFilteredCrops(filtered);
       setSowingCalendar(buildSowingCalendar(matches, frostDate));
       localStorage.setItem("sowingCalendar", JSON.stringify(matches));
       localStorage.setItem("frostDate", JSON.stringify(frostDate));
@@ -144,53 +154,33 @@ export default function GardenPlannerApp() {
               </h2>
               <ul style={{ listStyle: "none", padding: 0 }}>
                 {filteredCrops.length === 0 && <li>No crops found for your criteria.</li>}
-                {filteredCrops.map((crop, index) => (
-                  <li key={index} style={{ marginBottom: "1rem", padding: "1rem", backgroundColor: "#e6f4ea", borderRadius: "14px", boxShadow: "0 2px 4px rgba(0,0,0,0.05)", maxWidth: "600px", width: "90%", textAlign: "left", marginLeft: "auto", marginRight: "auto" }}>
-                    <strong>{crop.Crop}</strong> – {crop.Type}
-                    <ul style={{ paddingLeft: "1rem", marginTop: "0.5rem" }}>
-                      <li>📦 Zones: {crop.Grow_Zones}</li>
-                      <li>🌼 Type: {crop.Kind}</li>
-                      <li>⌚ Sow When: {crop.Sow_Spring_or_Fall}</li>
-                      <li>🗓️ Sow Indoors: {crop.Sow_Indoors}</li>
-                      <li>🌿 Sow Outdoors: {crop.Sow_Outdoors}</li>
-                      <li>💦 Seed Treatement: {crop.Seed_Treatment}</li>
-                      <li>🌱 Days to Germinate: {crop.Days_to_Germination}</li>
-                      <li>⏳ Days to Harvest: {crop.Days_to_Harvest}</li>
-                      <li>⏲️ Harvest Season: {crop.Harvest_Season}</li>
-                      <li>🌞 Sun: {crop.Sun_Requirement}</li>
-                      <li>💧 Water: {crop.Water_Need}</li>
-                      <li>🪱 Soil: {crop.Soil_Preference}</li>
-                      {crop.Link && (
-                        <li>
-                          <a href={crop.Link} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: "0.5rem", padding: "0.4rem 0.75rem", backgroundColor: "#40916c", color: "#fff", textDecoration: "none", borderRadius: "4px", fontSize: "0.9rem" }}>🛒 Buy Now</a>
-                        </li>
-                      )}
-                    </ul>
+                {filteredCrops.map(([cropName, cropDataItem]) => (
+                  <li key={cropName} style={{ marginBottom: "1rem", padding: "1rem", backgroundColor: "#e6f4ea", borderRadius: "14px", boxShadow: "0 2px 4px rgba(0,0,0,0.05)", maxWidth: "600px" }}>
+                    <CropCard cropName={cropName} cropData={cropDataItem} />
                   </li>
                 ))}
               </ul>
 
-             <h2 style={{ color: "#2d6a4f", marginTop: "2.5rem" }}>📆 Plan Your Sowing</h2>
-<button
-  onClick={() => {
-    const encodedData = encodeURIComponent(JSON.stringify(filteredCrops));
-    const encodedDate = encodeURIComponent(frostDate);
-    window.open(`/calendar.html?calendar=${encodedData}&frostDate=${encodedDate}`, "_blank");
-  }}
-  style={{
-    marginTop: "1rem",
-    backgroundColor: "#457b9d",
-    color: "white",
-    padding: "0.75rem",
-    border: "none",
-    borderRadius: "6px",
-    fontSize: "1rem",
-    cursor: "pointer"
-  }}
->
-  📅 Open Sowing Calendar
-</button>
-
+              <h2 style={{ color: "#2d6a4f", marginTop: "2.5rem" }}>📆 Plan Your Sowing</h2>
+              <button
+                onClick={() => {
+                  const encodedData = encodeURIComponent(JSON.stringify(filteredCrops));
+                  const encodedDate = encodeURIComponent(frostDate);
+                  window.open(`/calendar.html?calendar=${encodedData}&frostDate=${encodedDate}`, "_blank");
+                }}
+                style={{
+                  marginTop: "1rem",
+                  backgroundColor: "#457b9d",
+                  color: "white",
+                  padding: "0.75rem",
+                  border: "none",
+                  borderRadius: "6px",
+                  fontSize: "1rem",
+                  cursor: "pointer"
+                }}
+              >
+                📅 Open Sowing Calendar
+              </button>
 
               {sowingCalendar.length === 0 && (
                 <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "1rem" }}>
