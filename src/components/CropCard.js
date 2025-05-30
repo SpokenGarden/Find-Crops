@@ -1,12 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 
-// Card styling adapted from CropSearchResults.jsx
+// Card styling
 const cardShadow = "0 4px 16px rgba(34,74,66,0.08)";
 const cardBorder = "1px solid #d0ede1";
 const cardBg = "linear-gradient(135deg, #f3fcf7 0%, #e6f9ee 100%)";
 
+// Show only these sections by default (customize as needed)
+const DEFAULT_SECTIONS = ["Basics", "Growth", "Care"];
+
 function CropCard({ cropName, cropData }) {
-  if (!cropData) return null;
+  const [expanded, setExpanded] = useState(false);
+
+  // Split sections into two columns as evenly as possible
+  const sectionEntries = Object.entries(cropData);
+  const mid = Math.ceil(sectionEntries.length / 2);
+  const leftSections = sectionEntries.slice(0, mid);
+  const rightSections = sectionEntries.slice(mid);
+
+  // If not expanded, filter for only the default sections (still split evenly)
+  const filteredEntries = expanded
+    ? sectionEntries
+    : sectionEntries.filter(([section]) => DEFAULT_SECTIONS.includes(section));
+  const filteredMid = Math.ceil(filteredEntries.length / 2);
+  const filteredLeft = filteredEntries.slice(0, filteredMid);
+  const filteredRight = filteredEntries.slice(filteredMid);
+
+  // Helper for rendering sections
+  function renderSections(sections) {
+    return sections.map(([section, fields]) => (
+      <div key={section} style={{ marginBottom: "1.2em" }}>
+        <h3 style={{
+          margin: "0 0 0.3em 0",
+          fontSize: "1.07rem",
+          color: "#228B22"
+        }}>
+          {section}
+        </h3>
+        <ul style={{
+          paddingLeft: 0,
+          margin: 0,
+          listStyle: "none"
+        }}>
+          {fields.map(({ label, value }) => (
+            <li key={label} style={{ marginBottom: 6, display: "flex", alignItems: "center" }}>
+              <span style={{ fontSize: "1.1em", marginRight: 7 }}>
+                {getIconForLabel(label)}
+              </span>
+              <span style={{ fontWeight: 600, color: "#22543d", marginRight: 7 }}>{label}:</span>
+              <span>{value}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ));
+  }
 
   return (
     <div
@@ -16,14 +63,17 @@ function CropCard({ cropName, cropData }) {
         boxShadow: cardShadow,
         border: cardBorder,
         padding: "1.2rem 1.5rem",
-        marginBottom: "1rem",
+        marginBottom: "1.5rem",
         display: "flex",
         flexDirection: "column",
         alignItems: "stretch",
         position: "relative",
-        maxWidth: "600px"
+        maxWidth: 700,
+        width: "100%",
+        minWidth: 0,
       }}
     >
+      {/* Card header */}
       <div style={{
         display: "flex",
         alignItems: "center",
@@ -34,39 +84,47 @@ function CropCard({ cropName, cropData }) {
           color: "#155943",
           fontWeight: 700,
           fontSize: "1.23rem",
-          letterSpacing: 0.5
+          letterSpacing: 0.5,
+          flex: 1
         }}>
           {cropName}
         </span>
       </div>
-      {/* Render each section */}
-      {Object.entries(cropData).map(([section, fields]) => (
-        <div key={section} style={{ marginBottom: "1.2em" }}>
-          <h3 style={{
-            margin: "0 0 0.3em 0",
-            fontSize: "1.07rem",
-            color: "#228B22"
-          }}>
-            {section}
-          </h3>
-          <ul style={{
-            paddingLeft: 0,
-            margin: 0,
-            listStyle: "none"
-          }}>
-            {fields.map(({ label, value }) => (
-              <li key={label} style={{ marginBottom: 6, display: "flex", alignItems: "center" }}>
-                {/* Optionally add an emoji for well-known labels */}
-                <span style={{ fontSize: "1.1em", marginRight: 7 }}>
-                  {getIconForLabel(label)}
-                </span>
-                <span style={{ fontWeight: 600, color: "#22543d", marginRight: 7 }}>{label}:</span>
-                <span>{value}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      {/* Two columns for sections */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "1.2em",
+          width: "100%",
+          marginBottom: "0.8em",
+        }}
+      >
+        {renderSections(expanded ? leftSections : filteredLeft)}
+        {renderSections(expanded ? rightSections : filteredRight)}
+      </div>
+      {/* Show More/Less button if there are hidden sections */}
+      {sectionEntries.length > DEFAULT_SECTIONS.length && (
+        <button
+          style={{
+            alignSelf: "center",
+            marginTop: 4,
+            marginBottom: 2,
+            background: "#d0ede1",
+            color: "#155943",
+            border: "none",
+            borderRadius: "8px",
+            padding: "0.4em 1em",
+            fontSize: "1em",
+            fontWeight: 600,
+            cursor: "pointer",
+            transition: "background 0.2s",
+          }}
+          onClick={() => setExpanded(e => !e)}
+        >
+          {expanded ? "Show Less" : "Show More"}
+        </button>
+      )}
     </div>
   );
 }
