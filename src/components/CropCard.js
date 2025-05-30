@@ -16,18 +16,30 @@ function CropCard({ cropName, cropData }) {
   const hasCare = cropData["Care"];
   let displayData = { ...cropData };
   if (hasBasics || hasCare) {
-    // Combine fields, both may exist or only one
     const combinedFields = [
       ...(hasBasics ? cropData["Basics"] : []),
       ...(hasCare ? cropData["Care"] : []),
     ];
-    // Remove old sections, add new
     delete displayData["Basics"];
     delete displayData["Care"];
     displayData = {
       "Basics & Care": combinedFields,
       ...displayData,
     };
+  }
+
+  // Extract Link info and remove Link section from displayData
+  let buyNowUrl = "";
+  if (displayData["Link"]) {
+    const linkFields = displayData["Link"];
+    const buyNowField = linkFields.find(
+      (field) =>
+        field.label.toLowerCase() === "buy now" &&
+        typeof field.value === "string" &&
+        field.value.startsWith("http")
+    );
+    if (buyNowField) buyNowUrl = buyNowField.value;
+    delete displayData["Link"];
   }
 
   const sectionEntries = Object.entries(displayData);
@@ -142,6 +154,31 @@ function CropCard({ cropName, cropData }) {
         >
           {expanded ? "Show Less" : "Show More"}
         </button>
+      )}
+      {/* Buy Now button always visible if link exists */}
+      {buyNowUrl && (
+        <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 8 }}>
+          <a
+            href={buyNowUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              background: "#228B22",
+              color: "#fff",
+              padding: "0.55em 1.2em",
+              borderRadius: "8px",
+              textDecoration: "none",
+              fontWeight: 700,
+              fontSize: "1em",
+              boxShadow: "0 2px 6px rgba(34,74,66,0.08)",
+              transition: "background 0.2s",
+              marginLeft: 8,
+              display: "inline-block"
+            }}
+          >
+            Buy Now
+          </a>
+        </div>
       )}
     </div>
   );
