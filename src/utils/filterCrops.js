@@ -1,20 +1,73 @@
-export function filterCrops(crops, { zone, category, sunRequirement, waterNeed, soilPreference }) {
-  return crops.filter((crop) => {
-    const zoneMatch =
-      crop.Grow_Zones &&
-      (crop.Grow_Zones.split(",").map(z => z.trim()).includes(zone) ||
-        crop.Grow_Zones.split("to").some(range => {
-          const parts = range.split("to").map(z => parseInt(z.trim(), 10));
-          if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1]) && !isNaN(parseInt(zone, 10))) {
-            return parseInt(zone, 10) >= parts[0] && parseInt(zone, 10) <= parts[1];
-          }
-          return false;
-        })
-      );
-    const categoryMatch = category === "all" || crop.Type === category;
-    const sunMatch = sunRequirement === "all" || crop.Sun_Requirement === sunRequirement;
-    const waterMatch = waterNeed === "all" || crop.Water_Need === waterNeed;
-    const soilMatch = soilPreference === "all" || crop.Soil_Preference === soilPreference;
-    return zoneMatch && categoryMatch && sunMatch && waterMatch && soilMatch;
+// filterCrops.js
+
+export function filterCrops(crops, filters) {
+  const {
+    zone,
+    category,
+    sunRequirement,
+    waterNeed,
+    soilPreference,
+  } = filters;
+
+  // Helper function to get value from a section by label
+  function getValue(section, label) {
+    if (!section) return "";
+    const found = section.find(item => item.label && item.label.toLowerCase() === label.toLowerCase());
+    return found ? (found.value || "") : "";
+  }
+
+  return crops.filter(crop => {
+    // Category filtering (flowers, herbs, vegetables)
+    if (
+      category &&
+      category !== "all" &&
+      getValue(crop.Basics, "Type").toLowerCase() !== category
+    ) {
+      return false;
+    }
+
+    // Zone filtering
+    if (
+      zone &&
+      getValue(crop.Basics, "Grow Zone") &&
+      !getValue(crop.Basics, "Grow Zone")
+        .split(",")
+        .map(z => z.trim())
+        .includes(zone)
+    ) {
+      return false;
+    }
+
+    // Sun filtering
+    if (
+      sunRequirement &&
+      sunRequirement !== "all" &&
+      getValue(crop.Care, "Sun") &&
+      !getValue(crop.Care, "Sun").toLowerCase().includes(sunRequirement)
+    ) {
+      return false;
+    }
+
+    // Water filtering
+    if (
+      waterNeed &&
+      waterNeed !== "all" &&
+      getValue(crop.Care, "Water") &&
+      !getValue(crop.Care, "Water").toLowerCase().includes(waterNeed)
+    ) {
+      return false;
+    }
+
+    // Soil filtering
+    if (
+      soilPreference &&
+      soilPreference !== "all" &&
+      getValue(crop.Care, "Soil") &&
+      !getValue(crop.Care, "Soil").toLowerCase().includes(soilPreference)
+    ) {
+      return false;
+    }
+
+    return true;
   });
 }
