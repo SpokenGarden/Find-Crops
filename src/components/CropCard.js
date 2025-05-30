@@ -5,7 +5,6 @@ const cardShadow = "0 4px 16px rgba(34,74,66,0.08)";
 const cardBorder = "1px solid #d0ede1";
 const cardBg = "linear-gradient(135deg, #f3fcf7 0%, #e6f9ee 100%)";
 
-// Show only these sections by default (customize as needed)
 const DEFAULT_SECTIONS = ["Basics & Care", "Growth"];
 
 function CropCard({ cropName, cropData }) {
@@ -28,25 +27,27 @@ function CropCard({ cropName, cropData }) {
     };
   }
 
-  // Extract Buy Now URL from Link section and remove Link from displayData
+  // Extract Buy Now URL from Link/Links section and remove it from displayData
   let buyNowUrl = "";
-  if ("Link" in displayData) {
-    const linkFields = Array.isArray(displayData["Link"]) ? displayData["Link"] : [];
-    // Find field labeled "Buy Now" with a http(s) url
-    const buyNowField = linkFields.find(
-      (field) =>
-        typeof field.label === "string" &&
-        field.label.trim().toLowerCase() === "buy now" &&
-        typeof field.value === "string" &&
-        /^https?:\/\//i.test(field.value.trim())
-    );
-    if (buyNowField) {
-      buyNowUrl = buyNowField.value.trim();
+  // Support both "Link" and "Links" as section names just in case
+  ["Link", "Links"].forEach(linkKey => {
+    if (displayData[linkKey]) {
+      const linkFields = Array.isArray(displayData[linkKey]) ? displayData[linkKey] : [];
+      const buyNowField = linkFields.find(
+        (field) =>
+          typeof field.label === "string" &&
+          field.label.trim().toLowerCase() === "buy now" &&
+          typeof field.value === "string" &&
+          /^https?:\/\//i.test(field.value.trim())
+      );
+      if (buyNowField) {
+        buyNowUrl = buyNowField.value.trim();
+      }
+      delete displayData[linkKey];
     }
-    // Remove Link section from displayData to not render it as a section
-    delete displayData["Link"];
-  }
+  });
 
+  // Only render sections other than Link/Links
   const sectionEntries = Object.entries(displayData);
   const mid = Math.ceil(sectionEntries.length / 2);
   const leftSections = sectionEntries.slice(0, mid);
