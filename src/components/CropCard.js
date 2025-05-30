@@ -28,7 +28,7 @@ function CropCard({ cropName, cropData }) {
     };
   }
 
-  // Extract Link info and remove Link section from displayData
+  // Extract Buy Now info from Link section (if exists), remove Link from displayData
   let buyNowUrl = "";
   if (displayData["Link"]) {
     const linkFields = displayData["Link"];
@@ -36,7 +36,7 @@ function CropCard({ cropName, cropData }) {
       (field) =>
         field.label.toLowerCase() === "buy now" &&
         typeof field.value === "string" &&
-        field.value.startsWith("http")
+        (field.value.startsWith("https://") || field.value.startsWith("http://"))
     );
     if (buyNowField) buyNowUrl = buyNowField.value;
     delete displayData["Link"];
