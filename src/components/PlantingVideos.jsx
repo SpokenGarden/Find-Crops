@@ -3,16 +3,16 @@ import BackHomeButton from "./BackHomeButton";
 
 const sampleVideos = [
   {
-    title: "Live - Winter Seed Sowing Methods and Seeds to Start ⛄",
+    title: "Live-Winter Seed Sowing Methods & Seeds to Start ⛄",
     url: "https://www.youtube.com/embed/I_p2CG2XNkQ"
   },
   {
-    title: "Transplanting Seedlings to the Garden 🏡",
-    url: "https://www.youtube.com/embed/YOUR_VIDEO_ID_2"
+    title: "4 Signs Your Seedlings Need to Be Transplanted 👍",
+    url: "https://www.youtube.com/embed/tWf0JtxEjY8"
   },
   {
-    title: "Direct Sowing in the Garden 🌻",
-    url: "https://www.youtube.com/embed/YOUR_VIDEO_ID_3"
+    title: "6 Late Spring Flower Seeds To Sow For Summer Flowers 🌼",
+    url: "https://www.youtube.com/embed/4L8yIFoX2j8YOUR_VIDEO_ID_3"
   },
   {
     title: "Winter Seed Sowing in Jugs ❄️",
