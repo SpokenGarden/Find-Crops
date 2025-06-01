@@ -3,23 +3,23 @@ import BackHomeButton from "./BackHomeButton";
 
 const sampleVideos = [
   {
-    title: "Live-Winter Seed Sowing Methods & Seeds to Start ⛄",
+    title: "Live-Winter Seed Sowing Methods & Seeds to Start",
     url: "https://www.youtube.com/embed/I_p2CG2XNkQ"
   },
   {
-    title: "4 Signs Your Seedlings Need to Be Transplanted 👍",
+    title: "4 Signs Your Seedlings Need to Be Transplanted",
     url: "https://www.youtube.com/embed/tWf0JtxEjY8"
   },
   {
-    title: "6 Late Spring Flower Seeds To Sow For Summer Flowers 🌼",
+    title: "6 Late Spring Flower Seeds To Sow For Summer Flowers",
     url: "https://www.youtube.com/embed/4L8yIFoX2j8YOUR_VIDEO_ID_3"
   },
   {
-    title: "Winter Seed Sowing in Jugs ❄️",
+    title: "Winter Seed Sowing in Jugs",
     url: "https://www.youtube.com/embed/sYWimXvcuaE"
   },
   {
-    title: "Cool Season Vegetable Seed Sowing 🥕",
+    title: "Cool Season Vegetable Seed Sowing",
     url: "https://www.youtube.com/embed/ji4-uvgvVY0"
   }
 ];
@@ -43,7 +43,7 @@ const PlantingVideos = ({ onBack }) => (
     <div style={{ position: "absolute", top: 20, left: 20 }}>
       <BackHomeButton onClick={onBack} />
     </div>
-    <h2 style={{ color: "#22543d", marginTop: 0, textAlign: "center" }}>🎥 Watch Planting Videos</h2>
+    <h2 style={{ color: "#22543d", marginTop: 0, textAlign: "center" }}> Watch Planting Videos</h2>
     <p>Learn how to plant seeds, transplant seedlings, and more:</p>
     <div style={{
       display: "flex",
