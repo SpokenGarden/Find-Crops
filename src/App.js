@@ -111,19 +111,19 @@ export default function GardenPlannerApp() {
           <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem" }}>
             <button
               onClick={() => setScreen("search")}
-              style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#52b788", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px" }}
+              style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#5271ff", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px" }}
             >
               Start Planning
             </button>
             <button
               onClick={() => setScreen("tools")}
-              style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#40916c", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px" }}
+              style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#ffeb48", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px" }}
             >
               Get Tools and Supplies
             </button>
             <button
               onClick={() => setScreen("videos")}
-              style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#457b9d", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px" }}
+              style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#05b210", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px" }}
             >
               Watch Planting Videos
             </button>
