@@ -1,4 +1,5 @@
 import React from "react";
+import BackHomeButton from "./BackHomeButton";
 
 const toolsList = [
   { name: "Hand Trowel", description: "Great for digging small holes, transplanting, and removing weeds." },
@@ -9,8 +10,22 @@ const toolsList = [
 ];
 
 const ToolsAndSupplies = ({ onBack }) => (
-  <div style={{ maxWidth: 600, margin: "2rem auto", padding: "2rem", background: "#f9f9f6", borderRadius: 16 }}>
-    <h2 style={{ color: "#22543d" }}>🛠️ Garden Tools & Supplies</h2>
+  <div
+    style={{
+      maxWidth: 600,
+      margin: "2rem auto",
+      padding: "2rem",
+      background: "#f9f9f6",
+      borderRadius: 16,
+      position: "relative",
+      minHeight: 400,
+    }}
+  >
+    {/* Top Left */}
+    <div style={{ position: "absolute", top: 20, left: 20 }}>
+      <BackHomeButton onClick={onBack} />
+    </div>
+    <h2 style={{ color: "#22543d", marginTop: 0, textAlign: "center" }}>🛠️ Garden Tools & Supplies</h2>
     <p>Here are some recommended tools and supplies for your garden:</p>
     <ul style={{ textAlign: "left" }}>
       {toolsList.map((tool, idx) => (
@@ -19,12 +34,10 @@ const ToolsAndSupplies = ({ onBack }) => (
         </li>
       ))}
     </ul>
-    <button
-      style={{ marginTop: "2rem", padding: "0.7rem 2rem", fontSize: "1rem" }}
-      onClick={onBack}
-    >
-      Back to Home
-    </button>
+    {/* Bottom */}
+    <div style={{ marginTop: "3rem", textAlign: "center" }}>
+      <BackHomeButton onClick={onBack} />
+    </div>
   </div>
 );
 
