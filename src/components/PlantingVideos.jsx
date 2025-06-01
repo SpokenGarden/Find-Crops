@@ -16,18 +16,21 @@ const sampleVideos = [
   },
   {
     title: "Winter Seed Sowing in Jugs ❄️",
-    url: "https://www.youtube.com/embed/sYWimXvcuaE" // <-- changed to /embed/
+    url: "https://www.youtube.com/embed/sYWimXvcuaE"
   },
   {
     title: "Cool Season Vegetable Seed Sowing 🥕",
-    url: "https://www.youtube.com/embed/ji4-uvgvVY0" // <-- changed to /embed/
+    url: "https://www.youtube.com/embed/ji4-uvgvVY0"
   }
 ];
+
+const VIDEO_WIDTH = 350; // px
+const VIDEO_ASPECT_RATIO = 9 / 16; // 16:9 aspect ratio
 
 const PlantingVideos = ({ onBack }) => (
   <div
     style={{
-      maxWidth: 800,
+      maxWidth: 1200,
       margin: "2rem auto",
       padding: "2rem",
       background: "#f9f9f6",
@@ -42,13 +45,26 @@ const PlantingVideos = ({ onBack }) => (
     </div>
     <h2 style={{ color: "#22543d", marginTop: 0, textAlign: "center" }}>🎥 Watch Planting Videos</h2>
     <p>Learn how to plant seeds, transplant seedlings, and more:</p>
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "2rem", justifyContent: "center" }}>
+    <div style={{
+      display: "flex",
+      flexWrap: "wrap",
+      gap: "2rem",
+      justifyContent: "center"
+    }}>
       {sampleVideos.map((vid, idx) => (
-        <div key={idx} style={{ maxWidth: 350 }}>
-          <div style={{ marginBottom: 10, fontWeight: 600 }}>{vid.title}</div>
+        <div
+          key={idx}
+          style={{
+            width: VIDEO_WIDTH,
+            flex: `0 0 ${VIDEO_WIDTH}px`,
+            marginBottom: "2rem"
+          }}
+        >
+          <div style={{ marginBottom: 10, fontWeight: 600, textAlign: "center" }}>{vid.title}</div>
           <div style={{
             position: "relative",
-            paddingBottom: "56.25%",
+            width: "100%",
+            paddingBottom: "56.25%", // 16:9 aspect ratio
             height: 0,
             overflow: "hidden",
             borderRadius: 10,
