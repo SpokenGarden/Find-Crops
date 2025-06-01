@@ -16,54 +16,61 @@ export function filterCrops(crops, filters) {
     return found ? (found.value || "") : "";
   }
 
+  // Helper to check if a value is valid (not NA, not empty)
+  function isValidValue(val) {
+    return val && val.trim().toLowerCase() !== "na";
+  }
+
   return crops.filter(crop => {
     // Category filtering (flowers, herbs, vegetables)
+    const typeVal = getValue(crop.Basics, "Type");
     if (
       category &&
       category !== "all" &&
-      getValue(crop.Basics, "Type").toLowerCase() !== category
+      (!isValidValue(typeVal) || typeVal.toLowerCase() !== category)
     ) {
       return false;
     }
 
     // Zone filtering
+    const growZoneVal = getValue(crop.Basics, "Grow Zone");
     if (
       zone &&
-      getValue(crop.Basics, "Grow Zone") &&
-      !getValue(crop.Basics, "Grow Zone")
-        .split(",")
-        .map(z => z.trim())
-        .includes(zone)
+      (!isValidValue(growZoneVal) ||
+        !growZoneVal
+          .split(",")
+          .map(z => z.trim())
+          .includes(zone))
     ) {
       return false;
     }
 
     // Sun filtering
+    const sunVal = getValue(crop.Care, "Sun");
     if (
       sunRequirement &&
       sunRequirement !== "all" &&
-      getValue(crop.Care, "Sun") &&
-      !getValue(crop.Care, "Sun").toLowerCase().includes(sunRequirement)
+      (!isValidValue(sunVal) || !sunVal.toLowerCase().includes(sunRequirement))
     ) {
       return false;
     }
 
     // Water filtering
+    const waterVal = getValue(crop.Care, "Water");
     if (
       waterNeed &&
       waterNeed !== "all" &&
-      getValue(crop.Care, "Water") &&
-      !getValue(crop.Care, "Water").toLowerCase().includes(waterNeed)
+      (!isValidValue(waterVal) || !waterVal.toLowerCase().includes(waterNeed))
     ) {
       return false;
     }
 
     // Soil filtering
+    const soilVal = getValue(crop.Care, "Soil");
     if (
       soilPreference &&
       soilPreference !== "all" &&
-      getValue(crop.Care, "Soil") &&
-      !getValue(crop.Care, "Soil").toLowerCase().includes(soilPreference)
+      (!isValidValue(soilVal) || !soilVal.toLowerCase().includes(soilPreference))
     ) {
       return false;
     }
