@@ -104,28 +104,28 @@ export default function GardenPlannerApp() {
     return (
       <div style={{ fontFamily: "Poppins, sans-serif", padding: "1rem", margin: "0 auto", backgroundColor: "#fdfdfc", maxWidth: "100%" }}>
         <div style={{ textAlign: "center", padding: "2rem" }}>
-          <h1 style={{ fontSize: "2rem", color: "#2d6a4f" }}>🌱 Welcome to The What-Grows Garden Planner</h1>
+          <h1 style={{ fontSize: "2rem", color: "#2d6a4f" }}>🌱 Welcome to The Dibby-Grow-Buddy Garden Planner</h1>
           <p style={{ fontSize: "1.1rem", margin: "1rem 0" }}>
-            Plan what to grow, when to sow with your frost date, grow zone, specific planting depths and spacings, and a whole lot more.
+            Plan what to grow, when to sow with your frost date, grow zone look-up, specific planting depths and spacings, and a whole lot more.
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem" }}>
             <button
               onClick={() => setScreen("search")}
               style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#52b788", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px" }}
             >
-              🌿 Start Planning
+              Start Planning
             </button>
             <button
               onClick={() => setScreen("tools")}
               style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#40916c", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px" }}
             >
-              🛠️ Get Tools and Supplies
+              Get Tools and Supplies
             </button>
             <button
               onClick={() => setScreen("videos")}
               style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#457b9d", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px" }}
             >
-              🎥 Watch Planting Videos
+              Watch Planting Videos
             </button>
           </div>
         </div>
