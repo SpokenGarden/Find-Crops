@@ -162,7 +162,7 @@ export default function GardenPlannerApp() {
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem", width: "100%", maxWidth: "500px" }}>
-          <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>🌱 The What-Grows Garden Planner</h1>
+          <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>🌱 The Dibby Grow Buddy Garden Planner</h1>
           <label>Grow Zone:<input type="text" value={zone} onChange={e => setZone(e.target.value)} style={{ width: "100%", padding: "0.5rem" }} /></label>
           <label>Last Frost Date:<input type="date" value={frostDate} onChange={e => setFrostDate(e.target.value)} style={{ width: "100%", padding: "0.5rem" }} /></label>
           <button onClick={handleGetLocation} style={{ padding: "0.6rem", borderRadius: "4px", backgroundColor: "#d3f9d8" }}>📍 Use My Location</button>
@@ -205,14 +205,30 @@ export default function GardenPlannerApp() {
           <h2 style={{ color: "#2d6a4f", marginTop: "2rem" }}>
             🌾 {filteredCrops.length} Crop{filteredCrops.length !== 1 ? "s" : ""} Found:
           </h2>
-          <ul style={{ listStyle: "none", padding: 0 }}>
-            {filteredCrops.length === 0 && <li>No crops found for your criteria.</li>}
-            {filteredCrops.map(([cropName, cropDataItem]) => (
-              <li key={cropName} style={{ marginBottom: "1rem", padding: "1rem", backgroundColor: "#e6f4ea", borderRadius: "14px", boxShadow: "0 2px 4px rgba(0,0,0,0.05)", maxWidth: "600px" }}>
-                <CropCard cropName={cropName} cropData={cropDataItem} />
-              </li>
-            ))}
-          </ul>
+         <ul
+  style={{
+    listStyle: "none",
+    padding: 0,
+    margin: 0,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
+  }}
+>
+  {filteredCrops.map(([cropName, cropDataItem]) => (
+    <li
+      key={cropName}
+      style={{
+        width: "100%",
+        maxWidth: 700,
+        marginBottom: "1.5rem", // space between cards
+        boxSizing: "border-box"
+      }}
+    >
+      <CropCard cropName={cropName} cropData={cropDataItem} />
+    </li>
+  ))}
+</ul>
 
           <h2 style={{ color: "#2d6a4f", marginTop: "2.5rem" }}>📆 Plan Your Sowing</h2>
           <button
