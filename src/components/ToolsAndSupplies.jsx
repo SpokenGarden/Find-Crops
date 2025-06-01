@@ -1,18 +1,67 @@
 import React from "react";
 import BackHomeButton from "./BackHomeButton";
 
-const toolsList = [
-  { name: "Hand Trowel", description: "Great for digging small holes, transplanting, and removing weeds." },
-  { name: "Pruning Shears", description: "Essential for trimming and shaping plants and shrubs." },
-  { name: "Watering Can", description: "For gentle, accurate watering." },
-  { name: "Gardening Gloves", description: "Protect your hands from dirt and thorns." },
-  // Add more tools or supplies as needed!
+// Example data structure for easy expansion:
+const toolSections = [
+  {
+    title: "Seed Sowing Tools",
+    items: [
+      { name: "Dibber", description: "For making holes in soil for seeds or seedlings." },
+      { name: "Seed Sower", description: "Helps distribute seeds evenly in rows or trays." },
+      // Add more seed sowing tools here!
+    ]
+  },
+  {
+    title: "Seed Sowing Supplies",
+    items: [
+      { name: "Potting Soil", description: "Nutrient-rich soil for starting seeds indoors or outdoors." },
+      { name: "Seed Trays", description: "Plastic or biodegradable trays for starting many seeds at once." },
+      { name: "Growing Medium", description: "Materials like peat, coir, or seed starting mix." },
+      { name: "Heating Mats", description: "Provides bottom heat for faster seed germination." },
+      { name: "Thermostat", description: "Regulates mat temperature for optimal seed starting." },
+      { name: "Watering Can", description: "Gentle watering for delicate seedlings." },
+      // Add more sowing supplies here!
+    ]
+  },
+  {
+    title: "Pruning Tools",
+    items: [
+      { name: "Pruning Shears", description: "For trimming and shaping plants." },
+      { name: "Bypass Loppers", description: "For cutting thicker branches and stems." },
+      // Add more pruning tools here!
+    ]
+  },
+  {
+    title: "Planting Tools",
+    items: [
+      { name: "Hand Trowel", description: "For digging small planting holes and transplanting." },
+      { name: "Transplanter", description: "Narrow tool for moving seedlings or small plants." },
+      // Add more planting tools here!
+    ]
+  },
+  {
+    title: "Fertilizing Supplies",
+    items: [
+      { name: "Compost", description: "Organic matter for enriching garden soil." },
+      { name: "Fertilizer Spreader", description: "Applies fertilizer evenly to lawn or beds." },
+      // Add more fertilizing supplies here!
+    ]
+  },
+  {
+    title: "Irrigation Tools & Supplies",
+    items: [
+      { name: "Soaker Hose", description: "Delivers water directly to plant roots." },
+      { name: "Drip Irrigation Kit", description: "Efficient watering system for garden beds." },
+      // Add more irrigation tools and supplies here!
+    ]
+  },
+  // Add more sections as needed!
 ];
 
 const ToolsAndSupplies = ({ onBack }) => (
   <div
     style={{
-      maxWidth: 600,
+      maxWidth: 800,
       margin: "2rem auto",
       padding: "2rem",
       background: "#f9f9f6",
@@ -26,14 +75,23 @@ const ToolsAndSupplies = ({ onBack }) => (
       <BackHomeButton onClick={onBack} />
     </div>
     <h2 style={{ color: "#22543d", marginTop: 0, textAlign: "center" }}>🛠️ Garden Tools & Supplies</h2>
-    <p>Here are some recommended tools and supplies for your garden:</p>
-    <ul style={{ textAlign: "left" }}>
-      {toolsList.map((tool, idx) => (
-        <li key={idx} style={{ marginBottom: 12 }}>
-          <strong>{tool.name}</strong>: {tool.description}
-        </li>
+    <p style={{ textAlign: "center" }}>
+      Browse tools and supplies by category. Click a section below to explore!
+    </p>
+    <div>
+      {toolSections.map((section, idx) => (
+        <div key={idx} style={{ marginBottom: "2.5rem" }}>
+          <h3 style={{ color: "#40916c", marginBottom: "0.5rem" }}>{section.title}</h3>
+          <ul style={{ textAlign: "left", paddingLeft: 24 }}>
+            {section.items.map((tool, tidx) => (
+              <li key={tidx} style={{ marginBottom: 8 }}>
+                <strong>{tool.name}</strong>: {tool.description}
+              </li>
+            ))}
+          </ul>
+        </div>
       ))}
-    </ul>
+    </div>
     {/* Bottom */}
     <div style={{ marginTop: "3rem", textAlign: "center" }}>
       <BackHomeButton onClick={onBack} />
