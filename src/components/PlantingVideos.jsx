@@ -18,6 +18,9 @@ const sampleVideos = [
     title: "Winter Seed Sowing in Jugs ❄️",
     url: "https://youtu.be/sYWimXvcuaE"
   }
+{
+  title: "Cool Season Vegetable Seed Sowing 🥕",
+    url: "https://youtu.be/ji4-uvgvVY0"
 ];
 
 const PlantingVideos = ({ onBack }) => (
