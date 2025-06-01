@@ -13,11 +13,11 @@ const sampleVideos = [
   {
     title: "Direct Sowing in the Garden 🌻",
     url: "https://www.youtube.com/embed/YOUR_VIDEO_ID_3"
-  } 
+  }, 
   {
     title: "Winter Seed Sowing in Jugs ❄️",
     url: "https://youtu.be/sYWimXvcuaE"
-  }
+  },
 {
   title: "Cool Season Vegetable Seed Sowing 🥕",
     url: "https://youtu.be/ji4-uvgvVY0"
