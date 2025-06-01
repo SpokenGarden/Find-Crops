@@ -3,8 +3,8 @@ import BackHomeButton from "./BackHomeButton";
 
 const sampleVideos = [
   {
-    title: "How to Start Seeds Indoors 🌱",
-    url: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    title: "Live - Winter Seed Sowing Methods and Seeds to Start ⛄",
+    url: "https://www.youtube.com/embed/I_p2CG2XNkQ"
   },
   {
     title: "Transplanting Seedlings to the Garden 🏡",
