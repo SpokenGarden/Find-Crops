@@ -117,13 +117,13 @@ export default function GardenPlannerApp() {
             </button>
             <button
               onClick={() => setScreen("tools")}
-              style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#ffeb48", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px" }}
+              style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#ffeb48", color: "black", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px" }}
             >
               Get Tools and Supplies
             </button>
             <button
               onClick={() => setScreen("videos")}
-              style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#fff000", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px" }}
+              style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#05b210", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px" }}
             >
               Watch Planting Videos
             </button>
