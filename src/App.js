@@ -4,7 +4,8 @@ import { filterCrops } from "./utils/filterCrops";
 import { buildSowingCalendar } from "./utils/sowingCalendar";
 import CropCard from "./components/CropCard";
 import ToolsAndSupplies from "./components/ToolsAndSupplies";
-import PlantingVideos from "./components/PlantingVideos"; // <--- NEW IMPORT
+import PlantingVideos from "./components/PlantingVideos";
+import BackHomeButton from "./components/BackHomeButton";
 
 const getLocal = (key, fallback) => {
   try {
@@ -144,13 +145,21 @@ export default function GardenPlannerApp() {
 
   // --- Crop Search/Planner Screen ---
   return (
-    <div style={{ fontFamily: "Poppins, sans-serif", padding: "1rem", margin: "0 auto", backgroundColor: "#fdfdfc", maxWidth: "100%" }}>
-      <button
-        onClick={() => setScreen("home")}
-        style={{ margin: "0 0 1.5rem 0", padding: "0.6rem 1.5rem", fontSize: "1rem", backgroundColor: "#b7e4c7", color: "#155943", border: "none", borderRadius: "8px", cursor: "pointer" }}
-      >
-        ← Back to Home
-      </button>
+    <div
+      style={{
+        fontFamily: "Poppins, sans-serif",
+        padding: "1rem",
+        margin: "0 auto",
+        backgroundColor: "#fdfdfc",
+        maxWidth: "100%",
+        position: "relative",
+        minHeight: 600,
+      }}
+    >
+      {/* Top Left Back Button */}
+      <div style={{ position: "absolute", top: 20, left: 20 }}>
+        <BackHomeButton onClick={() => setScreen("home")} />
+      </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem", width: "100%", maxWidth: "500px" }}>
           <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>🌱 The What-Grows Garden Planner</h1>
@@ -233,6 +242,10 @@ export default function GardenPlannerApp() {
           )}
         </>
       )}
+      {/* Bottom Back Button */}
+      <div style={{ marginTop: "3rem", textAlign: "center" }}>
+        <BackHomeButton onClick={() => setScreen("home")} />
+      </div>
     </div>
   );
 }
