@@ -4,6 +4,7 @@ import { filterCrops } from "./utils/filterCrops";
 import { buildSowingCalendar } from "./utils/sowingCalendar";
 import CropCard from "./components/CropCard";
 import ToolsAndSupplies from "./components/ToolsAndSupplies";
+import PlantingVideos from "./components/PlantingVideos"; // <--- NEW IMPORT
 
 const getLocal = (key, fallback) => {
   try {
@@ -22,7 +23,7 @@ const setLocal = (key, value) => {
 
 export default function GardenPlannerApp() {
   // Use a single state to control which screen is visible
-  // Possible values: "home", "search", "tools"
+  // Possible values: "home", "search", "tools", "videos"
   const [screen, setScreen] = useState("home");
 
   // Crop search state
@@ -106,18 +107,26 @@ export default function GardenPlannerApp() {
           <p style={{ fontSize: "1.1rem", margin: "1rem 0" }}>
             Plan what to grow, when to sow with your frost date, grow zone, specific planting depths and spacings, and a whole lot more.
           </p>
-          <button
-            onClick={() => setScreen("search")}
-            style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#52b788", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", margin: "0.5rem" }}
-          >
-            🌿 Start Planning
-          </button>
-          <button
-            onClick={() => setScreen("tools")}
-            style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#40916c", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", margin: "0.5rem" }}
-          >
-            🛠️ Get Tools and Supplies
-          </button>
+          <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem" }}>
+            <button
+              onClick={() => setScreen("search")}
+              style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#52b788", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px" }}
+            >
+              🌿 Start Planning
+            </button>
+            <button
+              onClick={() => setScreen("tools")}
+              style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#40916c", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px" }}
+            >
+              🛠️ Get Tools and Supplies
+            </button>
+            <button
+              onClick={() => setScreen("videos")}
+              style={{ padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#457b9d", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px" }}
+            >
+              🎥 Watch Planting Videos
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -128,8 +137,12 @@ export default function GardenPlannerApp() {
     return <ToolsAndSupplies onBack={() => setScreen("home")} />;
   }
 
+  // --- Planting Videos Screen ---
+  if (screen === "videos") {
+    return <PlantingVideos onBack={() => setScreen("home")} />;
+  }
+
   // --- Crop Search/Planner Screen ---
-  // (Everything below is your original crop search/planner area, unchanged except for a "Back to Home" button)
   return (
     <div style={{ fontFamily: "Poppins, sans-serif", padding: "1rem", margin: "0 auto", backgroundColor: "#fdfdfc", maxWidth: "100%" }}>
       <button
