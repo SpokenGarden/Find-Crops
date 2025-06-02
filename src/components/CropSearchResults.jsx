@@ -1,54 +1,50 @@
 import React from "react";
-import './CropSearchResults.css';
+import "./CropSearchResults.css";
 
-// Optional: icon helper for common labels
+// Optional: icon helper for common labels (customize as you wish)
 function getIconForLabel(label) {
   const icons = {
-    "Type": "📦",
-    "Sun": "🌞",
-    "Sun Requirement": "🌞",
+    "Type": "🪴",
+    "Sun": "☀️",
+    "Sun Requirement": "☀️",
     "Water": "💧",
     "Water Need": "💧",
     "Soil": "🪨",
     "Soil Preference": "🪨",
-    "Days to Harvest": "⏳",
-    "Days to Maturity or Harvest": "⏳",
-    "Sowing Depth": "🌱",
+    "Days to Harvest": "🗓️",
+    "Days to Maturity or Harvest": "🗓️",
     "Spacing": "📏",
-    "Height": "🌿",
-    "Color": "🎨",
-    "Notes": "📝",
-    "Kind": "🌼",
-    "Grow Zone": "📍",
-    "Seed Treatment": "💦",
-    "Sow Indoors": "🏠",
-    "Sow Outdoors": "🏡",
-    "Harvest Season": "🗓️",
+    "Height": "📏",
     "Buy Now": "🛒",
+    // Add more as desired!
   };
   return icons[label] || "🔹";
 }
 
 // Helper to render all sections and their fields, fully dynamic
 function renderSections(cropData) {
-  // Remove "Link" or "Links" from display
+  // Remove Link/Links sections from display
   const displaySections = Object.entries(cropData).filter(
     ([section]) => section !== "Link" && section !== "Links"
   );
 
   if (displaySections.length === 0) {
-    return <div style={{ color: "#888" }}>No details available.</div>;
+    return (
+      <div style={{ color: "#888" }}>No details available.</div>
+    );
   }
 
   return (
-    <div className="fields-grid" style={{ display: "grid", gap: "0.4em 1em" }}>
+    <div className="fields-grid">
       {displaySections.map(([section, fields]) => (
         <div key={section}>
-          <h3 style={{
-            margin: "0 0 0.3em 0",
-            fontSize: "1.07rem",
-            color: "#228B22"
-          }}>
+          <h3
+            style={{
+              margin: "0 0 0.3em 0",
+              fontSize: "1.07rem",
+              color: "#228B22",
+            }}
+          >
             {section}
           </h3>
           <ul style={{
@@ -56,15 +52,21 @@ function renderSections(cropData) {
             margin: 0,
             listStyle: "none"
           }}>
-            {Array.isArray(fields) && fields.map(({ label, value }, idx) => (
-              <li key={label + idx} style={{ marginBottom: 6, display: "flex", alignItems: "center" }}>
-                <span style={{ fontSize: "1.1em", marginRight: 7 }}>
-                  {getIconForLabel(label)}
-                </span>
-                <span style={{ fontWeight: 600, color: "#22543d", marginRight: 7 }}>{label}:</span>
-                <span>{value}</span>
-              </li>
-            ))}
+            {Array.isArray(fields) &&
+              fields.map(({ label, value }, idx) => (
+                <li key={label + idx} style={{ marginBottom: 6, display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+                  <span style={{ fontSize: "1.1em", marginRight: 7 }}>{getIconForLabel(label)}</span>
+                  <span style={{
+                    fontWeight: 600,
+                    fontSize: "1.05em",
+                    letterSpacing: 0.5,
+                    marginRight: 7
+                  }}>
+                    {label}:
+                  </span>
+                  <span>{value}</span>
+                </li>
+              ))}
           </ul>
         </div>
       ))}
@@ -77,139 +79,117 @@ const cardShadow = "0 4px 16px rgba(34,74,66,0.08)";
 const cardBorder = "1px solid #d0ede1";
 const cardBg = "linear-gradient(135deg, #f3fcf7 0%, #e6f9ee 100%)";
 
-const CropResults = ({ crops }) => {
-  // crops: [{ name, ...cropData }], or { [name]: cropData }
-  // We'll support both array and object input for compatibility
+const CropResults = ({ crops, searchTerm }) => {
+  // crops: { cropName: { Section: [{label, value}, ...], ... }, ... }
+  // searchTerm: string
 
-  // Normalize crops to array of [name, data]
-  let cropEntries = [];
-  if (Array.isArray(crops)) {
-    cropEntries = crops.map((c, i) =>
-      [c.Crop || c.name || `Crop ${i + 1}`, c]
+  // Normalize crops into [name, data] pairs for display and filter
+  let cropEntries = Object.entries(crops || {});
+
+  // Filter crops by searchTerm (in crop name or any field value/label)
+  if (searchTerm && searchTerm.trim()) {
+    const lower = searchTerm.toLowerCase();
+    cropEntries = cropEntries.filter(([cropName, cropData]) => {
+      if (cropName.toLowerCase().includes(lower)) return true;
+      return Object.values(cropData).some((fields) =>
+        fields.some(
+          ({ label, value }) =>
+            (label && label.toLowerCase().includes(lower)) ||
+            (value && value.toLowerCase().includes(lower))
+        )
+      );
+    });
+  }
+
+  if (!cropEntries.length) {
+    return (
+      <div style={{ color: "#888", fontSize: "1.2em" }}>No crops found.</div>
     );
-  } else if (typeof crops === "object" && crops !== null) {
-    cropEntries = Object.entries(crops);
   }
 
   return (
-    <div>
-      <div className="crops-grid">
-        {cropEntries.length === 0 && (
-          <div style={{ color: "#888", fontSize: "1.2em", marginTop: "2em" }}>
-            No crops found.
-          </div>
-        )}
-        {cropEntries.map(([cropName, cropData], index) => {
-          // Extract Buy Now URL if present in Link or Links field
-          let buyNowUrl = "";
-          ["Link", "Links"].forEach(linkKey => {
-            if (cropData[linkKey]) {
-              const linkFields = Array.isArray(cropData[linkKey]) ? cropData[linkKey] : [];
-              const buyNowField = linkFields.find(
-                (field) =>
-                  typeof field.label === "string" &&
-                  field.label.trim().toLowerCase() === "buy now" &&
-                  typeof field.value === "string" &&
-                  /^https?:\/\//i.test(field.value.trim())
-              );
-              if (buyNowField) buyNowUrl = buyNowField.value.trim();
-            }
-          });
-
-          return (
-            <div
-              key={cropName + index}
-              style={{
-                background: cardBg,
-                borderRadius: "14px",
-                boxShadow: cardShadow,
-                border: cardBorder,
-                padding: "1.2rem 1.5rem",
-                marginBottom: "1.5rem",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "stretch",
-                transition: "box-shadow 0.2s, transform 0.15s",
-                position: "relative",
-                maxWidth: 700,
-                marginLeft: "auto",
-                marginRight: "auto"
-              }}
-              tabIndex={0}
-              aria-label={cropName}
-            >
-              <div style={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: 12
-              }}>
-                <span style={{ fontSize: "1.7rem", marginRight: 10 }}>🌱</span>
-                <span style={{
-                  color: "#155943",
-                  fontWeight: 700,
-                  fontSize: "1.23rem",
-                  letterSpacing: 0.5
-                }}>
-                  {cropName}
-                </span>
-              </div>
-              {renderSections(cropData)}
-              {buyNowUrl &&
-                <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 8 }}>
-                  <a
-                    href={buyNowUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      background: "#228B22",
-                      color: "#fff",
-                      padding: "0.55em 1.2em",
-                      borderRadius: "8px",
-                      textDecoration: "none",
-                      fontWeight: 700,
-                      fontSize: "1em",
-                      boxShadow: "0 2px 6px rgba(34,74,66,0.08)",
-                      transition: "background 0.2s",
-                      marginLeft: 8,
-                      display: "inline-block"
-                    }}
-                  >
-                    Buy Now
-                  </a>
-                </div>
-              }
-            </div>
-          );
-        })}
-      </div>
-      {/* Calendar button remains below */}
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <button
-          style={{
-            marginTop: "2.5rem",
-            backgroundColor: "#40916c",
-            color: "white",
-            padding: "0.85rem 2rem",
-            border: "none",
-            borderRadius: "8px",
-            fontSize: "1.1rem",
-            fontWeight: 600,
-            boxShadow: "0 2px 8px rgba(64,145,108,0.10)",
-            cursor: cropEntries && cropEntries.length > 0 ? "pointer" : "not-allowed",
-            opacity: cropEntries && cropEntries.length > 0 ? 1 : 0.65,
-            letterSpacing: 0.3
-          }}
-          onClick={() => window.open('calendar.html', '_blank')}
-          disabled={!cropEntries || cropEntries.length === 0}
-          title={
-            !cropEntries || cropEntries.length === 0
-              ? "Run a search first to see the calendar"
-              : undefined
+    <div className="crops-grid">
+      {cropEntries.map(([cropName, cropData]) => {
+        // Extract first Buy Now link if present
+        let buyNowUrl = "";
+        ["Link", "Links"].forEach(linkKey => {
+          if (cropData[linkKey]) {
+            const linkFields = Array.isArray(cropData[linkKey]) ? cropData[linkKey] : [];
+            const buyNowField = linkFields.find(
+              (field) =>
+                typeof field.label === "string" &&
+                field.label.trim().toLowerCase() === "buy now" &&
+                typeof field.value === "string" &&
+                /^https?:\/\//i.test(field.value.trim())
+            );
+            if (buyNowField) buyNowUrl = buyNowField.value.trim();
           }
-        >
-          📆 Show Sowing Calendar
-        </button>
-      </div>
+        });
+
+        return (
+          <div
+            key={cropName}
+            style={{
+              background: cardBg,
+              borderRadius: "14px",
+              boxShadow: cardShadow,
+              border: cardBorder,
+              padding: "1.2rem 1.5rem",
+              minWidth: 0,
+              width: "100%",
+              maxWidth: 400,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "stretch",
+              marginBottom: "1em",
+              position: "relative"
+            }}
+          >
+            {/* Card header */}
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              marginBottom: 12
+            }}>
+              <span style={{ fontSize: "1.4rem", marginRight: 10 }}>🌱</span>
+              <span style={{
+                color: "#155943",
+                fontWeight: 700,
+                fontSize: "1.13rem",
+                letterSpacing: 0.5,
+                flex: 1
+              }}>
+                {cropName}
+              </span>
+            </div>
+            {renderSections(cropData)}
+            {/* Buy Now button if exists */}
+            {buyNowUrl && (
+              <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 8 }}>
+                <a
+                  href={buyNowUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    background: "#228B22",
+                    color: "#fff",
+                    padding: "0.55em 1.2em",
+                    borderRadius: "8px",
+                    border: "none",
+                    fontWeight: 700,
+                    fontSize: "1em",
+                    textDecoration: "none",
+                    boxShadow: "0 2px 6px rgba(34,74,66,0.08)",
+                    transition: "background 0.2s"
+                  }}
+                >
+                  🛒 Buy Now
+                </a>
+              </div>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 };
