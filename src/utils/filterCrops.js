@@ -11,7 +11,7 @@ export function filterCrops(crops, filters) {
 
   // Helper: get value from a section by label (case-insensitive)
   function getValue(section, label) {
-    if (!section) return "";
+    if (!Array.isArray(section)) return "";
     const found = section.find(
       item =>
         item.label &&
