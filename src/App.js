@@ -43,8 +43,6 @@ import BackHomeButton from "./components/BackHomeButton";
 import cropFlatRows from "./data/cropdata.json";
 
 
-  return crops;
-}
 
 const getLocal = (key, fallback) => {
   try {
