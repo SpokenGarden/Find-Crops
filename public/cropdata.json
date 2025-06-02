@@ -1,12 +1,5 @@
-{
-  "Crop Name": {
-    "Object": [
-      {
-        "label": "Label",
-        "value": "Value"
-      }
-    ]
-  },
+[
+  {
   "African Daisy": {
     "Basics": [
       {
