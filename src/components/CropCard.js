@@ -17,7 +17,7 @@ function getIconForLabel(label) {
   return icons[label] || "🔹";
 }
 
-// MERGE: Accepts new nested data structure as cropData
+// Accepts new nested data structure as cropData
 export default function CropCard({ cropName, cropData }) {
   const [expanded, setExpanded] = useState(false);
 
@@ -39,11 +39,29 @@ export default function CropCard({ cropName, cropData }) {
     }
   });
 
+  // Section order: prefer showing Basics, Sowing, Growth, Harvest, Care, then others
+  const preferredOrder = ["Basics", "Sowing", "Growth", "Harvest", "Care"];
+  const allSections = Object.keys(displayData);
+  const sortedSectionEntries = [
+    ...preferredOrder
+      .map(section => [section, displayData[section]])
+      .filter(([section, data]) => Array.isArray(data) && data.length > 0),
+    ...allSections
+      .filter(section => !preferredOrder.includes(section))
+      .map(section => [section, displayData[section]])
+      .filter(([section, data]) => Array.isArray(data) && data.length > 0)
+  ];
+
+  // Collapse logic: show first 2 sections in collapsed mode, all when expanded
+  const defaultSectionsToShow = 2;
+  const visibleSectionEntries = expanded
+    ? sortedSectionEntries
+    : sortedSectionEntries.slice(0, defaultSectionsToShow);
+
   // Split sections for two-column layout
-  const sectionEntries = Object.entries(displayData);
-  const mid = Math.ceil(sectionEntries.length / 2);
-  const leftSections = sectionEntries.slice(0, mid);
-  const rightSections = sectionEntries.slice(mid);
+  const mid = Math.ceil(visibleSectionEntries.length / 2);
+  const leftSections = visibleSectionEntries.slice(0, mid);
+  const rightSections = visibleSectionEntries.slice(mid);
 
   // Render all sections dynamically
   function renderSections(sections) {
@@ -130,6 +148,32 @@ export default function CropCard({ cropName, cropData }) {
         {renderSections(leftSections)}
         {renderSections(rightSections)}
       </div>
+      {/* Expand/Collapse Button */}
+      {sortedSectionEntries.length > defaultSectionsToShow && (
+        <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 4 }}>
+          <button
+            onClick={() => setExpanded(v => !v)}
+            style={{
+              background: "#e9ecef",
+              color: "#155943",
+              border: "none",
+              borderRadius: 6,
+              padding: "4px 14px",
+              fontSize: "0.96rem",
+              cursor: "pointer",
+              outline: "none",
+              fontWeight: 600,
+              boxShadow: "0 2px 6px rgba(34,74,66,0.08)",
+              marginBottom: 4,
+              transition: "background 0.2s"
+            }}
+          >
+            {expanded
+              ? "Show Less"
+              : `Show More (${sortedSectionEntries.length - defaultSectionsToShow} more)`}
+          </button>
+        </div>
+      )}
       {/* Buy Now button if exists */}
       {buyNowUrl && (
         <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 8 }}>
