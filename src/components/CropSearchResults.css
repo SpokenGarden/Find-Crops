@@ -28,13 +28,7 @@
   }
 }
 
-/* Optional: You can add some extra spacing for crop cards, if desired */
-.crops-grid > * {
-  /* This makes sure each card or link is sized consistently in the grid */
-  min-width: 0;
-}
-
-/* Optional: Style for the button container at the bottom */
+/* Optional: Style the Buy Now button container at the bottom */
 .button-center {
   display: flex;
   justify-content: center;
