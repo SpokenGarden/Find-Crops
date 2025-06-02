@@ -1,35 +1,28 @@
 import React, { useState } from "react";
 
-// Card styling
-const cardShadow = "0 4px 16px rgba(34,74,66,0.08)";
-const cardBorder = "1px solid #d0ede1";
-const cardBg = "linear-gradient(135deg, #f3fcf7 0%, #e6f9ee 100%)";
+// Optional: icon helper (customize as you wish)
+function getIconForLabel(label) {
+  const icons = {
+    "Type": "📦",
+    "Sun": "🌞",
+    "Water": "💧",
+    "Soil": "🪨",
+    "Days to Harvest": "⏳",
+    "Days to Maturity or Harvest": "⏳",
+    "Spacing": "📏",
+    "Height": "🌿",
+    "Buy Now": "🛒",
+    // Add more as you like!
+  };
+  return icons[label] || "🔹";
+}
 
-const DEFAULT_SECTIONS = ["Basics & Care", "Growth"];
-
-function CropCard({ cropName, cropData }) {
+export default function CropCard({ cropName, cropData }) {
   const [expanded, setExpanded] = useState(false);
 
-  // Combine Basics & Care into one section if either exists
-  const hasBasics = cropData["Basics"];
-  const hasCare = cropData["Care"];
+  // Remove Link/Links section for main display, extract Buy Now link if present
   let displayData = { ...cropData };
-  if (hasBasics || hasCare) {
-    const combinedFields = [
-      ...(hasBasics ? cropData["Basics"] : []),
-      ...(hasCare ? cropData["Care"] : []),
-    ];
-    delete displayData["Basics"];
-    delete displayData["Care"];
-    displayData = {
-      "Basics & Care": combinedFields,
-      ...displayData,
-    };
-  }
-
-  // Extract Buy Now URL from Link/Links section and remove it from displayData
   let buyNowUrl = "";
-  // Support both "Link" and "Links" as section names just in case
   ["Link", "Links"].forEach(linkKey => {
     if (displayData[linkKey]) {
       const linkFields = Array.isArray(displayData[linkKey]) ? displayData[linkKey] : [];
@@ -40,28 +33,18 @@ function CropCard({ cropName, cropData }) {
           typeof field.value === "string" &&
           /^https?:\/\//i.test(field.value.trim())
       );
-      if (buyNowField) {
-        buyNowUrl = buyNowField.value.trim();
-      }
+      if (buyNowField) buyNowUrl = buyNowField.value.trim();
       delete displayData[linkKey];
     }
   });
 
-  // Only render sections other than Link/Links
+  // Split sections for two-column layout
   const sectionEntries = Object.entries(displayData);
   const mid = Math.ceil(sectionEntries.length / 2);
   const leftSections = sectionEntries.slice(0, mid);
   const rightSections = sectionEntries.slice(mid);
 
-  // If not expanded, filter for only the default sections (still split evenly)
-  const filteredEntries = expanded
-    ? sectionEntries
-    : sectionEntries.filter(([section]) => DEFAULT_SECTIONS.includes(section));
-  const filteredMid = Math.ceil(filteredEntries.length / 2);
-  const filteredLeft = filteredEntries.slice(0, filteredMid);
-  const filteredRight = filteredEntries.slice(filteredMid);
-
-  // Helper for rendering sections
+  // Render all sections dynamically
   function renderSections(sections) {
     return sections.map(([section, fields]) => (
       <div key={section} style={{ marginBottom: "1.2em" }}>
@@ -77,7 +60,7 @@ function CropCard({ cropName, cropData }) {
           margin: 0,
           listStyle: "none"
         }}>
-          {fields.map(({ label, value }) => (
+          {Array.isArray(fields) && fields.map(({ label, value }) => (
             <li key={label} style={{ marginBottom: 6, display: "flex", alignItems: "center" }}>
               <span style={{ fontSize: "1.1em", marginRight: 7 }}>
                 {getIconForLabel(label)}
@@ -94,12 +77,11 @@ function CropCard({ cropName, cropData }) {
   return (
     <div
       style={{
-        background: cardBg,
+        background: "linear-gradient(135deg, #f3fcf7 0%, #e6f9ee 100%)",
         borderRadius: "14px",
-        boxShadow: cardShadow,
-        border: cardBorder,
+        boxShadow: "0 4px 16px rgba(34,74,66,0.08)",
+        border: "1px solid #d0ede1",
         padding: "1.2rem 1.5rem",
-        marginBottom: "1.5rem",
         display: "flex",
         flexDirection: "column",
         alignItems: "stretch",
@@ -136,31 +118,9 @@ function CropCard({ cropName, cropData }) {
           marginBottom: "0.8em",
         }}
       >
-        {renderSections(expanded ? leftSections : filteredLeft)}
-        {renderSections(expanded ? rightSections : filteredRight)}
+        {renderSections(leftSections)}
+        {renderSections(rightSections)}
       </div>
-      {/* Show More/Less button if there are hidden sections */}
-      {sectionEntries.length > DEFAULT_SECTIONS.length && (
-        <button
-          style={{
-            alignSelf: "center",
-            marginTop: 4,
-            marginBottom: 2,
-            background: "#d0ede1",
-            color: "#155943",
-            border: "none",
-            borderRadius: "8px",
-            padding: "0.4em 1em",
-            fontSize: "1em",
-            fontWeight: 600,
-            cursor: "pointer",
-            transition: "background 0.2s",
-          }}
-          onClick={() => setExpanded(e => !e)}
-        >
-          {expanded ? "Show Less" : "Show More"}
-        </button>
-      )}
       {/* Buy Now button always visible if link exists */}
       {buyNowUrl && (
         <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 8 }}>
@@ -189,32 +149,3 @@ function CropCard({ cropName, cropData }) {
     </div>
   );
 }
-
-// Helper function to add icons for common labels
-function getIconForLabel(label) {
-  const icons = {
-    "Type": "📦",
-    "Sun": "🌞",
-    "Sun Requirement": "🌞",
-    "Water": "💧",
-    "Water Need": "💧",
-    "Soil": "🪨",
-    "Soil Preference": "🪨",
-    "Days to Harvest": "⏳",
-    "Sowing Depth": "🌱",
-    "Spacing": "📏",
-    "Height": "🌿",
-    "Color": "🎨",
-    "Notes": "📝",
-    "Kind": "🌼",
-    "Grow Zone": "📍",
-    "Seed Treatment": "💦",
-    "Sow Indoors": "🏠",
-    "Sow Outdoors": "🏡",
-    "Harvest Season": "🗓️",
-    "Buy Now": "🛒",
-  };
-  return icons[label] || "🔹";
-}
-
-export default CropCard;
