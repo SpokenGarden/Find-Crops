@@ -1,25 +1,15 @@
-// Add this for debugging at the top of your file
-console.log("cropFlatRows", cropFlatRows);
+import React, { useState, useEffect, useMemo } from "react";
+import { filterCrops } from "./utils/filterCrops";
+import { buildSowingCalendar } from "./utils/sowingCalendar";
+import CropCard from "./components/CropCard";
+import ToolsAndSupplies from "./components/ToolsAndSupplies";
+import PlantingVideos from "./components/PlantingVideos";
+import BackHomeButton from "./components/BackHomeButton";
 
-function transformCropData(flatRows) {
-  if (!Array.isArray(flatRows)) {
-    console.error("Expected an array for cropFlatRows but got:", flatRows);
-    return {};
-  }
-  const crops = {};
-  flatRows.forEach((row) => {
-    const cropName = row["Crop Name"];
-    const section = row["Object"];
-    const label = row["Label"];
-    const value = row["Value"];
-    if (!cropName || !section || !label) return;
-    if (!crops[cropName]) crops[cropName] = {};
-    if (!crops[cropName][section]) crops[cropName][section] = [];
-    crops[cropName][section].push({ label, value });
-  });
-  return crops;
-}
+// Import your grouped crop data (object keyed by crop name)
+import cropData from "./data/cropdata.json";
 
+// Local storage helpers
 const getLocal = (key, fallback) => {
   if (typeof window === 'undefined') return fallback;
   try {
@@ -29,20 +19,6 @@ const getLocal = (key, fallback) => {
     return fallback;
   }
 };
-
-// App.js
-import React, { useState, useEffect, useMemo } from "react";
-import { filterCrops } from "./utils/filterCrops";
-import { buildSowingCalendar } from "./utils/sowingCalendar";
-import CropCard from "./components/CropCard";
-import ToolsAndSupplies from "./components/ToolsAndSupplies";
-import PlantingVideos from "./components/PlantingVideos";
-import BackHomeButton from "./components/BackHomeButton";
-
-// === NEW: Import your flat crop data JSON ===
-import cropFlatRows from "./data/cropdata.json";
-
-
 const setLocal = (key, value) => {
   try {
     window.localStorage.setItem(key, JSON.stringify(value));
@@ -53,8 +29,8 @@ export default function GardenPlannerApp() {
   // UI state
   const [screen, setScreen] = useState("home");
 
-  // === NEW: Use transformed crop data ===
-  const crops = useMemo(() => transformCropData(cropFlatRows), []);
+  // Use the grouped data object directly
+  const crops = cropData;
 
   // Crop search state
   const [zone, setZone] = useState(getLocal("zone", ""));
@@ -66,7 +42,6 @@ export default function GardenPlannerApp() {
   const [soilPreference, setSoilPreference] = useState(getLocal("soilPreference", "all"));
   const [loading, setLoading] = useState(false);
   const [sowingCalendar, setSowingCalendar] = useState([]);
-  const [sowingCalendarData, setSowingCalendarData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => { setLocal("zone", zone); }, [zone]);
@@ -76,11 +51,11 @@ export default function GardenPlannerApp() {
   useEffect(() => { setLocal("waterNeed", waterNeed); }, [waterNeed]);
   useEffect(() => { setLocal("soilPreference", soilPreference); }, [soilPreference]);
 
-  // === NEW: Handle crop search filtering using transformed crops object ===
+  // Handle crop search filtering using the grouped crops object
   const handleSearch = () => {
     setLoading(true);
     setTimeout(() => {
-      // Convert crops object to array of [name, data] pairs for filtering
+      // Convert crops object to array of {name, ...sections} for filtering
       const cropArray = Object.entries(crops).map(([name, data]) => ({
         name,
         ...data,
