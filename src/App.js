@@ -42,19 +42,7 @@ import BackHomeButton from "./components/BackHomeButton";
 // === NEW: Import your flat crop data JSON ===
 import cropFlatRows from "./data/cropdata.json";
 
-// === NEW: Transforming flat crop data ===
-function transformCropData(flatRows) {
-  const crops = {};
-  flatRows.forEach((row) => {
-    const cropName = row["Crop Name"];
-    const section = row["Object"];
-    const label = row["Label"];
-    const value = row["Value"];
-    if (!cropName || !section || !label) return;
-    if (!crops[cropName]) crops[cropName] = {};
-    if (!crops[cropName][section]) crops[cropName][section] = [];
-    crops[cropName][section].push({ label, value });
-  });
+
   return crops;
 }
 
