@@ -3,20 +3,21 @@ import React, { useState } from "react";
 // Optional: icon helper (customize as you wish)
 function getIconForLabel(label) {
   const icons = {
-    "Type": "📦",
-    "Sun": "🌞",
+    "Type": "🪴",
+    "Sun": "☀️",
     "Water": "💧",
     "Soil": "🪨",
-    "Days to Harvest": "⏳",
-    "Days to Maturity or Harvest": "⏳",
+    "Days to Harvest": "🗓️",
+    "Days to Maturity or Harvest": "🗓️",
     "Spacing": "📏",
-    "Height": "🌿",
+    "Height": "📏",
     "Buy Now": "🛒",
     // Add more as you like!
   };
   return icons[label] || "🔹";
 }
 
+// MERGE: Accepts new nested data structure as cropData
 export default function CropCard({ cropName, cropData }) {
   const [expanded, setExpanded] = useState(false);
 
@@ -48,11 +49,13 @@ export default function CropCard({ cropName, cropData }) {
   function renderSections(sections) {
     return sections.map(([section, fields]) => (
       <div key={section} style={{ marginBottom: "1.2em" }}>
-        <h3 style={{
-          margin: "0 0 0.3em 0",
-          fontSize: "1.07rem",
-          color: "#228B22"
-        }}>
+        <h3
+          style={{
+            margin: "0 0 0.3em 0",
+            fontSize: "1.07rem",
+            color: "#228B22"
+          }}
+        >
           {section}
         </h3>
         <ul style={{
@@ -60,15 +63,21 @@ export default function CropCard({ cropName, cropData }) {
           margin: 0,
           listStyle: "none"
         }}>
-          {Array.isArray(fields) && fields.map(({ label, value }) => (
-            <li key={label} style={{ marginBottom: 6, display: "flex", alignItems: "center" }}>
-              <span style={{ fontSize: "1.1em", marginRight: 7 }}>
-                {getIconForLabel(label)}
-              </span>
-              <span style={{ fontWeight: 600, color: "#22543d", marginRight: 7 }}>{label}:</span>
-              <span>{value}</span>
-            </li>
-          ))}
+          {Array.isArray(fields) &&
+            fields.map(({ label, value }) => (
+              <li key={label} style={{ marginBottom: 6, display: "flex", alignItems: "center" }}>
+                <span style={{ fontSize: "1.1em", marginRight: 7 }}>{getIconForLabel(label)}</span>
+                <span style={{
+                  fontWeight: 600,
+                  fontSize: "1.23rem",
+                  letterSpacing: 0.5,
+                  flex: 1
+                }}>
+                  {label}
+                </span>
+                <span>{value}</span>
+              </li>
+            ))}
         </ul>
       </div>
     ));
@@ -88,7 +97,7 @@ export default function CropCard({ cropName, cropData }) {
         position: "relative",
         maxWidth: 700,
         width: "100%",
-        minWidth: 0,
+        minWidth: 0
       }}
     >
       {/* Card header */}
@@ -121,7 +130,7 @@ export default function CropCard({ cropName, cropData }) {
         {renderSections(leftSections)}
         {renderSections(rightSections)}
       </div>
-      {/* Buy Now button always visible if link exists */}
+      {/* Buy Now button if exists */}
       {buyNowUrl && (
         <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 8 }}>
           <a
@@ -133,16 +142,15 @@ export default function CropCard({ cropName, cropData }) {
               color: "#fff",
               padding: "0.55em 1.2em",
               borderRadius: "8px",
-              textDecoration: "none",
+              border: "none",
               fontWeight: 700,
               fontSize: "1em",
+              textDecoration: "none",
               boxShadow: "0 2px 6px rgba(34,74,66,0.08)",
-              transition: "background 0.2s",
-              marginLeft: 8,
-              display: "inline-block"
+              transition: "background 0.2s"
             }}
           >
-            Buy Now
+            🛒 Buy Now
           </a>
         </div>
       )}
