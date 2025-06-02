@@ -1,3 +1,35 @@
+// Add this for debugging at the top of your file
+console.log("cropFlatRows", cropFlatRows);
+
+function transformCropData(flatRows) {
+  if (!Array.isArray(flatRows)) {
+    console.error("Expected an array for cropFlatRows but got:", flatRows);
+    return {};
+  }
+  const crops = {};
+  flatRows.forEach((row) => {
+    const cropName = row["Crop Name"];
+    const section = row["Object"];
+    const label = row["Label"];
+    const value = row["Value"];
+    if (!cropName || !section || !label) return;
+    if (!crops[cropName]) crops[cropName] = {};
+    if (!crops[cropName][section]) crops[cropName][section] = [];
+    crops[cropName][section].push({ label, value });
+  });
+  return crops;
+}
+
+const getLocal = (key, fallback) => {
+  if (typeof window === 'undefined') return fallback;
+  try {
+    const val = window.localStorage.getItem(key);
+    return val !== null ? JSON.parse(val) : fallback;
+  } catch {
+    return fallback;
+  }
+};
+
 // App.js
 import React, { useState, useEffect, useMemo } from "react";
 import { filterCrops } from "./utils/filterCrops";
