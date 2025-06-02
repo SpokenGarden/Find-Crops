@@ -43,16 +43,6 @@ import BackHomeButton from "./components/BackHomeButton";
 import cropFlatRows from "./data/cropdata.json";
 
 
-
-const getLocal = (key, fallback) => {
-  try {
-    const val = window.localStorage.getItem(key);
-    return val !== null ? JSON.parse(val) : fallback;
-  } catch {
-    return fallback;
-  }
-};
-
 const setLocal = (key, value) => {
   try {
     window.localStorage.setItem(key, JSON.stringify(value));
