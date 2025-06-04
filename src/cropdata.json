@@ -7,11 +7,11 @@
       }
     ]
   },
-  "African Daisy": {
+  "African Daisy (Dimorphiteca sinuata)": {
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -38,6 +38,14 @@
       {
         "label": "Seed Treatments",
         "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inche"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
       }
     ],
     "Growth": [
@@ -55,13 +63,27 @@
         "label": "Harvest Season",
         "value": "Summer"
       }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Low"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
     ]
   },
-  "Ageratum": {
+  "Ageratum (Ageratum houstonianum)": {
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -88,6 +110,14 @@
       {
         "label": "Seed Treatments",
         "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 10 inches"
       }
     ],
     "Growth": [
@@ -105,13 +135,27 @@
         "label": "Harvest Season",
         "value": "Summer through Fall"
       }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
     ]
   },
-  "Alyssum": {
+  "Alyssum (Lobularia maritima)": {
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -138,6 +182,14 @@
       {
         "label": "Seed Treatments",
         "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/16 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 10 inches"
       }
     ],
     "Growth": [
@@ -155,13 +207,27 @@
         "label": "Harvest Season",
         "value": "Spring through Fall"
       }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
     ]
   },
-  "Amaranthus": {
+  "Amaranth (Amaranthus hypochondriacus)": {
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -188,6 +254,14 @@
       {
         "label": "Seed Treatments",
         "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/16 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
       }
     ],
     "Growth": [
@@ -205,13 +279,27 @@
         "label": "Harvest Season",
         "value": "Summer through Fall"
       }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
     ]
   },
-  "Aster": {
+  "Aster (Callistephus sp.)": {
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -238,6 +326,14 @@
       {
         "label": "Seed Treatments",
         "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
       }
     ],
     "Growth": [
@@ -255,13 +351,27 @@
         "label": "Harvest Season",
         "value": "Summer through Fall"
       }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
     ]
   },
-  "Balsam (Impatiens)": {
+  "Balsam Impatiens (Impatiens balsamina)": {
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -288,6 +398,14 @@
       {
         "label": "Seed Treatments",
         "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 12 inches"
       }
     ],
     "Growth": [
@@ -305,13 +423,27 @@
         "label": "Harvest Season",
         "value": "Summer"
       }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
     ]
   },
-  "Bells of Ireland": {
+  "Bells of Ireland (Molucella laevis)": {
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -338,6 +470,14 @@
       {
         "label": "Seed Treatments",
         "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 12 inches"
       }
     ],
     "Growth": [
@@ -355,13 +495,27 @@
         "label": "Harvest Season",
         "value": "Summer"
       }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
     ]
   },
-  "Black-eyed Susan Vine": {
+  "Black-eyed Susan Vine (Thunbergia alata)": {
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -388,6 +542,14 @@
       {
         "label": "Seed Treatments",
         "value": "Stratify (Cold+Moisture)"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
       }
     ],
     "Growth": [
@@ -405,13 +567,27 @@
         "label": "Harvest Season",
         "value": "Summer through Fall"
       }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
     ]
   },
   "Calendula": {
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -461,7 +637,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -511,7 +687,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -561,7 +737,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -611,7 +787,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -661,7 +837,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -711,7 +887,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -751,7 +927,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -821,7 +997,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -891,7 +1067,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -961,7 +1137,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -1031,7 +1207,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -1101,7 +1277,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Grow Zone",
@@ -1171,7 +1347,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -1199,7 +1375,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Grow Zone",
@@ -1269,7 +1445,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Grow Zone",
@@ -1339,7 +1515,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Grow Zone",
@@ -1409,7 +1585,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Grow Zone",
@@ -1479,7 +1655,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -1539,7 +1715,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -1601,7 +1777,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -1663,7 +1839,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -1735,7 +1911,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -1793,7 +1969,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -1859,7 +2035,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -1927,7 +2103,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -1991,7 +2167,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -2041,7 +2217,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -2099,7 +2275,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Grow Zone",
@@ -2165,7 +2341,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Kind",
@@ -2193,7 +2369,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Kind",
@@ -2225,7 +2401,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       }
     ],
     "Sowing": [
@@ -2243,7 +2419,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Kind",
@@ -2265,7 +2441,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       }
     ],
     "Sowing": [
@@ -2283,7 +2459,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Kind",
@@ -2305,7 +2481,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       }
     ],
     "Sowing": [
@@ -2323,7 +2499,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       }
     ],
     "Sowing": [
@@ -2347,7 +2523,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       }
     ],
     "Sowing": [
@@ -2365,7 +2541,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       }
     ],
     "Sowing": [
@@ -2383,7 +2559,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       }
     ],
     "Sowing": [
@@ -2407,7 +2583,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Kind",
@@ -2425,7 +2601,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       }
     ],
     "Sowing": [
@@ -2443,7 +2619,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       }
     ],
     "Sowing": [
@@ -2463,7 +2639,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       }
     ],
     "Sowing": [
@@ -2487,7 +2663,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       }
     ],
     "Sowing": [
@@ -2505,7 +2681,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Kind",
@@ -2533,7 +2709,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       }
     ],
     "Sowing": [
@@ -2557,7 +2733,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Kind",
@@ -2579,7 +2755,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Kind",
@@ -2601,7 +2777,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Kind",
@@ -2623,7 +2799,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Kind",
@@ -2645,7 +2821,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       }
     ],
     "Sowing": [
@@ -2663,7 +2839,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Kind",
@@ -2691,7 +2867,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Kind",
@@ -2709,7 +2885,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Kind",
@@ -2731,7 +2907,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Kind",
@@ -2759,7 +2935,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Kind",
@@ -2787,7 +2963,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Flower"
+        "value": "flower"
       },
       {
         "label": "Kind",
@@ -2819,7 +2995,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Herb"
+        "value": "herb"
       }
     ]
   },
@@ -2827,7 +3003,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Herb"
+        "value": "herb"
       },
       {
         "label": "Kind",
@@ -2849,7 +3025,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Herb"
+        "value": "herb"
       }
     ],
     "Sowing": [
@@ -2863,7 +3039,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Herb"
+        "value": "herb"
       }
     ],
     "Sowing": [
@@ -2877,7 +3053,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Herb"
+        "value": "herb"
       }
     ],
     "Sowing": [
@@ -2895,7 +3071,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Herb"
+        "value": "herb"
       }
     ],
     "Sowing": [
@@ -2913,7 +3089,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Herb"
+        "value": "herb"
       }
     ],
     "Sowing": [
@@ -2931,7 +3107,7 @@
     "Basics": [
       {
         "label": "Grow Zone",
-        "value": "Herb"
+        "value": "herb"
       }
     ],
     "Sowing": [
@@ -2949,7 +3125,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Herb"
+        "value": "herb"
       }
     ],
     "Sowing": [
@@ -2967,7 +3143,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Herb"
+        "value": "herb"
       }
     ],
     "Sowing": [
@@ -2981,7 +3157,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Herb"
+        "value": "herb"
       }
     ],
     "Sowing": [
@@ -2999,7 +3175,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Herb"
+        "value": "herb"
       }
     ],
     "Sowing": [
@@ -3017,7 +3193,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Herb"
+        "value": "herb"
       },
       {
         "label": "Kind",
@@ -3039,7 +3215,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Herb"
+        "value": "herb"
       },
       {
         "label": "Kind",
@@ -3061,7 +3237,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Herb"
+        "value": "herb"
       }
     ],
     "Sowing": [
@@ -3079,7 +3255,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Herb"
+        "value": "herb"
       }
     ],
     "Sowing": [
@@ -3097,7 +3273,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Herb"
+        "value": "herb"
       },
       {
         "label": "Kind",
@@ -3119,7 +3295,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3137,7 +3313,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3165,7 +3341,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3183,7 +3359,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3205,7 +3381,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3229,7 +3405,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3251,7 +3427,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3279,7 +3455,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3297,7 +3473,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       }
     ],
     "Sowing": [
@@ -3315,7 +3491,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3347,7 +3523,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3375,7 +3551,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       }
     ],
     "Sowing": [
@@ -3395,7 +3571,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3417,7 +3593,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3439,7 +3615,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3457,7 +3633,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3489,7 +3665,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       }
     ],
     "Sowing": [
@@ -3503,7 +3679,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3531,7 +3707,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       }
     ],
     "Sowing": [
@@ -3549,7 +3725,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3577,7 +3753,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3595,7 +3771,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3617,7 +3793,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3645,7 +3821,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3667,7 +3843,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3695,7 +3871,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3723,7 +3899,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3745,7 +3921,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       }
     ],
     "Sowing": [
@@ -3763,7 +3939,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       }
     ],
     "Sowing": [
@@ -3777,7 +3953,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3799,7 +3975,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       }
     ],
     "Sowing": [
@@ -3817,7 +3993,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3835,7 +4011,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3863,7 +4039,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3885,7 +4061,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3907,7 +4083,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3929,7 +4105,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
@@ -3957,7 +4133,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       }
     ],
     "Sowing": [
@@ -3971,7 +4147,7 @@
     "Basics": [
       {
         "label": "Type",
-        "value": "Vegetable"
+        "value": "vegetable"
       }
     ],
     "Sowing": [
@@ -3982,6 +4158,52 @@
       {
         "label": "Sow Outdoors",
         "value": "2 to 4 before"
+      }
+    ]
+  },
+  "Impatiens (Impatiens walleriana)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      }
+    ],
+    "Bloom": [
+      {
+        "label": "Bloom Season",
+        "value": "Spring through Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
       }
     ]
   }
