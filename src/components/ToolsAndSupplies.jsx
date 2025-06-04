@@ -7,21 +7,6 @@ const toolSections = [
   {
     title: "Seed Sowing Tools",
     items: [
-      <ToolCard
-  name="Seed Dibber (BrandName)"
-  description="A handy tool for making consistent holes in soil for planting seeds at the correct depth."
-  usage="Ideal for sowing a variety of garden seeds quickly and evenly."
-  imageUrl="https://images.example.com/seed-dibber.jpg"
-  buyUrl="https://www.amazon.com/your-affiliate-link"
-/>
-
-<ToolCard
-  name="Garden Trowel"
-  description="A must-have hand tool for digging and transplanting small plants."
-  usage="Perfect for working in tight spaces and raised beds."
-  imageUrl="https://images.example.com/garden-trowel.jpg"
-  buyUrl="https://www.amazon.com/your-trowel-affiliate-link"
-/>
       { name: "Little Dibby or Dibby XL Seed Dibbers", description: "For making precise planting depth holes in soil for seed sowing or transplanting seedlings.", url: "https://amzn.to/3ZEdM07" },
       { name: "Seed Sower", description: "Helps distribute seeds evenly in rows or trays." },
       // Add more seed sowing tools here!
