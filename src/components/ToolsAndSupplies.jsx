@@ -1,5 +1,6 @@
 import React from "react";
 import BackHomeButton from "./BackHomeButton";
+import ToolCard from "./ToolCard";
 
 // Example data structure for easy expansion:
 const toolSections = [
