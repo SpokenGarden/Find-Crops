@@ -6,7 +6,7 @@ const toolSections = [
   {
     title: "Seed Sowing Tools",
     items: [
-      { name: "Dibber", description: "For making holes in soil for seeds or seedlings." },
+      { name: "Little Dibby or Dibby XL Seed Dibbers", description: "For making precise planting depth holes in soil for seed sowing or transplanting seedlings.", url: "https://amzn.to/3ZEdM07" },
       { name: "Seed Sower", description: "Helps distribute seeds evenly in rows or trays." },
       // Add more seed sowing tools here!
     ]
