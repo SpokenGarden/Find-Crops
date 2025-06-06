@@ -17,7 +17,7 @@ const toolSections = [
       },
       {
         name: "Seeding Square",
-        description: "Helps distribute seeds evenly in rows or trays.",
+        description: "Seed and seedling spacer tool for bigger harvests and optimum growing space usage.",
         usage: "Prevents overseeding and saves seeds.",
         imageUrl: "images/tools/SeedingSquare.jpg",
         buyUrl: "https://amzn.to/3FIqyDQ"
@@ -29,11 +29,11 @@ const toolSections = [
     title: "Seed Sowing Supplies",
     items: [
       {
-        name: "Potting Soil",
-        description: "Nutrient-rich soil for starting seeds indoors or outdoors.",
+        name: "Espoma Organic Seed Starter Premium Soil Mix",
+        description: "Organic seed starting soil is a rich and specially formulated to grow seedlings and cuttings indoors or outdoors.",
         usage: "Promotes healthy root growth in seedlings.",
-        imageUrl: "https://images.example.com/potting-soil.jpg",
-        buyUrl: "https://www.amazon.com/your-potting-soil-affiliate-link"
+        imageUrl: "images/tools/EspomaSeedStarter.jpg",
+        buyUrl: "https://amzn.to/3Tadfz1"
       },
       {
         name: "Seed Trays",
