@@ -3,6 +3,7 @@ import BackHomeButton from "./BackHomeButton";
 import ToolCard from "./ToolCard";
 import FeaturedToolsCarousel from "./FeaturedToolsCarousel";
 import DealsSection from "./DealsSection";
+import Deals from "./components/Deals";
 
 // Example arrays
 const featuredToolsArray = [
@@ -217,6 +218,7 @@ const ToolsAndSupplies = ({ onBack }) => (
     <p style={{ textAlign: "center" }}>
       Browse tools and supplies by category. Click on any card to learn more or buy!
     </p>
+     <Deals />
      <FeaturedToolsCarousel featuredItems={featuredToolsArray} />
     <DealsSection deals={dealsArray} linkOutUrl="https://yourwebsite.com/deals" />
     <div>
