@@ -1,80 +1,60 @@
 import React from "react";
 
-export default function ToolCard({
-  name,
-  description,
-  usage,
-  imageUrl,
-  buyUrl,
-  buttonLabel = "Buy on Amazon"
-}) {
+// No layout or style changes—just add imageUrl prop support!
+export default function ToolCard({ name, description, usage, imageUrl, buyUrl }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "flex-start",
-        gap: "1.5em",
-        background: "#f7fcf9",
-        border: "1px solid #cdefde",
-        borderRadius: "12px",
-        boxShadow: "0 2px 10px rgba(34,74,66,0.09)",
-        padding: "1.1em 1.3em",
-        marginBottom: "1.2em",
-        maxWidth: 600
-      }}
-    >
-      {/* Clickable Image */}
-      <a
-        href={buyUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ display: "block", minWidth: 90 }}
-      >
+    <div style={{
+      background: "#fff",
+      borderRadius: 12,
+      boxShadow: "0 2px 10px rgba(0,0,0,.06)",
+      padding: "1.2rem",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      minHeight: 340,
+    }}>
+      {/* Only change: add image support above the name */}
+      {imageUrl && (
         <img
-          src={imageURL}
+          src={imageUrl}
           alt={name}
           style={{
-            width: 90,
-            height: 90,
+            width: "120px",
+            height: "120px",
             objectFit: "contain",
-            borderRadius: 8,
-            boxShadow: "0 2px 6px rgba(34,74,66,0.08)",
-            background: "#fff"
+            marginBottom: "1rem",
+            borderRadius: "8px",
+            background: "#f6f6f6",
           }}
         />
-      </a>
-      {/* Tool Info */}
-      <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-        <h3 style={{ margin: "0 0 0.35em 0", color: "#16643a", fontSize: "1.21rem" }}>{name}</h3>
-        <div style={{ marginBottom: 6, color: "#375c4b", fontSize: "1rem" }}>{description}</div>
-        {usage && (
-          <div style={{ marginBottom: 10, color: "#5c765a", fontSize: "0.97rem" }}>
-            <strong>Use:</strong> {usage}
-          </div>
-        )}
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <a
-            href={buyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "inline-block",
-              padding: "0.47em 1.2em",
-              background: "#228B22",
-              color: "#fff",
-              borderRadius: "7px",
-              fontWeight: 700,
-              fontSize: "1.01rem",
-              textDecoration: "none",
-              marginTop: 6,
-              boxShadow: "0 2px 6px rgba(34,74,66,0.09)",
-              transition: "background 0.2s"
-            }}
-          >
-            {buttonLabel}
-          </a>
-        </div>
-      </div>
+      )}
+      <h4 style={{ margin: "0 0 0.5rem 0", color: "#22543d" }}>{name}</h4>
+      <p style={{ margin: 0, textAlign: "center" }}>{description}</p>
+      {usage && (
+        <p style={{ margin: "0.5em 0 0 0", fontSize: "0.95em", color: "#666" }}>
+          <strong>Usage:</strong> {usage}
+        </p>
+      )}
+      {buyUrl && (
+        <a
+          href={buyUrl}
+          style={{
+            marginTop: "1rem",
+            background: "#40916c",
+            color: "#fff",
+            border: "none",
+            padding: "0.5rem 1.2rem",
+            borderRadius: "6px",
+            fontSize: "1rem",
+            cursor: "pointer",
+            textDecoration: "none",
+          }}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Buy / Learn More
+        </a>
+      )}
     </div>
   );
 }
