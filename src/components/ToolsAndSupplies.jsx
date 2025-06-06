@@ -217,6 +217,8 @@ const ToolsAndSupplies = ({ onBack }) => (
     <p style={{ textAlign: "center" }}>
       Browse tools and supplies by category. Click on any card to learn more or buy!
     </p>
+     <FeaturedToolsCarousel featuredItems={featuredToolsArray} />
+    <DealsSection deals={dealsArray} linkOutUrl="https://yourwebsite.com/deals" />
     <div>
       {toolSections.map((section, idx) => (
         <div key={idx} style={{ marginBottom: "2.5rem" }}>
