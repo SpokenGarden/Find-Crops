@@ -3,7 +3,7 @@ import BackHomeButton from "./BackHomeButton";
 import ToolCard from "./ToolCard";
 import FeaturedToolsCarousel from "./FeaturedToolsCarousel";
 import DealsSection from "./DealsSection";
-import Deals from "./components/Deals";
+import Deals from "./Deals";
 
 // Example arrays
 const featuredToolsArray = [
