@@ -1,11 +1,7 @@
 import React from "react";
 import BackHomeButton from "./BackHomeButton";
 import ToolCard from "./ToolCard";
-
-// Example image and buyUrl data for illustration.
-// Replace imageUrl and buyUrl values with your actual images and affiliate links!
-
-    import FeaturedToolsCarousel from "./FeaturedToolsCarousel";
+import FeaturedToolsCarousel from "./FeaturedToolsCarousel";
 import DealsSection from "./DealsSection";
 
 // Example arrays
