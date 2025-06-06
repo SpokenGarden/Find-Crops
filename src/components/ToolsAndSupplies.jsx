@@ -29,18 +29,18 @@ const toolSections = [
     title: "Seed Sowing Supplies",
     items: [
       {
-        name: "Espoma Organic Seed Starter Premium Soil Mix",
+        name: "Espoma Organic Seed Starter Premium Mix",
         description: "Organic seed starting soil is a rich and specially formulated to grow seedlings and cuttings indoors or outdoors.",
         usage: "Promotes healthy root growth in seedlings.",
         imageUrl: "images/tools/EspomaSeedStarter.jpg",
         buyUrl: "https://amzn.to/3Tadfz1"
       },
       {
-        name: "Seed Trays",
-        description: "Plastic or biodegradable trays for starting many seeds at once.",
+        name: "Vego Seed Starting Trays - Mixed Sizes",
+        description: "Durable and reusable plastic trays for starting many seeds at once with domes.",
         usage: "Organizes seedlings and makes transplanting easy.",
-        imageUrl: "https://images.example.com/seed-trays.jpg",
-        buyUrl: "https://www.amazon.com/your-seed-trays-affiliate-link"
+        imageUrl: "images/tools/vegoseedstarttrays.jpg",
+        buyUrl: "https://amzn.to/43OQ2HQ"
       },
       {
         name: "Growing Medium",
