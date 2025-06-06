@@ -62,14 +62,14 @@ const toolSections = [
         usage: "Prevents soil disturbance when watering.",
         imageUrl: "https://images.example.com/watering-can.jpg",
         buyUrl: "https://www.amazon.com/your-watering-can-affiliate-link"
-      }
+      },
         {
         name: "Growing Medium",
         description: "Materials like peat, coir, or seed starting mix.",
         usage: "Provides a sterile environment for seed germination.",
         imageUrl: "https://images.example.com/growing-medium.jpg",
         buyUrl: "https://www.amazon.com/your-growing-medium-affiliate-link"
-      },
+      }
       // Add more sowing supplies here!
     ]
   },
