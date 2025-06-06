@@ -1,10 +1,11 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const app = express();
+
 app.use(cors());
 const { fetchGardenPatioDeals } = require('./amazon');
 
-const app = express();
 const PORT = process.env.PORT || 4000;
 
 app.get('/api/deals', async (req, res) => {
