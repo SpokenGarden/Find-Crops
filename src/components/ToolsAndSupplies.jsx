@@ -10,7 +10,7 @@ const toolSections = [
     items: [
       {
         name: "Little Dibby or Dibby XL Seed Dibbers",
-        description: "For making precise planting depth holes in soil for seed sowing or transplanting seedlings.",
+        description: "For making precise planting depth holes in soil for seed sowing or transplanting seedlings. Sow at the correct depth EVERYTIME.",
         usage: "Makes seed sowing fast, easy, and consistent. Great for all seed sizes.",
         imageUrl: "/images/tools/Green DXL.jpg",
         buyUrl: "https://amzn.to/3ZEdM07"
@@ -18,7 +18,7 @@ const toolSections = [
       {
         name: "Seeding Square",
         description: "Seed and seedling spacer tool for bigger harvests and optimum growing space usage.",
-        usage: "Prevents overseeding and saves seeds.",
+        usage: "Helps space seeds to optimize spacing and plant health, growth, and harvesting. Prevents overseeding and saves seeds.",
         imageUrl: "images/tools/SeedingSquare.jpg",
         buyUrl: "https://amzn.to/3FIqyDQ"
       }
@@ -31,23 +31,16 @@ const toolSections = [
       {
         name: "Espoma Organic Seed Starter Premium Mix",
         description: "Organic seed starting soil is a rich and specially formulated to grow seedlings and cuttings indoors or outdoors.",
-        usage: "Promotes healthy root growth in seedlings.",
+        usage: "Promotes high germination, healthy root growth, and seedling stem and leaf development.",
         imageUrl: "images/tools/EspomaSeedStarter.jpg",
         buyUrl: "https://amzn.to/3Tadfz1"
       },
       {
         name: "Vego Seed Starting Trays - Mixed Sizes",
         description: "Durable and reusable plastic trays for starting many seeds at once with domes.",
-        usage: "Organizes seedlings and makes transplanting easy.",
+        usage: "Versatile seed starting cells for shallow and deep rooted seedlings. Each piece has it's own plastic dome to optimize germination and control temperature.",
         imageUrl: "images/tools/vegoseedstarttrays.jpg",
         buyUrl: "https://amzn.to/43OQ2HQ"
-      },
-      {
-        name: "Growing Medium",
-        description: "Materials like peat, coir, or seed starting mix.",
-        usage: "Provides a sterile environment for seed germination.",
-        imageUrl: "https://images.example.com/growing-medium.jpg",
-        buyUrl: "https://www.amazon.com/your-growing-medium-affiliate-link"
       },
       {
         name: "Heating Mats",
@@ -70,6 +63,13 @@ const toolSections = [
         imageUrl: "https://images.example.com/watering-can.jpg",
         buyUrl: "https://www.amazon.com/your-watering-can-affiliate-link"
       }
+        {
+        name: "Growing Medium",
+        description: "Materials like peat, coir, or seed starting mix.",
+        usage: "Provides a sterile environment for seed germination.",
+        imageUrl: "https://images.example.com/growing-medium.jpg",
+        buyUrl: "https://www.amazon.com/your-growing-medium-affiliate-link"
+      },
       // Add more sowing supplies here!
     ]
   },
