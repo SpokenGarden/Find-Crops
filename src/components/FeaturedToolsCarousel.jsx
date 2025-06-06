@@ -60,7 +60,7 @@ export default function FeaturedToolsCarousel({ featuredItems }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Buy / Learn More
+          Buy Now
         </a>
       )}
       <div style={{ marginTop: ".5rem", fontSize: ".9em", color: "#888" }}>
