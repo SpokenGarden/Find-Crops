@@ -16,7 +16,7 @@ function getAmzTimestamp() {
   return new Date().toISOString().replace(/\.\d+Z$/, 'Z');
 }
 
-async function fetchGardenPatioDeals(limit = 5) {
+async function fetchGardenPatioDeals(limit = 20) {
   // See: https://webservices.amazon.com/paapi5/documentation/search-items.html
   const endpoint = `https://webservices.amazon.com/paapi5/searchitems`;
 
