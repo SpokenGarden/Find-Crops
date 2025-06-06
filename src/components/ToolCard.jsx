@@ -31,7 +31,7 @@ export default function ToolCard({
         style={{ display: "block", minWidth: 90 }}
       >
         <img
-          src={public/images/tools/Green_DXL}
+          src={imageURL}
           alt={name}
           style={{
             width: 90,
