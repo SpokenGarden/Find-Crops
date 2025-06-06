@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BackHomeButton from "./BackHomeButton";
 import ToolCard from "./ToolCard";
 import DealsSection from "./DealsSection";
@@ -163,54 +163,69 @@ const gridStyle = {
   marginTop: "1.2rem"
 };
 
-const ToolsAndSupplies = ({ onBack }) => (
-  <div
-    style={{
-      maxWidth: 1100,
-      margin: "2rem auto",
-      padding: "2rem",
-      background: "#f9f9f6",
-      borderRadius: 16,
-      position: "relative",
-      minHeight: 400
-    }}
-  >
-    {/* Top Left */}
-    <div style={{ position: "absolute", top: 20, left: 20 }}>
-      <BackHomeButton onClick={onBack} />
-    </div>
-    <h2 style={{ color: "#22543d", marginTop: 0, textAlign: "center" }}>
-      🛠️ Garden Tools & Supplies
-    </h2>
-    <p style={{ textAlign: "center" }}>
-      Browse tools and supplies by category. Click on any card to learn more or buy!
-    </p>
-    <Deals />
-    {/* Removed <DealsSection deals={dealsArray} linkOutUrl="https://yourwebsite.com/deals" /> */}
-    <div>
-      {toolSections.map((section, idx) => (
-        <div key={idx} style={{ marginBottom: "2.5rem" }}>
-          <h3 style={{ color: "#40916c", marginBottom: "0.5rem" }}>{section.title}</h3>
-          <div style={gridStyle}>
-            {section.items.map((tool, tidx) => (
-              <ToolCard
-                key={tidx}
-                name={tool.name}
-                description={tool.description}
-                usage={tool.usage}
-                imageUrl={tool.imageUrl}
-                buyUrl={tool.buyUrl}
-              />
-            ))}
+const ToolsAndSupplies = ({ onBack }) => {
+  const [deals, setDeals] = useState([]);
+
+  useEffect(() => {
+    // Replace with your actual API endpoint if different
+    fetch("https://deals-hlcl.onrender.com/api/deals")
+      .then(res => res.json())
+      .then(data => setDeals(data))
+      .catch(() => setDeals([]));
+  }, []);
+
+  return (
+    <div
+      style={{
+        maxWidth: 1100,
+        margin: "2rem auto",
+        padding: "2rem",
+        background: "#f9f9f6",
+        borderRadius: 16,
+        position: "relative",
+        minHeight: 400
+      }}
+    >
+      {/* Top Left */}
+      <div style={{ position: "absolute", top: 20, left: 20 }}>
+        <BackHomeButton onClick={onBack} />
+      </div>
+      <h2 style={{ color: "#22543d", marginTop: 0, textAlign: "center" }}>
+        🛠️ Garden Tools & Supplies
+      </h2>
+      <p style={{ textAlign: "center" }}>
+        Browse tools and supplies by category. Click on any card to learn more or buy!
+      </p>
+      <Deals />
+      <DealsSection
+        deals={deals}
+        linkOutUrl="https://https://deals-hlcl.onrender.com/api/deals"
+      />
+      <div>
+        {toolSections.map((section, idx) => (
+          <div key={idx} style={{ marginBottom: "2.5rem" }}>
+            <h3 style={{ color: "#40916c", marginBottom: "0.5rem" }}>{section.title}</h3>
+            <div style={gridStyle}>
+              {section.items.map((tool, tidx) => (
+                <ToolCard
+                  key={tidx}
+                  name={tool.name}
+                  description={tool.description}
+                  usage={tool.usage}
+                  imageUrl={tool.imageUrl}
+                  buyUrl={tool.buyUrl}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      {/* Bottom */}
+      <div style={{ marginTop: "3rem", textAlign: "center" }}>
+        <BackHomeButton onClick={onBack} />
+      </div>
     </div>
-    {/* Bottom */}
-    <div style={{ marginTop: "3rem", textAlign: "center" }}>
-      <BackHomeButton onClick={onBack} />
-    </div>
-  </div>
-);
+  );
+};
 
 export default ToolsAndSupplies;
