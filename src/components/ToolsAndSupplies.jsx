@@ -1,42 +1,10 @@
 import React from "react";
 import BackHomeButton from "./BackHomeButton";
 import ToolCard from "./ToolCard";
-import FeaturedToolsCarousel from "./FeaturedToolsCarousel";
 import DealsSection from "./DealsSection";
 import Deals from "./Deals";
 
-// Example arrays
-const featuredToolsArray = [
-  {
-    name: "Deluxe Hand Trowel",
-    description: "Heavy-duty carbon steel trowel, perfect for all-purpose gardening.",
-    imageUrl: "/images/tools/trowel.jpg",
-    buyUrl: "https://www.amazon.com/your-featured-trowel-link"
-  },
-  {
-    name: "Pruning Shears Pro",
-    description: "Precision pruning for beautiful plants.",
-    imageUrl: "/images/tools/pruner.jpg",
-    buyUrl: "https://www.amazon.com/your-featured-pruner-link"
-  }
-  // ...etc
-];
 
-const dealsArray = [
-  {
-    name: "Starter Seed Pack",
-    dealText: "Save 30% this month!",
-    imageUrl: "/images/tools/seedpack.jpg",
-    buyUrl: "https://www.amazon.com/your-seedpack-deal-link"
-  },
-  {
-    name: "Watering Can",
-    dealText: "20% off • Limited time",
-    imageUrl: "/images/tools/wateringcan.jpg",
-    buyUrl: "https://www.amazon.com/your-can-deal-link"
-  }
-  // ...etc
-];
 const toolSections = [
   {
     title: "Seed Sowing Tools",
