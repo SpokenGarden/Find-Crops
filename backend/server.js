@@ -8,9 +8,17 @@ const PORT = process.env.PORT || 4000;
 app.get('/api/deals', async (req, res) => {
   try {
     const limit = parseInt(req.query.limit || "5", 10);
-    const deals = await fetchGardenPatioDeals(limit);
+    const items = await fetchGardenPatioDeals(20); // fetch more for filtering
+
+    // Only keep items with a discount or promotion
+    const deals = items.filter(item => {
+      const listing = item.Offers?.Listings?.[0];
+      return listing?.SavingBasis || (listing?.Promotions && listing.Promotions.length > 0);
+    }).slice(0, limit);
+
     res.json({ deals });
   } catch (err) {
+    console.error("Error fetching deals:", err);
     res.status(500).json({ error: "Failed to fetch deals" });
   }
 });
