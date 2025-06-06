@@ -25,6 +25,10 @@ export default function FeaturedToolsCarousel({ featuredItems }) {
       alignItems: "center",
       padding: "1rem"
     }}>
+      {/* Carousel Title */}
+      <h3 style={{ margin: "0 0 1rem 0", color: "#1b5e20", textAlign: "center", letterSpacing: "0.03em" }}>
+        Featured Items
+      </h3>
       <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
         <button onClick={prevSlide} aria-label="Previous" style={{ background: "none", border: "none", fontSize: "2rem", cursor: "pointer" }}>&lt;</button>
         <img
@@ -60,7 +64,7 @@ export default function FeaturedToolsCarousel({ featuredItems }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Buy Now
+          Buy / Learn More
         </a>
       )}
       <div style={{ marginTop: ".5rem", fontSize: ".9em", color: "#888" }}>
