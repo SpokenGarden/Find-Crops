@@ -12,7 +12,7 @@ const toolSections = [
         name: "Little Dibby or Dibby XL Seed Dibbers",
         description: "For making precise planting depth holes in soil for seed sowing or transplanting seedlings.",
         usage: "Makes seed sowing fast, easy, and consistent. Great for all seed sizes.",
-        imageUrl: "/images/tools/Green_DXL.jpg",
+        imageUrl: "/images/tools/Green DXL.jpg",
         buyUrl: "https://amzn.to/3ZEdM07"
       },
       {
