@@ -63,7 +63,7 @@ const toolSections = [
         imageUrl: "https://images.example.com/watering-can.jpg",
         buyUrl: "https://www.amazon.com/your-watering-can-affiliate-link"
       },
-        {
+      {
         name: "Growing Medium",
         description: "Materials like peat, coir, or seed starting mix.",
         usage: "Provides a sterile environment for seed germination.",
@@ -185,8 +185,8 @@ const ToolsAndSupplies = ({ onBack }) => (
     <p style={{ textAlign: "center" }}>
       Browse tools and supplies by category. Click on any card to learn more or buy!
     </p>
-     <Deals />
-    <DealsSection deals={dealsArray} linkOutUrl="https://yourwebsite.com/deals" />
+    <Deals />
+    {/* Removed <DealsSection deals={dealsArray} linkOutUrl="https://yourwebsite.com/deals" /> */}
     <div>
       {toolSections.map((section, idx) => (
         <div key={idx} style={{ marginBottom: "2.5rem" }}>
