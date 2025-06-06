@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAmazonDeals } from "../api/getDeals";
+import { getAmazonDeals } from "../getDeals";
 
 export default function Deals() {
   const [deals, setDeals] = useState([]);
@@ -22,7 +22,11 @@ export default function Deals() {
       <ul>
         {deals.map((item) => (
           <li key={item.ASIN}>
-            <img src={item.Images?.Primary?.Large?.URL} alt={item.ItemInfo?.Title?.DisplayValue} width={100} />
+            <img
+              src={item.Images?.Primary?.Large?.URL}
+              alt={item.ItemInfo?.Title?.DisplayValue}
+              width={100}
+            />
             <div>{item.ItemInfo?.Title?.DisplayValue}</div>
             <div>
               {item.Offers?.Listings?.[0]?.Price?.DisplayAmount}{" "}
@@ -32,7 +36,6 @@ export default function Deals() {
                 </span>
               )}
             </div>
-            {/* Add affiliate link if needed */}
           </li>
         ))}
       </ul>
