@@ -52,7 +52,7 @@ export default function ToolCard({ name, description, usage, imageUrl, buyUrl })
           target="_blank"
           rel="noopener noreferrer"
         >
-          Buy / Learn More
+          Buy Now
         </a>
       )}
     </div>
