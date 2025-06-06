@@ -170,7 +170,7 @@ const ToolsAndSupplies = ({ onBack }) => {
     // Replace with your actual API endpoint if different
     fetch("https://deals-hlcl.onrender.com/api/deals")
       .then(res => res.json())
-      .then(data => setDeals(data))
+      .then(data => setDeals(data.deals))
       .catch(() => setDeals([]));
   }, []);
 
