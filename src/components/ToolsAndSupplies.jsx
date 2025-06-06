@@ -16,11 +16,11 @@ const toolSections = [
         buyUrl: "https://amzn.to/3ZEdM07"
       },
       {
-        name: "Seed Sower",
+        name: "Seeding Square",
         description: "Helps distribute seeds evenly in rows or trays.",
         usage: "Prevents overseeding and saves seeds.",
-        imageUrl: "https://images.example.com/seed-sower.jpg",
-        buyUrl: "https://www.amazon.com/your-seed-sower-affiliate-link"
+        imageUrl: "images/tools/SeedingSquare.jpg",
+        buyUrl: "https://amzn.to/3FIqyDQ"
       }
       // Add more seed sowing tools here!
     ]
