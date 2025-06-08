@@ -75,6 +75,26 @@ export default function GardenPlannerApp() {
     }, 150);
   };
 
+  // Helper to get the type/category from the crop's data
+  function getCropType(cropData) {
+    if (cropData.Basics && Array.isArray(cropData.Basics)) {
+      const typeField = cropData.Basics.find(f => f.label && f.label.toLowerCase() === "type");
+      return typeField ? typeField.value.toLowerCase() : "other";
+    }
+    return "other";
+  }
+
+  // Group filtered crops by type
+  const groupedCrops = { flower: [], vegetable: [], herb: [], other: [] };
+  filteredCrops.forEach(([cropName, cropData]) => {
+    const type = getCropType(cropData); // flower, vegetable, herb, or other
+    if (groupedCrops[type]) {
+      groupedCrops[type].push([cropName, cropData]);
+    } else {
+      groupedCrops.other.push([cropName, cropData]);
+    }
+  });
+
   // Home screen
   if (screen === "home") {
     return (
@@ -239,24 +259,36 @@ export default function GardenPlannerApp() {
       </div>
       {!loading && (
         <>
-          <h2 style={{ color: "#2d6a4f", marginTop: "2rem" }}>
-            {filteredCrops.length} Crop{filteredCrops.length !== 1 ? "s" : ""} Found:
-          </h2>
-          <ul
-            style={{
-              listStyle: "none",
-              padding: 0,
-              margin: 0,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center"
-            }}>
-            {filteredCrops.map(([cropName, cropData]) => (
-              <li key={cropName} style={{ width: "100%", maxWidth: 700, marginBottom: "1rem" }}>
-                <CropCard cropName={cropName} cropData={cropData} />
-              </li>
-            ))}
-          </ul>
+          {/* Grouped Crop Lists */}
+          {["flower", "vegetable", "herb"].map(group => (
+            groupedCrops[group].length > 0 && (
+              <div key={group} style={{ marginBottom: "2em" }}>
+                <h2 style={{ color: "#2d6a4f", textTransform: "capitalize" }}>
+                  {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : "Vegetables"}
+                </h2>
+                <ul style={{
+                  listStyle: "none",
+                  padding: 0,
+                  margin: 0,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center"
+                }}>
+                  {groupedCrops[group].map(([cropName, cropData]) => (
+                    <li key={cropName} style={{ width: "100%", maxWidth: 700, marginBottom: "1rem" }}>
+                      <CropCard cropName={cropName} cropData={cropData} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          ))}
+          {/* If none found */}
+          {filteredCrops.length === 0 && (
+            <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>
+              No crops found for your search.
+            </div>
+          )}
         </>
       )}
       {loading && <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading...</div>}
