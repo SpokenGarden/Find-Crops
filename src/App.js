@@ -222,25 +222,52 @@ export default function GardenPlannerApp() {
           <p style={{ fontSize: "1.1rem", margin: "1rem 0" }}>
             Plan what to grow, when to sow with your frost date, grow zone look-up, specific planting depths and spacings, and a whole lot more.
           </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem" }}>
-            <button onClick={() => setScreen("search")}
+          <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem", flexWrap: "wrap", marginTop: "2rem" }}>
+            <button
+              onClick={() => setScreen("search")}
               style={{
-                padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#5271ff",
-                color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px"
+                padding: "1rem 2rem",
+                fontSize: "1rem",
+                backgroundColor: "#5271ff",
+                color: "white",
+                border: "none",
+                borderRadius: "16px",
+                cursor: "pointer",
+                minWidth: "200px",
+                transition: "box-shadow 0.2s",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.06)"
               }}>
               Start Planning
             </button>
-            <button onClick={() => setScreen("tools")}
+            <button
+              onClick={() => setScreen("tools")}
               style={{
-                padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#ffeb48",
-                color: "black", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px"
+                padding: "1rem 2rem",
+                fontSize: "1rem",
+                backgroundColor: "#ffeb48",
+                color: "black",
+                border: "none",
+                borderRadius: "16px",
+                cursor: "pointer",
+                minWidth: "200px",
+                transition: "box-shadow 0.2s",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.06)"
               }}>
               Get Tools and Supplies
             </button>
-            <button onClick={() => setScreen("videos")}
+            <button
+              onClick={() => setScreen("videos")}
               style={{
-                padding: "1rem 2rem", fontSize: "1rem", backgroundColor: "#05b210",
-                color: "white", border: "none", borderRadius: "8px", cursor: "pointer", minWidth: "200px"
+                padding: "1rem 2rem",
+                fontSize: "1rem",
+                backgroundColor: "#05b210",
+                color: "white",
+                border: "none",
+                borderRadius: "16px",
+                cursor: "pointer",
+                minWidth: "200px",
+                transition: "box-shadow 0.2s",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.06)"
               }}>
               Watch Planting Videos
             </button>
