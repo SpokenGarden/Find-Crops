@@ -300,7 +300,7 @@ export default function GardenPlannerApp() {
           </h1>
           {/* Crop Name Search Input */}
           <label>
-            Crop Name Search:
+            Plant Name Search:
             <input
               type="text"
               value={cropName}
@@ -383,7 +383,7 @@ export default function GardenPlannerApp() {
               fontSize: "1rem",
               cursor: "pointer"
             }}>
-            Find Crops
+            Find Plants
           </button>
         </div>
       </div>
@@ -438,7 +438,7 @@ export default function GardenPlannerApp() {
           {/* None found */}
           {filteredCrops.length === 0 && (
             <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>
-              No crops found for your search.
+              No plants found for your search.
             </div>
           )}
         </>
