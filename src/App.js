@@ -322,6 +322,9 @@ export default function GardenPlannerApp() {
               }}
               autoFocus
             />
+                          <h2 style={{ fontSize: "1.5rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>
+            OR
+          </h2>
           </label>
           <label>
             Grow Zone:
