@@ -2,6 +2,7 @@
 
 export function filterCrops(crops, filters) {
   const {
+    cropName, // <-- NEW: add cropName to destructure filters
     zone,
     category,
     sunRequirement,
@@ -26,6 +27,25 @@ export function filterCrops(crops, filters) {
   }
 
   return crops.filter(crop => {
+    // CROP NAME/KEYWORD SEARCH: If cropName is present, only filter by crop name and skip all other filters
+    if (cropName && cropName.trim() !== "") {
+      // If your crop object has a 'displayName' field, use it; otherwise use 'crop.name' or fallback to crop.Basics.Name
+      // Adjust the next line depending on your data structure:
+      const cropDisplay =
+        crop.displayName ||
+        crop.name ||
+        (Array.isArray(crop.Basics) && getValue(crop.Basics, "Name")) ||
+        ""; // fallback
+      if (
+        !cropDisplay
+          .toLowerCase()
+          .includes(cropName.trim().toLowerCase())
+      ) {
+        return false;
+      }
+      return true; // Only keyword match is needed if cropName is present!
+    }
+
     // CATEGORY filtering (flowers, herbs, vegetables): case-insensitive
     const typeVal = getValue(crop.Basics, "Type");
     if (
