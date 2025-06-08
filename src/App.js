@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { filterCrops } from "./utils/filterCrops";
 import { buildSowingCalendar } from "./utils/sowingCalendar";
 import CropCard from "./components/CropCard";
 import ToolsAndSupplies from "./components/ToolsAndSupplies";
 import PlantingVideos from "./components/PlantingVideos";
 import BackHomeButton from "./components/BackHomeButton";
-
-// Import your grouped crop data (object keyed by crop name)
 import cropData from "./data/cropdata.json";
 
 // Local storage helpers
@@ -28,8 +26,6 @@ const setLocal = (key, value) => {
 export default function GardenPlannerApp() {
   // UI state
   const [screen, setScreen] = useState("home");
-
-  // Use the grouped data object directly
   const crops = cropData;
 
   // Crop search state
@@ -42,8 +38,14 @@ export default function GardenPlannerApp() {
   const [soilPreference, setSoilPreference] = useState(getLocal("soilPreference", "all"));
   const [loading, setLoading] = useState(false);
   const [sowingCalendar, setSowingCalendar] = useState([]);
-  // Crop Name Search state
-  const [cropName, setCropName] = useState(""); // <-- NEW
+  const [cropName, setCropName] = useState("");
+
+  // Accordion state for group expansion
+  const [expandedGroups, setExpandedGroups] = useState({
+    flower: true,
+    vegetable: true,
+    herb: true,
+  });
 
   useEffect(() => { setLocal("zone", zone); }, [zone]);
   useEffect(() => { setLocal("category", category); }, [category]);
@@ -52,26 +54,26 @@ export default function GardenPlannerApp() {
   useEffect(() => { setLocal("waterNeed", waterNeed); }, [waterNeed]);
   useEffect(() => { setLocal("soilPreference", soilPreference); }, [soilPreference]);
 
-  // Handle crop search filtering using the grouped crops object
   const handleSearch = () => {
     setLoading(true);
     setTimeout(() => {
-      // Convert crops object to array of {name, ...sections} for filtering
+      // Convert crops object to array for filtering
       const cropArray = Object.entries(crops).map(([name, data]) => ({
         name,
         ...data,
-        _raw: data // keep original structure for CropCard
+        _raw: data
       }));
       const matches = filterCrops(
         cropArray,
         { cropName, zone, category, sunRequirement, waterNeed, soilPreference }
       );
-      // Store as [name, data] for rendering CropCard
       const filtered = matches.map((crop) => [crop.name, crop._raw || crop]);
       setFilteredCrops(filtered);
       setSowingCalendar(buildSowingCalendar(matches));
       setLoading(false);
       window.localStorage.setItem("sowingCalendar", JSON.stringify(matches));
+      // Optionally reset group expansion on new search:
+      setExpandedGroups({ flower: true, vegetable: true, herb: true });
     }, 150);
   };
 
@@ -87,13 +89,27 @@ export default function GardenPlannerApp() {
   // Group filtered crops by type
   const groupedCrops = { flower: [], vegetable: [], herb: [], other: [] };
   filteredCrops.forEach(([cropName, cropData]) => {
-    const type = getCropType(cropData); // flower, vegetable, herb, or other
+    const type = getCropType(cropData);
     if (groupedCrops[type]) {
       groupedCrops[type].push([cropName, cropData]);
     } else {
       groupedCrops.other.push([cropName, cropData]);
     }
   });
+
+  // Counts
+  const totalCount = filteredCrops.length;
+  const flowerCount = groupedCrops.flower.length;
+  const vegetableCount = groupedCrops.vegetable.length;
+  const herbCount = groupedCrops.herb.length;
+
+  // Accordion group toggler
+  const toggleGroup = (group) => {
+    setExpandedGroups(prev => ({
+      ...prev,
+      [group]: !prev[group]
+    }));
+  };
 
   // Home screen
   if (screen === "home") {
@@ -171,7 +187,7 @@ export default function GardenPlannerApp() {
           <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>
             🌱 The Dibby Grow Buddy Garden Planner
           </h1>
-          {/* --- NEW: Crop Name Search Input --- */}
+          {/* Crop Name Search Input */}
           <label>
             Crop Name Search:
             <input
@@ -259,31 +275,69 @@ export default function GardenPlannerApp() {
       </div>
       {!loading && (
         <>
-          {/* Grouped Crop Lists */}
+          {/* Search summary */}
+          {totalCount > 0 && (
+            <div style={{ marginTop: "2rem", marginBottom: "1.5rem", color: "#2d6a4f", textAlign: "center" }}>
+              <h2 style={{ margin: 0, fontSize: "1.25rem" }}>
+                {totalCount} Plant{totalCount !== 1 ? "s" : ""} Found
+              </h2>
+              <div style={{ marginTop: "0.5rem", fontSize: "1.05rem" }}>
+                Flowers: {flowerCount} &nbsp;|&nbsp; Vegetables: {vegetableCount} &nbsp;|&nbsp; Herbs: {herbCount}
+              </div>
+            </div>
+          )}
+
+          {/* Grouped Crop Lists as Accordions */}
           {["flower", "vegetable", "herb"].map(group => (
             groupedCrops[group].length > 0 && (
-              <div key={group} style={{ marginBottom: "2em" }}>
-                <h2 style={{ color: "#2d6a4f", textTransform: "capitalize" }}>
-                  {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : "Vegetables"}
-                </h2>
-                <ul style={{
-                  listStyle: "none",
-                  padding: 0,
-                  margin: 0,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center"
-                }}>
-                  {groupedCrops[group].map(([cropName, cropData]) => (
-                    <li key={cropName} style={{ width: "100%", maxWidth: 700, marginBottom: "1rem" }}>
-                      <CropCard cropName={cropName} cropData={cropData} />
-                    </li>
-                  ))}
-                </ul>
+              <div key={group} style={{ marginBottom: "2em", width: "100%" }}>
+                {/* Accordion Group Header */}
+                <div
+                  onClick={() => toggleGroup(group)}
+                  style={{
+                    cursor: "pointer",
+                    background: "#eaf4ec",
+                    border: "2px solid #2d6a4f",
+                    borderRadius: "10px",
+                    padding: "1em 1.5em",
+                    fontWeight: 700,
+                    color: "#2d6a4f",
+                    fontSize: "1.3rem",
+                    boxShadow: "0 2px 12px rgba(44, 106, 79, 0.07)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between"
+                  }}
+                >
+                  <span>
+                    {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : "Vegetables"}
+                    {" "}({groupedCrops[group].length})
+                  </span>
+                  <span style={{ fontSize: "1.2em" }}>
+                    {expandedGroups[group] ? "▲" : "▼"}
+                  </span>
+                </div>
+                {/* Accordion content */}
+                {expandedGroups[group] && (
+                  <ul style={{
+                    listStyle: "none",
+                    padding: 0,
+                    margin: 0,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center"
+                  }}>
+                    {groupedCrops[group].map(([cropName, cropData]) => (
+                      <li key={cropName} style={{ width: "100%", maxWidth: 700, marginBottom: "1rem" }}>
+                        <CropCard cropName={cropName} cropData={cropData} />
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             )
           ))}
-          {/* If none found */}
+          {/* None found */}
           {filteredCrops.length === 0 && (
             <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>
               No crops found for your search.
