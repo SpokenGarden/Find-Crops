@@ -42,7 +42,8 @@ export default function GardenPlannerApp() {
   const [soilPreference, setSoilPreference] = useState(getLocal("soilPreference", "all"));
   const [loading, setLoading] = useState(false);
   const [sowingCalendar, setSowingCalendar] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  // Crop Name Search state
+  const [cropName, setCropName] = useState(""); // <-- NEW
 
   useEffect(() => { setLocal("zone", zone); }, [zone]);
   useEffect(() => { setLocal("category", category); }, [category]);
@@ -63,8 +64,7 @@ export default function GardenPlannerApp() {
       }));
       const matches = filterCrops(
         cropArray,
-        { zone, category, sunRequirement, waterNeed, soilPreference },
-        searchTerm
+        { cropName, zone, category, sunRequirement, waterNeed, soilPreference }
       );
       // Store as [name, data] for rendering CropCard
       const filtered = matches.map((crop) => [crop.name, crop._raw || crop]);
@@ -151,6 +151,31 @@ export default function GardenPlannerApp() {
           <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>
             🌱 The Dibby Grow Buddy Garden Planner
           </h1>
+          {/* --- NEW: Crop Name Search Input --- */}
+          <label>
+            Crop Name Search:
+            <input
+              type="text"
+              value={cropName}
+              placeholder="Type a crop name (e.g. radish, zinnia)…"
+              onChange={e => setCropName(e.target.value)}
+              className="crop-search-input"
+              style={{
+                width: "100%",
+                maxWidth: "400px",
+                fontSize: "1.12rem",
+                padding: "0.65em 1em",
+                border: "2px solid #228b22",
+                borderRadius: "9px",
+                outline: "none",
+                background: "#f3fcf7",
+                color: "#155943",
+                boxShadow: "0 2px 10px rgba(34,74,66,0.06)",
+                marginBottom: "1.2em"
+              }}
+              autoFocus
+            />
+          </label>
           <label>
             Grow Zone:
             <input
