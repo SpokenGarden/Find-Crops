@@ -40,11 +40,11 @@ export default function GardenPlannerApp() {
   const [sowingCalendar, setSowingCalendar] = useState([]);
   const [cropName, setCropName] = useState("");
 
-  // Accordion state for group expansion
+  // Accordion state for group expansion (start all collapsed)
   const [expandedGroups, setExpandedGroups] = useState({
-    flower: true,
-    vegetable: true,
-    herb: true,
+    flower: false,
+    vegetable: false,
+    herb: false,
   });
 
   useEffect(() => { setLocal("zone", zone); }, [zone]);
@@ -72,8 +72,8 @@ export default function GardenPlannerApp() {
       setSowingCalendar(buildSowingCalendar(matches));
       setLoading(false);
       window.localStorage.setItem("sowingCalendar", JSON.stringify(matches));
-      // Optionally reset group expansion on new search:
-      setExpandedGroups({ flower: true, vegetable: true, herb: true });
+      // Reset group expansion to all collapsed on new search:
+      setExpandedGroups({ flower: false, vegetable: false, herb: false });
     }, 150);
   };
 
@@ -111,16 +111,110 @@ export default function GardenPlannerApp() {
     }));
   };
 
+  // Responsive styles
+  const responsiveStyles = `
+    .gp-container {
+      font-family: 'Poppins', sans-serif;
+      padding: 1rem;
+      margin: 0 auto;
+      background-color: #fdfdfc;
+      min-height: 600px;
+      max-width: 600px;
+      width: 100vw;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+    .gp-flex-center {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .gp-form-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .gp-group-header {
+      cursor: pointer;
+      background: #eaf4ec;
+      border: 2px solid #2d6a4f;
+      border-radius: 10px;
+      padding: 1em 1.5em;
+      font-weight: 700;
+      color: #2d6a4f;
+      font-size: 1.3rem;
+      box-shadow: 0 2px 12px rgba(44, 106, 79, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 500px;
+      width: 100%;
+      box-sizing: border-box;
+      transition: background 0.15s;
+    }
+    .gp-group-header:active, .gp-group-header:focus {
+      background: #d3e8db;
+    }
+    .gp-group-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 700px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .gp-group-item {
+      width: 100%;
+      max-width: 700px;
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 700px) {
+      .gp-container {
+        max-width: 100vw;
+        min-width: 0;
+        padding: 0.5rem;
+      }
+      .gp-form-col, .gp-group-header, .gp-group-list {
+        max-width: 98vw;
+        min-width: 0;
+      }
+      .gp-group-header {
+        font-size: 1.07rem;
+        padding: 0.7em 1em;
+      }
+      .gp-group-item {
+        max-width: 99vw;
+        min-width: 0;
+      }
+    }
+    @media (max-width: 480px) {
+      .gp-container {
+        padding: 0.2rem;
+      }
+      .gp-form-col, .gp-group-header, .gp-group-list {
+        max-width: 100vw;
+      }
+      .gp-group-header {
+        font-size: 1rem;
+        padding: 0.5em 0.7em;
+      }
+    }
+  `;
+
   // Home screen
   if (screen === "home") {
     return (
-      <div style={{
-        fontFamily: "Poppins, sans-serif",
-        padding: "1rem",
-        margin: "0 auto",
-        backgroundColor: "#fdfdfc",
-        maxWidth: "100%",
-      }}>
+      <div className="gp-container">
+        <style>{responsiveStyles}</style>
         <div style={{ textAlign: "center", padding: "2rem" }}>
           <h1 style={{ fontSize: "2rem", color: "#2d6a4f" }}>
             🌱 Welcome to The Dibby Grow Buddy Garden Planner
@@ -166,24 +260,14 @@ export default function GardenPlannerApp() {
 
   // Crop search/planner screen
   return (
-    <div
-      style={{
-        fontFamily: "Poppins, sans-serif",
-        padding: "1rem",
-        margin: "0 auto",
-        backgroundColor: "#fdfdfc",
-        maxWidth: "100%",
-        minHeight: 600,
-      }}
-    >
+    <div className="gp-container">
+      <style>{responsiveStyles}</style>
       {/* Top Left Back Button */}
       <div style={{ position: "absolute", top: 20, left: 20 }}>
         <BackHomeButton onClick={() => setScreen("home")} />
       </div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <div style={{
-          display: "flex", flexDirection: "column", gap: "1rem", width: "100%", maxWidth: "500px"
-        }}>
+      <div className="gp-flex-center">
+        <div className="gp-form-col">
           <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>
             🌱 The Dibby Grow Buddy Garden Planner
           </h1>
@@ -294,20 +378,11 @@ export default function GardenPlannerApp() {
                 {/* Accordion Group Header */}
                 <div
                   onClick={() => toggleGroup(group)}
-                  style={{
-                    cursor: "pointer",
-                    background: "#eaf4ec",
-                    border: "2px solid #2d6a4f",
-                    borderRadius: "10px",
-                    padding: "1em 1.5em",
-                    fontWeight: 700,
-                    color: "#2d6a4f",
-                    fontSize: "1.3rem",
-                    boxShadow: "0 2px 12px rgba(44, 106, 79, 0.07)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between"
-                  }}
+                  tabIndex={0}
+                  className="gp-group-header"
+                  style={{ outline: "none" }}
+                  aria-expanded={expandedGroups[group]}
+                  role="button"
                 >
                   <span>
                     {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : "Vegetables"}
@@ -319,16 +394,9 @@ export default function GardenPlannerApp() {
                 </div>
                 {/* Accordion content */}
                 {expandedGroups[group] && (
-                  <ul style={{
-                    listStyle: "none",
-                    padding: 0,
-                    margin: 0,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center"
-                  }}>
+                  <ul className="gp-group-list">
                     {groupedCrops[group].map(([cropName, cropData]) => (
-                      <li key={cropName} style={{ width: "100%", maxWidth: 700, marginBottom: "1rem" }}>
+                      <li key={cropName} className="gp-group-item">
                         <CropCard cropName={cropName} cropData={cropData} />
                       </li>
                     ))}
