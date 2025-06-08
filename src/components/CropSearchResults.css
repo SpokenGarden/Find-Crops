@@ -33,3 +33,22 @@
   display: flex;
   justify-content: center;
 }
+
+.crop-search-input {
+  width: 100%;
+  max-width: 400px;
+  font-size: 1.12rem;
+  padding: 0.65em 1em;
+  border: 2px solid #228b22;
+  border-radius: 9px;
+  outline: none;
+  background: #f3fcf7;
+  color: #155943;
+  box-shadow: 0 2px 10px rgba(34,74,66,0.06);
+  margin-bottom: 1.2em;
+  transition: border-color 0.2s;
+}
+.crop-search-input:focus {
+  border-color: #155943;
+  background: #e6f9ee;
+}
