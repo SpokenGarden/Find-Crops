@@ -111,11 +111,11 @@ export default function GardenPlannerApp() {
     }));
   };
 
-  // Responsive styles (shared for all pages)
+  // Responsive styles
   const responsiveStyles = `
     .gp-container {
       font-family: 'Poppins', sans-serif;
-      padding: 1rem;
+      padding: 1.2rem 0;
       margin: 0 auto;
       background-color: #fdfdfc;
       min-height: 600px;
@@ -225,16 +225,39 @@ export default function GardenPlannerApp() {
       max-width: 700px;
       margin-bottom: 1rem;
     }
+    .crop-card {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
 
+    @media (max-width: 900px) {
+      .gp-container {
+        max-width: 99vw;
+      }
+      .gp-form-col,
+      .gp-group-header,
+      .gp-group-list,
+      .crop-card {
+        max-width: 95vw;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        box-sizing: border-box;
+      }
+    }
     @media (max-width: 700px) {
       .gp-container {
-        max-width: 100vw;
-        min-width: 0;
-        padding: 0.5rem;
+        padding-left: 3vw;
+        padding-right: 3vw;
       }
-      .gp-form-col, .gp-group-header, .gp-group-list {
-        max-width: 98vw;
-        min-width: 0;
+      .gp-form-col,
+      .gp-group-header,
+      .gp-group-list,
+      .crop-card {
+        max-width: 95vw;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        box-sizing: border-box;
       }
       .gp-group-header {
         font-size: 1.07rem;
@@ -258,10 +281,16 @@ export default function GardenPlannerApp() {
     }
     @media (max-width: 480px) {
       .gp-container {
-        padding: 0.25rem;
+        padding-left: 2vw;
+        padding-right: 2vw;
       }
-      .gp-form-col, .gp-group-header, .gp-group-list {
-        max-width: 100vw;
+      .gp-form-col,
+      .gp-group-header,
+      .gp-group-list,
+      .crop-card {
+        max-width: 98vw;
+        padding-left: 2vw;
+        padding-right: 2vw;
       }
       .gp-back-btn {
         font-size: 1rem;
