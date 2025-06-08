@@ -186,10 +186,45 @@ const ToolsAndSupplies = ({ onBack }) => {
         minHeight: 400
       }}
     >
-      {/* Top Left */}
-      <div style={{ position: "absolute", top: 20, left: 20 }}>
-        <BackHomeButton onClick={onBack} />
-      </div>
+      {/* Responsive Back Button CSS */}
+      <style>{`
+        .gp-back-btn {
+          position: absolute;
+          top: 22px;
+          left: 22px;
+          z-index: 20;
+          background: #b7e6cf;
+          border: none;
+          border-radius: 13px;
+          padding: 0.7em 1.3em;
+          font-size: 1.13rem;
+          color: #155943;
+          font-weight: 700;
+          box-shadow: 0 2px 10px rgba(34,74,66,0.08);
+          cursor: pointer;
+          transition: background 0.18s;
+        }
+        @media (max-width: 700px) {
+          .gp-back-btn {
+            position: static;
+            display: block;
+            margin-bottom: 0.85em;
+            margin-left: 0;
+            margin-top: 0.5em;
+            width: auto;
+          }
+        }
+        @media (max-width: 480px) {
+          .gp-back-btn {
+            font-size: 1rem;
+            padding: 0.6em 1em;
+          }
+        }
+      `}</style>
+      {/* Top Left Back Button */}
+      <button className="gp-back-btn" onClick={onBack}>
+        ← Back to Home
+      </button>
       <h2 style={{ color: "#22543d", marginTop: 0, textAlign: "center" }}>
         🛠️ Garden Tools & Supplies
       </h2>
@@ -222,7 +257,9 @@ const ToolsAndSupplies = ({ onBack }) => {
       </div>
       {/* Bottom */}
       <div style={{ marginTop: "3rem", textAlign: "center" }}>
-        <BackHomeButton onClick={onBack} />
+        <button className="gp-back-btn" onClick={onBack}>
+          ← Back to Home
+        </button>
       </div>
     </div>
   );
