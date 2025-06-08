@@ -66,7 +66,7 @@ export default function CropCard({ cropName, cropData }) {
   // Render all sections dynamically
   function renderSections(sections) {
     return sections.map(([section, fields]) => (
-      <div key={section} style={{ marginBottom: "1.2em" }}>
+      <div key={section} className="crop-card-section">
         <h3
           style={{
             margin: "0 0 0.3em 0",
@@ -102,49 +102,80 @@ export default function CropCard({ cropName, cropData }) {
   }
 
   return (
-    <div
-      style={{
-        background: "linear-gradient(135deg, #f3fcf7 0%, #e6f9ee 100%)",
-        borderRadius: "14px",
-        boxShadow: "0 4px 16px rgba(34,74,66,0.08)",
-        border: "1px solid #d0ede1",
-        padding: "1.2rem 1.5rem",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "stretch",
-        position: "relative",
-        maxWidth: 700,
-        width: "100%",
-        minWidth: 0
-      }}
-    >
+    <div className="crop-card">
+      <style>{`
+        .crop-card {
+          background: linear-gradient(135deg, #f3fcf7 0%, #e6f9ee 100%);
+          border-radius: 22px;
+          box-shadow: 0 4px 16px rgba(34,74,66,0.08);
+          border: 1px solid #d0ede1;
+          padding: 1.2rem 1.5rem;
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          position: relative;
+          max-width: 700px;
+          width: 100%;
+          min-width: 0;
+          margin: 0 auto 0.8rem auto;
+          box-sizing: border-box;
+          overflow: visible;
+        }
+        .crop-card-header {
+          display: flex;
+          align-items: center;
+          margin-bottom: 12px;
+        }
+        .crop-card-title {
+          color: #155943;
+          font-weight: 700;
+          font-size: 1.23rem;
+          letter-spacing: 0.5px;
+          flex: 1;
+        }
+        .crop-card-sections {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.2em;
+          width: 100%;
+          margin-bottom: 0.8em;
+        }
+        .crop-card-section {
+          min-width: 0;
+          word-break: break-word;
+        }
+        @media (max-width: 900px) {
+          .crop-card {
+            max-width: 99vw;
+            padding: 1.1rem 0.7rem;
+          }
+        }
+        @media (max-width: 700px) {
+          .crop-card {
+            padding: 1.1rem 0.4rem;
+            border-radius: 18px;
+            max-width: 99vw;
+          }
+          .crop-card-sections {
+            grid-template-columns: 1fr;
+            gap: 0.7em;
+          }
+        }
+        @media (max-width: 480px) {
+          .crop-card {
+            padding: 0.7rem 0.12rem 0.9rem 0.12rem;
+            border-radius: 12px;
+            max-width: 100vw;
+          }
+        }
+      `}</style>
       {/* Card header */}
-      <div style={{
-        display: "flex",
-        alignItems: "center",
-        marginBottom: 12
-      }}>
+      <div className="crop-card-header">
         <span style={{ fontSize: "1.7rem", marginRight: 10 }}>🌱</span>
-        <span style={{
-          color: "#155943",
-          fontWeight: 700,
-          fontSize: "1.23rem",
-          letterSpacing: 0.5,
-          flex: 1
-        }}>
-          {cropName}
-        </span>
+        <span className="crop-card-title">{cropName}</span>
       </div>
       {/* Two columns for sections */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "1.2em",
-          width: "100%",
-          marginBottom: "0.8em",
-        }}
-      >
+      <div className="crop-card-sections">
         {renderSections(leftSections)}
         {renderSections(rightSections)}
       </div>
@@ -157,7 +188,7 @@ export default function CropCard({ cropName, cropData }) {
               background: "#e9ecef",
               color: "#155943",
               border: "none",
-              borderRadius: 6,
+              borderRadius: 8,
               padding: "4px 14px",
               fontSize: "0.96rem",
               cursor: "pointer",
@@ -185,7 +216,7 @@ export default function CropCard({ cropName, cropData }) {
               background: "#228B22",
               color: "#fff",
               padding: "0.55em 1.2em",
-              borderRadius: "8px",
+              borderRadius: "12px",
               border: "none",
               fontWeight: 700,
               fontSize: "1em",
