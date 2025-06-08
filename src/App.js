@@ -111,7 +111,7 @@ export default function GardenPlannerApp() {
     }));
   };
 
-  // Responsive styles
+  // Responsive styles (shared for all pages)
   const responsiveStyles = `
     .gp-container {
       font-family: 'Poppins', sans-serif;
@@ -136,6 +136,57 @@ export default function GardenPlannerApp() {
       width: 100%;
       max-width: 500px;
       margin: 0 auto;
+      background: none;
+      padding: 0;
+    }
+    .gp-input, .gp-select {
+      width: 100%;
+      max-width: 100%;
+      font-size: 1.05rem;
+      padding: 0.65em 1em;
+      border: 2px solid #228b22;
+      border-radius: 9px;
+      outline: none;
+      background: #f3fcf7;
+      color: #155943;
+      box-sizing: border-box;
+      margin-bottom: 1em;
+    }
+    .gp-label {
+      font-weight: 600;
+      margin-bottom: 0.3em;
+      font-size: 1.08rem;
+    }
+    .gp-back-btn {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      z-index: 20;
+      background: #b7e6cf;
+      border: none;
+      border-radius: 13px;
+      padding: 0.7em 1.3em;
+      font-size: 1.13rem;
+      color: #155943;
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(34,74,66,0.08);
+      cursor: pointer;
+      transition: background 0.18s;
+    }
+    .gp-find-btn {
+      background-color: #40916c;
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.07rem;
+      cursor: pointer;
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      font-weight: 600;
     }
     .gp-group-header {
       cursor: pointer;
@@ -157,9 +208,6 @@ export default function GardenPlannerApp() {
       box-sizing: border-box;
       transition: background 0.15s;
     }
-    .gp-group-header:active, .gp-group-header:focus {
-      background: #d3e8db;
-    }
     .gp-group-list {
       list-style: none;
       padding: 0;
@@ -177,6 +225,7 @@ export default function GardenPlannerApp() {
       max-width: 700px;
       margin-bottom: 1rem;
     }
+
     @media (max-width: 700px) {
       .gp-container {
         max-width: 100vw;
@@ -195,17 +244,32 @@ export default function GardenPlannerApp() {
         max-width: 99vw;
         min-width: 0;
       }
+      .gp-back-btn {
+        position: static;
+        display: block;
+        margin-bottom: 0.85em;
+        margin-left: 0;
+        margin-top: 0.5em;
+        width: auto;
+      }
+      .gp-form-col {
+        padding-top: 0.3em;
+      }
     }
     @media (max-width: 480px) {
       .gp-container {
-        padding: 0.2rem;
+        padding: 0.25rem;
       }
       .gp-form-col, .gp-group-header, .gp-group-list {
         max-width: 100vw;
       }
-      .gp-group-header {
+      .gp-back-btn {
         font-size: 1rem;
-        padding: 0.5em 0.7em;
+        padding: 0.6em 1em;
+      }
+      .gp-input, .gp-select {
+        font-size: 0.97rem;
+        padding: 0.55em 0.5em;
       }
     }
   `;
@@ -220,7 +284,7 @@ export default function GardenPlannerApp() {
             🌱 Welcome to The Dibby Grow Buddy Garden Planner
           </h1>
           <p style={{ fontSize: "1.1rem", margin: "1rem 0" }}>
-            Find plants by name OR growing zone and other filters, plan what to grow, when to sow before or after your frost date indoors or outdoors, specific planting depths and spacings, and a whole lot more.
+            Plan what to grow, when to sow with your frost date, grow zone look-up, specific planting depths and spacings, and a whole lot more.
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem", flexWrap: "wrap", marginTop: "2rem" }}>
             <button
@@ -286,164 +350,172 @@ export default function GardenPlannerApp() {
   }
 
   // Crop search/planner screen
-  return (
-    <div className="gp-container">
-      <style>{responsiveStyles}</style>
-      {/* Top Left Back Button */}
-      <div style={{ position: "absolute", top: 20, left: 20 }}>
-        <BackHomeButton onClick={() => setScreen("home")} />
-      </div>
-      <div className="gp-flex-center">
-        <div className="gp-form-col">
-          <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>
-            🌱 The Dibby Grow Buddy Garden Planner
-          </h1>
-          {/* Crop Name Search Input */}
-          <label>
-            Plant Name Search:
-            <input
-              type="text"
-              value={cropName}
-              placeholder="Type a plant name (e.g. radish, zinnia)…"
-              onChange={e => setCropName(e.target.value)}
-              className="crop-search-input"
-              style={{
-                width: "100%",
-                maxWidth: "400px",
-                fontSize: "1.12rem",
-                padding: "0.65em 1em",
-                border: "2px solid #228b22",
-                borderRadius: "9px",
-                outline: "none",
-                background: "#f3fcf7",
-                color: "#155943",
-                boxShadow: "0 2px 10px rgba(34,74,66,0.06)",
-                marginBottom: "1.2em"
-              }}
-              autoFocus
-            />
-                          <h2 style={{ fontSize: "1.5rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>
-            OR
-          </h2>
-          </label>
-          <label>
-            Grow Zone:
-            <input
-              type="text"
-              value={zone}
-              onChange={(e) => setZone(e.target.value)}
-              style={{ width: "100%", padding: "0.5rem" }}
-            />
-          </label>
-          <label>
-            Last Frost Date:
-            <input
-              type="date"
-              value={frostDate}
-              onChange={(e) => setFrostDate(e.target.value)}
-              style={{ width: "100%", padding: "0.5rem" }}
-            />
-          </label>
-          <label>
-            Category:
-            <select value={category} onChange={(e) => setCategory(e.target.value)} style={{ width: "100%", padding: "0.5rem" }}>
-              <option value="all">All</option>
-              <option value="flower">Flowers</option>
-              <option value="herb">Herbs</option>
-              <option value="vegetable">Vegetables</option>
-            </select>
-          </label>
-          <label>
-            Sun Requirement:
-            <select value={sunRequirement} onChange={(e) => setSunRequirement(e.target.value)} style={{ width: "100%", padding: "0.5rem" }}>
-              <option value="all">All</option>
-              <option value="full sun">Full Sun</option>
-              <option value="part shade">Part Shade</option>
-              <option value="full shade">Full Shade</option>
-            </select>
-          </label>
-          <label>
-            Water Need:
-            <select value={waterNeed} onChange={(e) => setWaterNeed(e.target.value)} style={{ width: "100%", padding: "0.5rem" }}>
-              <option value="all">All</option>
-              <option value="loamy">Loamy</option>
-              <option value="sandy">Sandy</option>
-              <option value="clay">Clay</option>
-              <option value="well-drained">Well-drained</option>
-            </select>
-          </label>
-          <button
-            onClick={handleSearch}
-            style={{
-              backgroundColor: "#40916c",
-              color: "white",
-              padding: "0.75rem",
-              border: "none",
-              borderRadius: "6px",
-              fontSize: "1rem",
-              cursor: "pointer"
+  if (screen === "search") {
+    return (
+      <div className="gp-container">
+        <style>{responsiveStyles}</style>
+        {/* Responsive Back Button */}
+        <button
+          className="gp-back-btn"
+          onClick={() => setScreen("home")}
+        >← Back to Home</button>
+        <div className="gp-flex-center">
+          <div className="gp-form-col">
+            <h1 style={{
+              fontSize: "1.45rem",
+              marginBottom: "1rem",
+              color: "#2d6a4f",
+              textAlign: "center"
             }}>
-            Find Plants
-          </button>
+              🌱 The Dibby Grow Buddy Garden Planner
+            </h1>
+            {/* Search Fields */}
+            <label className="gp-label">
+              Plant Name Search:
+              <input
+                type="text"
+                value={cropName}
+                placeholder="Type a plant name (e.g. radish, zinnia)…"
+                onChange={e => setCropName(e.target.value)}
+                className="gp-input"
+                autoFocus
+              />
+            </label>
+            <div style={{
+              textAlign: "center",
+              fontWeight: 700,
+              color: "#297c5e",
+              margin: "0.3em 0 0.7em 0",
+              fontSize: "1.17rem"
+            }}>
+              OR
+            </div>
+            <label className="gp-label">
+              Grow Zone:
+              <input
+                type="text"
+                value={zone}
+                onChange={(e) => setZone(e.target.value)}
+                className="gp-input"
+              />
+            </label>
+            <label className="gp-label">
+              Last Frost Date:
+              <input
+                type="date"
+                value={frostDate}
+                onChange={(e) => setFrostDate(e.target.value)}
+                className="gp-input"
+              />
+            </label>
+            <label className="gp-label">
+              Category:
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="gp-select"
+              >
+                <option value="all">All</option>
+                <option value="flower">Flowers</option>
+                <option value="herb">Herbs</option>
+                <option value="vegetable">Vegetables</option>
+              </select>
+            </label>
+            <label className="gp-label">
+              Sun Requirement:
+              <select
+                value={sunRequirement}
+                onChange={(e) => setSunRequirement(e.target.value)}
+                className="gp-select"
+              >
+                <option value="all">All</option>
+                <option value="full sun">Full Sun</option>
+                <option value="part shade">Part Shade</option>
+                <option value="full shade">Full Shade</option>
+              </select>
+            </label>
+            <label className="gp-label">
+              Water Need:
+              <select
+                value={waterNeed}
+                onChange={(e) => setWaterNeed(e.target.value)}
+                className="gp-select"
+              >
+                <option value="all">All</option>
+                <option value="loamy">Loamy</option>
+                <option value="sandy">Sandy</option>
+                <option value="clay">Clay</option>
+                <option value="well-drained">Well-drained</option>
+              </select>
+            </label>
+            <button
+              className="gp-find-btn"
+              onClick={handleSearch}
+            >Find Plants</button>
+          </div>
         </div>
-      </div>
-      {!loading && (
-        <>
-          {/* Search summary */}
-          {totalCount > 0 && (
-            <div style={{ marginTop: "2rem", marginBottom: "1.5rem", color: "#2d6a4f", textAlign: "center" }}>
-              <h2 style={{ margin: 0, fontSize: "1.25rem" }}>
-                {totalCount} Plant{totalCount !== 1 ? "s" : ""} Found
-              </h2>
-              <div style={{ marginTop: "0.5rem", fontSize: "1.05rem" }}>
-                Flowers: {flowerCount} &nbsp;|&nbsp; Vegetables: {vegetableCount} &nbsp;|&nbsp; Herbs: {herbCount}
-              </div>
-            </div>
-          )}
-
-          {/* Grouped Crop Lists as Accordions */}
-          {["flower", "vegetable", "herb"].map(group => (
-            groupedCrops[group].length > 0 && (
-              <div key={group} style={{ marginBottom: "2em", width: "100%" }}>
-                {/* Accordion Group Header */}
-                <div
-                  onClick={() => toggleGroup(group)}
-                  tabIndex={0}
-                  className="gp-group-header"
-                  style={{ outline: "none" }}
-                  aria-expanded={expandedGroups[group]}
-                  role="button"
-                >
-                  <span>
-                    {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : "Vegetables"}
-                    {" "}({groupedCrops[group].length})
-                  </span>
-                  <span style={{ fontSize: "1.2em" }}>
-                    {expandedGroups[group] ? "▲" : "▼"}
-                  </span>
+        {/* Results */}
+        {!loading && (
+          <>
+            {/* Search summary */}
+            {totalCount > 0 && (
+              <div style={{ marginTop: "2rem", marginBottom: "1.5rem", color: "#2d6a4f", textAlign: "center" }}>
+                <h2 style={{ margin: 0, fontSize: "1.25rem" }}>
+                  {totalCount} Plant{totalCount !== 1 ? "s" : ""} Found
+                </h2>
+                <div style={{ marginTop: "0.5rem", fontSize: "1.05rem" }}>
+                  Flowers: {flowerCount} &nbsp;|&nbsp; Vegetables: {vegetableCount} &nbsp;|&nbsp; Herbs: {herbCount}
                 </div>
-                {/* Accordion content */}
-                {expandedGroups[group] && (
-                  <ul className="gp-group-list">
-                    {groupedCrops[group].map(([cropName, cropData]) => (
-                      <li key={cropName} className="gp-group-item">
-                        <CropCard cropName={cropName} cropData={cropData} />
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </div>
-            )
-          ))}
-          {/* None found */}
-          {filteredCrops.length === 0 && (
-            <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>
-              No plants found for your search.
-            </div>
-          )}
-        </>
-      )}
-      {loading && <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading...</div>}
-    </div>
-  );
+            )}
+
+            {/* Grouped Crop Lists as Accordions */}
+            {["flower", "vegetable", "herb"].map(group => (
+              groupedCrops[group].length > 0 && (
+                <div key={group} style={{ marginBottom: "2em", width: "100%" }}>
+                  {/* Accordion Group Header */}
+                  <div
+                    onClick={() => toggleGroup(group)}
+                    tabIndex={0}
+                    className="gp-group-header"
+                    style={{ outline: "none" }}
+                    aria-expanded={expandedGroups[group]}
+                    role="button"
+                  >
+                    <span>
+                      {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : "Vegetables"}
+                      {" "}({groupedCrops[group].length})
+                    </span>
+                    <span style={{ fontSize: "1.2em" }}>
+                      {expandedGroups[group] ? "▲" : "▼"}
+                    </span>
+                  </div>
+                  {/* Accordion content */}
+                  {expandedGroups[group] && (
+                    <ul className="gp-group-list">
+                      {groupedCrops[group].map(([cropName, cropData]) => (
+                        <li key={cropName} className="gp-group-item">
+                          <CropCard cropName={cropName} cropData={cropData} />
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )
+            ))}
+            {/* None found */}
+            {filteredCrops.length === 0 && (
+              <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>
+                No crops found for your search.
+              </div>
+            )}
+          </>
+        )}
+        {loading && <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading...</div>}
+      </div>
+    );
+  }
+
+  // Default fallback
+  return null;
 }
