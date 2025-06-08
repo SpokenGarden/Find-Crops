@@ -220,7 +220,7 @@ export default function GardenPlannerApp() {
             🌱 Welcome to The Dibby Grow Buddy Garden Planner
           </h1>
           <p style={{ fontSize: "1.1rem", margin: "1rem 0" }}>
-            Plan what to grow, when to sow with your frost date, grow zone look-up, specific planting depths and spacings, and a whole lot more.
+            Find plants by name OR growing zone and other filters, plan what to grow, when to sow before or after your frost date indoors or outdoors, specific planting depths and spacings, and a whole lot more.
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem", flexWrap: "wrap", marginTop: "2rem" }}>
             <button
@@ -304,7 +304,7 @@ export default function GardenPlannerApp() {
             <input
               type="text"
               value={cropName}
-              placeholder="Type a crop name (e.g. radish, zinnia)…"
+              placeholder="Type a plant name (e.g. radish, zinnia)…"
               onChange={e => setCropName(e.target.value)}
               className="crop-search-input"
               style={{
