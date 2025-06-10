@@ -44,32 +44,25 @@ const toolSections = [
       },
       {
         name: "Heating Mats",
-        description: "Provides bottom heat for faster seed germination.",
-        usage: "Ideal for starting seeds in cool environments.",
-        imageUrl: "https://images.example.com/heating-mat.jpg",
-        buyUrl: "https://www.amazon.com/your-heating-mat-affiliate-link"
+        description: "Provides bottom heat for faster seed germination and healthy seedling growth.",
+        usage: "Ideal for starting seeds early and in cool environments.",
+        imageUrl: "images/tools/Heating-Mats.jpg",
+        buyUrl: "https://amzn.to/4dW1SEx"
       },
       {
         name: "Thermostat",
-        description: "Regulates mat temperature for optimal seed starting.",
-        usage: "Prevents overheating of seedling trays.",
-        imageUrl: "https://images.example.com/thermostat.jpg",
-        buyUrl: "https://www.amazon.com/your-thermostat-affiliate-link"
+        description: "Regulates seedling soil and root temperature for optimal seed starting and seedling health.",
+        usage: "Regulates soil temperature and prevents overheating of seedling trays.",
+        imageUrl: "images/tools/Seedling-Thermostat.jpg",
+        buyUrl: "https://amzn.to/4kAULnH"
       },
       {
-        name: "Watering Can",
-        description: "Gentle watering for delicate seedlings.",
+        name: "Seedling Spray Bottles",
+        description: "Gentle watering for delicate seeds and seedlings.",
         usage: "Prevents soil disturbance when watering.",
-        imageUrl: "https://images.example.com/watering-can.jpg",
-        buyUrl: "https://www.amazon.com/your-watering-can-affiliate-link"
+        imageUrl: "images/tools/Spray-Bottles.jpg",
+        buyUrl: "https://amzn.to/4l37Ky9"
       },
-      {
-        name: "Growing Medium",
-        description: "Materials like peat, coir, or seed starting mix.",
-        usage: "Provides a sterile environment for seed germination.",
-        imageUrl: "https://images.example.com/growing-medium.jpg",
-        buyUrl: "https://www.amazon.com/your-growing-medium-affiliate-link"
-      }
       // Add more sowing supplies here!
     ]
   },
