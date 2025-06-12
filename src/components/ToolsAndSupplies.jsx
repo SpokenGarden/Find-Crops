@@ -8,14 +8,14 @@ const toolSections = [
     items: [
       {
         name: "Little Dibby or Dibby XL Seed Dibbers",
-        description: "Make precise planting hole depths for seed sowing. Sow at the correct depth EVERYTIME.",
+        description: "A seed dibber and widger in 1 tool! Sow and Transplant in 1 tool!",
         usage: "Makes seed sowing fast, easy, and consistent. Great for all general seed sizes.",
-        imageUrl: "/images/tools/Green DXL.jpg",
+        imageUrl: "/images/tools/GreenDXL.jpg",
         buyUrl: "https://amzn.to/3ZEdM07"
       },
       {
         name: "Seeding Square",
-        description: "Seed and seedling spacer tool for bigger harvests and optimum growing space usage.",
+        description: "Get bigger harvests and optimize your growing space!",
         usage: "Helps space seeds for best spacing and plant health/growth. Prevents overseeding.",
         imageUrl: "images/tools/SeedingSquare.jpg",
         buyUrl: "https://amzn.to/3FIqyDQ"
@@ -49,7 +49,7 @@ const toolSections = [
       },
       {
         name: "Thermostat",
-        description: "Regulates soil temperature for optimal seed starting and seedling health.",
+        description: "Consistently keep your soil temperature warm for best germination.",
         usage: "Regulates temperature and prevents overheating of seedling trays.",
         imageUrl: "images/tools/Seedling-Thermostat.jpg",
         buyUrl: "https://amzn.to/4kAULnH"
@@ -124,7 +124,7 @@ const toolSections = [
       {
         name: "Compost",
         description: "Organic matter for enriching garden soil.",
-        usage: "Improves soil structure and fertility.",
+        usage: "Improves soil structure and fertility for healthier plants.",
         imageUrl: "images/tools/compost_bag.jpg",
         buyUrl: "https://amzn.to/43TUUez"
       }
@@ -137,7 +137,7 @@ const toolSections = [
       {
         name: "Slug and Snail Control",
         description: "Keep flowers and your garden free of slugs and snails.",
-        usage: "Keeps slugs and snails away from plants.",
+        usage: "Shake around plants to lower damage and encourage healthy growth.",
         imageUrl: "images/tools/slugcontrol.jpg",
         buyUrl: "https://amzn.to/4kESdVF"
       },
@@ -253,7 +253,7 @@ const ToolsAndSupplies = ({ onBack }) => {
         All product links on this page are affiliate links. 
         </p>
       <p style={{ textAlign: "center"}}>
-        If you purchase anything through these links, we might get a small commission at no cost to you.
+        If you make a purchase, we might get a small commission.
         </p>
       <p style={{ textAlign: "center"}}>
         Thank you!
