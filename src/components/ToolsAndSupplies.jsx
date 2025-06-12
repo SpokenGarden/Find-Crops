@@ -250,6 +250,9 @@ const ToolsAndSupplies = ({ onBack }) => {
       </h2>
       <p style={{ textAlign: "center" }}>
         Browse tools and supplies by category. Click on any card to learn more or buy!
+        All product links on this page are affiliate links. 
+        If you purchase anything through these links, we might get a small commission at no cost to you which helps us run our business.
+        Thank you!
       </p>
       <Deals />
       <DealsSection
