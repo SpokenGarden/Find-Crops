@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BackHomeButton from "./BackHomeButton";
 import ToolCard from "./ToolCard";
-import DealsSection from "./DealsSection";
-import Deals from "./Deals";
 
 const toolSections = [
   {
@@ -249,13 +247,13 @@ const ToolsAndSupplies = ({ onBack }) => {
         🛠️ Garden Tools & Supplies
       </h2>
       <p style={{ textAlign: "center" }}>
-        Browse tools and supplies by category. Click on any card to learn more or buy! 
+        Browse tools and supplies by category. 
         </p>
        <p style={{ textAlign: "center"}}>
         All product links on this page are affiliate links. 
         </p>
       <p style={{ textAlign: "center"}}>
-        If you purchase anything through these links, we might get a small commission at no cost to you which helps us run our business.
+        If you purchase anything through these links, we might get a small commission at no cost to you, which helps us run our business.
         </p>
       <p style={{ textAlign: "center"}}>
         Thank you!
