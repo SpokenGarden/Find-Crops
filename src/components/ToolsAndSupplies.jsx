@@ -113,21 +113,21 @@ const toolSections = [
         name: "General Fertilizer",
         description: "Organically-based nutrients for your plants.",
         usage: "Adds and supplies essential nutrients for healthy plant growth and crop or fruit development.",
-        imageUrl: "images/tools/general_fertilizer.jgp",
+        imageUrl: "images/tools/general_fertilizer.jpg",
         buyUrl: "https://amzn.to/3TjyMW7"
       },
             {
         name: "Tomato and Vegetable Fertilizer",
         description: "Organically-based nutrients for your vegetables.",
         usage: "Adds and supplies essential nutrients for bigger, more nutritious vegetables and fruit.",
-        imageUrl: "images/tools/crop_fertilizer.jgp",
+        imageUrl: "images/tools/crop_fertilizer.jpg",
         buyUrl: "https://amzn.to/45lrRTK"
       },
       {
         name: "Compost",
         description: "Organic matter for enriching garden soil.",
         usage: "Improves soil structure and fertility.",
-        imageUrl: "images/tools/compost_bag.jgp",
+        imageUrl: "images/tools/compost_bag.jpg",
         buyUrl: "https://amzn.to/43TUUez"
       }
       // Add more fertilizing supplies here!
