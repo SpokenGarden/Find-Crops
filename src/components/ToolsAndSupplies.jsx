@@ -252,6 +252,9 @@ const ToolsAndSupplies = ({ onBack }) => {
         Browse tools and supplies by category. Click on any card to learn more or buy!
         All product links on this page are affiliate links. 
         </p>
+       <p style={{ textAlign: "center"}}>
+        All product links on this page are affiliate links. 
+        </p>
       <p style={{ textAlign: "center"}}>
         If you purchase anything through these links, we might get a small commission at no cost to you which helps us run our business.
         </p>
