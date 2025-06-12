@@ -152,7 +152,7 @@ const toolSections = [
       }
       // Add more irrigation tools and supplies here!
     ]
-  }
+  },
   {
     title: "Irrigation Tools & Supplies",
     items: [
