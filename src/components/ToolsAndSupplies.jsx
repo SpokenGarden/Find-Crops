@@ -8,15 +8,15 @@ const toolSections = [
     items: [
       {
         name: "Little Dibby or Dibby XL Seed Dibbers",
-        description: "For making precise planting depth holes in soil for seed sowing or transplanting seedlings. Sow at the correct depth EVERYTIME.",
-        usage: "Makes seed sowing fast, easy, and consistent. Great for all seed sizes.",
+        description: "Make precise planting hole depths for seed sowing. Sow at the correct depth EVERYTIME.",
+        usage: "Makes seed sowing fast, easy, and consistent. Great for all general seed sizes.",
         imageUrl: "/images/tools/Green DXL.jpg",
         buyUrl: "https://amzn.to/3ZEdM07"
       },
       {
         name: "Seeding Square",
         description: "Seed and seedling spacer tool for bigger harvests and optimum growing space usage.",
-        usage: "Helps space seeds to optimize spacing and plant health, growth, and harvesting. Prevents overseeding and saves seeds.",
+        usage: "Helps space seeds for best spacing and plant health/growth. Prevents overseeding.",
         imageUrl: "images/tools/SeedingSquare.jpg",
         buyUrl: "https://amzn.to/3FIqyDQ"
       }
@@ -28,15 +28,15 @@ const toolSections = [
     items: [
       {
         name: "Espoma Organic Seed Starter Premium Mix",
-        description: "Organic seed starting soil is a rich and specially formulated to grow seedlings and cuttings indoors or outdoors.",
-        usage: "Promotes high germination, healthy root growth, and seedling stem and leaf development.",
+        description: "Organic seed starting soil specially formulated to grow seedlings indoors or outdoors.",
+        usage: "Promotes high germination, healthy root growth, and seedling development.",
         imageUrl: "images/tools/EspomaSeedStarter.jpg",
         buyUrl: "https://amzn.to/3Tadfz1"
       },
       {
         name: "Vego Seed Starting Trays - Mixed Sizes",
-        description: "Durable and reusable plastic trays for starting many seeds at once with domes.",
-        usage: "Versatile seed starting cells for shallow and deep rooted seedlings. Each piece has it's own plastic dome to optimize germination and control temperature.",
+        description: "Durable and reusable seeding starting plastic trays with domes.",
+        usage: "Versatile seed starting cells for shallow and deep rooted seedlings.",
         imageUrl: "images/tools/vegoseedstarttrays.jpg",
         buyUrl: "https://amzn.to/43OQ2HQ"
       },
@@ -49,8 +49,8 @@ const toolSections = [
       },
       {
         name: "Thermostat",
-        description: "Regulates seedling soil and root temperature for optimal seed starting and seedling health.",
-        usage: "Regulates soil temperature and prevents overheating of seedling trays.",
+        description: "Regulates soil temperature for optimal seed starting and seedling health.",
+        usage: "Regulates temperature and prevents overheating of seedling trays.",
         imageUrl: "images/tools/Seedling-Thermostat.jpg",
         buyUrl: "https://amzn.to/4kAULnH"
       },
@@ -110,14 +110,14 @@ const toolSections = [
       {
         name: "General Fertilizer",
         description: "Organically-based nutrients for your plants.",
-        usage: "Adds and supplies essential nutrients for healthy plant growth and crop or fruit development.",
+        usage: "Supplies essential nutrients for healthy plant growth and fruit development.",
         imageUrl: "images/tools/general_fertilizer.jpg",
         buyUrl: "https://amzn.to/3TjyMW7"
       },
             {
         name: "Tomato and Vegetable Fertilizer",
         description: "Organically-based nutrients for your vegetables.",
-        usage: "Adds and supplies essential nutrients for bigger, more nutritious vegetables and fruit.",
+        usage: "Supplies essential nutrients for bigger, more nutritious vegetables and fruit.",
         imageUrl: "images/tools/crop_fertilizer.jpg",
         buyUrl: "https://amzn.to/45lrRTK"
       },
@@ -253,7 +253,7 @@ const ToolsAndSupplies = ({ onBack }) => {
         All product links on this page are affiliate links. 
         </p>
       <p style={{ textAlign: "center"}}>
-        If you purchase anything through these links, we might get a small commission at no cost to you, which helps us run our business.
+        If you purchase anything through these links, we might get a small commission at no cost to you.
         </p>
       <p style={{ textAlign: "center"}}>
         Thank you!
