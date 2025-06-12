@@ -91,17 +91,17 @@ const toolSections = [
     items: [
       {
         name: "Hand Trowel",
-        description: "For digging small planting holes and transplanting.",
+        description: "For digging small planting holes, transplanting, weeding, and more.",
         usage: "Ideal for containers, beds, and raised gardens.",
-        imageUrl: "https://images.example.com/hand-trowel.jpg",
-        buyUrl: "https://www.amazon.com/your-hand-trowel-affiliate-link"
+        imageUrl: "images/tools/handtrowel.jpg",
+        buyUrl: "https://amzn.to/4jKRdOg"
       },
       {
         name: "Transplanter",
         description: "Narrow tool for moving seedlings or small plants.",
         usage: "Prevents root disturbance during transplanting.",
-        imageUrl: "https://images.example.com/transplanter.jpg",
-        buyUrl: "https://www.amazon.com/your-transplanter-affiliate-link"
+        imageUrl: "images/tools/transplanter.jpg",
+        buyUrl: "https://amzn.to/3HxvJqX"
       }
       // Add more planting tools here!
     ]
@@ -110,38 +110,65 @@ const toolSections = [
     title: "Fertilizing Supplies",
     items: [
       {
+        name: "General Fertilizer",
+        description: "Organically-based nutrients for your plants.",
+        usage: "Adds and supplies essential nutrients for healthy plant growth and crop or fruit development.",
+        imageUrl: "images/tools/generalfertilizer.jgp",
+        buyUrl: "https://amzn.to/3TjyMW7"
+      },
+            {
+        name: "Tomato and Vegetable Fertilizer",
+        description: "Organically-based nutrients for your vegetables.",
+        usage: "Adds and supplies essential nutrients for bigger, more nutritious vegetables and fruit.",
+        imageUrl: "images/tools/cropfertilizer.jgp",
+        buyUrl: "https://amzn.to/45lrRTK"
+      },
+      {
         name: "Compost",
         description: "Organic matter for enriching garden soil.",
         usage: "Improves soil structure and fertility.",
-        imageUrl: "https://images.example.com/compost.jpg",
-        buyUrl: "https://www.amazon.com/your-compost-affiliate-link"
-      },
-      {
-        name: "Fertilizer Spreader",
-        description: "Applies fertilizer evenly to lawn or beds.",
-        usage: "Ensures even distribution and prevents waste.",
-        imageUrl: "https://images.example.com/fertilizer-spreader.jpg",
-        buyUrl: "https://www.amazon.com/your-fertilizer-spreader-affiliate-link"
+        imageUrl: "images/tools/compostbag.jgp",
+        buyUrl: "https://amzn.to/43TUUez"
       }
       // Add more fertilizing supplies here!
     ]
   },
+    {
+    title: "Pest and Disease Control",
+    items: [
+      {
+        name: "Slug and Snail Control",
+        description: "Keep flowers and your garden free of slugs and snails.",
+        usage: "Keeps slugs and snails away from plants.",
+        imageUrl: "images/tools/slugcontrol.jpg",
+        buyUrl: "https://amzn.to/4kESdVF"
+      },
+      {
+        name: "Neem Oil",
+        description: "Helps control insects and more in your garden.",
+        usage: "Safe to hand mix in spray bottles and apply to many different plants.",
+        imageUrl: "images/tools/neemoil.jpg",
+        buyUrl: "https://amzn.to/4jKotVW"
+      }
+      // Add more irrigation tools and supplies here!
+    ]
+  }
   {
     title: "Irrigation Tools & Supplies",
     items: [
       {
         name: "Soaker Hose",
-        description: "Delivers water directly to plant roots.",
-        usage: "Reduces water waste and targets root zones.",
-        imageUrl: "https://images.example.com/soaker-hose.jpg",
-        buyUrl: "https://www.amazon.com/your-soaker-hose-affiliate-link"
+        description: "Delivers water at soil level making directly available to plant roots.",
+        usage: "Reduces water waste and targets plant root zones.",
+        imageUrl: "images/tools/soakerhose.jpg",
+        buyUrl: "https://amzn.to/3FZhaM9"
       },
       {
         name: "Drip Irrigation Kit",
         description: "Efficient watering system for garden beds.",
         usage: "Automates watering for less maintenance.",
-        imageUrl: "https://images.example.com/drip-irrigation.jpg",
-        buyUrl: "https://www.amazon.com/your-drip-irrigation-affiliate-link"
+        imageUrl: "images/tools/dripkit.jpg",
+        buyUrl: "https://amzn.to/3HSrLZP"
       }
       // Add more irrigation tools and supplies here!
     ]
