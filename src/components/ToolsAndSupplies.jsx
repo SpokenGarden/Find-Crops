@@ -249,8 +249,7 @@ const ToolsAndSupplies = ({ onBack }) => {
         🛠️ Garden Tools & Supplies
       </h2>
       <p style={{ textAlign: "center" }}>
-        Browse tools and supplies by category. Click on any card to learn more or buy!
-        All product links on this page are affiliate links. 
+        Browse tools and supplies by category. Click on any card to learn more or buy! 
         </p>
        <p style={{ textAlign: "center"}}>
         All product links on this page are affiliate links. 
