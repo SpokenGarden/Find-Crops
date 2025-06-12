@@ -251,14 +251,13 @@ const ToolsAndSupplies = ({ onBack }) => {
       <p style={{ textAlign: "center" }}>
         Browse tools and supplies by category. Click on any card to learn more or buy!
         All product links on this page are affiliate links. 
+        </p>
+      <p style={{ textAlign: "center"}}>
         If you purchase anything through these links, we might get a small commission at no cost to you which helps us run our business.
+        </p>
+      <p style={{ textAlign: "center"}}>
         Thank you!
       </p>
-      <Deals />
-      <DealsSection
-        deals={deals}
-        linkOutUrl="https://https://deals-hlcl.onrender.com/api/deals"
-      />
       <div>
         {toolSections.map((section, idx) => (
           <div key={idx} style={{ marginBottom: "2.5rem" }}>
