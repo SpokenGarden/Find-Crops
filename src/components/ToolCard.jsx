@@ -28,7 +28,7 @@ export default function ToolCard({ name, description, usage, imageUrl, buyUrl })
           }}
         />
       )}
-      <h4 style={{ margin: "0 0 0.5rem 0", color: "#22543d" }}>{name}</h4>
+      <h4 style={{ margin: "0 0 0.5rem 0", textAlign: "center", color: "#22543d" }}>{name}</h4>
       <p style={{ margin: 0, textAlign: "left" }}>{description}</p>
       {usage && (
         <p style={{ margin: "0.5em 0 0 0", fontSize: "0.95em", color: "#666" }}>
