@@ -70,18 +70,18 @@ const toolSections = [
     title: "Pruning Tools",
     items: [
       {
-        name: "Pruning Shears",
-        description: "For trimming and shaping plants.",
+        name: "Pruning Hand Shears",
+        description: "For cuts up to 1-inch, trimming and shaping plants.",
         usage: "Makes clean cuts on stems and small branches.",
-        imageUrl: "https://images.example.com/pruning-shears.jpg",
-        buyUrl: "https://www.amazon.com/your-pruning-shears-affiliate-link"
+        imageUrl: "images/tools/handshears.jpg",
+        buyUrl: "https://amzn.to/3FP1vza"
       },
       {
         name: "Bypass Loppers",
-        description: "For cutting thicker branches and stems.",
+        description: "For cutting up to 2-3 inches, thicker branches and stems.",
         usage: "Provides extra leverage for tough cuts.",
-        imageUrl: "https://images.example.com/bypass-loppers.jpg",
-        buyUrl: "https://www.amazon.com/your-bypass-loppers-affiliate-link"
+        imageUrl: "images/tools/loppers.jpg",
+        buyUrl: "https://amzn.to/4l8IDdr"
       }
       // Add more pruning tools here!
     ]
