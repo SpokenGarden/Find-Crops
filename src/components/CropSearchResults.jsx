@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./CropSearchResults.css";
-import { useCropData } from "../hooks/useCropData";
+import { useCropData } from "src/components/hooks/useCropData";
 
 // Optional: icon helper for common labels (customize as you wish)
 function getIconForLabel(label) {
