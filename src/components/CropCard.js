@@ -19,11 +19,16 @@ function getIconForLabel(label) {
 }
 
 // Accepts new nested data structure as cropData
-export default function CropCard({ cropName, cropData }) {
+export default function CropCard({ cropName }) {
   const [expanded, setExpanded] = useState(false);
+  const { cropData, loading, error } = useCropData();
 
-  // Remove Link/Links section for main display, extract Buy Now link if present
-  let displayData = { ...cropData };
+  if (loading) return <div className="crop-card">Loading crop data...</div>;
+  if (error) return <div className="crop-card">Error loading crop data: {error.message}</div>;
+  if (!cropData || !cropData[cropName]) return <div className="crop-card">No data available for this crop.</div>;
+
+  // Use the cropData for the specific crop
+  let displayData = { ...cropData[cropName] };
   let buyNowUrl = "";
   ["Link", "Links"].forEach(linkKey => {
     if (displayData[linkKey]) {
