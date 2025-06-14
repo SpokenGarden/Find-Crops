@@ -308,11 +308,11 @@ export default function GardenPlannerApp() {
     }
   `;
 
-  // Home screen
-  if (screen === "home") {
-    return (
-      <div className="gp-container">
-        <style>{responsiveStyles}</style>
+  return (
+    <div className="gp-container">
+      <style>{responsiveStyles}</style>
+      {/* Home screen */}
+      {screen === "home" && (
         <div style={{ textAlign: "center", padding: "2rem" }}>
           <h1 style={{ fontSize: "2rem", color: "#2d6a4f" }}>
             🌱 Welcome to The Dibby Grow Buddy Garden Planner
@@ -371,215 +371,205 @@ export default function GardenPlannerApp() {
             </button>
           </div>
         </div>
-      </div>
-    );
-  }
+      )}
 
-  if (screen === "tools") {
-    return <ToolsAndSupplies onBack={() => setScreen("home")} />;
-  }
+      {/* Tools and Supplies screen */}
+      {screen === "tools" && (
+        <ToolsAndSupplies onBack={() => setScreen("home")} />
+      )}
 
-  if (screen === "videos") {
-    return <PlantingVideos onBack={() => setScreen("home")} />;
-  }
+      {/* Planting Videos screen */}
+      {screen === "videos" && (
+        <PlantingVideos onBack={() => setScreen("home")} />
+      )}
 
-  // Crop search/planner screen
-  if (screen === "search") {
-    // --- Show loading or error state for crop data fetch ---
-    if (cropDataLoading) {
-      return (
-        <div className="gp-container">
-          <style>{responsiveStyles}</style>
-          <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading plant data...</div>
-        </div>
-      );
-    }
-    if (cropDataError) {
-      return (
-        <div className="gp-container">
-          <style>{responsiveStyles}</style>
-          <div style={{ color: "#b72b2b", textAlign: "center", marginTop: "2rem" }}>
-            Error loading plant data: {cropDataError.message}
-          </div>
-        </div>
-      );
-    }
-    if (!cropData) {
-      return (
-        <div className="gp-container">
-          <style>{responsiveStyles}</style>
-          <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>No plant data available.</div>
-        </div>
-      );
-    }
-
-    return (
-      <div className="gp-container">
-        <style>{responsiveStyles}</style>
-        {/* Responsive Back Button */}
-        <button
-          className="gp-back-btn"
-          onClick={() => setScreen("home")}
-        >← Back to Home</button>
-        <div className="gp-flex-center">
-          <div className="gp-form-col">
-            <h1 style={{
-              fontSize: "1.45rem",
-              marginBottom: "1rem",
-              color: "#2d6a4f",
-              textAlign: "center"
-            }}>
-              🌱 The Dibby Grow Buddy Garden Planner
-            </h1>
-            {/* Search Fields */}
-            <label className="gp-label">
-              Plant Name Search:
-              <input
-                type="text"
-                value={cropName}
-                placeholder="Type a plant name (e.g. radish, zinnia)…"
-                onChange={e => setCropName(e.target.value)}
-                className="gp-input"
-                autoFocus
-              />
-            </label>
-            <div style={{
-              textAlign: "center",
-              fontWeight: 700,
-              color: "#297c5e",
-              margin: "0.3em 0 0.7em 0",
-              fontSize: "1.17rem"
-            }}>
-              OR
+      {/* Crop search/planner screen */}
+      {screen === "search" && (
+        <>
+          {/* --- Show loading or error state for crop data fetch --- */}
+          {cropDataLoading && (
+            <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>
+              Loading plant data...
             </div>
-            <label className="gp-label">
-              Grow Zone:
-              <input
-                type="text"
-                value={zone}
-                onChange={(e) => setZone(e.target.value)}
-                className="gp-input"
-              />
-            </label>
-            <label className="gp-label">
-              Last Frost Date:
-              <input
-                type="date"
-                value={frostDate}
-                onChange={(e) => setFrostDate(e.target.value)}
-                className="gp-input"
-              />
-            </label>
-            <label className="gp-label">
-              Category:
-              <select
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                className="gp-select"
-              >
-                <option value="all">All</option>
-                <option value="flower">Flowers</option>
-                <option value="herb">Herbs</option>
-                <option value="vegetable">Vegetables</option>
-              </select>
-            </label>
-            <label className="gp-label">
-              Sun Requirement:
-              <select
-                value={sunRequirement}
-                onChange={(e) => setSunRequirement(e.target.value)}
-                className="gp-select"
-              >
-                <option value="all">All</option>
-                <option value="full sun">Full Sun</option>
-                <option value="part shade">Part Shade</option>
-                <option value="full shade">Full Shade</option>
-              </select>
-            </label>
-            <label className="gp-label">
-              Water Need:
-              <select
-                value={waterNeed}
-                onChange={(e) => setWaterNeed(e.target.value)}
-                className="gp-select"
-              >
-                <option value="all">All</option>
-                <option value="loamy">Loamy</option>
-                <option value="sandy">Sandy</option>
-                <option value="clay">Clay</option>
-                <option value="well-drained">Well-drained</option>
-              </select>
-            </label>
-            <button
-              className="gp-find-btn"
-              onClick={handleSearch}
-            >Find Plants</button>
-          </div>
-        </div>
-        {/* Results */}
-        {!loading && (
-          <>
-            {/* Search summary */}
-            {totalCount > 0 && (
-              <div style={{ marginTop: "2rem", marginBottom: "1.5rem", color: "#2d6a4f", textAlign: "center" }}>
-                <h2 style={{ margin: 0, fontSize: "1.25rem" }}>
-                  {totalCount} Plant{totalCount !== 1 ? "s" : ""} Found
-                </h2>
-                <div style={{ marginTop: "0.5rem", fontSize: "1.05rem" }}>
-                  Flowers: {flowerCount} &nbsp;|&nbsp; Vegetables: {vegetableCount} &nbsp;|&nbsp; Herbs: {herbCount}
-                </div>
-              </div>
-            )}
-
-            {/* Grouped Crop Lists as Accordions */}
-            {["flower", "vegetable", "herb"].map(group => (
-              groupedCrops[group].length > 0 && (
-                <div key={group} style={{ marginBottom: "2em", width: "100%" }}>
-                  {/* Accordion Group Header */}
-                  <div
-                    onClick={() => toggleGroup(group)}
-                    tabIndex={0}
-                    className="gp-group-header"
-                    style={{ outline: "none" }}
-                    aria-expanded={expandedGroups[group]}
-                    role="button"
-                  >
-                    <span>
-                      {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : "Vegetables"}
-                      {" "}({groupedCrops[group].length})
-                    </span>
-                    <span style={{ fontSize: "1.2em" }}>
-                      {expandedGroups[group] ? "▲" : "▼"}
-                    </span>
+          )}
+          {cropDataError && (
+            <div style={{ color: "#b72b2b", textAlign: "center", marginTop: "2rem" }}>
+              Error loading plant data: {cropDataError.message}
+            </div>
+          )}
+          {!cropDataLoading && !cropDataError && !cropData && (
+            <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>
+              No plant data available.
+            </div>
+          )}
+          {!cropDataLoading && !cropDataError && cropData && (
+            <>
+              {/* Responsive Back Button */}
+              <button
+                className="gp-back-btn"
+                onClick={() => setScreen("home")}
+              >← Back to Home</button>
+              <div className="gp-flex-center">
+                <div className="gp-form-col">
+                  <h1 style={{
+                    fontSize: "1.45rem",
+                    marginBottom: "1rem",
+                    color: "#2d6a4f",
+                    textAlign: "center"
+                  }}>
+                    🌱 The Dibby Grow Buddy Garden Planner
+                  </h1>
+                  {/* Search Fields */}
+                  <label className="gp-label">
+                    Plant Name Search:
+                    <input
+                      type="text"
+                      value={cropName}
+                      placeholder="Type a plant name (e.g. radish, zinnia)…"
+                      onChange={e => setCropName(e.target.value)}
+                      className="gp-input"
+                      autoFocus
+                    />
+                  </label>
+                  <div style={{
+                    textAlign: "center",
+                    fontWeight: 700,
+                    color: "#297c5e",
+                    margin: "0.3em 0 0.7em 0",
+                    fontSize: "1.17rem"
+                  }}>
+                    OR
                   </div>
-                  {/* Accordion content */}
-                  {expandedGroups[group] && (
-                    <ul className="gp-group-list">
-                      {groupedCrops[group].map(([cropName, cropData]) => (
-                        <li key={cropName} className="gp-group-item">
-                          {/* UPDATED: Only pass cropName, CropCard fetches data from hook */}
-                          <CropCard cropName={cropName} />
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  <label className="gp-label">
+                    Grow Zone:
+                    <input
+                      type="text"
+                      value={zone}
+                      onChange={(e) => setZone(e.target.value)}
+                      className="gp-input"
+                    />
+                  </label>
+                  <label className="gp-label">
+                    Last Frost Date:
+                    <input
+                      type="date"
+                      value={frostDate}
+                      onChange={(e) => setFrostDate(e.target.value)}
+                      className="gp-input"
+                    />
+                  </label>
+                  <label className="gp-label">
+                    Category:
+                    <select
+                      value={category}
+                      onChange={(e) => setCategory(e.target.value)}
+                      className="gp-select"
+                    >
+                      <option value="all">All</option>
+                      <option value="flower">Flowers</option>
+                      <option value="herb">Herbs</option>
+                      <option value="vegetable">Vegetables</option>
+                    </select>
+                  </label>
+                  <label className="gp-label">
+                    Sun Requirement:
+                    <select
+                      value={sunRequirement}
+                      onChange={(e) => setSunRequirement(e.target.value)}
+                      className="gp-select"
+                    >
+                      <option value="all">All</option>
+                      <option value="full sun">Full Sun</option>
+                      <option value="part shade">Part Shade</option>
+                      <option value="full shade">Full Shade</option>
+                    </select>
+                  </label>
+                  <label className="gp-label">
+                    Water Need:
+                    <select
+                      value={waterNeed}
+                      onChange={(e) => setWaterNeed(e.target.value)}
+                      className="gp-select"
+                    >
+                      <option value="all">All</option>
+                      <option value="loamy">Loamy</option>
+                      <option value="sandy">Sandy</option>
+                      <option value="clay">Clay</option>
+                      <option value="well-drained">Well-drained</option>
+                    </select>
+                  </label>
+                  <button
+                    className="gp-find-btn"
+                    onClick={handleSearch}
+                  >Find Plants</button>
                 </div>
-              )
-            ))}
-            {/* None found */}
-            {filteredCrops.length === 0 && (
-              <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>
-                No crops found for your search.
               </div>
-            )}
-          </>
-        )}
-        {loading && <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading...</div>}
-           <BottomAdBanner />
-      </div>
-    );
-  }
+              {/* Results */}
+              {!loading && (
+                <>
+                  {/* Search summary */}
+                  {totalCount > 0 && (
+                    <div style={{ marginTop: "2rem", marginBottom: "1.5rem", color: "#2d6a4f", textAlign: "center" }}>
+                      <h2 style={{ margin: 0, fontSize: "1.25rem" }}>
+                        {totalCount} Plant{totalCount !== 1 ? "s" : ""} Found
+                      </h2>
+                      <div style={{ marginTop: "0.5rem", fontSize: "1.05rem" }}>
+                        Flowers: {flowerCount} &nbsp;|&nbsp; Vegetables: {vegetableCount} &nbsp;|&nbsp; Herbs: {herbCount}
+                      </div>
+                    </div>
+                  )}
 
-  // Default fallback
-  return null;
+                  {/* Grouped Crop Lists as Accordions */}
+                  {["flower", "vegetable", "herb"].map(group => (
+                    groupedCrops[group].length > 0 && (
+                      <div key={group} style={{ marginBottom: "2em", width: "100%" }}>
+                        {/* Accordion Group Header */}
+                        <div
+                          onClick={() => toggleGroup(group)}
+                          tabIndex={0}
+                          className="gp-group-header"
+                          style={{ outline: "none" }}
+                          aria-expanded={expandedGroups[group]}
+                          role="button"
+                        >
+                          <span>
+                            {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : "Vegetables"}
+                            {" "}({groupedCrops[group].length})
+                          </span>
+                          <span style={{ fontSize: "1.2em" }}>
+                            {expandedGroups[group] ? "▲" : "▼"}
+                          </span>
+                        </div>
+                        {/* Accordion content */}
+                        {expandedGroups[group] && (
+                          <ul className="gp-group-list">
+                            {groupedCrops[group].map(([cropName, cropData]) => (
+                              <li key={cropName} className="gp-group-item">
+                                {/* UPDATED: Only pass cropName, CropCard fetches data from hook */}
+                                <CropCard cropName={cropName} />
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    )
+                  ))}
+                  {/* None found */}
+                  {filteredCrops.length === 0 && (
+                    <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>
+                      No crops found for your search.
+                    </div>
+                  )}
+                </>
+              )}
+              {loading && <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading...</div>}
+            </>
+          )}
+        </>
+      )}
+
+      {/* Always show the ad banner at the bottom, on all screens */}
+      <BottomAdBanner />
+    </div>
+  );
 }
