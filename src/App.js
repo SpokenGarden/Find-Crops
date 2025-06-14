@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import BottomAdBanner from "./components/BottomAdBanner";
 import { filterCrops } from "./utils/filterCrops";
 import { buildSowingCalendar } from "./utils/sowingCalendar";
 import CropCard from "./components/CropCard";
@@ -574,6 +575,7 @@ export default function GardenPlannerApp() {
           </>
         )}
         {loading && <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading...</div>}
+           <BottomAdBanner />
       </div>
     );
   }
