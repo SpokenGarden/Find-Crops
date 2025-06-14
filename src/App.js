@@ -5,7 +5,7 @@ import CropCard from "./components/CropCard";
 import ToolsAndSupplies from "./components/ToolsAndSupplies";
 import PlantingVideos from "./components/PlantingVideos";
 import BackHomeButton from "./components/BackHomeButton";
-import cropData from "./data/cropdata.json";
+import { useCropData } from "./hooks/useCropData"; // UPDATED: use hook instead of importing JSON
 
 // Local storage helpers
 const getLocal = (key, fallback) => {
@@ -26,7 +26,6 @@ const setLocal = (key, value) => {
 export default function GardenPlannerApp() {
   // UI state
   const [screen, setScreen] = useState("home");
-  const crops = cropData;
 
   // Crop search state
   const [zone, setZone] = useState(getLocal("zone", ""));
@@ -47,6 +46,9 @@ export default function GardenPlannerApp() {
     herb: false,
   });
 
+  // --- UPDATED: Use the hook to get crop data ---
+  const { cropData, loading: cropDataLoading, error: cropDataError } = useCropData();
+
   useEffect(() => { setLocal("zone", zone); }, [zone]);
   useEffect(() => { setLocal("category", category); }, [category]);
   useEffect(() => { setLocal("frostDate", frostDate); }, [frostDate]);
@@ -54,11 +56,13 @@ export default function GardenPlannerApp() {
   useEffect(() => { setLocal("waterNeed", waterNeed); }, [waterNeed]);
   useEffect(() => { setLocal("soilPreference", soilPreference); }, [soilPreference]);
 
+  // --- UPDATED: handleSearch now uses cropData from the hook
   const handleSearch = () => {
+    if (!cropData) return;
     setLoading(true);
     setTimeout(() => {
       // Convert crops object to array for filtering
-      const cropArray = Object.entries(crops).map(([name, data]) => ({
+      const cropArray = Object.entries(cropData).map(([name, data]) => ({
         name,
         ...data,
         _raw: data
@@ -380,6 +384,34 @@ export default function GardenPlannerApp() {
 
   // Crop search/planner screen
   if (screen === "search") {
+    // --- Show loading or error state for crop data fetch ---
+    if (cropDataLoading) {
+      return (
+        <div className="gp-container">
+          <style>{responsiveStyles}</style>
+          <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading plant data...</div>
+        </div>
+      );
+    }
+    if (cropDataError) {
+      return (
+        <div className="gp-container">
+          <style>{responsiveStyles}</style>
+          <div style={{ color: "#b72b2b", textAlign: "center", marginTop: "2rem" }}>
+            Error loading plant data: {cropDataError.message}
+          </div>
+        </div>
+      );
+    }
+    if (!cropData) {
+      return (
+        <div className="gp-container">
+          <style>{responsiveStyles}</style>
+          <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>No plant data available.</div>
+        </div>
+      );
+    }
+
     return (
       <div className="gp-container">
         <style>{responsiveStyles}</style>
@@ -524,7 +556,8 @@ export default function GardenPlannerApp() {
                     <ul className="gp-group-list">
                       {groupedCrops[group].map(([cropName, cropData]) => (
                         <li key={cropName} className="gp-group-item">
-                          <CropCard cropName={cropName} cropData={cropData} />
+                          {/* UPDATED: Only pass cropName, CropCard fetches data from hook */}
+                          <CropCard cropName={cropName} />
                         </li>
                       ))}
                     </ul>
