@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useCropData } from "../hooks/useCropData";
 
 // Optional: icon helper (customize as you wish)
 function getIconForLabel(label) {
