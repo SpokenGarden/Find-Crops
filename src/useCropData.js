@@ -12,7 +12,7 @@ export function useCropData() {
   useEffect(() => {
     let isMounted = true;
 
-    fetch("/cropdata.json")
+    const { data, loading, error } = useCropData();
       .then((res) => {
         if (!res.ok) throw new Error(`Failed to fetch crop data: ${res.statusText}`);
         return res.json();
