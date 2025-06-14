@@ -77,6 +77,80 @@
         "label": "Soil",
         "value": "Rich, well-draining"
       }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/AfroDaisy"
+      }
+    ]
+  },
+  "African Marigold (Tagetes erecta)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 wks before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 wks after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "5 to 7"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "85 to 95"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
     ]
   },
   "Ageratum (Ageratum houstonianum)": {
@@ -148,6 +222,12 @@
       {
         "label": "Soil",
         "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/Ageratums"
       }
     ]
   },
@@ -221,6 +301,12 @@
         "label": "Soil",
         "value": "Rich, well-draining"
       }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/Alyssums"
+      }
     ]
   },
   "Amaranth (Amaranthus hypochondriacus)": {
@@ -292,6 +378,158 @@
       {
         "label": "Soil",
         "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/Amaranths"
+      }
+    ]
+  },
+  "Artichoke": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "10 to 12 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "Late Summer to Early Fall"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/2 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "30 to 36 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Harvest",
+        "value": "120 to 365"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "High"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBArtichoke"
+      }
+    ]
+  },
+  "Arugula (Eruca sativa)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Cool Season"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "NA"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "3 to 4 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 10"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "28 to 40"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Cool Season"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBArugula"
       }
     ]
   },
@@ -365,6 +603,98 @@
         "label": "Soil",
         "value": "Rich, well-draining"
       }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBAsters"
+      }
+    ]
+  },
+  "Bachelor Button (Centaurea cyanus)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Mature Height",
+        "value": "30 to 36 inches"
+      },
+      {
+        "label": "Mature Width",
+        "value": "8 to 12 inches"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/3YFe6Mh"
+      }
     ]
   },
   "Balsam Impatiens (Impatiens balsamina)": {
@@ -436,6 +766,302 @@
       {
         "label": "Soil",
         "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/BalsamImpatiens"
+      }
+    ]
+  },
+  "Basil, Lemon (Ocimum basilicum americanum)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "10 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 10"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "gravely poor well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EB-LemonBasil"
+      }
+    ]
+  },
+  "Bean (Phaseolus vulgaris)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "NA"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "5 to 12 hour soak"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "4 to 6 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Harvest",
+        "value": "50 days"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBBeans"
+      }
+    ]
+  },
+  "Bee Balm / Wild Bergamot (Monarda fistulosa)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "herb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "8 to 10 weeks before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 before"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 to 18 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBBeeBalm"
+      }
+    ]
+  },
+  "Beet (Betula vulgaris)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 before weeks"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "soak over night"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/2 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "18 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 14"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "50 to 60"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring or Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich moist well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/3Sj8djy"
       }
     ]
   },
@@ -509,6 +1135,176 @@
         "label": "Soil",
         "value": "Rich, well-draining"
       }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/BellsOfIreland"
+      }
+    ]
+  },
+  "Billy Button (Craspedia sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "14 to 21"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertile, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBBillyButton"
+      }
+    ]
+  },
+  "Black-eyed Susan (Rudbeckia hirta)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Biennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Stratify (Cold)"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 21"
+      },
+      {
+        "label": "Mature Height",
+        "value": "12 to 27 inches"
+      },
+      {
+        "label": "Mature Width",
+        "value": "8 to 12 inches"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich moist well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/BEyedSusan"
+      }
     ]
   },
   "Black-eyed Susan Vine (Thunbergia alata)": {
@@ -581,6 +1377,298 @@
         "label": "Soil",
         "value": "Rich, well-draining"
       }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/BESVine"
+      }
+    ]
+  },
+  "Borage (Borage officinalis)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "herb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/2 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Harvest",
+        "value": "50 to 80 days"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBBorage"
+      }
+    ]
+  },
+  "Broccoli (Brassica oleracea)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring and Fall"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 weeks before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 weeks before"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 to 18 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 10"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "50 to 70 days"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring and Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBBroccoli"
+      }
+    ]
+  },
+  "Bunching Onion (Allium cepa)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring or Fall"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "8 to 10 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "2 to 6 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Harvest",
+        "value": "60 to 90 days"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Cool Season"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBBunchingOnions"
+      }
+    ]
+  },
+  "Cabbage (Brassica oleracea)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Cool Season"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "18 to 24 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "60 to 80 days"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCabbage"
+      }
     ]
   },
   "Calendula": {
@@ -614,6 +1702,14 @@
       {
         "label": "Seed Treatments",
         "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 10 inches"
       }
     ],
     "Growth": [
@@ -622,7 +1718,7 @@
         "value": "7 to 14"
       },
       {
-        "label": "Days to Harvest",
+        "label": "Days to Maturity",
         "value": "60 to 90"
       }
     ],
@@ -630,6 +1726,26 @@
       {
         "label": "Harvest Season",
         "value": "Spring and Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining, but can tolerate poor soils"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCalendulas"
       }
     ]
   },
@@ -664,6 +1780,14 @@
       {
         "label": "Seed Treatments",
         "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 to 15 inches"
       }
     ],
     "Growth": [
@@ -672,7 +1796,7 @@
         "value": "14 to 21"
       },
       {
-        "label": "Days to Harvest",
+        "label": "Days to Maturity",
         "value": "60 to 90"
       }
     ],
@@ -680,6 +1804,112 @@
       {
         "label": "Harvest Season",
         "value": "Spring and Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/CanterburyBells"
+      }
+    ]
+  },
+  "Cape Daisy (Osteospermum ecklonis)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "8 to 10 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "10 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 21"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "60 to 80"
+      },
+      {
+        "label": "Mature Height",
+        "value": "10 to 14 inches"
+      },
+      {
+        "label": "Mature Width",
+        "value": "10 to 12 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring to Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBShastas"
       }
     ]
   },
@@ -714,6 +1944,14 @@
       {
         "label": "Seed Treatments",
         "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 10 inches"
       }
     ],
     "Growth": [
@@ -722,7 +1960,7 @@
         "value": "7 to 14"
       },
       {
-        "label": "Days to Harvest",
+        "label": "Days to Maturity",
         "value": "60 to 90"
       }
     ],
@@ -731,203 +1969,33 @@
         "label": "Harvest Season",
         "value": "Summer"
       }
-    ]
-  },
-  "Celosia": {
-    "Basics": [
+    ],
+    "Care": [
       {
-        "label": "Type",
-        "value": "flower"
+        "label": "Sun",
+        "value": "Full to Partial Sun"
       },
       {
-        "label": "Grow Zone",
-        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+        "label": "Water",
+        "value": "Average"
       },
       {
-        "label": "Kind",
-        "value": "Annual"
+        "label": "Soil",
+        "value": "Rich, well-draining"
       }
     ],
-    "Sowing": [
+    "Links": [
       {
-        "label": "Sow When",
-        "value": "Spring"
-      },
-      {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 after"
-      },
-      {
-        "label": "Seed Treatments",
-        "value": "None"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "7 to 14"
-      },
-      {
-        "label": "Days to Harvest",
-        "value": "60 to 90"
-      }
-    ],
-    "Harvest": [
-      {
-        "label": "Harvest Season",
-        "value": "Summer through Fall"
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCarnations"
       }
     ]
   },
-  "Gazania": {
+  "Carrot (Daucus carota)": {
     "Basics": [
       {
         "label": "Type",
-        "value": "flower"
-      },
-      {
-        "label": "Grow Zone",
-        "value": "8, 9, 10, 11"
-      },
-      {
-        "label": "Kind",
-        "value": "Perennial"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow When",
-        "value": "Spring"
-      },
-      {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "6 to 8 before"
-      },
-      {
-        "label": "Seed Treatments",
-        "value": "None"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "7 to 14"
-      },
-      {
-        "label": "Days to Harvest",
-        "value": "90 to 110"
-      }
-    ],
-    "Harvest": [
-      {
-        "label": "Harvest Season",
-        "value": "Summer"
-      }
-    ]
-  },
-  "Gomphrena": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "flower"
-      },
-      {
-        "label": "Grow Zone",
-        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow When",
-        "value": "Spring"
-      },
-      {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 after"
-      },
-      {
-        "label": "Seed Treatments",
-        "value": "None"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "7 to 14"
-      },
-      {
-        "label": "Days to Harvest",
-        "value": "80 to 100"
-      }
-    ],
-    "Harvest": [
-      {
-        "label": "Harvest Season",
-        "value": "Summer"
-      }
-    ]
-  },
-  "Hollyhock": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "flower"
-      },
-      {
-        "label": "Grow Zone",
-        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12"
-      },
-      {
-        "label": "Kind",
-        "value": "Biennial"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow When",
-        "value": "Fall or Spring"
-      },
-      {
-        "label": "Sow Indoors",
-        "value": "8 to 10 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 before"
-      },
-      {
-        "label": "Seed Treatments",
-        "value": "soak over night"
-      }
-    ],
-    "Harvest": [
-      {
-        "label": "Harvest Season",
-        "value": "Summer through Fall"
-      }
-    ]
-  },
-  "Bachelor's Button": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "flower"
+        "value": "vegetable"
       },
       {
         "label": "Grow Zone",
@@ -941,169 +2009,33 @@
     "Sowing": [
       {
         "label": "Sow When",
-        "value": "Spring"
+        "value": "Cool Season"
       },
       {
         "label": "Sow Indoors",
-        "value": "4 to 6 before"
+        "value": "NA"
       },
       {
         "label": "Sow Outdoors",
-        "value": "1 to 2 after"
+        "value": "2 to 4 before"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "2 to 3 inches"
       }
     ],
     "Growth": [
       {
-        "label": "Days to Germination",
-        "value": "7 to 14"
-      },
-      {
         "label": "Days to Harvest",
-        "value": "60 to 90"
-      }
-    ],
-    "Harvest": [
-      {
-        "label": "Harvest Season",
-        "value": "Spring through Fall"
-      }
-    ],
-    "Care": [
-      {
-        "label": "Sun",
-        "value": "Full to Partial Sun"
-      },
-      {
-        "label": "Water",
-        "value": "Average"
-      },
-      {
-        "label": "Soil",
-        "value": "rich well draining"
-      }
-    ],
-    "Links": [
-      {
-        "label": "Buy Now",
-        "value": "https://bit.ly/3YFe6Mh"
-      }
-    ]
-  },
-  "Black-eyed Susan": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "flower"
-      },
-      {
-        "label": "Grow Zone",
-        "value": "3, 4, 5, 6, 7, 8, 9"
-      },
-      {
-        "label": "Kind",
-        "value": "Biennial"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow When",
-        "value": "Fall or Spring"
-      },
-      {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 after"
-      },
-      {
-        "label": "Seed Treatments",
-        "value": "Stratify (Cold)"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "7 to 21"
-      },
-      {
-        "label": "Days to Harvest",
-        "value": "60 to 90"
-      }
-    ],
-    "Harvest": [
-      {
-        "label": "Harvest Season",
-        "value": "Spring through Fall"
-      }
-    ],
-    "Care": [
-      {
-        "label": "Sun",
-        "value": "Full to Partial Sun"
-      },
-      {
-        "label": "Water",
-        "value": "Average"
-      },
-      {
-        "label": "Soil",
-        "value": "rich moist well draining"
-      }
-    ],
-    "Links": [
-      {
-        "label": "Buy Now",
-        "value": "https://bit.ly/BEyedSusan"
-      }
-    ]
-  },
-  "Cape Daisy": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "flower"
-      },
-      {
-        "label": "Grow Zone",
-        "value": "9, 10, 11"
-      },
-      {
-        "label": "Kind",
-        "value": "Perennial"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow When",
-        "value": "Spring"
-      },
-      {
-        "label": "Sow Indoors",
-        "value": "8 to 10 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
-      },
-      {
-        "label": "Seed Treatments",
-        "value": "None"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "10 to 21"
-      },
-      {
-        "label": "Days to Harvest",
-        "value": "60 to 80"
+        "value": "75 days"
       }
     ],
     "Harvest": [
@@ -1115,7 +2047,7 @@
     "Care": [
       {
         "label": "Sun",
-        "value": "Full Sun"
+        "value": "Full to Partial Sun"
       },
       {
         "label": "Water",
@@ -1123,25 +2055,25 @@
       },
       {
         "label": "Soil",
-        "value": "rich well draining"
+        "value": "Rich, well-draining"
       }
     ],
     "Links": [
       {
         "label": "Buy Now",
-        "value": "https://bit.ly/EBShastas"
+        "value": "https://bit.ly/EBCarrot"
       }
     ]
   },
-  "Dahlia": {
+  "Catmint (Nepeta mussinii)": {
     "Basics": [
       {
         "label": "Type",
-        "value": "flower"
+        "value": "herb"
       },
       {
         "label": "Grow Zone",
-        "value": "8, 9, 10, 11"
+        "value": "3, 4, 5, 6, 7, 8"
       },
       {
         "label": "Kind",
@@ -1155,37 +2087,45 @@
       },
       {
         "label": "Sow Indoors",
-        "value": "8 to 10 before"
+        "value": "6 to 8 wks before"
       },
       {
         "label": "Sow Outdoors",
-        "value": "2 to 4 after"
+        "value": "1 to 2 wks after"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 inches"
       }
     ],
     "Growth": [
       {
         "label": "Days to Germination",
-        "value": "8 to 11"
+        "value": "7 to 14"
       },
       {
-        "label": "Days to Harvest",
-        "value": "NA"
+        "label": "Days to Maturity",
+        "value": "14 to 21"
       }
     ],
     "Harvest": [
       {
         "label": "Harvest Season",
-        "value": "Summer"
+        "value": "Spring to Fall"
       }
     ],
     "Care": [
       {
         "label": "Sun",
-        "value": "Full Sun"
+        "value": "Full to Partial Shade"
       },
       {
         "label": "Water",
@@ -1193,29 +2133,29 @@
       },
       {
         "label": "Soil",
-        "value": "rich well draining"
+        "value": "rich, moist,  well-draining"
       }
     ],
     "Links": [
       {
         "label": "Buy Now",
-        "value": "https://bit.ly/4bExCvy"
+        "value": "https://bit.ly/EBCatmint"
       }
     ]
   },
-  "Zinnia": {
+  "Catnip (Nepeta cataria)": {
     "Basics": [
       {
         "label": "Type",
-        "value": "flower"
+        "value": "herb"
       },
       {
         "label": "Grow Zone",
-        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+        "value": "3, 4, 5, 6, 7, 8, 9"
       },
       {
         "label": "Kind",
-        "value": "Annual"
+        "value": "Perennial"
       }
     ],
     "Sowing": [
@@ -1225,153 +2165,63 @@
       },
       {
         "label": "Sow Indoors",
-        "value": "4 to 6 before"
+        "value": "6 to 8 before"
       },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
-      },
-      {
-        "label": "Seed Treatments",
-        "value": "None"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "7 to 10"
-      },
-      {
-        "label": "Days to Harvest",
-        "value": "55 to 80"
-      }
-    ],
-    "Harvest": [
-      {
-        "label": "Harvest Season",
-        "value": "Summer"
-      }
-    ],
-    "Care": [
-      {
-        "label": "Sun",
-        "value": "Full Sun"
-      },
-      {
-        "label": "Water",
-        "value": "Average"
-      },
-      {
-        "label": "Soil",
-        "value": "rich moist well draining"
-      }
-    ],
-    "Links": [
-      {
-        "label": "Buy Now",
-        "value": "https://bit.ly/4cZRPfE"
-      }
-    ]
-  },
-  "Basil": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Grow Zone",
-        "value": "4, 5, 6, 7, 8, 9, 10"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow When",
-        "value": "Spring"
-      },
-      {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
-      },
-      {
-        "label": "Seed Treatments",
-        "value": "None"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "7 to 10"
-      },
-      {
-        "label": "Days to Harvest",
-        "value": "60 to 90"
-      }
-    ],
-    "Harvest": [
-      {
-        "label": "Harvest Season",
-        "value": "Summer through Fall"
-      }
-    ],
-    "Care": [
-      {
-        "label": "Sun",
-        "value": "Full Sun"
-      },
-      {
-        "label": "Water",
-        "value": "Average"
-      },
-      {
-        "label": "Soil",
-        "value": "gravely poor well draining"
-      }
-    ],
-    "Links": [
-      {
-        "label": "Buy Now",
-        "value": "https://bit.ly/EB-LemonBasil"
-      }
-    ]
-  },
-  "Beet": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
       {
         "label": "Sow Outdoors",
         "value": "2 to 4 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "18 to 24 inches"
       }
     ],
     "Growth": [
       {
         "label": "Days to Germination",
-        "value": "10 to 14"
+        "value": "10 to 20"
       },
       {
-        "label": "Days to Harvest",
-        "value": "50 to 60"
+        "label": "Days to Maturity",
+        "value": "80 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich, moist,  well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCatnip"
       }
     ]
   },
-  "Melon": {
+  "Cauliflower (Brassica oleracea)": {
     "Basics": [
       {
         "label": "Type",
@@ -1389,15 +2239,15 @@
     "Sowing": [
       {
         "label": "Sow When",
-        "value": "Spring"
+        "value": "Spring - Cool Season"
       },
       {
         "label": "Sow Indoors",
-        "value": "3 to 4 before"
+        "value": "4 to 6 before"
       },
       {
         "label": "Sow Outdoors",
-        "value": "2 to 3 after"
+        "value": "1 to 2 before"
       },
       {
         "label": "Seed Treatments",
@@ -1407,17 +2257,11 @@
     "Growth": [
       {
         "label": "Days to Germination",
-        "value": "7 to 10"
+        "value": "7 to 14"
       },
       {
-        "label": "Days to Harvest",
-        "value": "80 to 100"
-      }
-    ],
-    "Harvest": [
-      {
-        "label": "Harvest Season",
-        "value": "Summer"
+        "label": "Days to Maturity",
+        "value": "80"
       }
     ],
     "Care": [
@@ -1431,17 +2275,17 @@
       },
       {
         "label": "Soil",
-        "value": "rich moist well draining"
+        "value": "rich, moist,  well-draining"
       }
     ],
     "Links": [
       {
         "label": "Buy Now",
-        "value": "https://bit.ly/4kxNrbJ"
+        "value": "https://bit.ly/EBCauliflower"
       }
     ]
   },
-  "Pea": {
+  "Celery (Apium graveolens)": {
     "Basics": [
       {
         "label": "Type",
@@ -1449,7 +2293,7 @@
       },
       {
         "label": "Grow Zone",
-        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9"
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
       },
       {
         "label": "Kind",
@@ -1459,175 +2303,43 @@
     "Sowing": [
       {
         "label": "Sow When",
-        "value": "Spring"
+        "value": "Spring - Cool Season"
       },
       {
         "label": "Sow Indoors",
-        "value": "NA"
+        "value": "10 to 12 before"
       },
       {
         "label": "Sow Outdoors",
-        "value": "4 to 6 before"
-      },
-      {
-        "label": "Seed Treatments",
-        "value": "soak over night"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "6 to 17"
-      },
-      {
-        "label": "Days to Harvest",
-        "value": "40"
-      }
-    ],
-    "Harvest": [
-      {
-        "label": "Harvest Season",
-        "value": "Spring and Fall"
-      }
-    ],
-    "Care": [
-      {
-        "label": "Sun",
-        "value": "Full Sun"
-      },
-      {
-        "label": "Water",
-        "value": "Average"
-      },
-      {
-        "label": "Soil",
-        "value": "rich moist well draining"
-      }
-    ],
-    "Links": [
-      {
-        "label": "Buy Now",
-        "value": "https://bit.ly/4kCAJc3"
-      }
-    ]
-  },
-  "Radish": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Grow Zone",
-        "value": "3, 4, 5, 6, 7, 8, 9, 10"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow When",
-        "value": "Spring"
-      },
-      {
-        "label": "Sow Indoors",
-        "value": "NA"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "4 to 6 before"
-      },
-      {
-        "label": "Seed Treatments",
-        "value": "soak over night"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "10 to 14"
-      },
-      {
-        "label": "Days to Harvest",
-        "value": "27 to 35"
-      }
-    ],
-    "Harvest": [
-      {
-        "label": "Harvest Season",
-        "value": "Spring and Fall"
-      }
-    ],
-    "Care": [
-      {
-        "label": "Sun",
-        "value": "Full to Partial Sun"
-      },
-      {
-        "label": "Water",
-        "value": "Average"
-      },
-      {
-        "label": "Soil",
-        "value": "rich moist well draining"
-      }
-    ],
-    "Links": [
-      {
-        "label": "Buy Now",
-        "value": "https://bit.ly/3SNEH5A"
-      }
-    ]
-  },
-  "Watermelon": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Grow Zone",
-        "value": "3, 4, 5, 6, 7, 8, 9, 10"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow When",
-        "value": "Spring"
-      },
-      {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "3 to 4 after"
+        "value": "1 to 2 before"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "18 to 24 inches"
       }
     ],
     "Growth": [
       {
         "label": "Days to Germination",
-        "value": "4 to 12"
+        "value": "14 to 22"
       },
       {
         "label": "Days to Harvest",
-        "value": "60 to 90"
+        "value": "120"
       }
     ],
     "Harvest": [
       {
         "label": "Harvest Season",
-        "value": "Summer"
+        "value": "Spring, Early Spring"
       }
     ],
     "Care": [
@@ -1641,17 +2353,375 @@
       },
       {
         "label": "Soil",
-        "value": "rich moist well draining"
+        "value": "rich, moist,  well-draining"
       }
     ],
     "Links": [
       {
         "label": "Buy Now",
-        "value": "https://bit.ly/3SimVao"
+        "value": "https://bit.ly/EBCelery"
       }
     ]
   },
-  "Coleus": {
+  "Celosia (Celosia plumosa)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "10 to 24 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCelosia"
+      }
+    ]
+  },
+  "Chamomile (Anthemus nobilis)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "herb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 wks before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 14"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "120"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring to Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich, moist,  well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBChamomile"
+      }
+    ]
+  },
+  "Chervil (Anthriscus cerefolium)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "14 to 21"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "120"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring to Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich, moist,  well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBChervil"
+      }
+    ]
+  },
+  "Chives (Allium schoenoprasm)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "80 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring to Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich, moist,  well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBChives"
+      }
+    ]
+  },
+  "Cilantro (Coriandrum sativum)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "herb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "NA"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Harvest",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring to Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich, moist,  well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCilantro"
+      }
+    ]
+  },
+  "Coleus (Solenostemon scutellarioides)": {
     "Basics": [
       {
         "label": "Type",
@@ -1678,6 +2748,18 @@
       {
         "label": "Sow Outdoors",
         "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 10 inches"
       }
     ],
     "Growth": [
@@ -1709,9 +2791,85 @@
         "label": "Soil",
         "value": "Fertilie, well-draining"
       }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBColeus"
+      }
     ]
   },
-  "Columbine": {
+  "Collards (Brassica oleracea)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring - Cool Season"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "5 to 10"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "75"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring or Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich, moist,  well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCollards"
+      }
+    ]
+  },
+  "Columbine (Aquilegia caerulea)": {
     "Basics": [
       {
         "label": "Type",
@@ -1756,6 +2914,16 @@
       {
         "label": "Days to Germination",
         "value": "21 to 28"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer to Fall"
       }
     ],
     "Care": [
@@ -1771,9 +2939,15 @@
         "label": "Soil",
         "value": "Fertilie, well-draining"
       }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBColumbine"
+      }
     ]
   },
-  "Coreopsis": {
+  "Coneflower (Echinacea sp.)": {
     "Basics": [
       {
         "label": "Type",
@@ -1781,7 +2955,85 @@
       },
       {
         "label": "Grow Zone",
-        "value": "5, 6, 7, 8, 9"
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "10 to 12 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Cold Stratification"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "10 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 21"
+      },
+      {
+        "label": "Days to Maturity or Harvest",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertile, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBConeflowerSeeds"
+      }
+    ]
+  },
+  "Coreopsis (Coreopsis lanceolata)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
       },
       {
         "label": "Kind",
@@ -1816,8 +3068,88 @@
         "value": "7 to 14"
       },
       {
-        "label": "Days to Harvest",
+        "label": "Days to Maturity",
         "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertilie, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBPerennialCoreopsis"
+      }
+    ]
+  },
+  "Corn (Zea mays)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1 to 2 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 to 15 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 10"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "85 to 95"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
       }
     ],
     "Care": [
@@ -1831,11 +3163,79 @@
       },
       {
         "label": "Soil",
+        "value": "rich, moist,  well-draining"
+      }
+    ]
+  },
+  "Cornflower (Centaurea cyanus)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 weeks before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 weeks after"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
         "value": "Fertilie, well-draining"
       }
     ]
   },
-  "Cosmos": {
+  "Cosmos (Cosmos bipinnatus)": {
     "Basics": [
       {
         "label": "Type",
@@ -1882,7 +3282,7 @@
         "value": "7 to 14"
       },
       {
-        "label": "Days to Harvest",
+        "label": "Days to Maturity",
         "value": "60 to 90"
       }
     ],
@@ -1905,35 +3305,49 @@
         "label": "Soil",
         "value": "Fertilie, well-draining, but can tolerate poor soil"
       }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCosmos"
+      }
     ]
   },
-  "Billy Button (Craspedia sp.)": {
+  "Cucumber (Cucumis sativus)": {
     "Basics": [
       {
         "label": "Type",
-        "value": "flower"
+        "value": "vegetable"
       },
       {
         "label": "Grow Zone",
-        "value": "8, 9, 10"
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
       }
     ],
     "Sowing": [
       {
         "label": "Sow When",
-        "value": "Spring"
+        "value": "Warm Season"
       },
       {
         "label": "Sow Indoors",
-        "value": "6 to 8 before"
+        "value": "2 to 4 before"
       },
       {
         "label": "Sow Outdoors",
-        "value": "2 to 4 after"
+        "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
       },
       {
         "label": "Sow Depth",
-        "value": "1/16 inch"
+        "value": "1/2 inch"
       },
       {
         "label": "Spacing",
@@ -1943,11 +3357,17 @@
     "Growth": [
       {
         "label": "Days to Germination",
-        "value": "14 to 21"
+        "value": "7 to 10"
       },
       {
         "label": "Days to Harvest",
-        "value": "60 to 90"
+        "value": "50 to 70"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer to Fall"
       }
     ],
     "Care": [
@@ -1961,11 +3381,17 @@
       },
       {
         "label": "Soil",
-        "value": "Fertile, well-draining"
+        "value": "rich, moist,  well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCucumber"
       }
     ]
   },
-  "Larkspur (Delphinium consolida)": {
+  "Dahlia (Dahlia variabilis)": {
     "Basics": [
       {
         "label": "Type",
@@ -1973,11 +3399,11 @@
       },
       {
         "label": "Grow Zone",
-        "value": "3, 4, 5, 6, 7, 8"
+        "value": "8, 9, 10, 11"
       },
       {
         "label": "Kind",
-        "value": "Annual"
+        "value": "Perennial"
       }
     ],
     "Sowing": [
@@ -1987,23 +3413,81 @@
       },
       {
         "label": "Sow Indoors",
+        "value": "8 to 10 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "8 to 11"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "NA"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/4bExCvy"
+      }
+    ]
+  },
+  "Delphinium": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
         "value": "6 to 8 before"
       },
       {
         "label": "Sow Outdoors",
         "value": "1 to 2 after"
-      },
-      {
-        "label": "Seed Treatments",
-        "value": "Cold Stratification"
-      },
-      {
-        "label": "Sow Depth",
-        "value": "1/8 inch"
-      },
-      {
-        "label": "Spacing",
-        "value": "10 to 12 inches"
       }
     ],
     "Growth": [
@@ -2015,19 +3499,23 @@
         "label": "Days to Harvest",
         "value": "85 to 100"
       }
+    ]
+  },
+  "Dill": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "herb"
+      }
     ],
-    "Care": [
+    "Sowing": [
       {
-        "label": "Sun",
-        "value": "Full to Partial Sun"
+        "label": "Sow Indoors",
+        "value": "8 to 10 before"
       },
       {
-        "label": "Water",
-        "value": "Average"
-      },
-      {
-        "label": "Soil",
-        "value": "Fertile, well-draining"
+        "label": "Sow Outdoors",
+        "value": "1 to 2 before"
       }
     ]
   },
@@ -2099,67 +3587,63 @@
       }
     ]
   },
-  "Coneflower (Echinacea sp.)": {
+  "Edamame": {
     "Basics": [
       {
         "label": "Type",
-        "value": "flower"
-      },
-      {
-        "label": "Grow Zone",
-        "value": "3, 4, 5, 6, 7, 8, 9"
-      },
-      {
-        "label": "Kind",
-        "value": "Perennial"
+        "value": "vegetable"
       }
     ],
     "Sowing": [
       {
-        "label": "Sow When",
-        "value": "Fall or Spring"
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      }
+    ]
+  },
+  "Eggplant": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
       },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
       {
         "label": "Sow Indoors",
         "value": "10 to 12 before"
       },
       {
         "label": "Sow Outdoors",
-        "value": "2 to 4 before"
-      },
-      {
-        "label": "Seed Treatments",
-        "value": "Cold Stratification"
+        "value": "2 to 4 after"
       }
     ],
     "Growth": [
       {
         "label": "Days to Germination",
-        "value": "10 to 21"
-      },
+        "value": "10 to 16"
+      }
+    ]
+  },
+  "Endive": {
+    "Basics": [
       {
-        "label": "Days to Maturity or Harvest",
-        "value": "60 to 90"
+        "label": "Type",
+        "value": "vegetable"
       }
     ],
-    "Harvest": [
+    "Sowing": [
       {
-        "label": "Harvest Season",
-        "value": "Summer through Fall"
-      }
-    ],
-    "Care": [
-      {
-        "label": "Sun",
-        "value": "Full to Partial Sun"
+        "label": "Sow Indoors",
+        "value": "8 to 10 before"
       },
       {
-        "label": "Water",
-        "value": "Average"
-      },
-      {
-        "label": "Soil",
-        "value": "Fertile, well-draining"
+        "label": "Sow Outdoors",
+        "value": "4 to 6 before"
       }
     ]
   },
@@ -2210,6 +3694,24 @@
       {
         "label": "Soil",
         "value": "Fertilie, well-draining, but can tolerate poor soil"
+      }
+    ]
+  },
+  "Fennel": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "herb"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
       }
     ]
   },
@@ -2337,6 +3839,68 @@
       }
     ]
   },
+  "French Marigold (Tagetes patula)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "50 to 70"
+      },
+      {
+        "label": "Bloom Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Low"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertile, well-draining"
+      }
+    ]
+  },
   "Gaillardia": {
     "Basics": [
       {
@@ -2365,15 +3929,441 @@
       }
     ]
   },
-  "Delphinium": {
+  "Gazania (Gazania splendens)": {
     "Basics": [
       {
         "label": "Type",
         "value": "flower"
       },
       {
+        "label": "Grow Zone",
+        "value": "8, 9, 10, 11"
+      },
+      {
         "label": "Kind",
         "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "90 to 110"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Low to Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBGazania"
+      }
+    ]
+  },
+  "Gomphrena (Gomphrena globosa)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Mature Height",
+        "value": "16 to 20 inches"
+      },
+      {
+        "label": "Mature Width",
+        "value": "8 to 12 inches"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "80 to 100"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/GomphrenaPingPong"
+      }
+    ]
+  },
+  "Hollyhock (Alcea rosea)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12"
+      },
+      {
+        "label": "Kind",
+        "value": "Biennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "8 to 10 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "soak over night"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "18 to 36 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14 days"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "18 to 21 months (biennial)"
+      },
+      {
+        "label": "Mature Height",
+        "value": "Up to 96 inches"
+      },
+      {
+        "label": "Mature Width",
+        "value": "Up to 36 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBHollyHocks"
+      }
+    ]
+  },
+  "Impatiens (Impatiens walleriana)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      }
+    ],
+    "Bloom": [
+      {
+        "label": "Bloom Season",
+        "value": "Spring through Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ]
+  },
+  "Kale": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 before"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "30 to 60"
+      }
+    ]
+  },
+  "Kohlrabi": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 before"
+      }
+    ]
+  },
+  "Larkspur (Delphinium consolida)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Cold Stratification"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "10 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 21"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "85 to 100"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertile, well-draining"
+      }
+    ]
+  },
+  "Leek": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "8 to 10 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 before"
+      }
+    ]
+  },
+  "Lemon Balm": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "herb"
       }
     ],
     "Sowing": [
@@ -2385,15 +4375,174 @@
         "label": "Sow Outdoors",
         "value": "1 to 2 after"
       }
+    ]
+  },
+  "Lettuce (Lactuca sativa)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Early Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "4 to 16 inches"
+      }
     ],
     "Growth": [
       {
         "label": "Days to Germination",
-        "value": "10 to 21"
+        "value": "7 to 14"
       },
       {
         "label": "Days to Harvest",
-        "value": "85 to 100"
+        "value": "30 to 60"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring and Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ]
+  },
+  "Marigold (Tagetes sp.)": {},
+  "Marjoram": {
+    "Basics": [
+      {
+        "label": "Grow Zone",
+        "value": "herb"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 before"
+      }
+    ]
+  },
+  "Melon (Cucumis melo)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "3 to 4 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 3 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "2 to 3 feet"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 10"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "60 to 90 days"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich moist well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/4kxNrbJ"
       }
     ]
   },
@@ -2437,6 +4586,24 @@
       }
     ]
   },
+  "Mint": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "herb"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      }
+    ]
+  },
   "Moonflower": {
     "Basics": [
       {
@@ -2474,6 +4641,20 @@
       {
         "label": "Sow Outdoors",
         "value": "1 to 2 after"
+      }
+    ]
+  },
+  "Mustard": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "herb"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 before"
       }
     ]
   },
@@ -2516,6 +4697,74 @@
       {
         "label": "Days to Germination",
         "value": "12 to 15"
+      }
+    ]
+  },
+  "Okra": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      }
+    ]
+  },
+  "Onion": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "10 to 12 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 before"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "9 to 15"
+      }
+    ]
+  },
+  "Oregano": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "herb"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 after"
       }
     ]
   },
@@ -2579,6 +4828,102 @@
       }
     ]
   },
+  "Parsely": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "herb"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 before"
+      }
+    ]
+  },
+  "Pea (Pisum sativum)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "NA"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "soak over night"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "4 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "6 to 17"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "40"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring and Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich moist well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/4kCAJc3"
+      }
+    ]
+  },
   "Penstemon": {
     "Basics": [
       {
@@ -2594,6 +4939,34 @@
       {
         "label": "Sow Indoors",
         "value": "6 to 8 before"
+      }
+    ]
+  },
+  "Pepper": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "8 to 10 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 after"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 17"
       }
     ]
   },
@@ -2615,23 +4988,75 @@
       }
     ]
   },
-  "Poppy": {
+  "Poppy (Papaver sp.)": {
     "Basics": [
       {
         "label": "Type",
         "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
       }
     ],
     "Sowing": [
       {
+        "label": "Sow When",
+        "value": "Spring or Fall"
+      },
+      {
         "label": "Sow Indoors",
-        "value": "6 to 8 before"
+        "value": "6 to 8 wks before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 wks before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Cold Stratification"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
       }
     ],
     "Growth": [
       {
         "label": "Days to Germination",
-        "value": "12 to 15"
+        "value": "12 to 20"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Low"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
       }
     ]
   },
@@ -2656,6 +5081,182 @@
       {
         "label": "Days to Germination",
         "value": "7 to 14"
+      }
+    ]
+  },
+  "Pumpkin": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "2 to 4 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 after"
+      }
+    ]
+  },
+  "Quinoa": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "1 to 2 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      }
+    ]
+  },
+  "Radish (Raphanus sativus)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "NA"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "soak over night"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/2 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "2 to 3 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 14"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "27 to 35"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring and Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich moist well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/3SNEH5A"
+      }
+    ]
+  },
+  "Rosemary": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "herb"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "10 to 12 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      }
+    ]
+  },
+  "Rutabaga": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 before"
+      }
+    ]
+  },
+  "Sage": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "herb"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
       }
     ]
   },
@@ -2705,6 +5306,24 @@
       }
     ]
   },
+  "Savory": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "herb"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "8 to 10 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      }
+    ]
+  },
   "Scabiosa": {
     "Basics": [
       {
@@ -2726,6 +5345,28 @@
       {
         "label": "Days to Germination",
         "value": "14 to 17"
+      }
+    ]
+  },
+  "Shallot Onion": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "10 to 12 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 before"
       }
     ]
   },
@@ -2773,6 +5414,114 @@
       }
     ]
   },
+  "Sorrel": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 before"
+      }
+    ]
+  },
+  "Spinach": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 before"
+      }
+    ]
+  },
+  "Squash (Cucurbiat pepo)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Late Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "2 to 4 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/2 to 1 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "18 to 24 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "5 to 8"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer to Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ]
+  },
   "Statice": {
     "Basics": [
       {
@@ -2817,6 +5566,28 @@
       }
     ]
   },
+  "Strawberry": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "14 to 16 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "8 to 12 before"
+      }
+    ]
+  },
   "Strawflower": {
     "Basics": [
       {
@@ -2835,11 +5606,15 @@
       }
     ]
   },
-  "Sunflower": {
+  "Sunflower (Helianthus annuus)": {
     "Basics": [
       {
         "label": "Type",
         "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
       },
       {
         "label": "Kind",
@@ -2848,18 +5623,116 @@
     ],
     "Sowing": [
       {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
         "label": "Sow Indoors",
         "value": "2 to 4 before"
       },
       {
         "label": "Sow Outdoors",
         "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/2 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 12 inches"
       }
     ],
     "Growth": [
       {
         "label": "Days to Germination",
-        "value": "5 to 10"
+        "value": "7 to 10"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "70 to 120"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ]
+  },
+  "Sweet Alyssum (Lobularia maritma)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 10 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "60 to 90"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
       }
     ]
   },
@@ -2903,351 +5776,25 @@
       }
     ]
   },
-  "Verbena": {
+  "Swiss Chard": {
     "Basics": [
       {
         "label": "Type",
-        "value": "flower"
+        "value": "vegetable"
       },
       {
         "label": "Kind",
-        "value": "Perennial"
+        "value": "Annual"
       }
     ],
     "Sowing": [
       {
         "label": "Sow Indoors",
-        "value": "10 to 12 before"
+        "value": "4 to 6 before"
       },
       {
         "label": "Sow Outdoors",
         "value": "2 to 4 before"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "14 to 21"
-      }
-    ]
-  },
-  "Viola": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "flower"
-      },
-      {
-        "label": "Kind",
-        "value": "Perennial"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "8 to 10 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "4 to 6 before"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "12 to 14"
-      }
-    ]
-  },
-  "Yarrow": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "flower"
-      },
-      {
-        "label": "Kind",
-        "value": "Perennial"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "8 to 10 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 after"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "11 to 15"
-      },
-      {
-        "label": "Days to Harvest",
-        "value": "90 to 120"
-      }
-    ]
-  },
-  "Bee Balm / Wild Bergamot": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "herb"
-      }
-    ]
-  },
-  "Borage": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "herb"
-      },
-      {
-        "label": "Kind",
-        "value": "Perennial"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 before"
-      }
-    ]
-  },
-  "Chamomile": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "herb"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
-      }
-    ]
-  },
-  "Cilantro": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "herb"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 before"
-      }
-    ]
-  },
-  "Dill": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "herb"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "8 to 10 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 before"
-      }
-    ]
-  },
-  "Fennel": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "herb"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
-      }
-    ]
-  },
-  "Lemon Balm": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "herb"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
-      }
-    ]
-  },
-  "Marjoram": {
-    "Basics": [
-      {
-        "label": "Grow Zone",
-        "value": "herb"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 before"
-      }
-    ]
-  },
-  "Mint": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "herb"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
-      }
-    ]
-  },
-  "Mustard": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "herb"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Outdoors",
-        "value": "4 to 6 before"
-      }
-    ]
-  },
-  "Oregano": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "herb"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 after"
-      }
-    ]
-  },
-  "Parsely": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "herb"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "4 to 6 before"
-      }
-    ]
-  },
-  "Rosemary": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "herb"
-      },
-      {
-        "label": "Kind",
-        "value": "Perennial"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "10 to 12 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
-      }
-    ]
-  },
-  "Sage": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "herb"
-      },
-      {
-        "label": "Kind",
-        "value": "Perennial"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
-      }
-    ]
-  },
-  "Savory": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "herb"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "8 to 10 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
       }
     ]
   },
@@ -3288,794 +5835,6 @@
       {
         "label": "Sow Outdoors",
         "value": "1 to 2 after"
-      }
-    ]
-  },
-  "Artichoke": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Biennial"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow When",
-        "value": "10 to 12 before"
-      }
-    ]
-  },
-  "Arugula": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 before"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "7 to 10"
-      },
-      {
-        "label": "Days to Harvest",
-        "value": "28 to 40"
-      }
-    ]
-  },
-  "Bean": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
-      }
-    ]
-  },
-  "Bitter Melon": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "2 to 4 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
-      }
-    ]
-  },
-  "Broccoli": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "7 to 10"
-      }
-    ]
-  },
-  "Bunching Onion": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "8 to 10 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "4 to 6 before"
-      }
-    ]
-  },
-  "Cabbage": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "4 to 6 before"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "7 to 14"
-      }
-    ]
-  },
-  "Carrot": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 before"
-      }
-    ]
-  },
-  "Catnip": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 before"
-      }
-    ]
-  },
-  "Cauliflower": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 before"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "7 to 14"
-      },
-      {
-        "label": "Days to Harvest",
-        "value": "80"
-      }
-    ]
-  },
-  "Celery": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "10 to 12 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 before"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "14 to 22"
-      }
-    ]
-  },
-  "Chervil": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Outdoors",
-        "value": "4 to 6 before"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "14 to 21"
-      }
-    ]
-  },
-  "Chives": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "4 to 6 before"
-      }
-    ]
-  },
-  "Collards": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 before"
-      }
-    ]
-  },
-  "Corn": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
-      }
-    ]
-  },
-  "Cucumber": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "2 to 4 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "7 to 10"
-      },
-      {
-        "label": "Days to Harvest",
-        "value": "50 to 70"
-      }
-    ]
-  },
-  "Edamame": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
-      }
-    ]
-  },
-  "Eggplant": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "10 to 12 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 after"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "10 to 16"
-      }
-    ]
-  },
-  "Endive": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "8 to 10 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "4 to 6 before"
-      }
-    ]
-  },
-  "Kale": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "7 to 14"
-      },
-      {
-        "label": "Days to Harvest",
-        "value": "30 to 60"
-      }
-    ]
-  },
-  "Kohlrabi": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
-      }
-    ]
-  },
-  "Leek": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "8 to 10 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 before"
-      }
-    ]
-  },
-  "Lettuce": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 before"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "7 to 14"
-      }
-    ]
-  },
-  "Okra": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
-      }
-    ]
-  },
-  "Onion": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "10 to 12 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "4 to 6 before"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "9 to 15"
-      }
-    ]
-  },
-  "Pepper": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "8 to 10 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 after"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "10 to 17"
-      }
-    ]
-  },
-  "Pumpkin": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "2 to 4 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 after"
-      }
-    ]
-  },
-  "Quinoa": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "1 to 2 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
-      }
-    ]
-  },
-  "Rutabaga": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Outdoors",
-        "value": "4 to 6 before"
-      }
-    ]
-  },
-  "Shallot Onion": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "10 to 12 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "4 to 6 before"
-      }
-    ]
-  },
-  "Sorrel": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 before"
-      }
-    ]
-  },
-  "Spinach": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Outdoors",
-        "value": "4 to 6 before"
-      }
-    ]
-  },
-  "Squash": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "2 to 4 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
-      }
-    ],
-    "Growth": [
-      {
-        "label": "Days to Germination",
-        "value": "5 to 8"
-      }
-    ]
-  },
-  "Strawberry": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Perennial"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "14 to 16 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "8 to 12 before"
-      }
-    ]
-  },
-  "Swiss Chard": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "vegetable"
-      },
-      {
-        "label": "Kind",
-        "value": "Annual"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
-      },
-      {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 before"
       }
     ]
   },
@@ -4143,6 +5902,62 @@
       }
     ]
   },
+  "Verbena": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "10 to 12 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 before"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "14 to 21"
+      }
+    ]
+  },
+  "Viola": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "8 to 10 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 before"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "12 to 14"
+      }
+    ]
+  },
   "Watercress": {
     "Basics": [
       {
@@ -4161,15 +5976,15 @@
       }
     ]
   },
-  "Impatiens (Impatiens walleriana)": {
+  "Watermelon (Citrullus lanatus)": {
     "Basics": [
       {
         "label": "Type",
-        "value": "flower"
+        "value": "vegetable"
       },
       {
         "label": "Grow Zone",
-        "value": "3, 4, 5, 6, 7, 8, 9"
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
       },
       {
         "label": "Kind",
@@ -4182,20 +5997,164 @@
         "value": "Spring"
       },
       {
+        "label": "Sow Indoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "3 to 4 after"
+      },
+      {
         "label": "Seed Treatments",
         "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "36 to 48 inches"
       }
     ],
-    "Bloom": [
+    "Growth": [
       {
-        "label": "Bloom Season",
-        "value": "Spring through Summer"
+        "label": "Days to Germination",
+        "value": "4 to 12"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
       }
     ],
     "Care": [
       {
         "label": "Sun",
-        "value": "Full to Partial Shade"
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "High"
+      },
+      {
+        "label": "Soil",
+        "value": "rich moist well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/3SimVao"
+      }
+    ]
+  },
+  "Yarrow": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "8 to 10 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 after"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "11 to 15"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "90 to 120"
+      }
+    ]
+  },
+  "Zinnia (Zinna elegans)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 10"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "55 to 80"
+      },
+      {
+        "label": "Mature Height",
+        "value": "Up to 48+ inches"
+      },
+      {
+        "label": "Mature Width",
+        "value": "8 to 12 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
       },
       {
         "label": "Water",
@@ -4203,7 +6162,25 @@
       },
       {
         "label": "Soil",
-        "value": "Rich, well-draining"
+        "value": "rich moist well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/4cZRPfE"
+      }
+    ]
+  },
+  "Zucchini Squash": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
       }
     ]
   }
