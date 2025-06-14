@@ -6,7 +6,6 @@ import CropCard from "./components/CropCard";
 import ToolsAndSupplies from "./components/ToolsAndSupplies";
 import PlantingVideos from "./components/PlantingVideos";
 import BackHomeButton from "./components/BackHomeButton";
-import { useCropData } from "./hooks/useCropData"; // UPDATED: use hook instead of importing JSON
 
 // Local storage helpers
 const getLocal = (key, fallback) => {
@@ -47,8 +46,28 @@ export default function GardenPlannerApp() {
     herb: false,
   });
 
-  // --- UPDATED: Use the hook to get crop data ---
-  const { cropData, loading: cropDataLoading, error: cropDataError } = useCropData();
+  // --- BEGIN: Fetch crop data directly ---
+  const [cropData, setCropData] = useState(null);
+  const [cropDataLoading, setCropDataLoading] = useState(false);
+  const [cropDataError, setCropDataError] = useState(null);
+
+  useEffect(() => {
+    setCropDataLoading(true);
+    fetch('/cropdata.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch cropdata.json');
+        return res.json();
+      })
+      .then((data) => {
+        setCropData(data);
+        setCropDataLoading(false);
+      })
+      .catch((err) => {
+        setCropDataError(err);
+        setCropDataLoading(false);
+      });
+  }, []);
+  // --- END: Fetch crop data directly ---
 
   useEffect(() => { setLocal("zone", zone); }, [zone]);
   useEffect(() => { setLocal("category", category); }, [category]);
@@ -57,7 +76,7 @@ export default function GardenPlannerApp() {
   useEffect(() => { setLocal("waterNeed", waterNeed); }, [waterNeed]);
   useEffect(() => { setLocal("soilPreference", soilPreference); }, [soilPreference]);
 
-  // --- UPDATED: handleSearch now uses cropData from the hook
+  // handleSearch now uses cropData from fetch
   const handleSearch = () => {
     if (!cropData) return;
     setLoading(true);
