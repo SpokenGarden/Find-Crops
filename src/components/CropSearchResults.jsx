@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./CropSearchResults.css";
-import { useCropData } from "../hooks/useCropData";
 
 // Optional: icon helper for common labels (customize as you wish)
 function getIconForLabel(label) {
@@ -75,6 +74,52 @@ function renderSections(cropData) {
   );
 }
 
+// Custom hook for fetching crop data (with caching)
+let globalCropData = null;
+let globalCropDataPromise = null;
+function useCropDataDirect() {
+  const [cropData, setCropData] = useState(globalCropData);
+  const [loading, setLoading] = useState(globalCropData === null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (globalCropData !== null) {
+      setCropData(globalCropData);
+      setLoading(false);
+      return;
+    }
+    if (!globalCropDataPromise) {
+      globalCropDataPromise = fetch("/cropdata.json")
+        .then((res) => {
+          if (!res.ok) throw new Error("Failed to fetch cropdata.json");
+          return res.json();
+        })
+        .then((data) => {
+          globalCropData = data;
+          setCropData(data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setError(err);
+          setLoading(false);
+        });
+    } else {
+      globalCropDataPromise.then(
+        (data) => {
+          setCropData(globalCropData);
+          setLoading(false);
+        },
+        (err) => {
+          setError(err);
+          setLoading(false);
+        }
+      );
+    }
+  }, []);
+
+  return { cropData, loading, error };
+}
+
 // Main CropSearch component with "Crop Name Search" at the top
 const cardShadow = "0 4px 16px rgba(34,74,66,0.08)";
 const cardBorder = "1px solid #d0ede1";
@@ -94,7 +139,7 @@ const CropSearch = ({
   // ...other filter props here
   // props for more filters if you have them
 }) => {
-  const { cropData, loading, error } = useCropData();
+  const { cropData, loading, error } = useCropDataDirect();
   const [cropNameSearch, setCropNameSearch] = useState("");
 
   // --- UI: Crop Name Search at the top ---
