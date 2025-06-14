@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./CropSearchResults.css";
+import { useCropData } from "../hooks/useCropData";
 
 // Optional: icon helper for common labels (customize as you wish)
 function getIconForLabel(label) {
@@ -80,7 +81,6 @@ const cardBorder = "1px solid #d0ede1";
 const cardBg = "linear-gradient(135deg, #f3fcf7 0%, #e6f9ee 100%)";
 
 const CropSearch = ({
-  crops,
   growZone,
   setGrowZone,
   sun,
@@ -94,11 +94,10 @@ const CropSearch = ({
   // ...other filter props here
   // props for more filters if you have them
 }) => {
-  // Add state for crop name search
+  const { cropData, loading, error } = useCropData();
   const [cropNameSearch, setCropNameSearch] = useState("");
 
   // --- UI: Crop Name Search at the top ---
-  // (You can move this input to a subcomponent or style as needed)
   const cropNameSearchInput = (
     <div style={{ marginBottom: "1.5em" }}>
       <label htmlFor="crop-name-search" style={{ fontWeight: 700, display: "block", marginBottom: 4 }}>
@@ -130,7 +129,6 @@ const CropSearch = ({
   );
 
   // --- UI: Other filters (Grow Zone, Sun, Water, Soil, Type, etc) ---
-  // Replace the below with your actual UI for each filter you have!
   const allOtherFilters = (
     <div className="other-filters" style={{ marginBottom: "2em" }}>
       <div style={{ marginBottom: 10 }}>
@@ -183,7 +181,40 @@ const CropSearch = ({
   );
 
   // --- Filtering Logic ---
-  let cropEntries = Object.entries(crops || {});
+  if (loading) {
+    return (
+      <div className="crop-search-container">
+        {cropNameSearchInput}
+        <div style={{textAlign:"center", fontWeight:600, margin:"1em 0"}}>— OR —</div>
+        {allOtherFilters}
+        <div style={{ color: "#888", fontSize: "1.2em" }}>Loading crop data…</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="crop-search-container">
+        {cropNameSearchInput}
+        <div style={{textAlign:"center", fontWeight:600, margin:"1em 0"}}>— OR —</div>
+        {allOtherFilters}
+        <div style={{ color: "#888", fontSize: "1.2em" }}>Error loading crop data: {error.message}</div>
+      </div>
+    );
+  }
+
+  if (!cropData || Object.keys(cropData).length === 0) {
+    return (
+      <div className="crop-search-container">
+        {cropNameSearchInput}
+        <div style={{textAlign:"center", fontWeight:600, margin:"1em 0"}}>— OR —</div>
+        {allOtherFilters}
+        <div style={{ color: "#888", fontSize: "1.2em" }}>No crop data available.</div>
+      </div>
+    );
+  }
+
+  let cropEntries = Object.entries(cropData);
 
   if (cropNameSearch.trim()) {
     // Only filter by crop name if cropNameSearch is filled
@@ -197,7 +228,6 @@ const CropSearch = ({
       // Check each filter; if empty, ignore that filter.
       let match = true;
       if (growZone && cropData["Grow Zone"]) {
-        // You may need to adjust field accessing per your data structure
         const zones = Array.isArray(cropData["Grow Zone"])
           ? cropData["Grow Zone"].map(f => f.value.toLowerCase())
           : [];
