@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BottomAdBanner from "./components/BottomAdBanner";
+import cropData from './data/cropdata.json';
 import { filterCrops } from "./utils/filterCrops";
 import { buildSowingCalendar } from "./utils/sowingCalendar";
 import CropCard from "./components/CropCard";
