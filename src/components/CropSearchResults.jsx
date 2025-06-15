@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./CropSearchResults.css";
+import cropData from "../data/cropdata.json";
 
 // Optional: icon helper for common labels (customize as you wish)
 function getIconForLabel(label) {
@@ -74,52 +75,6 @@ function renderSections(cropData) {
   );
 }
 
-// Custom hook for fetching crop data (with caching)
-let globalCropData = null;
-let globalCropDataPromise = null;
-function useCropDataDirect() {
-  const [cropData, setCropData] = useState(globalCropData);
-  const [loading, setLoading] = useState(globalCropData === null);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    if (globalCropData !== null) {
-      setCropData(globalCropData);
-      setLoading(false);
-      return;
-    }
-    if (!globalCropDataPromise) {
-      globalCropDataPromise = fetch("/cropdata.json")
-        .then((res) => {
-          if (!res.ok) throw new Error("Failed to fetch cropdata.json");
-          return res.json();
-        })
-        .then((data) => {
-          globalCropData = data;
-          setCropData(data);
-          setLoading(false);
-        })
-        .catch((err) => {
-          setError(err);
-          setLoading(false);
-        });
-    } else {
-      globalCropDataPromise.then(
-        (data) => {
-          setCropData(globalCropData);
-          setLoading(false);
-        },
-        (err) => {
-          setError(err);
-          setLoading(false);
-        }
-      );
-    }
-  }, []);
-
-  return { cropData, loading, error };
-}
-
 // Main CropSearch component with "Crop Name Search" at the top
 const cardShadow = "0 4px 16px rgba(34,74,66,0.08)";
 const cardBorder = "1px solid #d0ede1";
@@ -139,7 +94,6 @@ const CropSearch = ({
   // ...other filter props here
   // props for more filters if you have them
 }) => {
-  const { cropData, loading, error } = useCropDataDirect();
   const [cropNameSearch, setCropNameSearch] = useState("");
 
   // --- UI: Crop Name Search at the top ---
@@ -226,28 +180,6 @@ const CropSearch = ({
   );
 
   // --- Filtering Logic ---
-  if (loading) {
-    return (
-      <div className="crop-search-container">
-        {cropNameSearchInput}
-        <div style={{textAlign:"center", fontWeight:600, margin:"1em 0"}}>— OR —</div>
-        {allOtherFilters}
-        <div style={{ color: "#888", fontSize: "1.2em" }}>Loading crop data…</div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="crop-search-container">
-        {cropNameSearchInput}
-        <div style={{textAlign:"center", fontWeight:600, margin:"1em 0"}}>— OR —</div>
-        {allOtherFilters}
-        <div style={{ color: "#888", fontSize: "1.2em" }}>Error loading crop data: {error.message}</div>
-      </div>
-    );
-  }
-
   if (!cropData || Object.keys(cropData).length === 0) {
     return (
       <div className="crop-search-container">
