@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import cropData from '../data/cropdata.json';
 
 // Optional: icon helper (customize as you wish)
 function getIconForLabel(label) {
@@ -17,59 +18,9 @@ function getIconForLabel(label) {
   return icons[label] || "🔹";
 }
 
-// Accepts cropName prop, fetches cropData.json once (shared across cards)
-let globalCropData = null;
-let globalCropDataPromise = null;
-
-function useCropDataDirect() {
-  const [cropData, setCropData] = useState(globalCropData);
-  const [loading, setLoading] = useState(globalCropData === null);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    if (globalCropData !== null) {
-      setLoading(false);
-      setCropData(globalCropData);
-      return;
-    }
-    if (!globalCropDataPromise) {
-      globalCropDataPromise = fetch("/cropdata.json")
-        .then((res) => {
-          if (!res.ok) throw new Error("Failed to fetch cropdata.json");
-          return res.json();
-        })
-        .then((data) => {
-          globalCropData = data;
-          setCropData(data);
-          setLoading(false);
-        })
-        .catch((err) => {
-          setError(err);
-          setLoading(false);
-        });
-    } else {
-      globalCropDataPromise.then(
-        (data) => {
-          setCropData(globalCropData);
-          setLoading(false);
-        },
-        (err) => {
-          setError(err);
-          setLoading(false);
-        }
-      );
-    }
-  }, []);
-
-  return { cropData, loading, error };
-}
-
 export default function CropCard({ cropName }) {
   const [expanded, setExpanded] = useState(false);
-  const { cropData, loading, error } = useCropDataDirect();
 
-  if (loading) return <div className="crop-card">Loading crop data...</div>;
-  if (error) return <div className="crop-card">Error loading crop data: {error.message}</div>;
   if (!cropData || !cropData[cropName]) return <div className="crop-card">No data available for this crop.</div>;
 
   // Use the cropData for the specific crop
