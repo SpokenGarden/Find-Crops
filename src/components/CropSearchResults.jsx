@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./CropSearchResults.css";
-import { useCropData } from "../hooks/useCropData";
+import cropData from "../data/cropdata.json";
 
 // Optional: icon helper for common labels (customize as you wish)
 function getIconForLabel(label) {
@@ -94,7 +94,6 @@ const CropSearch = ({
   // ...other filter props here
   // props for more filters if you have them
 }) => {
-  const { cropData, loading, error } = useCropData();
   const [cropNameSearch, setCropNameSearch] = useState("");
 
   // --- UI: Crop Name Search at the top ---
@@ -181,28 +180,6 @@ const CropSearch = ({
   );
 
   // --- Filtering Logic ---
-  if (loading) {
-    return (
-      <div className="crop-search-container">
-        {cropNameSearchInput}
-        <div style={{textAlign:"center", fontWeight:600, margin:"1em 0"}}>— OR —</div>
-        {allOtherFilters}
-        <div style={{ color: "#888", fontSize: "1.2em" }}>Loading crop data…</div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="crop-search-container">
-        {cropNameSearchInput}
-        <div style={{textAlign:"center", fontWeight:600, margin:"1em 0"}}>— OR —</div>
-        {allOtherFilters}
-        <div style={{ color: "#888", fontSize: "1.2em" }}>Error loading crop data: {error.message}</div>
-      </div>
-    );
-  }
-
   if (!cropData || Object.keys(cropData).length === 0) {
     return (
       <div className="crop-search-container">

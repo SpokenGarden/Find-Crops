@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useCropData } from "../hooks/useCropData";
+import cropData from '../data/cropdata.json';
 
 // Optional: icon helper (customize as you wish)
 function getIconForLabel(label) {
@@ -18,13 +18,9 @@ function getIconForLabel(label) {
   return icons[label] || "🔹";
 }
 
-// Accepts new nested data structure as cropData
 export default function CropCard({ cropName }) {
   const [expanded, setExpanded] = useState(false);
-  const { cropData, loading, error } = useCropData();
 
-  if (loading) return <div className="crop-card">Loading crop data...</div>;
-  if (error) return <div className="crop-card">Error loading crop data: {error.message}</div>;
   if (!cropData || !cropData[cropName]) return <div className="crop-card">No data available for this crop.</div>;
 
   // Use the cropData for the specific crop
