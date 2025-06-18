@@ -482,7 +482,7 @@ export default function GardenPlannerApp() {
                 <option value="flower">Flowers</option>
                 <option value="herb">Herbs</option>
                 <option value="vegetable">Vegetables</option>
-                <option value="bulb">bulb</option>
+                <option value="bulb">Bulbs</option>
               </select>
             </label>
             <label className="gp-label">
