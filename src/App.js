@@ -107,6 +107,7 @@ export default function GardenPlannerApp() {
   const flowerCount = groupedCrops.flower.length;
   const vegetableCount = groupedCrops.vegetable.length;
   const herbCount = groupedCrops.herb.length;
+  const bulbCount = groupedCrops.bulb.length;
 
   // Accordion group toggler
   const toggleGroup = (group) => {
