@@ -46,7 +46,7 @@ export function filterCrops(crops, filters) {
       return true; // Only keyword match is needed if cropName is present!
     }
 
-    // CATEGORY filtering (flowers, herbs, vegetables): case-insensitive
+    // CATEGORY filtering (flowers, herbs, vegetables, bulbs): case-insensitive
     const typeVal = getValue(crop.Basics, "Type");
     if (
       category &&
@@ -54,6 +54,17 @@ export function filterCrops(crops, filters) {
       (!isValidValue(typeVal) ||
         typeVal.toLowerCase().trim() !== category.toLowerCase().trim())
     ) {
+      // Debug log for bulbs specifically:
+      if (category === "bulb") {
+        // You can remove this after confirming bulbs work!
+        // eslint-disable-next-line no-console
+        console.log(
+          "Bulb filter: Skipping",
+          crop.name || getValue(crop.Basics, "Name"),
+          "| typeVal:", typeVal,
+          "| category:", category
+        );
+      }
       return false;
     }
 
