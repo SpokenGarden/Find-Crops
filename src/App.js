@@ -546,7 +546,7 @@ export default function GardenPlannerApp() {
                     role="button"
                   >
                     <span>
-                      {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : group === "bulb" ? "Bulbs"  "Vegetables"}
+                      {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : group === "bulb" ? "Bulbs" : "Vegetables"}
                       {" "}({groupedCrops[group].length})
                     </span>
                     <span style={{ fontSize: "1.2em" }}>
