@@ -44,6 +44,7 @@ export default function GardenPlannerApp() {
     flower: false,
     vegetable: false,
     herb: false,
+    bulb: false,
   });
 
   // --- UPDATED: Use the hook to get crop data ---
@@ -91,7 +92,7 @@ export default function GardenPlannerApp() {
   }
 
   // Group filtered crops by type
-  const groupedCrops = { flower: [], vegetable: [], herb: [], other: [] };
+  const groupedCrops = { flower: [], vegetable: [], herb: [], bulb: [], other: [] };
   filteredCrops.forEach(([cropName, cropData]) => {
     const type = getCropType(cropData);
     if (groupedCrops[type]) {
@@ -480,6 +481,7 @@ export default function GardenPlannerApp() {
                 <option value="flower">Flowers</option>
                 <option value="herb">Herbs</option>
                 <option value="vegetable">Vegetables</option>
+                <option value="bulb">Bulbs</option>
               </select>
             </label>
             <label className="gp-label">
@@ -525,13 +527,13 @@ export default function GardenPlannerApp() {
                   {totalCount} Plant{totalCount !== 1 ? "s" : ""} Found
                 </h2>
                 <div style={{ marginTop: "0.5rem", fontSize: "1.05rem" }}>
-                  Flowers: {flowerCount} &nbsp;|&nbsp; Vegetables: {vegetableCount} &nbsp;|&nbsp; Herbs: {herbCount}
+                  Flowers: {flowerCount} &nbsp;|&nbsp; Vegetables: {vegetableCount} &nbsp;|&nbsp; Herbs: {herbCount} &nbsp;|&nbsp; Bulbs: {bulbCount}
                 </div>
               </div>
             )}
 
             {/* Grouped Crop Lists as Accordions */}
-            {["flower", "vegetable", "herb"].map(group => (
+            {["flower", "vegetable", "herb", "bulb"].map(group => (
               groupedCrops[group].length > 0 && (
                 <div key={group} style={{ marginBottom: "2em", width: "100%" }}>
                   {/* Accordion Group Header */}
@@ -544,7 +546,7 @@ export default function GardenPlannerApp() {
                     role="button"
                   >
                     <span>
-                      {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : "Vegetables"}
+                      {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : group === "bulb" ? "Bulbs"  "Vegetables"}
                       {" "}({groupedCrops[group].length})
                     </span>
                     <span style={{ fontSize: "1.2em" }}>
