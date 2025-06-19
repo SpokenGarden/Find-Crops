@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import cropData from '../data/cropdata.json';
 
 // Optional: icon helper (customize as you wish)
 function getIconForLabel(label) {
@@ -18,13 +17,13 @@ function getIconForLabel(label) {
   return icons[label] || "🔹";
 }
 
-export default function CropCard({ cropName }) {
+export default function CropCard({ cropName, cropData }) {
   const [expanded, setExpanded] = useState(false);
 
-  if (!cropData || !cropData[cropName]) return <div className="crop-card">No data available for this crop.</div>;
+  if (!cropData) return <div className="crop-card">No data available for this crop.</div>;
 
-  // Use the cropData for the specific crop
-  let displayData = { ...cropData[cropName] };
+  // Use the cropData for the specific crop (already passed as prop)
+  let displayData = { ...cropData };
   let buyNowUrl = "";
   ["Link", "Links"].forEach(linkKey => {
     if (displayData[linkKey]) {
