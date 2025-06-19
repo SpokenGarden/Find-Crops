@@ -1,3 +1,4 @@
+import './components/CropSearchResults.css';
 import React, { useState, useEffect } from "react";
 import { filterCrops } from "./utils/filterCrops";
 import { buildSowingCalendar } from "./utils/sowingCalendar";
