@@ -1,0 +1,675 @@
+{
+  "Crop Name": {
+    "Object": [
+      {
+        "label": "Label",
+        "value": "Value"
+      }
+    ]
+  },
+  "Dusty Miller (Cineria martima)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "8 to 10 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "10 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 20"
+      },
+      {
+        "label": "Days to Maturity or Harvest",
+        "value": "55"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertile, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBDustyMiller"
+      }
+    ]
+  },
+  "Edamame (Clycine max)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "None"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/2 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "60 to 80"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich, moist,  well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBEdamame"
+      }
+    ]
+  },
+  "Eggplant (Solanum melongena)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "10 to 12 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 16"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich, moist,  well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBEggplant"
+      }
+    ]
+  },
+  "Endive (Chicorium endiva)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "vegetable"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "8 to 10 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Harvest",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Cool Season"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich, moist,  well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBEndive"
+      }
+    ]
+  },
+  "Eucalyptus (Eucalyptus cinerea)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "10 to 12 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 after"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "24 to 48 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "14 to 21"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring through Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertilie, well-draining, but can tolerate poor soil"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBEucalyptus"
+      }
+    ]
+  },
+  "Fennel (Foeniculum vulgare)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "herb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "10 to 12 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich, moist,  well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBFennel"
+      }
+    ]
+  },
+  "Forget Me Not (Myosotis alpestris)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "5 to 10"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "High"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertile, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBForgetMeNot"
+      }
+    ]
+  },
+  "Foxglove (Digitalis pupurea)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring or Summer"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 inches"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 12"
+      },
+      {
+        "label": "Bloom Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertile, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBFoxglove"
+      }
+    ]
+  },
+  "French Marigold (Tagetes patula)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 wks before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 wks after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "50 to 70"
+      },
+      {
+        "label": "Bloom Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Low"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertile, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBFrenchMarigolds"
+     }
+    ]
+  }
+}
+
