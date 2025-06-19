@@ -1,0 +1,160 @@
+{
+  "Crop Name": {
+    "Object": [
+      {
+        "label": "Label",
+        "value": "Value"
+      }
+    ]
+  },
+  "Dahlia (Dahlia variabilis)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "8 to 10 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "2 to 4 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "8 to 11"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "NA"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/4bExCvy"
+      }
+    ]
+  },
+  "Tulip (Tulipa sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "Oct to Dec"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "When Soil is Workable"
+      },
+      {
+        "label": "Depth",
+        "value": "5 to 6 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "4  to 5 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Days to Maturity",
+        "value": "5 to 7 weeks"
+      },
+      {
+        "label": "Mature Height",
+        "value": "1 to 2 feet"
+      },
+      {
+        "label": "Mature Width",
+        "value": "8 to 12 inches"
+      },
+      {
+        "label": "Harvest Season",
+        "value": "Spring"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average, when growing"
+      },
+      {
+        "label": "Soil",
+        "value": "rich moist well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBTulips"
+      }
+    ]
+  }
+}
