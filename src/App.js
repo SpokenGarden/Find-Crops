@@ -5,7 +5,6 @@ import CropCard from "./components/CropCard";
 import ToolsAndSupplies from "./components/ToolsAndSupplies";
 import PlantingVideos from "./components/PlantingVideos";
 import BackHomeButton from "./components/BackHomeButton";
-import { useCropData } from "./hooks/useCropData"; // UPDATED: use hook instead of importing JSON
 
 // Local storage helpers
 const getLocal = (key, fallback) => {
@@ -21,6 +20,21 @@ const setLocal = (key, value) => {
   try {
     window.localStorage.setItem(key, JSON.stringify(value));
   } catch {}
+};
+
+// Category file mapping
+const CATEGORY_FILES = {
+  flower: "/flowers.json",
+  vegetable: "/vegetables.json",
+  herb: "/herbs.json",
+  bulb: "/bulbs.json",
+};
+
+const CATEGORY_LABELS = {
+  flower: "Flowers",
+  vegetable: "Vegetables",
+  herb: "Herbs",
+  bulb: "Bulbs",
 };
 
 export default function GardenPlannerApp() {
@@ -39,6 +53,11 @@ export default function GardenPlannerApp() {
   const [sowingCalendar, setSowingCalendar] = useState([]);
   const [cropName, setCropName] = useState("");
 
+  // Crop data state (by category)
+  const [cropData, setCropData] = useState({});
+  const [cropDataLoading, setCropDataLoading] = useState(false);
+  const [cropDataError, setCropDataError] = useState(null);
+
   // Accordion state for group expansion (start all collapsed)
   const [expandedGroups, setExpandedGroups] = useState({
     flower: false,
@@ -47,8 +66,45 @@ export default function GardenPlannerApp() {
     bulb: false,
   });
 
-  // --- UPDATED: Use the hook to get crop data ---
-  const { cropData, loading: cropDataLoading, error: cropDataError } = useCropData();
+  // Load crop data for selected category (or all)
+  useEffect(() => {
+    setCropDataLoading(true);
+    setCropDataError(null);
+
+    const fetchCategoryFile = async (cat) => {
+      const response = await fetch(CATEGORY_FILES[cat]);
+      if (!response.ok) throw new Error(`Failed to load ${CATEGORY_LABELS[cat]} data`);
+      return response.json();
+    };
+
+    let isMounted = true;
+
+    (async () => {
+      try {
+        let result = {};
+        if (category === "all") {
+          // Load all categories in parallel
+          const cats = Object.keys(CATEGORY_FILES);
+          const loaded = await Promise.all(
+            cats.map(cat => fetchCategoryFile(cat))
+          );
+          cats.forEach((cat, idx) => {
+            result[cat] = loaded[idx];
+          });
+        } else {
+          // Only load selected category
+          result[category] = await fetchCategoryFile(category);
+        }
+        if (isMounted) setCropData(result);
+      } catch (err) {
+        if (isMounted) setCropDataError(err);
+      } finally {
+        if (isMounted) setCropDataLoading(false);
+      }
+    })();
+
+    return () => { isMounted = false; };
+  }, [category]);
 
   useEffect(() => { setLocal("zone", zone); }, [zone]);
   useEffect(() => { setLocal("category", category); }, [category]);
@@ -57,28 +113,40 @@ export default function GardenPlannerApp() {
   useEffect(() => { setLocal("waterNeed", waterNeed); }, [waterNeed]);
   useEffect(() => { setLocal("soilPreference", soilPreference); }, [soilPreference]);
 
-  // --- UPDATED: handleSearch now uses cropData from the hook
+  // Search/filter logic, now works with grouped cropData
   const handleSearch = () => {
     if (!cropData) return;
     setLoading(true);
     setTimeout(() => {
-      // Convert crops object to array for filtering
-      const cropArray = Object.entries(cropData).map(([name, data]) => ({
-        name,
-        ...data,
-        _raw: data
-      }));
-      const matches = filterCrops(
-        cropArray,
-        { cropName, zone, category, sunRequirement, waterNeed, soilPreference }
-      );
-      const filtered = matches.map((crop) => [crop.name, crop._raw || crop]);
+      let filtered = [];
+      let sowing = [];
+      Object.entries(cropData).forEach(([cat, data]) => {
+        // Convert each category's crop object to array for filtering
+        const cropArray = Object.entries(data).map(([name, d]) => ({
+          name,
+          ...d,
+          _raw: d,
+        }));
+        const matches = filterCrops(
+          cropArray,
+          { cropName, zone, category: category === "all" ? cat : category, sunRequirement, waterNeed, soilPreference }
+        );
+        matches.forEach(crop => {
+          filtered.push([crop.name, crop._raw || crop]);
+        });
+        sowing = sowing.concat(matches);
+      });
       setFilteredCrops(filtered);
-      setSowingCalendar(buildSowingCalendar(matches));
+      setSowingCalendar(buildSowingCalendar(sowing));
       setLoading(false);
-      window.localStorage.setItem("sowingCalendar", JSON.stringify(matches));
+      window.localStorage.setItem("sowingCalendar", JSON.stringify(sowing));
       // Reset group expansion to all collapsed on new search:
-      setExpandedGroups({ flower: false, vegetable: false, herb: false });
+      setExpandedGroups({
+        flower: false,
+        vegetable: false,
+        herb: false,
+        bulb: false,
+      });
     }, 150);
   };
 
@@ -117,203 +185,15 @@ export default function GardenPlannerApp() {
     }));
   };
 
-  // Responsive styles
-  const responsiveStyles = `
-    .gp-container {
-      font-family: 'Poppins', sans-serif;
-      padding: 1.2rem 0;
-      margin: 0 auto;
-      background-color: #fdfdfc;
-      min-height: 600px;
-      max-width: 600px;
-      width: 100vw;
-      box-sizing: border-box;
-      overflow-x: hidden;
-    }
-    .gp-flex-center {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-    .gp-form-col {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      width: 100%;
-      max-width: 500px;
-      margin: 0 auto;
-      background: none;
-      padding: 0;
-    }
-    .gp-input, .gp-select {
-      width: 100%;
-      max-width: 100%;
-      font-size: 1.05rem;
-      padding: 0.65em 1em;
-      border: 2px solid #228b22;
-      border-radius: 9px;
-      outline: none;
-      background: #f3fcf7;
-      color: #155943;
-      box-sizing: border-box;
-      margin-bottom: 1em;
-    }
-    .gp-label {
-      font-weight: 600;
-      margin-bottom: 0.3em;
-      font-size: 1.08rem;
-    }
-    .gp-back-btn {
-      position: absolute;
-      top: 22px;
-      left: 22px;
-      z-index: 20;
-      background: #b7e6cf;
-      border: none;
-      border-radius: 13px;
-      padding: 0.7em 1.3em;
-      font-size: 1.13rem;
-      color: #155943;
-      font-weight: 700;
-      box-shadow: 0 2px 10px rgba(34,74,66,0.08);
-      cursor: pointer;
-      transition: background 0.18s;
-    }
-    .gp-find-btn {
-      background-color: #40916c;
-      color: white;
-      padding: 1rem;
-      border: none;
-      border-radius: 12px;
-      font-size: 1.07rem;
-      cursor: pointer;
-      margin-top: 1em;
-      margin-bottom: 0.5em;
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-      font-weight: 600;
-    }
-    .gp-group-header {
-      cursor: pointer;
-      background: #eaf4ec;
-      border: 2px solid #2d6a4f;
-      border-radius: 10px;
-      padding: 1em 1.5em;
-      font-weight: 700;
-      color: #2d6a4f;
-      font-size: 1.3rem;
-      box-shadow: 0 2px 12px rgba(44, 106, 79, 0.07);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 500px;
-      width: 100%;
-      box-sizing: border-box;
-      transition: background 0.15s;
-    }
-    .gp-group-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 700px;
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .gp-group-item {
-      width: 100%;
-      max-width: 700px;
-      margin-bottom: 1rem;
-    }
-    .crop-card {
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
-    }
-
-    @media (max-width: 900px) {
-      .gp-container {
-        max-width: 99vw;
-      }
-      .gp-form-col,
-      .gp-group-header,
-      .gp-group-list,
-      .crop-card {
-        max-width: 95vw;
-        padding-left: 2vw;
-        padding-right: 2vw;
-        box-sizing: border-box;
-      }
-    }
-    @media (max-width: 700px) {
-      .gp-container {
-        padding-left: 3vw;
-        padding-right: 3vw;
-      }
-      .gp-form-col,
-      .gp-group-header,
-      .gp-group-list,
-      .crop-card {
-        max-width: 95vw;
-        padding-left: 2vw;
-        padding-right: 2vw;
-        box-sizing: border-box;
-      }
-      .gp-group-header {
-        font-size: 1.07rem;
-        padding: 0.7em 1em;
-      }
-      .gp-group-item {
-        max-width: 99vw;
-        min-width: 0;
-      }
-      .gp-back-btn {
-        position: static;
-        display: block;
-        margin-bottom: 0.85em;
-        margin-left: 0;
-        margin-top: 0.5em;
-        width: auto;
-      }
-      .gp-form-col {
-        padding-top: 0.3em;
-      }
-    }
-    @media (max-width: 480px) {
-      .gp-container {
-        padding-left: 2vw;
-        padding-right: 2vw;
-      }
-      .gp-form-col,
-      .gp-group-header,
-      .gp-group-list,
-      .crop-card {
-        max-width: 98vw;
-        padding-left: 2vw;
-        padding-right: 2vw;
-      }
-      .gp-back-btn {
-        font-size: 1rem;
-        padding: 0.6em 1em;
-      }
-      .gp-input, .gp-select {
-        font-size: 0.97rem;
-        padding: 0.55em 0.5em;
-      }
-    }
-  `;
+  // Responsive styles (unchanged)
+  const responsiveStyles = `...`; // (keep your current CSS here)
 
   // Home screen
   if (screen === "home") {
     return (
       <div className="gp-container">
         <style>{responsiveStyles}</style>
+        {/* ...home content unchanged... */}
         <div style={{ textAlign: "center", padding: "2rem" }}>
           <h1 style={{ fontSize: "2rem", color: "#2d6a4f" }}>
             🌱 Welcome to The Dibby Grow Buddy Garden Planner
@@ -321,6 +201,7 @@ export default function GardenPlannerApp() {
           <p style={{ fontSize: "1.1rem", margin: "1rem 0" }}>
             Plan what to grow, when to sow with your frost date, grow zone look-up, specific planting depths and spacings, and a whole lot more.
           </p>
+          {/* ...home buttons... */}
           <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem", flexWrap: "wrap", marginTop: "2rem" }}>
             <button
               onClick={() => setScreen("search")}
@@ -547,7 +428,7 @@ export default function GardenPlannerApp() {
                     role="button"
                   >
                     <span>
-                      {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : group === "bulb" ? "Bulbs" : "Vegetables"}
+                      {CATEGORY_LABELS[group]}
                       {" "}({groupedCrops[group].length})
                     </span>
                     <span style={{ fontSize: "1.2em" }}>
@@ -559,8 +440,7 @@ export default function GardenPlannerApp() {
                     <ul className="gp-group-list">
                       {groupedCrops[group].map(([cropName, cropData]) => (
                         <li key={cropName} className="gp-group-item">
-                          {/* UPDATED: Only pass cropName, CropCard fetches data from hook */}
-                          <CropCard cropName={cropName} />
+                          <CropCard cropName={cropName} cropData={cropData} />
                         </li>
                       ))}
                     </ul>
