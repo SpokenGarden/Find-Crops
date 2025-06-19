@@ -1,7 +1,6 @@
-import './components/CropSearchResults.css';
 import React, { useState, useEffect } from "react";
 import { filterCrops } from "./utils/filterCrops";
-import { buildSowingCalendar } from "./utils/sowingCalendar";
+import './components/CropSearchResults.css';
 import CropCard from "./components/CropCard";
 import ToolsAndSupplies from "./components/ToolsAndSupplies";
 import PlantingVideos from "./components/PlantingVideos";
