@@ -165,6 +165,13 @@ export default function GardenPlannerApp() {
     }
   });
 
+  // *** Alphabetize each group in-place ***
+  Object.keys(groupedCrops).forEach(group => {
+    groupedCrops[group].sort((a, b) =>
+      a[0].localeCompare(b[0], undefined, { sensitivity: 'base' })
+    );
+  });
+
   // Counts
   const totalCount = filteredCrops.length;
   const flowerCount = groupedCrops.flower.length;
