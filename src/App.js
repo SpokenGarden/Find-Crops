@@ -6,6 +6,8 @@ import PlantingVideos from "./components/PlantingVideos";
 import BackHomeButton from "./components/BackHomeButton";
 import BottomAdBanner from "./components/BottomAdBanner";
 
+const AD_HEIGHT = 90;
+
 // Local storage helpers
 const getLocal = (key, fallback) => {
   if (typeof window === 'undefined') return fallback;
@@ -382,7 +384,7 @@ export default function GardenPlannerApp() {
   // Home screen
   if (screen === "home") {
     return (
-      <div className="gp-container">
+      <div className="gp-container" style={{ paddingBottom: `${AD_HEIGHT + 10}px` }}>
         <style>{responsiveStyles}</style>
         <div style={{ textAlign: "center", padding: "2rem" }}>
           <h1 style={{ fontSize: "2rem", color: "#2d6a4f" }}>
@@ -449,7 +451,7 @@ export default function GardenPlannerApp() {
 
   if (screen === "tools") {
     return (
-      <div className="gp-container">
+      <div className="gp-container" style={{ paddingBottom: `${AD_HEIGHT + 10}px` }}>
         <style>{responsiveStyles}</style>
         <ToolsAndSupplies onBack={() => setScreen("home")} />
         <BottomAdBanner />
@@ -459,7 +461,7 @@ export default function GardenPlannerApp() {
 
   if (screen === "videos") {
     return (
-      <div className="gp-container">
+      <div className="gp-container" style={{ paddingBottom: `${AD_HEIGHT + 10}px` }}>
         <style>{responsiveStyles}</style>
         <PlantingVideos onBack={() => setScreen("home")} />
         <BottomAdBanner />
