@@ -69,7 +69,7 @@ export function filterCrops(crops, filters) {
     }
 
     // ZONE filtering: allow flexible matching (e.g. "7" matches "07", ignores whitespace)
-    const growZoneVal = getValue(crop.Basics, "Grow Zone");
+    const growZoneVal = getValue(crop.Basics, "Hardy Zones");
     if (
       zone &&
       (!isValidValue(growZoneVal) ||
