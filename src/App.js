@@ -26,10 +26,10 @@ const setLocal = (key, value) => {
 
 // Category file mapping
 const CATEGORY_FILES = {
-  flower: "/flowers.json",
-  vegetable: "/vegetables.json",
-  herb: "/herbs.json",
-  bulb: "/bulbs.json",
+  flower: "flowers.json",
+  vegetable: "vegetables.json",
+  herb: "herbs.json",
+  bulb: "bulbs.json",
 };
 
 const CATEGORY_LABELS = {
