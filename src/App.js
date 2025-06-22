@@ -539,7 +539,7 @@ export default function GardenPlannerApp() {
               OR
             </div>
             <label className="gp-label">
-              Haryd Zone:
+              Hardy Zone:
               <input
                 type="text"
                 value={zone}
