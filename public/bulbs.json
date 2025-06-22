@@ -1,0 +1,1732 @@
+{
+  "Crop Name": {
+    "Object": [
+      {
+        "label": "Label",
+        "value": "Value"
+      }
+    ]
+  },
+  "Dahlia (Dahlia variabilis)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Spring Plant",
+        "value": "April to June"
+      },
+      {
+        "label": "Depth",
+        "value": "2 to 3 inches below soil surface"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 12 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "4 to 5 feet"
+      },
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/4bExCvy"
+      }
+    ]
+  },
+  "Tulip (Tulipa sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "Oct to Dec"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "When Soil is Workable"
+      },
+      {
+        "label": "Depth",
+        "value": "5 to 6 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "4  to 5 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "1 to 2 feet"
+      },
+      {
+        "label": "Harvest Season",
+        "value": "Spring"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average, when growing"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich moist well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBTulips"
+      }
+    ]
+  },
+  "Daffodil (Narcissus)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "Oct to Dec"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "When Soil is Workable"
+      },
+      {
+        "label": "Depth",
+        "value": "5 to 6 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "4 to 5 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "1 to 2 feet"
+      },
+      {
+        "label": "Harvest Season",
+        "value": "Spring"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBDaffodilBulbs"
+      }
+    ]
+  },
+  "Anemone (Anemone coronaria)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "Oct to Dec"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Feb to Apr"
+      },
+      {
+        "label": "Depth",
+        "value": "2 to 3 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "5 to 6 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "10 to 14 inches"
+      },
+      {
+        "label": "Harvest Season",
+        "value": "Spring"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBAnemoneBulbs"
+      }
+    ]
+  },
+  "Hyacinth (H. orientalis)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "Oct to Dec"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Feb to Apr"
+      },
+      {
+        "label": "Depth",
+        "value": "5 to 6 + inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "8 to 16 inches"
+      },
+      {
+        "label": "Harvest Season",
+        "value": "Spring"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBHyancinthBulbs"
+      }
+    ]
+  },
+  "Grape Hyacinth or Muscari (Muscari armeniacum)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "Oct to Dec"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Only if pre-chilled"
+      },
+      {
+        "label": "Depth",
+        "value": "2 to 4 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "1 to 3 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "6 to 10 inches"
+      },
+      {
+        "label": "Harvest Season",
+        "value": "Spring"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBMuscariBulbs"
+      }
+    ]
+  },
+  "Asiatic Lily (Lilium asiatica)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "Oct to Dec"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Feb to Apr"
+      },
+      {
+        "label": "Depth",
+        "value": "6+ inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 10 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "3 to 4 feet"
+      },
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBAsiaticBulbs"
+      }
+    ]
+  },
+  "Oriental Lily (Lilium sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "Oct to Dec"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Feb to Apr"
+      },
+      {
+        "label": "Depth",
+        "value": "6 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 16 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "2 to 3 feet"
+      },
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "http://bit.ly/4llNWX2"
+      }
+    ]
+  },
+  "Tiger Lily (Lilium tigrinum)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "Oct to Dec"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "6 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 16 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "3 to 4 feet"
+      },
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBTigerLilyBulbs"
+      }
+    ]
+  },
+  "Kniphofia (Kniphofia uvaria)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "None"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Feb to Apr"
+      },
+      {
+        "label": "Depth",
+        "value": "2 to 4 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "18 to 24 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "3 to 4 feet"
+      },
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBKniphofiaBulbs"
+      }
+    ]
+  },
+  "Allium (Allium sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "Oct to Dec"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "6 to 8 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "5 to 6 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "3 feet"
+      },
+      {
+        "label": "Harvest Season",
+        "value": "Late Spring to Early Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBAlliumBulbs"
+      }
+    ]
+  },
+  "Begonia - Tuberous (Begonia tuberhybridia)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "None"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Mar to May"
+      },
+      {
+        "label": "Depth",
+        "value": "2 to 3 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "10 to 12 inches"
+      },
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Low to Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBBegoniaTuberous"
+      }
+    ]
+  },
+  "Caladium (Caladium hortulanem)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "None"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Mar to May"
+      },
+      {
+        "label": "Depth",
+        "value": "At/Below 2 inches of soil"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 12 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "1 to 3 feet"
+      },
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCaladiumBulbs"
+      }
+    ]
+  },
+  "Calla Lily (Azntedeschia)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "None"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Mar to May"
+      },
+      {
+        "label": "Depth",
+        "value": "2 inches below soil surface"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 10 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "Up to 4 feet"
+      },
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCallaLilyBulbs"
+      }
+    ]
+  },
+  "Canna Lily": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "None"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Mar to May"
+      },
+      {
+        "label": "Depth",
+        "value": "2 to 3 inches below soil surface"
+      },
+      {
+        "label": "Spacing",
+        "value": "1 to 2 feet"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "Up to 6 feet"
+      },
+      {
+        "label": "Harvest Season",
+        "value": "Mid to Late Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCannaLilyBulbs"
+      }
+    ]
+  },
+  "Crocosmia (Crocosmia sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "None"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Feb to Apr"
+      },
+      {
+        "label": "Depth",
+        "value": "3 to inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "3 to 4 feet"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCrocosmiaBulbs"
+      }
+    ]
+  },
+  "Daylily (Hemerocallis sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "None"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Feb to Apr"
+      },
+      {
+        "label": "Depth",
+        "value": "1-2 inches below soil surface"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 to 18 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "up to 24 inches"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Early Summer to Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBDaylilyRoots"
+      }
+    ]
+  },
+  "Elephant Ear (Colocasia esculenta)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "None"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Mar to May"
+      },
+      {
+        "label": "Depth",
+        "value": "4 to 6 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "2 to 4 feet"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "4 to 6 feet"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer to Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Partial to Full Shade"
+      },
+      {
+        "label": "Water",
+        "value": "High"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBElephantEarBulbs"
+      }
+    ]
+  },
+  "Freesia": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "Oct to Dec"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Feb to Apr"
+      },
+      {
+        "label": "Depth",
+        "value": "2 to 3 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "2 to 3 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "12 to 16 inches"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Late Spring"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBFreesiaBulbs"
+      }
+    ]
+  },
+  "Gladiolus": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "None"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Feb to Apr"
+      },
+      {
+        "label": "Depth",
+        "value": "4 to 6 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "5 to 6 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "4 to 5 feet"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer to Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBGladiolusBulbs"
+      }
+    ]
+  },
+  "Hosta (Hosta sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "Oct to Dec"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Feb to Apr"
+      },
+      {
+        "label": "Depth",
+        "value": "1 to 2 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 12 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "1 to 3 feet"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Shade to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBHostaRoots"
+      }
+    ]
+  },
+  "Liatris (Liatris spicata)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "None"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Feb to Apr"
+      },
+      {
+        "label": "Depth",
+        "value": "3 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "2 to 3 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "3 to 4 feet"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBLiatrisBulbs"
+      }
+    ]
+  },
+  "Lily of the Nile (Agapanthus sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "None"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Feb to Apr"
+      },
+      {
+        "label": "Depth",
+        "value": "2 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 to 18 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "up to 4 feet"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBLilyoftheNileBulbs"
+      }
+    ]
+  },
+  "Lily of the Valley (Convallaria majalis)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "None"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Feb to Apr"
+      },
+      {
+        "label": "Depth",
+        "value": "1 to 2 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "4 to 6 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "6 to 12 inches"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Early to Late Spring"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBLilyoftheValley"
+      }
+    ]
+  },
+  "Tigridia (Tigridia pavonia)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "None"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Feb to Apr"
+      },
+      {
+        "label": "Depth",
+        "value": "2 to 3 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "4 to 5 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "12 to 18 inches"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/HCGTigridiaBulbs"
+      }
+    ]
+  },
+  "Ranunculus (Ranunculus sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      },
+      {
+        "label": "Grow Zone",
+        "value": "8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Fall Plant",
+        "value": "Oct to Dec"
+      },
+      {
+        "label": "Spring Plant",
+        "value": "Feb to Apr"
+      },
+      {
+        "label": "Depth",
+        "value": "1 to 2 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "4 to 6 inches"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Mature Height",
+        "value": "12 to 16 inches"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Spring"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Low to Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBRanunculusBulbs"
+      }
+    ]
+  },
+  "Amaryllis": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Planted When",
+        "value": "Fall"
+      }
+    ]
+  },
+  "Crocus (Crocus sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      }
+    ]
+  },
+  "Fritillaria": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      }
+    ]
+  },
+  "Iris": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      }
+    ]
+  },
+  "Saffron Crocus": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      }
+    ]
+  },
+  "Paper White": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      }
+    ]
+  },
+  "Snow Bells": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "bulb"
+      }
+    ]
+  }
+}
