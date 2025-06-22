@@ -69,11 +69,11 @@ export function filterCrops(crops, filters) {
     }
 
     // ZONE filtering: allow flexible matching (e.g. "7" matches "07", ignores whitespace)
-    const growZoneVal = getValue(crop.Basics, "Hardy Zones");
+    const hardyZonesVal = getValue(crop.Basics, "Hardy Zones");
     if (
       zone &&
-      (!isValidValue(growZoneVal) ||
-        !growZoneVal
+      (!isValidValue(hardyZonesVal) ||
+        !hardyZonesVal
           .split(",")
           .map(z => z.trim().toLowerCase().replace(/^0+/, "")) // remove leading zeros, trim/normalize
           .some(z => z === zone.trim().toLowerCase().replace(/^0+/, "")))
