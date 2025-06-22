@@ -384,7 +384,7 @@ export default function GardenPlannerApp() {
   // Home screen
   if (screen === "home") {
     return (
-      <div className="gp-container" style={{ paddingBottom: `${AD_HEIGHT + 10}px` }}>
+      <div className="gp-container">
         <style>{responsiveStyles}</style>
         <div style={{ textAlign: "center", padding: "2rem" }}>
           <h1 style={{ fontSize: "2rem", color: "#2d6a4f" }}>
@@ -451,7 +451,7 @@ export default function GardenPlannerApp() {
 
   if (screen === "tools") {
     return (
-      <div className="gp-container" style={{ paddingBottom: `${AD_HEIGHT + 10}px` }}>
+      <div className="gp-container">
         <style>{responsiveStyles}</style>
         <ToolsAndSupplies onBack={() => setScreen("home")} />
         <BottomAdBanner />
@@ -461,7 +461,7 @@ export default function GardenPlannerApp() {
 
   if (screen === "videos") {
     return (
-      <div className="gp-container" style={{ paddingBottom: `${AD_HEIGHT + 10}px` }}>
+      <div className="gp-container">
         <style>{responsiveStyles}</style>
         <PlantingVideos onBack={() => setScreen("home")} />
         <BottomAdBanner />
@@ -474,7 +474,7 @@ export default function GardenPlannerApp() {
     // --- Show loading or error state for crop data fetch ---
     if (cropDataLoading) {
       return (
-        <div className="gp-container" style={{ paddingBottom: "100px" }}>
+        <div className="gp-container">
           <style>{responsiveStyles}</style>
           <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading plant data...</div>
           <BottomAdBanner />
@@ -483,7 +483,7 @@ export default function GardenPlannerApp() {
     }
     if (cropDataError) {
       return (
-        <div className="gp-container" style={{ paddingBottom: "100px" }}>
+        <div className="gp-container">
           <style>{responsiveStyles}</style>
           <div style={{ color: "#b72b2b", textAlign: "center", marginTop: "2rem" }}>
             Error loading plant data: {cropDataError.message}
@@ -494,7 +494,7 @@ export default function GardenPlannerApp() {
     }
     if (!cropData) {
       return (
-        <div className="gp-container">
+        <div className="gp-container"style={{ paddingBottom: "100px" }}>
           <style>{responsiveStyles}</style>
           <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>No plant data available.</div>
           <BottomAdBanner />
@@ -503,7 +503,7 @@ export default function GardenPlannerApp() {
     }
 
     return (
-      <div className="gp-container">
+      <div className="gp-container"style={{ paddingBottom: "100px" }}>
         <style>{responsiveStyles}</style>
         <button
           className="gp-back-btn"
