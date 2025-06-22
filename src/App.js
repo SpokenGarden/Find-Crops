@@ -634,7 +634,8 @@ export default function GardenPlannerApp() {
             {/* Grouped Crop Lists as Accordions */}
             {["flower", "vegetable", "herb", "bulb"].map(group => (
               groupedCrops[group].length > 0 && (
-                <div key={group} style={{ paddingBottom: "100px",  marginBottom: "2em", width: "100%" }}>
+              <div style={{ paddingBottom: "100px" }}>
+                <div key={group} style={{ marginBottom: "2em", width: "100%" }}>
                   {/* Accordion Group Header */}
                   <div
                     onClick={() => toggleGroup(group)}
@@ -663,6 +664,7 @@ export default function GardenPlannerApp() {
                     </ul>
                   )}
                 </div>
+              </div>
               )
             ))}
             {/* None found */}
