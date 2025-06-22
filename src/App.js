@@ -503,7 +503,7 @@ export default function GardenPlannerApp() {
     }
 
     return (
-      <div className="gp-container"style={{ paddingBottom: "100px" }}>
+      <div className="gp-container">
         <style>{responsiveStyles}</style>
         <button
           className="gp-back-btn"
