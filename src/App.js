@@ -382,7 +382,7 @@ export default function GardenPlannerApp() {
   // Home screen
   if (screen === "home") {
     return (
-      <div className="gp-container" style={{ paddingBottom: "300px" }}>
+      <div className="gp-container">
         <style>{responsiveStyles}</style>
         <div style={{ textAlign: "center", padding: "2rem" }}>
           <h1 style={{ fontSize: "2rem", color: "#2d6a4f" }}>
@@ -472,7 +472,7 @@ export default function GardenPlannerApp() {
     // --- Show loading or error state for crop data fetch ---
     if (cropDataLoading) {
       return (
-        <div className="gp-container">
+        <div className="gp-container" style={{ paddingBottom: "300px" }}>
           <style>{responsiveStyles}</style>
           <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading plant data...</div>
           <BottomAdBanner />
