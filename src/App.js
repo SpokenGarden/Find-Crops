@@ -472,7 +472,7 @@ export default function GardenPlannerApp() {
     // --- Show loading or error state for crop data fetch ---
     if (cropDataLoading) {
       return (
-        <div className="gp-container" style={{ paddingBottom: "300px" }}>
+        <div className="gp-container" style={{ paddingBottom: "100px" }}>
           <style>{responsiveStyles}</style>
           <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading plant data...</div>
           <BottomAdBanner />
