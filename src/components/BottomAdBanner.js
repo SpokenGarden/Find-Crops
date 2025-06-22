@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const AD_HEIGHT = 60; // Adjust this if your ad size changes
+const AD_HEIGHT = 90; // Adjust this if your ad size changes
 
 const BottomAdBanner = () => {
   useEffect(() => {
