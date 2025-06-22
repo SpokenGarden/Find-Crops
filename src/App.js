@@ -621,7 +621,7 @@ export default function GardenPlannerApp() {
           <>
             {/* Search summary */}
             {totalCount > 0 && (
-              <div style={{ paddingBottom: "100px", marginTop: "2rem", marginBottom: "1.5rem", color: "#2d6a4f", textAlign: "center" }}>
+              <div style={{ marginTop: "2rem", marginBottom: "1.5rem", color: "#2d6a4f", textAlign: "center" }}>
                 <h2 style={{ margin: 0, fontSize: "1.25rem" }}>
                   {totalCount} Plant{totalCount !== 1 ? "s" : ""} Found
                 </h2>
@@ -634,7 +634,7 @@ export default function GardenPlannerApp() {
             {/* Grouped Crop Lists as Accordions */}
             {["flower", "vegetable", "herb", "bulb"].map(group => (
               groupedCrops[group].length > 0 && (
-                <div key={group} style={{ marginBottom: "2em", width: "100%" }}>
+                <div key={group} style={{ paddingBottom: "100px",  marginBottom: "2em", width: "100%" }}>
                   {/* Accordion Group Header */}
                   <div
                     onClick={() => toggleGroup(group)}
@@ -673,7 +673,7 @@ export default function GardenPlannerApp() {
             )}
           </>
         )}
-        {loading && <div style={{ paddingBottom: "100px", color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading...</div>}
+        {loading && <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading...</div>}
         <BottomAdBanner />
       </div>
     );
