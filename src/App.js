@@ -406,7 +406,7 @@ export default function GardenPlannerApp() {
                 transition: "box-shadow 0.2s",
                 boxShadow: "0 2px 8px rgba(0,0,0,0.06)"
               }}>
-              Start Planning
+              Find Plants
             </button>
             <button
               onClick={() => setScreen("tools")}
