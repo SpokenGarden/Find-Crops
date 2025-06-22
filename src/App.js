@@ -382,9 +382,9 @@ export default function GardenPlannerApp() {
   // Home screen
   if (screen === "home") {
     return (
-      <div className="gp-container">
+      <div className="gp-container" style={{ paddingBottom: "95px" }}>
         <style>{responsiveStyles}</style>
-        <div style={{paddingBottom: "95px", textAlign: "center", padding: "2rem" }}>
+        <div style={{ textAlign: "center", padding: "2rem" }}>
           <h1 style={{ fontSize: "2rem", color: "#2d6a4f" }}>
             🌱 Welcome to The Dibby Grow Buddy Garden Planner
           </h1>
