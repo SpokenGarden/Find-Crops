@@ -481,7 +481,7 @@ export default function GardenPlannerApp() {
     }
     if (cropDataError) {
       return (
-        <div className="gp-container">
+        <div className="gp-container" style={{ paddingBottom: "100px" }}>
           <style>{responsiveStyles}</style>
           <div style={{ color: "#b72b2b", textAlign: "center", marginTop: "2rem" }}>
             Error loading plant data: {cropDataError.message}
