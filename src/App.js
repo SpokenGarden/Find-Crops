@@ -494,7 +494,7 @@ export default function GardenPlannerApp() {
     }
     if (!cropData) {
       return (
-        <div className="gp-container"style={{ paddingBottom: "100px" }}>
+        <div className="gp-container" style={{ paddingBottom: "100px" }}>
           <style>{responsiveStyles}</style>
           <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>No plant data available.</div>
           <BottomAdBanner />
