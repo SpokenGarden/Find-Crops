@@ -621,7 +621,7 @@ export default function GardenPlannerApp() {
           <>
             {/* Search summary */}
             {totalCount > 0 && (
-              <div style={{ marginTop: "2rem", marginBottom: "1.5rem", color: "#2d6a4f", textAlign: "center" }}>
+              <div style={{ paddingBottom: "100px", marginTop: "2rem", marginBottom: "1.5rem", color: "#2d6a4f", textAlign: "center" }}>
                 <h2 style={{ margin: 0, fontSize: "1.25rem" }}>
                   {totalCount} Plant{totalCount !== 1 ? "s" : ""} Found
                 </h2>
