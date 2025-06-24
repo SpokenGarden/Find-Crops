@@ -443,7 +443,6 @@ export default function GardenPlannerApp() {
             </button>
           </div>
         </div>
-        <BottomAdBanner />
       </div>
     );
   }
