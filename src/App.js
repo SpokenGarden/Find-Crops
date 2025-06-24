@@ -4,7 +4,6 @@ import CropCard from "./components/CropCard";
 import ToolsAndSupplies from "./components/ToolsAndSupplies";
 import PlantingVideos from "./components/PlantingVideos";
 import BackHomeButton from "./components/BackHomeButton";
-import BottomAdBanner from "./components/BottomAdBanner";
 
 const AD_HEIGHT = 90;
 
@@ -676,7 +675,6 @@ export default function GardenPlannerApp() {
           </>
         )}
         {loading && <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading...</div>}
-        <BottomAdBanner />
       </div>
     );
   }
