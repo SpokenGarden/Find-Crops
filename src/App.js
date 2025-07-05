@@ -452,7 +452,6 @@ export default function GardenPlannerApp() {
       <div className="gp-container">
         <style>{responsiveStyles}</style>
         <ToolsAndSupplies onBack={() => setScreen("home")} />
-        <BottomAdBanner />
       </div>
     );
   }
@@ -462,7 +461,6 @@ export default function GardenPlannerApp() {
       <div className="gp-container">
         <style>{responsiveStyles}</style>
         <PlantingVideos onBack={() => setScreen("home")} />
-        <BottomAdBanner />
       </div>
     );
   }
@@ -475,7 +473,6 @@ export default function GardenPlannerApp() {
         <div className="gp-container">
           <style>{responsiveStyles}</style>
           <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading plant data...</div>
-          <BottomAdBanner />
         </div>
       );
     }
@@ -486,7 +483,6 @@ export default function GardenPlannerApp() {
           <div style={{ color: "#b72b2b", textAlign: "center", marginTop: "2rem" }}>
             Error loading plant data: {cropDataError.message}
           </div>
-          <BottomAdBanner />
         </div>
       );
     }
@@ -495,7 +491,6 @@ export default function GardenPlannerApp() {
         <div className="gp-container">
           <style>{responsiveStyles}</style>
           <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>No plant data available.</div>
-          <BottomAdBanner />
         </div>
       );
     }
