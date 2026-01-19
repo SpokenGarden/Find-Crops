@@ -148,6 +148,7 @@ export default function GardenPlannerApp() {
   };
 
   // Basic CSS to restore look, with narrower form and grouped, centered accordions
+  // NOTE: updated .gp-group-list max-width to 720px so crop cards return to previous width
   const responsiveStyles = `
     .gp-container { max-width: 980px; margin: 0 auto; padding: 1.2rem; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
     .gp-back-btn { background: transparent; border: none; color: #2d6a4f; font-weight: 700; margin-bottom: 0.8rem; cursor: pointer; }
@@ -200,24 +201,25 @@ export default function GardenPlannerApp() {
     }
     .gp-group-header:focus { outline: 3px solid rgba(45,106,79,0.15); }
 
-    /* When a group's list is shown, its list width aligns under the header but capped to the form width */
+    /* Increase the group's list max-width so CropCard can render at the previous (wider) size.
+       Keep it centered beneath the header row. */
     .gp-group-list {
       list-style: none;
-      padding-left: 0.6rem;
+      padding-left: 0;
       margin-top: 0.6rem;
-      margin-left: 0;
-      margin-right: 0;
+      margin-left: auto;
+      margin-right: auto;
       width: 100%;
-      max-width: 320px; /* keeps each group's list consistent and centered under header */
+      max-width: 720px; /* restored wider card width */
       box-sizing: border-box;
     }
-    .gp-group-item { margin: 0.45rem 0; }
+    .gp-group-item { margin: 0.6rem 0; }
 
     .gp-empty { text-align:center; color:#9aa5a0; margin-top:1.5rem; }
 
     @media (min-width: 760px) {
       .gp-form-col { padding: 1rem 1.2rem; }
-      .gp-group-list { max-width: 360px; } /* aligns with the halved form on larger screens */
+      .gp-group-list { max-width: 720px; } /* ensure cards remain wide on larger screens */
     }
   `;
 
