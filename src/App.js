@@ -13,15 +13,15 @@ const getLocal = (key, fallback) => {
   if (typeof window === 'undefined') return fallback;
   try {
     const val = window.localStorage.getItem(key);
-    return val; !== null ? JSON.parse(val) : fallback;
-  } catch {
+    return val !== null ? JSON.parse(val) : fallback;
+  } catch (e) {
     return fallback;
   }
 };
 const setLocal = (key, value) => {
   try {
     window.localStorage.setItem(key, JSON.stringify(value));
-  } catch {}
+  } catch (e) {}
 };
 
 export default function GardenPlannerApp() {
