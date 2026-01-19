@@ -147,51 +147,77 @@ export default function GardenPlannerApp() {
     }));
   };
 
-  // Basic CSS to restore look, with narrower accordion headers
+  // Basic CSS to restore look, with narrower form and grouped, centered accordions
   const responsiveStyles = `
     .gp-container { max-width: 980px; margin: 0 auto; padding: 1.2rem; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
     .gp-back-btn { background: transparent; border: none; color: #2d6a4f; font-weight: 700; margin-bottom: 0.8rem; cursor: pointer; }
     .gp-flex-center { display: flex; justify-content: center; }
-    .gp-form-col { width: 100%; max-width: 720px; background: #ffffff; border-radius: 12px; padding: 1rem 1.2rem; box-shadow: 0 6px 18px rgba(17,24,39,0.06); }
-    .gp-label { display: block; margin-bottom: 0.8rem; color: #2d6a4f; font-weight: 600; }
-    .gp-input, .gp-select { width: 100%; padding: 0.6rem 0.75rem; border-radius: 8px; border: 1px solid #e6e6e6; font-size: 1rem; margin-top: 0.3rem; }
-    .gp-find-btn { margin-top: 1rem; width: 100%; padding: 0.85rem; background: #2d6a4f; color: white; border: none; border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 1rem; }
-    .gp-toggle-advanced { margin: 0.6rem 0; }
+    /* Halved form width: was 720px, now 360px for inputs/button to appear half size */
+    .gp-form-col { width: 100%; max-width: 360px; background: #ffffff; border-radius: 12px; padding: 0.9rem 1rem; box-shadow: 0 6px 18px rgba(17,24,39,0.06); margin: 0 auto; }
+    .gp-label { display: block; margin-bottom: 0.6rem; color: #2d6a4f; font-weight: 600; font-size: 0.95rem; }
+    .gp-input, .gp-select { width: 100%; padding: 0.45rem 0.6rem; border-radius: 8px; border: 1px solid #e6e6e6; font-size: 0.95rem; margin-top: 0.25rem; box-sizing: border-box; }
+    /* Find button half-size relative to previous (fits the narrower form) */
+    .gp-find-btn { margin-top: 0.9rem; width: 100%; padding: 0.6rem; background: #2d6a4f; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 0.98rem; }
 
-    /* Accordion header — now shrink to fit content and centered */
+    .gp-toggle-advanced { margin: 0.5rem 0; }
+
+    /* Groups row: center and lay headers in-line with each other */
+    .gp-groups-row {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Each group is a vertically stacked box: header above list */
+    .gp-group-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: auto;
+      min-width: 120px;
+    }
+
+    /* Accordion header — shrink-to-fit, centered inside each group box */
     .gp-group-header {
       display: inline-flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.8rem;
-      padding: 0.5rem 0.9rem;
+      gap: 0.6rem;
+      padding: 0.45rem 0.8rem;
       background: #eef7f0;
       border: 1px solid #dbeeda;
       border-radius: 10px;
       cursor: pointer;
-      margin: 0.5rem auto;
       box-sizing: border-box;
       font-weight: 700;
       color: #2d6a4f;
       min-width: 0;
+      white-space: nowrap;
     }
     .gp-group-header:focus { outline: 3px solid rgba(45,106,79,0.15); }
 
-    /* The list stays full-width and is centered beneath the header (max-width aligns with form) */
+    /* When a group's list is shown, its list width aligns under the header but capped to the form width */
     .gp-group-list {
       list-style: none;
       padding-left: 0.6rem;
       margin-top: 0.6rem;
-      margin-left: auto;
-      margin-right: auto;
+      margin-left: 0;
+      margin-right: 0;
       width: 100%;
-      max-width: 720px;
+      max-width: 320px; /* keeps each group's list consistent and centered under header */
+      box-sizing: border-box;
     }
-    .gp-group-item { margin: 0.5rem 0; }
+    .gp-group-item { margin: 0.45rem 0; }
 
     .gp-empty { text-align:center; color:#9aa5a0; margin-top:1.5rem; }
+
     @media (min-width: 760px) {
-      .gp-form-col { padding: 1.2rem 1.6rem; }
+      .gp-form-col { padding: 1rem 1.2rem; }
+      .gp-group-list { max-width: 360px; } /* aligns with the halved form on larger screens */
     }
   `;
 
@@ -240,7 +266,7 @@ export default function GardenPlannerApp() {
 
         <div className="gp-flex-center">
           <div className="gp-form-col" role="region" aria-label="Garden Planner search form">
-            <h1 style={{ fontSize: "1.45rem", marginBottom: "0.6rem", color: "#2d6a4f", textAlign: "center" }}>🌱 The Dibby Grow Buddy Garden Planner</h1>
+            <h1 style={{ fontSize: "1.25rem", marginBottom: "0.6rem", color: "#2d6a4f", textAlign: "center" }}>🌱 The Dibby Grow Buddy Garden Planner</h1>
 
             {/* Plant Name Search */}
             <label className="gp-label">
@@ -264,12 +290,12 @@ export default function GardenPlannerApp() {
                 background: "#eaf4ec",
                 border: "2px solid #2d6a4f",
                 borderRadius: "10px",
-                padding: "0.6em 0.8em",
+                padding: "0.45em 0.6em",
                 cursor: "pointer",
                 fontWeight: 700,
                 color: "#2d6a4f",
-                fontSize: "1rem",
-                margin: "0.5em 0",
+                fontSize: "0.95rem",
+                margin: "0.4em 0",
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
@@ -281,7 +307,7 @@ export default function GardenPlannerApp() {
 
             {/* Advanced Filters */}
             {showAdvancedFilters && (
-              <div style={{ marginTop: "0.5rem" }}>
+              <div style={{ marginTop: "0.4rem" }}>
                 <label className="gp-label">
                   Grow Zone:
                   <input
@@ -366,50 +392,53 @@ export default function GardenPlannerApp() {
         {!loading && (
           <>
             {totalCount > 0 && (
-              <div style={{ marginTop: "1.6rem", marginBottom: "1rem", color: "#2d6a4f", textAlign: "center" }}>
-                <h2 style={{ margin: 0, fontSize: "1.15rem" }}>
+              <div style={{ marginTop: "1rem", marginBottom: "0.6rem", color: "#2d6a4f", textAlign: "center" }}>
+                <h2 style={{ margin: 0, fontSize: "1.05rem" }}>
                   {totalCount} Plant{totalCount !== 1 ? "s" : ""} Found
                 </h2>
-                <div style={{ marginTop: "0.4rem", fontSize: "1rem", color: "#375e4e" }}>
+                <div style={{ marginTop: "0.3rem", fontSize: "0.95rem", color: "#375e4e" }}>
                   Flowers: {flowerCount} &nbsp;|&nbsp; Vegetables: {vegetableCount} &nbsp;|&nbsp; Herbs: {herbCount} &nbsp;|&nbsp; Bulbs: {bulbCount}
                 </div>
               </div>
             )}
 
-            {["flower", "vegetable", "herb", "bulb"].map(group => (
-              groupedCrops[group].length > 0 ? (
-                <div key={group} style={{ marginBottom: "1.2rem", width: "100%" }}>
-                  <div
-                    onClick={() => toggleGroup(group)}
-                    onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleGroup(group); } }}
-                    tabIndex={0}
-                    className="gp-group-header"
-                    style={{ outline: "none" }}
-                    aria-expanded={expandedGroups[group]}
-                    role="button"
-                    aria-controls={`gp-group-${group}`}
-                  >
-                    <span>
-                      {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : group === "bulb" ? "Bulbs" : "Vegetables"}
-                      {" "}({groupedCrops[group].length})
-                    </span>
-                    <span style={{ fontSize: "1.15em" }}>
-                      {expandedGroups[group] ? "▲" : "▼"}
-                    </span>
-                  </div>
+            {/* Group headers shown in a centered row, each group box stacks header + list */}
+            <div className="gp-groups-row" role="list">
+              {["flower", "vegetable", "herb", "bulb"].map(group => (
+                groupedCrops[group].length > 0 ? (
+                  <div key={group} className="gp-group-box" role="listitem">
+                    <div
+                      onClick={() => toggleGroup(group)}
+                      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleGroup(group); } }}
+                      tabIndex={0}
+                      className="gp-group-header"
+                      style={{ outline: "none" }}
+                      aria-expanded={expandedGroups[group]}
+                      role="button"
+                      aria-controls={`gp-group-${group}`}
+                    >
+                      <span style={{ fontSize: "0.95rem" }}>
+                        {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : group === "bulb" ? "Bulbs" : "Vegetables"}
+                        {" "}({groupedCrops[group].length})
+                      </span>
+                      <span style={{ fontSize: "1.05em" }}>
+                        {expandedGroups[group] ? "▲" : "▼"}
+                      </span>
+                    </div>
 
-                  {expandedGroups[group] && (
-                    <ul id={`gp-group-${group}`} className="gp-group-list" aria-live="polite">
-                      {groupedCrops[group].map(([cName, cData]) => (
-                        <li key={cName} className="gp-group-item">
-                          <CropCard cropName={cName} cropData={cData} />
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ) : null
-            ))}
+                    {expandedGroups[group] && (
+                      <ul id={`gp-group-${group}`} className="gp-group-list" aria-live="polite">
+                        {groupedCrops[group].map(([cName, cData]) => (
+                          <li key={cName} className="gp-group-item">
+                            <CropCard cropName={cName} cropData={cData} />
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ) : null
+              ))}
+            </div>
 
             {filteredCrops.length === 0 && (
               <div className="gp-empty">
