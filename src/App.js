@@ -25,7 +25,7 @@ const setLocal = (key, value) => {
 
 export default function GardenPlannerApp() {
   // UI state
-  const [screen, setScreen] = useState("home");
+  const [screen, setScreen] = useState("search");
 
   // Crop search state
   const [zone, setZone] = useState(getLocal("zone", ""));
