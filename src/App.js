@@ -5,7 +5,8 @@ import CropCard from "./components/CropCard";
 import ToolsAndSupplies from "./components/ToolsAndSupplies";
 import PlantingVideos from "./components/PlantingVideos";
 import BackHomeButton from "./components/BackHomeButton";
-import { useCropData } from "./hooks/useCropData"; // UPDATED: use hook instead of importing JSON
+// NOTE: updated import to match the fixed hook file location
+import { useCropData } from "./useCropData"; // UPDATED: use hook instead of importing JSON
 
 // Local storage helpers
 const getLocal = (key, fallback) => {
@@ -25,7 +26,8 @@ const setLocal = (key, value) => {
 
 export default function GardenPlannerApp() {
   // UI state
-  const [screen, setScreen] = useState("home");
+  // Changed default so the app opens directly to the crop-finding screen
+  const [screen, setScreen] = useState("search");
 
   // Crop search state
   const [zone, setZone] = useState(getLocal("zone", ""));
