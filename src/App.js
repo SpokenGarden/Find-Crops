@@ -147,7 +147,7 @@ export default function GardenPlannerApp() {
     }));
   };
 
-  // Basic CSS to restore look
+  // Basic CSS to restore look, with narrower accordion headers
   const responsiveStyles = `
     .gp-container { max-width: 980px; margin: 0 auto; padding: 1.2rem; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
     .gp-back-btn { background: transparent; border: none; color: #2d6a4f; font-weight: 700; margin-bottom: 0.8rem; cursor: pointer; }
@@ -157,10 +157,38 @@ export default function GardenPlannerApp() {
     .gp-input, .gp-select { width: 100%; padding: 0.6rem 0.75rem; border-radius: 8px; border: 1px solid #e6e6e6; font-size: 1rem; margin-top: 0.3rem; }
     .gp-find-btn { margin-top: 1rem; width: 100%; padding: 0.85rem; background: #2d6a4f; color: white; border: none; border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 1rem; }
     .gp-toggle-advanced { margin: 0.6rem 0; }
-    .gp-group-header { display:flex; justify-content:space-between; align-items:center; padding: 0.8rem 1rem; background: #eef7f0; border: 1px solid #dbeeda; border-radius: 10px; cursor: pointer; }
+
+    /* Accordion header — now shrink to fit content and centered */
+    .gp-group-header {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      padding: 0.5rem 0.9rem;
+      background: #eef7f0;
+      border: 1px solid #dbeeda;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 0.5rem auto;
+      box-sizing: border-box;
+      font-weight: 700;
+      color: #2d6a4f;
+      min-width: 0;
+    }
     .gp-group-header:focus { outline: 3px solid rgba(45,106,79,0.15); }
-    .gp-group-list { list-style: none; padding-left: 0.6rem; margin-top: 0.6rem; }
+
+    /* The list stays full-width and is centered beneath the header (max-width aligns with form) */
+    .gp-group-list {
+      list-style: none;
+      padding-left: 0.6rem;
+      margin-top: 0.6rem;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      max-width: 720px;
+    }
     .gp-group-item { margin: 0.5rem 0; }
+
     .gp-empty { text-align:center; color:#9aa5a0; margin-top:1.5rem; }
     @media (min-width: 760px) {
       .gp-form-col { padding: 1.2rem 1.6rem; }
@@ -356,12 +384,12 @@ export default function GardenPlannerApp() {
                     onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleGroup(group); } }}
                     tabIndex={0}
                     className="gp-group-header"
-                    style={{ outline: "none", marginBottom: expandedGroups[group] ? "0.6rem" : "0.4rem" }}
+                    style={{ outline: "none" }}
                     aria-expanded={expandedGroups[group]}
                     role="button"
                     aria-controls={`gp-group-${group}`}
                   >
-                    <span style={{ fontWeight: 700 }}>
+                    <span>
                       {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : group === "bulb" ? "Bulbs" : "Vegetables"}
                       {" "}({groupedCrops[group].length})
                     </span>
