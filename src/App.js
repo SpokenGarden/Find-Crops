@@ -13,7 +13,7 @@ const getLocal = (key, fallback) => {
   if (typeof window === 'undefined') return fallback;
   try {
     const val = window.localStorage.getItem(key);
-    return val; ! == null ? JSON.parse(val) : fallback;
+    return val; !== null ? JSON.parse(val) : fallback;
   } catch {
     return fallback;
   }
