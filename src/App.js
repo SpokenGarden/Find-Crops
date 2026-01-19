@@ -267,8 +267,17 @@ export default function GardenPlannerApp() {
         <button className="gp-back-btn" onClick={() => setScreen("home")}>← Back to Home</button>
 
         <div className="gp-flex-center">
-          <div className="gp-form-col" role="region" aria-label="Garden Planner search form">
-            <h1 style={{ fontSize: "1.25rem", marginBottom: "0.6rem", color: "#2d6a4f", textAlign: "center" }}>🌱 The Dibby Grow Buddy Garden Planner</h1>
+          {/* Wrap the search inputs in a form so pressing Enter / Return / Go submits */}
+          <form
+            className="gp-form-col"
+            role="region"
+            aria-label="Garden Planner search form"
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSearch();
+            }}
+          >
+            <h1 style={{ fontSize: "1.25rem", marginBottom: "0.6rem", color: "#2d6a4f", textAlign: "center" }}>🌱 Find Seeds and Plants to Grow Next </h1>
 
             {/* Plant Name Search */}
             <label className="gp-label">
@@ -385,9 +394,9 @@ export default function GardenPlannerApp() {
               </div>
             )}
 
-            {/* Find Plants Button */}
-            <button className="gp-find-btn" onClick={handleSearch}>Find Plants</button>
-          </div>
+            {/* Find Plants Button - submit the form (pressing Enter/Return/Go will also submit) */}
+            <button className="gp-find-btn" type="submit">Find Plants</button>
+          </form>
         </div>
 
         {/* Results area */}
