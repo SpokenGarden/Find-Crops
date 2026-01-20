@@ -2,7 +2,7 @@
   "name": "little-dibby-garden-planner",
   "version": "1.0.0",
   "private": true, 
-  "homepage": "https://www.spokengarden.com/App/",
+  "homepage": "https://www.spokengarden.com/app/",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
