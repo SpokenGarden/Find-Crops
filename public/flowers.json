@@ -130,12 +130,16 @@
       {
         "label": "Days to Germination",
         "value": "5 to 7"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "75 to 95"
       }
     ],
     "Harvest": [
       {
         "label": "Harvest Season",
-        "value": "85 to 95"
+        "value": "Summer to Fall"
       }
     ],
     "Care": [
@@ -150,6 +154,12 @@
       {
         "label": "Soil",
         "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/AfricanMarigoldsEB"
       }
     ]
   },
@@ -1684,6 +1694,10 @@
         "value": "1 to 2 weeks after"
       },
       {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
         "label": "Sow Depth",
         "value": "1/4 inch"
       },
@@ -1720,6 +1734,12 @@
       {
         "label": "Soil",
         "value": "Fertilie, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/3YFe6Mh"
       }
     ]
   },
@@ -1908,6 +1928,10 @@
         "value": "1 to 2 after"
       },
       {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
         "label": "Sow Depth",
         "value": "1/16 inch"
       },
@@ -1982,6 +2006,10 @@
         "value": "2 to 4 after"
       },
       {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
         "label": "Sow Depth",
         "value": "1/8 inch"
       },
@@ -1994,6 +2022,10 @@
       {
         "label": "Days to Germination",
         "value": "14 to 21"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "120 to 150"
       }
     ],
     "Harvest": [
@@ -2068,6 +2100,10 @@
       {
         "label": "Days to Germination",
         "value": "5 to 10"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "60 to 80"
       }
     ],
     "Harvest": [
@@ -2150,6 +2186,10 @@
       {
         "label": "Days to Germination",
         "value": "10 to 12"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "360+"
       },
       {
         "label": "Bloom Season",
@@ -2253,11 +2293,15 @@
       }
     ]
   },
-  "Gaillardia": {
+  "Gaillardia or Blanket Flower (Gaillardia sp.)": {
     "Basics": [
       {
         "label": "Type",
         "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
       },
       {
         "label": "Kind",
@@ -2266,18 +2310,64 @@
     ],
     "Sowing": [
       {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
         "label": "Sow Indoors",
         "value": "6 to 8 before"
       },
       {
         "label": "Sow Outdoors",
         "value": "5 to 6 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 to 24 inches"
       }
     ],
     "Growth": [
       {
         "label": "Days to Germination",
         "value": "7 to 20"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "After first year"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer to Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Low, once established"
+      },
+      {
+        "label": "Soil",
+        "value": "Well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/BlanketFlowerEB"
       }
     ]
   },
@@ -2552,8 +2642,34 @@
         "value": "Spring"
       },
       {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      },
+      {
         "label": "Seed Treatments",
         "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 10 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 21"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "70 to 80"
       }
     ],
     "Bloom": [
@@ -2574,6 +2690,12 @@
       {
         "label": "Soil",
         "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/ImpatiensEB"
       }
     ]
   },
@@ -2628,6 +2750,12 @@
         "value": "85 to 100"
       }
     ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "90 to 120"
+      }
+    ],
     "Care": [
       {
         "label": "Sun",
@@ -2641,28 +2769,34 @@
         "label": "Soil",
         "value": "Fertile, well-draining"
       }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/LarkspurEB"
+      }
     ]
   },
-  "Marigold (Tagetes sp.)": {
+  "Mexican Sunflower (Tithonia rotundifolia)": {
     "Basics": [
       {
         "label": "Type",
         "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "5, 6, 7, 8, 9, 10"
       },
       {
         "label": "Kind",
         "value": "Annual"
       }
-    ]
-  },
-  "Mexican Sunflower": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "flower"
-      }
     ],
     "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
       {
         "label": "Sow Indoors",
         "value": "6 to 8 before"
@@ -2670,14 +2804,66 @@
       {
         "label": "Sow Outdoors",
         "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/2 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 to 18 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "80 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Mid-Summer to Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Well-draining, fertile"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/MexicanSunflowerEB"
       }
     ]
   },
-  "Milkweed": {
+  "Milkweed (Asclepias tuberosa)": {
     "Basics": [
       {
         "label": "Type",
         "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9"
       },
       {
         "label": "Kind",
@@ -2686,45 +2872,87 @@
     ],
     "Sowing": [
       {
+        "label": "Sow When",
+        "value": "Fall or Spring"
+      },
+      {
         "label": "Sow Indoors",
         "value": "6 to 8 before"
       },
       {
         "label": "Sow Outdoors",
         "value": "2 to 4 before"
-      }
-    ]
-  },
-  "Moonflower": {
-    "Basics": [
-      {
-        "label": "Type",
-        "value": "flower"
-      }
-    ],
-    "Sowing": [
-      {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
+        "label": "Seed Treatments",
+        "value": "Cold Stratification"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "15 to 18 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 21"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "90 to 120"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Low, once established"
+      },
+      {
+        "label": "Soil",
+        "value": "Well-draining, fertile"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/MilkweedsEB"
       }
     ]
   },
-  "Morning Glory": {
+  "Moonflower (Ipomoea alba)": {
     "Basics": [
       {
         "label": "Type",
         "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "4, 5, 6, 7, 8, 9, 10"
       },
       {
         "label": "Kind",
-        "value": "Perennial"
+        "value": "annual"
       }
     ],
     "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
       {
         "label": "Sow Indoors",
         "value": "4 to 6 before"
@@ -2732,17 +2960,155 @@
       {
         "label": "Sow Outdoors",
         "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Scarification, Soaking"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 to 18 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 21"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "65 to 80"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Well-draining, fertile"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/MoonFlowerEB"
       }
     ]
   },
-  "Nasturtium": {
+  "Morning Glory (Ipomoea nil)": {
     "Basics": [
       {
         "label": "Type",
         "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
       }
     ],
     "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
+      {
+        "label": "Sow Indoors",
+        "value": "4 to 6 before"
+      },
+      {
+        "label": "Sow Outdoors",
+        "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Scarification, Soaking"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/2 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "4 to 6 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 20"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Well-draining, fertile"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/MorningGloryEB"
+      }
+    ]
+  },
+  "Nasturtium (Tropaeolum majus)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow When",
+        "value": "Spring"
+      },
       {
         "label": "Sow Indoors",
         "value": "2 to 4 before"
@@ -2750,6 +3116,54 @@
       {
         "label": "Sow Outdoors",
         "value": "1 to 2 after"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Soak"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/2 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14 days"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "28 to 42"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring through Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Well-draining, fertile"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/4fVGW0w"
       }
     ]
   },
@@ -2846,6 +3260,24 @@
       {
         "label": "Kind",
         "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Sow Indoors",
+        "value": "6 to 8 before"
+      }
+    ]
+  },
+  "Petunia": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
       }
     ],
     "Sowing": [

@@ -7,7 +7,7 @@
       }
     ]
   },
-  "Artichoke": {
+  "Artichoke (Cynaria scolymus)": {
     "Basics": [
       {
         "label": "Type",
@@ -552,6 +552,10 @@
         "value": "4 to 6 before"
       },
       {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
         "label": "Sow Depth",
         "value": "1/4 inch"
       },
@@ -568,6 +572,12 @@
       {
         "label": "Days to Harvest",
         "value": "60 to 80 days"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring and Fall"
       }
     ],
     "Care": [
@@ -633,6 +643,10 @@
       }
     ],
     "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 21"
+      },
       {
         "label": "Days to Harvest",
         "value": "75 days"
@@ -2003,7 +2017,7 @@
       }
     ]
   },
-  "Pepper (Capsicum annuum)": {
+  "Pepper (Capsicum sp.)": {
     "Basics": [
       {
         "label": "Type",
@@ -2034,6 +2048,14 @@
       {
         "label": "Seed Treatments",
         "value": "None"
+      },
+      {
+        "label": "Sow Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 to 18 inches"
       }
     ],
     "Growth": [
