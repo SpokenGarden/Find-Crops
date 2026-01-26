@@ -45,6 +45,19 @@ export default function CropCard({ cropName }) {
     }
   });
 
+  // Style cropName for italicizing text in parentheses
+  const styleCropName = (name) => {
+    const match = name.match(/^(.+?)\s\((.+?)\)$/);
+    if (!match) return name; // If no parentheses, return name as-is
+    const mainName = match[1];
+    const italicText = match[2];
+    return (
+      <>
+        {mainName} <span style={{ fontStyle: "italic" }}>({italicText})</span>
+      </>
+    );
+  };
+
   // Section order: prefer showing Basics, Sowing, Growth, Harvest, Care, then others
   const preferredOrder = ["Basics", "Sowing", "Growth", "Harvest", "Care"];
   const allSections = Object.keys(displayData);
@@ -127,58 +140,11 @@ export default function CropCard({ cropName }) {
           box-sizing: border-box;
           overflow: visible;
         }
-        .crop-card-header {
-          display: flex;
-          align-items: center;
-          margin-bottom: 12px;
-        }
-        .crop-card-title {
-          color: #155943;
-          font-weight: 700;
-          font-size: 1.23rem;
-          letter-spacing: 0.5px;
-          flex: 1;
-        }
-        .crop-card-sections {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 1.2em;
-          width: 100%;
-          margin-bottom: 0.8em;
-        }
-        .crop-card-section {
-          min-width: 0;
-          word-break: break-word;
-        }
-        @media (max-width: 900px) {
-          .crop-card {
-            max-width: 99vw;
-            padding: 1.1rem 0.7rem;
-          }
-        }
-        @media (max-width: 700px) {
-          .crop-card {
-            padding: 1.1rem 0.4rem;
-            border-radius: 18px;
-            max-width: 99vw;
-          }
-          .crop-card-sections {
-            grid-template-columns: 1fr;
-            gap: 0.7em;
-          }
-        }
-        @media (max-width: 480px) {
-          .crop-card {
-            padding: 0.7rem 0.12rem 0.9rem 0.12rem;
-            border-radius: 12px;
-            max-width: 100vw;
-          }
-        }
       `}</style>
       {/* Card header */}
       <div className="crop-card-header">
         <span style={{ fontSize: "1.7rem", marginRight: 10 }}>🌱</span>
-        <span className="crop-card-title">{cropName}</span>
+        <span className="crop-card-title">{styleCropName(cropName)}</span>
       </div>
       {/* Two columns for sections */}
       <div className="crop-card-sections">
