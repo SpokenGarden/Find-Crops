@@ -264,7 +264,10 @@ export default function GardenPlannerApp() {
       <div className="gp-container">
         <style>{responsiveStyles}</style>
 
-        <button className="gp-back-btn" onClick={() => setScreen("home")}>← Back to Home</button>
+        <button   className="gp-back-btn"
+  onClick={() => (window.location.href = "https://www.spokengarden.com")}
+>
+    ← Back to Home</button>
 
         <div className="gp-flex-center">
           {/* Wrap the search inputs in a form so pressing Enter / Return / Go submits */}
