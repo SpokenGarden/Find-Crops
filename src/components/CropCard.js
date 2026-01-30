@@ -106,7 +106,7 @@ export default function CropCard({ cropName }) {
                 <span style={{ fontSize: "1.1em", marginRight: 7 }}>{getIconForLabel(label)}</span>
                 <span style={{
                   fontWeight: 600,
-                  fontSize: "1.23rem",
+                  fontSize: "1rem",
                   letterSpacing: 0.5,
                   flex: 1
                 }}>
