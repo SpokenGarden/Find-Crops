@@ -253,37 +253,40 @@ export default function GardenPlannerApp() {
                 {/* Add the dropdown buttons below the search and results area */}
     <div style={{ marginTop: "2rem" }}>
       {/* Dropdown Button 1 */}
-      <div className="gp-dropdown-container">
-        <button
-          className="gp-find-btn"
-          type="button"
-          onClick={() => setDropdown1Open(!dropdown1Open)}
-        >
-          Dropdown 1 ▼
-        </button>
-        {dropdown1Open && (
-          <div className="gp-dropdown-text">
-            <p>All in one place, find what plants to sow or plant! Know when to sow or plant indoors or outdoors and what season. Get the right seed sowing and bulb planting depth and much more! For flowers, vegetables, bulbs, and herbs!
+          <div className="gp-dropdown-section" style={{ marginTop: "2rem" }}>
+            <div className="gp-dropdown-container">
+              <button
+                className="gp-find-btn"
+                type="button"
+                onClick={() => setDropdown1Open(!dropdown1Open)}
+              >
+                Dropdown 1 ▼
+              </button>
+              {dropdown1Open && (
+                <div className="gp-dropdown-text">
+                  <p>All in one place, find what plants to sow or plant! Know when to sow or plant indoors or outdoors and what season. Get the right seed sowing and bulb planting depth and much more! For flowers, vegetables, bulbs, and herbs!
 
 Plan what to grow, when to sow with your frost date, grow zone look-up, specific planting depths and spacings, and a whole lot more.</p>
+                </div>
+              )}
+            </div>
           </div>
-        )}
-      </div>
 
-      {/* Dropdown Button 2 */}
-      <div className="gp-dropdown-container" style={{ marginTop: "1rem" }}>
-        <button
-          className="gp-find-btn"
-          type="button"
-          onClick={() => setDropdown2Open(!dropdown2Open)}
-        >
-          Dropdown 2 ▼
-        </button>
-        {dropdown2Open && (
-          <div className="gp-dropdown-text">
-            <p>We got tired of looking through 3 or more different sources trying to find basic seed sowing information all the time, so we made this tool for us to easily access and use when we need the info, and it's for you to use, too!</p>
-          </div>
-        )}
+          {/* Dropdown Button 2 */}
+          <div className="gp-dropdown-section" style={{ marginTop: "1rem" }}>
+            <div className="gp-dropdown-container">
+              <button
+                className="gp-find-btn"
+                type="button"
+                onClick={() => setDropdown2Open(!dropdown2Open)}
+              >
+                Dropdown 2 ▼
+              </button>
+              {dropdown2Open && (
+                <div className="gp-dropdown-text">
+                  <p>We got tired of looking through 3 or more different sources trying to find basic seed sowing information all the time, so we made this tool for us to easily access and use when we need the info, and it's for you to use, too!</p>
+                </div>
+              )}
       </div>
     </div>
       </div>
