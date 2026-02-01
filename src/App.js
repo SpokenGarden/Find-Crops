@@ -263,7 +263,9 @@ export default function GardenPlannerApp() {
         </button>
         {dropdown1Open && (
           <div className="gp-dropdown-text">
-            <p>Placeholder content for Dropdown 1</p>
+            <p>All in one place, find what plants to sow or plant! Know when to sow or plant indoors or outdoors and what season. Get the right seed sowing and bulb planting depth and much more! For flowers, vegetables, bulbs, and herbs!
+
+Plan what to grow, when to sow with your frost date, grow zone look-up, specific planting depths and spacings, and a whole lot more.</p>
           </div>
         )}
       </div>
@@ -279,7 +281,7 @@ export default function GardenPlannerApp() {
         </button>
         {dropdown2Open && (
           <div className="gp-dropdown-text">
-            <p>Placeholder content for Dropdown 2</p>
+            <p>We got tired of looking through 3 or more different sources trying to find basic seed sowing information all the time, so we made this tool for us to easily access and use when we need the info, and it's for you to use, too!</p>
           </div>
         )}
       </div>
