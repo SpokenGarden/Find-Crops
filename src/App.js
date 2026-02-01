@@ -29,6 +29,9 @@ export default function GardenPlannerApp() {
   // UI state
   const [screen, setScreen] = useState("search");
 
+  const [dropdown1Open, setDropdown1Open] = useState(false);
+  const [dropdown2Open, setDropdown2Open] = useState(false);
+  
   // Crop search state
   const [zone, setZone] = useState(getLocal("zone", ""));
   const [category, setCategory] = useState(getLocal("category", "all"));
@@ -247,6 +250,40 @@ export default function GardenPlannerApp() {
             </button>
           </div>
         </div>
+                {/* Add the dropdown buttons below the search and results area */}
+    <div style={{ marginTop: "2rem" }}>
+      {/* Dropdown Button 1 */}
+      <div className="gp-dropdown-container">
+        <button
+          className="gp-find-btn"
+          type="button"
+          onClick={() => setDropdown1Open(!dropdown1Open)}
+        >
+          Dropdown 1 ▼
+        </button>
+        {dropdown1Open && (
+          <div className="gp-dropdown-text">
+            <p>Placeholder content for Dropdown 1</p>
+          </div>
+        )}
+      </div>
+
+      {/* Dropdown Button 2 */}
+      <div className="gp-dropdown-container" style={{ marginTop: "1rem" }}>
+        <button
+          className="gp-find-btn"
+          type="button"
+          onClick={() => setDropdown2Open(!dropdown2Open)}
+        >
+          Dropdown 2 ▼
+        </button>
+        {dropdown2Open && (
+          <div className="gp-dropdown-text">
+            <p>Placeholder content for Dropdown 2</p>
+          </div>
+        )}
+      </div>
+    </div>
       </div>
     );
   }
