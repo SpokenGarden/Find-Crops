@@ -67,6 +67,25 @@ export default function GardenPlannerApp() {
   useEffect(() => { setLocal("soilPreference", soilPreference); }, [soilPreference]);
   useEffect(() => { setLocal("sowingCalendar", sowingCalendar); }, [sowingCalendar]);
 
+ // Populate all plant categories on initial load
+  useEffect(() => {
+    if (!cropData) return;
+    const cropArray = Object.entries(cropData).map(([name, data]) => ({
+      name,
+      ...data,
+      _raw: data,
+    }));
+    const allCategories = filterCrops(cropArray, {
+      cropName: "",
+      zone: "",
+      category: "all",
+      sunRequirement: "all",
+      waterNeed: "all",
+      soilPreference: "all",
+    });
+    setFilteredCrops(allCategories.map((crop) => [crop.name, crop._raw || crop]));
+  }, [cropData]);
+  
   // --- Search handler ---
   const handleSearch = () => {
     if (!cropData) return;
