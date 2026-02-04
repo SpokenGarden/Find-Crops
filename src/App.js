@@ -67,25 +67,6 @@ export default function GardenPlannerApp() {
   useEffect(() => { setLocal("soilPreference", soilPreference); }, [soilPreference]);
   useEffect(() => { setLocal("sowingCalendar", sowingCalendar); }, [sowingCalendar]);
 
- // Populate all plant categories on initial load
-  useEffect(() => {
-    if (!cropData) return;
-    const cropArray = Object.entries(cropData).map(([name, data]) => ({
-      name,
-      ...data,
-      _raw: data,
-    }));
-    const allCategories = filterCrops(cropArray, {
-      cropName: "",
-      zone: "",
-      category: "all",
-      sunRequirement: "all",
-      waterNeed: "all",
-      soilPreference: "all",
-    });
-    setFilteredCrops(allCategories.map((crop) => [crop.name, crop._raw || crop]));
-  }, [cropData]);
-  
   // --- Search handler ---
   const handleSearch = () => {
     if (!cropData) return;
@@ -317,12 +298,9 @@ Plan what to grow, when to sow with your frost date, grow zone look-up, specific
 
   // Crop search/planner screen
   if (screen === "search") {
-    if (cropDataLoading) return (
-      <div className="gp-container"><style>{responsiveStyles}</style><div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading plant data...</div></div>);}
-    if (cropDataError) return (
-      <div className="gp-container"><style>{responsiveStyles}</style><div style={{ color: "#b72b2b", textAlign: "center", marginTop: "2rem" }}>Error loading plant data: {String(cropDataError)}</div></div>);}
-    if (!cropData) return (
-      <div className="gp-container"><style>{responsiveStyles}</style><div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>No plant data available.</div></div>);}
+    if (cropDataLoading) return <div className="gp-container"><style>{responsiveStyles}</style><div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading plant data...</div></div>;
+    if (cropDataError) return <div className="gp-container"><style>{responsiveStyles}</style><div style={{ color: "#b72b2b", textAlign: "center", marginTop: "2rem" }}>Error loading plant data: {String(cropDataError)}</div></div>;
+    if (!cropData) return <div className="gp-container"><style>{responsiveStyles}</style><div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>No plant data available.</div></div>;
 
     return (
       <div className="gp-container">
