@@ -24,23 +24,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Spring or Fall"
       },
       {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/4 inche"
       },
       {
@@ -102,23 +102,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Spring"
       },
       {
-        "label": "Sow Indoors",
-        "value": "4 to 6 wks before"
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 wks after"
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/16 inch"
       },
       {
@@ -180,23 +180,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Spring"
       },
       {
-        "label": "Sow Indoors",
-        "value": "8 to 10 before"
+        "label": "Indoors",
+        "value": "8-10 ks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/8 inch"
       },
       {
@@ -258,23 +258,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Fall or Spring"
       },
       {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
+        "label": "Indoors",
+        "value": "4 to 6 wks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
+        "label": "Outdoors",
+        "value": "1 to 2 wks after last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/16 inches"
       },
       {
@@ -336,23 +336,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Spring"
       },
       {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/16 inches"
       },
       {
@@ -414,23 +414,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Spring"
       },
       {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/8 inch"
       },
       {
@@ -492,23 +492,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Spring"
       },
       {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/4 inch"
       },
       {
@@ -578,23 +578,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Spring"
       },
       {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 after"
+        "label": "Outdoors",
+        "value": "2-4 wks after last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/16 inch"
       },
       {
@@ -656,23 +656,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Spring"
       },
       {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/4 inch"
       },
       {
@@ -734,23 +734,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Spring"
       },
       {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 after"
+        "label": "Outdoors",
+        "value": "2-4 wks after last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/16 inch"
       },
       {
@@ -812,23 +812,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Fall or Spring"
       },
       {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "2 to 4 after"
+        "label": "Outdoors",
+        "value": "2-4 wks after last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "Stratify (Cold)"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/4 inch"
       },
       {
@@ -898,23 +898,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Fall or Spring"
       },
       {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "2 to 3 before"
+        "label": "Outdoors",
+        "value": "2-3 wks before last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "Stratify (Cold+Moisture)"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/4 inch"
       },
       {
@@ -959,7 +959,7 @@
       }
     ]
   },
-  "Calendula": {
+  "Calendula (Calendula officinalis)": {
     "Basics": [
       {
         "label": "Type",
@@ -976,23 +976,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Fall or Spring"
       },
       {
-        "label": "Sow Indoors",
-        "value": "3 to 4 before"
+        "label": "Indoors",
+        "value": "3-4 wks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/4 inch"
       },
       {
@@ -1037,7 +1037,7 @@
       }
     ]
   },
-  "Canterbury Bells": {
+  "Canterbury Bells (Campanula medium)": {
     "Basics": [
       {
         "label": "Type",
@@ -1054,23 +1054,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Fall or Spring"
       },
       {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/16 inch"
       },
       {
@@ -1132,23 +1132,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Spring"
       },
       {
-        "label": "Sow Indoors",
-        "value": "8 to 10 before"
+        "label": "Indoors",
+        "value": "8-10 wks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/4 inch"
       },
       {
@@ -3227,7 +3227,7 @@
       }
     ]
   },
-  "Pansy": {
+  "Pansy (Viola x wittrockiana)": {
     "Basics": [
       {
         "label": "Type",
@@ -3236,12 +3236,20 @@
     ],
     "Sowing": [
       {
-        "label": "Sow Indoors",
+        "label": "Indoors",
         "value": "8 to 10 before"
       },
       {
-        "label": "Sow Outdoors",
+        "label": "Outdoors",
         "value": "4 to 6 before"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "10-12 inches"
       }
     ],
     "Growth": [
@@ -3251,11 +3259,15 @@
       }
     ]
   },
-  "Penstemon": {
+  "Penstemon (Penstemon palmeri)": {
     "Basics": [
       {
         "label": "Type",
         "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
       },
       {
         "label": "Kind",
@@ -3264,16 +3276,32 @@
     ],
     "Sowing": [
       {
-        "label": "Sow Indoors",
+        "label": "Indoors",
         "value": "6 to 8 before"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Cold Stratification"
+      },
+      {
+        "label": "Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 inches"
       }
     ]
   },
-  "Petunia": {
+  "Petunia (Petunia x hybrida)": {
     "Basics": [
       {
         "label": "Type",
         "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
       },
       {
         "label": "Kind",
@@ -3282,8 +3310,64 @@
     ],
     "Sowing": [
       {
-        "label": "Sow Indoors",
-        "value": "6 to 8 before"
+        "label": "When",
+        "value": "Spring or Fall"
+      },
+      {
+        "label": "Indoors",
+        "value": "10-12 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "NA"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "10-15 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 21"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "80 to 105"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Flower Season",
+        "value": "Spring to Late Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Well-draining, fertile"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBPetuniaSeeds"
       }
     ]
   },
@@ -3322,15 +3406,15 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Spring or Fall"
       },
       {
-        "label": "Sow Indoors",
+        "label": "Indoors",
         "value": "6 to 8 wks before"
       },
       {
-        "label": "Sow Outdoors",
+        "label": "Outdoors",
         "value": "4 to 6 wks before"
       },
       {
@@ -3338,7 +3422,7 @@
         "value": "Cold Stratification"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/16 inch"
       },
       {
@@ -3374,6 +3458,12 @@
       {
         "label": "Soil",
         "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/PoppySeeds-EB"
       }
     ]
   },
@@ -3493,11 +3583,15 @@
       }
     ]
   },
-  "Snapdragons": {
+  "Snapdragons (Antirrhinum majus)": {
     "Basics": [
       {
         "label": "Type",
         "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "4, 5, 6, 7, 8, 9"
       },
       {
         "label": "Kind",
@@ -3506,12 +3600,56 @@
     ],
     "Sowing": [
       {
-        "label": "Sow Indoors",
-        "value": "8 to 10 before"
+        "label": "When",
+        "value": "Spring"
       },
       {
-        "label": "Seed Treatments",
-        "value": "10 to 15"
+        "label": "Indoors",
+        "value": "8-10 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "9-12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Maturity",
+        "value": "120"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Flower Season",
+        "value": "Spring through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Well-draining, fertile"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/SnapdraonsEB"
       }
     ]
   },
@@ -3594,23 +3732,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Spring"
       },
       {
-        "label": "Sow Indoors",
-        "value": "2 to 4 before"
+        "label": "Indoors",
+        "value": "2-4 wks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/2 inch"
       },
       {
@@ -3647,6 +3785,12 @@
         "label": "Soil",
         "value": "Rich, moist, well-draining"
       }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/SunflowersEB"
+      }
     ]
   },
   "Sweet Alyssum (Lobularia maritma)": {
@@ -3666,15 +3810,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Fall or Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks before last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/16 inch"
       },
       {
@@ -3692,6 +3844,12 @@
         "value": "60 to 90"
       }
     ],
+    "Harvest": [
+      {
+        "label": "Flowering Season",
+        "value": "Spring through Fall"
+      }
+    ],
     "Care": [
       {
         "label": "Sun",
@@ -3704,6 +3862,12 @@
       {
         "label": "Soil",
         "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/SweetAlyssumEB"
       }
     ]
   },
@@ -3747,7 +3911,7 @@
       }
     ]
   },
-  "Verbena": {
+  "Verbena (Verbena sp.)": {
     "Basics": [
       {
         "label": "Type",
@@ -3852,23 +4016,23 @@
     ],
     "Sowing": [
       {
-        "label": "Sow When",
+        "label": "When",
         "value": "Spring"
       },
       {
-        "label": "Sow Indoors",
-        "value": "4 to 6 before"
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
       },
       {
-        "label": "Sow Outdoors",
-        "value": "1 to 2 after"
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
       },
       {
         "label": "Seed Treatments",
         "value": "None"
       },
       {
-        "label": "Sow Depth",
+        "label": "Depth",
         "value": "1/4 inch"
       },
       {
@@ -3882,7 +4046,7 @@
         "value": "7 to 10"
       },
       {
-        "label": "Days to Harvest",
+        "label": "Days to Maturity",
         "value": "55 to 80"
       },
       {
@@ -3896,7 +4060,7 @@
     ],
     "Harvest": [
       {
-        "label": "Harvest Season",
+        "label": "Flower Season",
         "value": "Summer"
       }
     ],
