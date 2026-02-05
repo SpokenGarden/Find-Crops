@@ -133,6 +133,30 @@ export default function GardenPlannerApp() {
   // Get crop data
   const { cropData, loading: cropDataLoading, error: cropDataError } = useCropData();
 
+// Auto-populate results when crop data loads for the first time
+useEffect(() => {
+  if (cropData && filteredCrops.length === 0) {
+    const cropArray = Object.entries(cropData).map(([name, data]) => ({
+      name,
+      ...data,
+      _raw: data
+    }));
+
+    const matches = filterCrops(cropArray, {
+      cropName: "",
+      zone: "",
+      category: "all",
+      sunRequirement: "all",
+      waterNeed: "all",
+      soilPreference: "all"
+    });
+
+    const filtered = matches.map((crop) => [crop.name, crop._raw || crop]);
+    setFilteredCrops(filtered);
+    setSowingCalendar(buildSowingCalendar(matches));
+  }
+}, [cropData]); // Only run when cropData changes
+  
   // ===== HANDLERS =====
   const handleSearch = () => {
     if (!cropData) return;
