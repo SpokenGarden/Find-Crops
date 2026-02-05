@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { filterCrops } from "./utils/filterCrops";
 import { buildSowingCalendar } from "./utils/sowingCalendar";
 import CropCard from "./components/CropCard";
 import ToolsAndSupplies from "./components/ToolsAndSupplies";
 import PlantingVideos from "./components/PlantingVideos";
-import BackHomeButton from "./components/BackHomeButton";
-import { useCropData } from "./hooks/useCropData"; // use hook instead of importing JSON
+import { useCropData } from "./hooks/useCropData";
 
-// Local storage helpers
+// ===== LOCAL STORAGE HELPERS =====
 const isBrowser = typeof window !== "undefined";
+
 const getLocal = (key, fallback) => {
   if (!isBrowser) return fallback;
   try {
@@ -18,6 +18,7 @@ const getLocal = (key, fallback) => {
     return fallback;
   }
 };
+
 const setLocal = (key, value) => {
   if (!isBrowser) return;
   try {
@@ -25,26 +26,103 @@ const setLocal = (key, value) => {
   } catch {}
 };
 
+// ===== CUSTOM HOOK FOR PERSISTENT STATE =====
+const usePersistentState = (key, initialValue) => {
+  const [state, setState] = useState(() => getLocal(key, initialValue));
+  
+  useEffect(() => {
+    setLocal(key, state);
+  }, [state, key]);
+  
+  return [state, setState];
+};
+
+// ===== STYLES =====
+const responsiveStyles = `
+  .gp-container { max-width: 980px; margin: 0 auto; padding: 1.2rem; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+  .gp-back-btn { background: transparent; border: none; color: #2d6a4f; font-weight: 700; margin-bottom: 0.8rem; cursor: pointer; }
+  .gp-flex-center { display: flex; justify-content: center; }
+  .gp-form-col { width: 100%; max-width: 360px; background: #ffffff; border-radius: 12px; padding: 0.9rem 1rem; box-shadow: 0 6px 18px rgba(17,24,39,0.06); margin: 0 auto; }
+  .gp-label { display: block; margin-bottom: 0.6rem; color: #2d6a4f; font-weight: 600; font-size: 0.95rem; }
+  .gp-input, .gp-select { width: 100%; padding: 0.45rem 0.6rem; border-radius: 8px; border: 1px solid #e6e6e6; font-size: 0.95rem; margin-top: 0.25rem; box-sizing: border-box; }
+  .gp-find-btn { margin-top: 0.9rem; width: 100%; padding: 0.6rem; background: #2d6a4f; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 0.98rem; }
+  .gp-toggle-advanced { margin: 0.5rem 0; }
+  .gp-groups-row { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; align-items: flex-start; margin-top: 1rem; margin-bottom: 1rem; }
+  .gp-group-box { display: flex; flex-direction: column; align-items: center; width: auto; min-width: 120px; }
+  .gp-group-header { display: inline-flex; align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0.45rem 0.8rem; background: #eef7f0; border: 1px solid #dbeeda; border-radius: 10px; cursor: pointer; box-sizing: border-box; font-weight: 700; color: #2d6a4f; min-width: 0; white-space: nowrap; }
+  .gp-group-header:focus { outline: 3px solid rgba(45,106,79,0.15); }
+  .gp-group-list { list-style: none; padding-left: 0; margin-top: 0.6rem; margin-left: auto; margin-right: auto; width: 100%; max-width: 720px; box-sizing: border-box; }
+  .gp-group-item { margin: 0.6rem 0; }
+  .gp-empty { text-align:center; color:#9aa5a0; margin-top:1.5rem; }
+  
+  @media (min-width: 760px) {
+    .gp-form-col { padding: 1rem 1.2rem; }
+    .gp-group-list { max-width: 720px; }
+  }
+`;
+
+// ===== UTILITY FUNCTIONS =====
+const getCropType = (cData) => {
+  if (!cData) return "other";
+  
+  // Check Basics array for type field
+  if (cData.Basics && Array.isArray(cData.Basics)) {
+    const typeField = cData.Basics.find(
+      (f) => f.label && typeof f.label === "string" && f.label.toLowerCase() === "type"
+    );
+    if (typeField && typeField.value) {
+      const val = (typeof typeField.value === "string" ? typeField.value : String(typeField.value)).toLowerCase();
+      if (val.includes("flower")) return "flower";
+      if (val.includes("vegetable") || val.includes("veggie")) return "vegetable";
+      if (val.includes("herb")) return "herb";
+      if (val.includes("bulb")) return "bulb";
+      return val || "other";
+    }
+  }
+  
+  // Fallback: check category field
+  if (cData.category) {
+    const val = String(cData.category).toLowerCase();
+    if (val.includes("flower")) return "flower";
+    if (val.includes("vegetable")) return "vegetable";
+    if (val.includes("herb")) return "herb";
+    if (val.includes("bulb")) return "bulb";
+  }
+  
+  return "other";
+};
+
+const getGroupLabel = (group) => {
+  const labels = {
+    flower: "Flowers",
+    vegetable: "Vegetables",
+    herb: "Herbs",
+    bulb: "Bulbs"
+  };
+  return labels[group] || group;
+};
+
+// ===== MAIN COMPONENT =====
 export default function GardenPlannerApp() {
   // UI state
   const [screen, setScreen] = useState("search");
-
   const [dropdown1Open, setDropdown1Open] = useState(false);
   const [dropdown2Open, setDropdown2Open] = useState(false);
-  
-  // Crop search state
-  const [zone, setZone] = useState(getLocal("zone", ""));
-  const [category, setCategory] = useState(getLocal("category", "all"));
-  const [filteredCrops, setFilteredCrops] = useState([]);
-  const [frostDate, setFrostDate] = useState(getLocal("frostDate", ""));
-  const [sunRequirement, setSunRequirement] = useState(getLocal("sunRequirement", "all"));
-  const [waterNeed, setWaterNeed] = useState(getLocal("waterNeed", "all"));
-  const [soilPreference, setSoilPreference] = useState(getLocal("soilPreference", "all"));
+  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [sowingCalendar, setSowingCalendar] = useState(getLocal("sowingCalendar", []));
-  const [cropName, setCropName] = useState("");
 
-  // Accordion state for group expansion (start all collapsed)
+  // Crop search state with persistence
+  const [zone, setZone] = usePersistentState("zone", "");
+  const [category, setCategory] = usePersistentState("category", "all");
+  const [frostDate, setFrostDate] = usePersistentState("frostDate", "");
+  const [sunRequirement, setSunRequirement] = usePersistentState("sunRequirement", "all");
+  const [waterNeed, setWaterNeed] = usePersistentState("waterNeed", "all");
+  const [soilPreference, setSoilPreference] = usePersistentState("soilPreference", "all");
+  const [sowingCalendar, setSowingCalendar] = usePersistentState("sowingCalendar", []);
+  
+  // Non-persistent state
+  const [filteredCrops, setFilteredCrops] = useState([]);
+  const [cropName, setCropName] = useState("");
   const [expandedGroups, setExpandedGroups] = useState({
     flower: false,
     vegetable: false,
@@ -52,27 +130,14 @@ export default function GardenPlannerApp() {
     bulb: false,
   });
 
-  // Advanced filter toggle
-  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
-
-  // Use the hook to get crop data
+  // Get crop data
   const { cropData, loading: cropDataLoading, error: cropDataError } = useCropData();
 
-  // Persist simple filter fields
-  useEffect(() => { setLocal("zone", zone); }, [zone]);
-  useEffect(() => { setLocal("category", category); }, [category]);
-  useEffect(() => { setLocal("frostDate", frostDate); }, [frostDate]);
-  useEffect(() => { setLocal("sunRequirement", sunRequirement); }, [sunRequirement]);
-  useEffect(() => { setLocal("waterNeed", waterNeed); }, [waterNeed]);
-  useEffect(() => { setLocal("soilPreference", soilPreference); }, [soilPreference]);
-  useEffect(() => { setLocal("sowingCalendar", sowingCalendar); }, [sowingCalendar]);
-
-  // --- Search handler ---
+  // ===== HANDLERS =====
   const handleSearch = () => {
     if (!cropData) return;
     setLoading(true);
 
-    // small debounce/emulate load
     setTimeout(() => {
       const cropArray = Object.entries(cropData).map(([name, data]) => ({
         name,
@@ -80,153 +145,51 @@ export default function GardenPlannerApp() {
         _raw: data
       }));
 
-      const matches = filterCrops(
-        cropArray,
-        { cropName, zone, category, sunRequirement, waterNeed, soilPreference }
-      );
+      const matches = filterCrops(cropArray, {
+        cropName,
+        zone,
+        category,
+        sunRequirement,
+        waterNeed,
+        soilPreference
+      });
 
-      // keep stored shape as [name, rawData] so components that expect a name can still fetch by name
       const filtered = matches.map((crop) => [crop.name, crop._raw || crop]);
 
       setFilteredCrops(filtered);
       setSowingCalendar(buildSowingCalendar(matches));
       setLoading(false);
 
-      // save matches raw data to localStorage as well
-      try {
-        if (isBrowser) window.localStorage.setItem("sowingCalendar", JSON.stringify(matches));
-      } catch {}
-
-      // Reset group expansion to all collapsed on new search:
+      // Reset group expansion to all collapsed
       setExpandedGroups({ flower: false, vegetable: false, herb: false, bulb: false });
     }, 150);
   };
 
-  // Helper to get the type/category from the crop's data
-  function getCropType(cData) {
-    if (!cData) return "other";
-    if (cData.Basics && Array.isArray(cData.Basics)) {
-      const typeField = cData.Basics.find(f => f.label && typeof f.label === "string" && f.label.toLowerCase() === "type");
-      if (typeField && typeField.value) {
-        const val = (typeof typeField.value === "string" ? typeField.value : String(typeField.value)).toLowerCase();
-        if (val.includes("flower")) return "flower";
-        if (val.includes("vegetable") || val.includes("veggie")) return "vegetable";
-        if (val.includes("herb")) return "herb";
-        if (val.includes("bulb")) return "bulb";
-        return val || "other";
-      }
-    }
-    // fallback: inspect category field if present
-    if (cData.category) {
-      const val = String(cData.category).toLowerCase();
-      if (val.includes("flower")) return "flower";
-      if (val.includes("vegetable")) return "vegetable";
-      if (val.includes("herb")) return "herb";
-      if (val.includes("bulb")) return "bulb";
-    }
-    return "other";
-  }
+  const toggleGroup = (group) => {
+    setExpandedGroups((prev) => ({
+      ...prev,
+      [group]: !prev[group]
+    }));
+  };
 
-  // Group filtered crops by type
-  const groupedCrops = { flower: [], vegetable: [], herb: [], bulb: [], other: [] };
-  filteredCrops.forEach(([cName, cData]) => {
-    const type = getCropType(cData);
-    if (groupedCrops[type]) groupedCrops[type].push([cName, cData]);
-    else groupedCrops.other.push([cName, cData]);
-  });
+  // ===== COMPUTED VALUES =====
+  const groupedCrops = useMemo(() => {
+    const groups = { flower: [], vegetable: [], herb: [], bulb: [], other: [] };
+    filteredCrops.forEach(([cName, cData]) => {
+      const type = getCropType(cData);
+      if (groups[type]) groups[type].push([cName, cData]);
+      else groups.other.push([cName, cData]);
+    });
+    return groups;
+  }, [filteredCrops]);
 
-  // Counts
   const totalCount = filteredCrops.length;
   const flowerCount = groupedCrops.flower.length;
   const vegetableCount = groupedCrops.vegetable.length;
   const herbCount = groupedCrops.herb.length;
   const bulbCount = groupedCrops.bulb.length;
 
-  // Accordion group toggler
-  const toggleGroup = (group) => {
-    setExpandedGroups(prev => ({
-      ...prev,
-      [group]: !prev[group]
-    }));
-  };
-
-  // Basic CSS to restore look, with narrower form and grouped, centered accordions
-  // NOTE: updated .gp-group-list max-width to 720px so crop cards return to previous width
-  const responsiveStyles = `
-    .gp-container { max-width: 980px; margin: 0 auto; padding: 1.2rem; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
-    .gp-back-btn { background: transparent; border: none; color: #2d6a4f; font-weight: 700; margin-bottom: 0.8rem; cursor: pointer; }
-    .gp-flex-center { display: flex; justify-content: center; }
-    /* Halved form width: was 720px, now 360px for inputs/button to appear half size */
-    .gp-form-col { width: 100%; max-width: 360px; background: #ffffff; border-radius: 12px; padding: 0.9rem 1rem; box-shadow: 0 6px 18px rgba(17,24,39,0.06); margin: 0 auto; }
-    .gp-label { display: block; margin-bottom: 0.6rem; color: #2d6a4f; font-weight: 600; font-size: 0.95rem; }
-    .gp-input, .gp-select { width: 100%; padding: 0.45rem 0.6rem; border-radius: 8px; border: 1px solid #e6e6e6; font-size: 0.95rem; margin-top: 0.25rem; box-sizing: border-box; }
-    /* Find button half-size relative to previous (fits the narrower form) */
-    .gp-find-btn { margin-top: 0.9rem; width: 100%; padding: 0.6rem; background: #2d6a4f; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 0.98rem; }
-
-    .gp-toggle-advanced { margin: 0.5rem 0; }
-
-    /* Groups row: center and lay headers in-line with each other */
-    .gp-groups-row {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    /* Each group is a vertically stacked box: header above list */
-    .gp-group-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: auto;
-      min-width: 120px;
-    }
-
-    /* Accordion header — shrink-to-fit, centered inside each group box */
-    .gp-group-header {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.6rem;
-      padding: 0.45rem 0.8rem;
-      background: #eef7f0;
-      border: 1px solid #dbeeda;
-      border-radius: 10px;
-      cursor: pointer;
-      box-sizing: border-box;
-      font-weight: 700;
-      color: #2d6a4f;
-      min-width: 0;
-      white-space: nowrap;
-    }
-    .gp-group-header:focus { outline: 3px solid rgba(45,106,79,0.15); }
-
-    /* Increase the group's list max-width so CropCard can render at the previous (wider) size.
-       Keep it centered beneath the header row. */
-    .gp-group-list {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 0.6rem;
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
-      max-width: 720px; /* restored wider card width */
-      box-sizing: border-box;
-    }
-    .gp-group-item { margin: 0.6rem 0; }
-
-    .gp-empty { text-align:center; color:#9aa5a0; margin-top:1.5rem; }
-
-    @media (min-width: 760px) {
-      .gp-form-col { padding: 1rem 1.2rem; }
-      .gp-group-list { max-width: 720px; } /* ensure cards remain wide on larger screens */
-    }
-  `;
-
-  // Home screen
+  // ===== RENDER HOME SCREEN =====
   if (screen === "home") {
     return (
       <div className="gp-container">
@@ -239,20 +202,29 @@ export default function GardenPlannerApp() {
             Plan what to grow, when to sow with your frost date, grow zone look-up, planting depths & spacings, and more.
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap", marginTop: "1.75rem" }}>
-            <button onClick={() => setScreen("search")} style={{ padding: "0.9rem 1.6rem", fontSize: "1rem", backgroundColor: "#5271ff", color: "white", border: "none", borderRadius: "12px", cursor: "pointer" }}>
+            <button
+              onClick={() => setScreen("search")}
+              style={{ padding: "0.9rem 1.6rem", fontSize: "1rem", backgroundColor: "#5271ff", color: "white", border: "none", borderRadius: "12px", cursor: "pointer" }}
+            >
               Start Planning
             </button>
-            <button onClick={() => setScreen("tools")} style={{ padding: "0.9rem 1.6rem", fontSize: "1rem", backgroundColor: "#ffeb48", color: "black", border: "none", borderRadius: "12px", cursor: "pointer" }}>
+            <button
+              onClick={() => setScreen("tools")}
+              style={{ padding: "0.9rem 1.6rem", fontSize: "1rem", backgroundColor: "#ffeb48", color: "black", border: "none", borderRadius: "12px", cursor: "pointer" }}
+            >
               Tools & Supplies
             </button>
-            <button onClick={() => setScreen("videos")} style={{ padding: "0.9rem 1.6rem", fontSize: "1rem", backgroundColor: "#05b210", color: "white", border: "none", borderRadius: "12px", cursor: "pointer" }}>
+            <button
+              onClick={() => setScreen("videos")}
+              style={{ padding: "0.9rem 1.6rem", fontSize: "1rem", backgroundColor: "#05b210", color: "white", border: "none", borderRadius: "12px", cursor: "pointer" }}
+            >
               Planting Videos
             </button>
           </div>
         </div>
-                {/* Add the dropdown buttons below the search and results area */}
-    <div style={{ marginTop: "2rem" }}>
-      {/* Dropdown Button 1 */}
+
+        {/* Dropdown sections */}
+        <div style={{ marginTop: "2rem" }}>
           <div className="gp-dropdown-section" style={{ marginTop: "2rem" }}>
             <div className="gp-dropdown-container">
               <button
@@ -264,15 +236,17 @@ export default function GardenPlannerApp() {
               </button>
               {dropdown1Open && (
                 <div className="gp-dropdown-text">
-                  <p>All in one place, find what plants to sow or plant! Know when to sow or plant indoors or outdoors and what season. Get the right seed sowing and bulb planting depth and much more! For flowers, vegetables, bulbs, and herbs!
-
-Plan what to grow, when to sow with your frost date, grow zone look-up, specific planting depths and spacings, and a whole lot more.</p>
+                  <p>
+                    All in one place, find what plants to sow or plant! Know when to sow or plant indoors or outdoors and what season. 
+                    Get the right seed sowing and bulb planting depth and much more! For flowers, vegetables, bulbs, and herbs!
+                    <br /><br />
+                    Plan what to grow, when to sow with your frost date, grow zone look-up, specific planting depths and spacings, and a whole lot more.
+                  </p>
                 </div>
               )}
             </div>
           </div>
 
-          {/* Dropdown Button 2 */}
           <div className="gp-dropdown-section" style={{ marginTop: "1rem" }}>
             <div className="gp-dropdown-container">
               <button
@@ -284,35 +258,70 @@ Plan what to grow, when to sow with your frost date, grow zone look-up, specific
               </button>
               {dropdown2Open && (
                 <div className="gp-dropdown-text">
-                  <p>We got tired of looking through 3 or more different sources trying to find basic seed sowing information all the time, so we made this tool for us to easily access and use when we need the info, and it's for you to use, too!</p>
+                  <p>
+                    We got tired of looking through 3 or more different sources trying to find basic seed sowing information all the time, 
+                    so we made this tool for us to easily access and use when we need the info, and it's for you to use, too!
+                  </p>
                 </div>
               )}
-      </div>
-    </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 
+  // ===== RENDER OTHER SCREENS =====
   if (screen === "tools") return <ToolsAndSupplies onBack={() => setScreen("home")} />;
   if (screen === "videos") return <PlantingVideos onBack={() => setScreen("home")} />;
 
-  // Crop search/planner screen
+  // ===== RENDER SEARCH SCREEN =====
   if (screen === "search") {
-    if (cropDataLoading) return <div className="gp-container"><style>{responsiveStyles}</style><div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>Loading plant data...</div></div>;
-    if (cropDataError) return <div className="gp-container"><style>{responsiveStyles}</style><div style={{ color: "#b72b2b", textAlign: "center", marginTop: "2rem" }}>Error loading plant data: {String(cropDataError)}</div></div>;
-    if (!cropData) return <div className="gp-container"><style>{responsiveStyles}</style><div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>No plant data available.</div></div>;
+    if (cropDataLoading) {
+      return (
+        <div className="gp-container">
+          <style>{responsiveStyles}</style>
+          <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>
+            Loading plant data...
+          </div>
+        </div>
+      );
+    }
+
+    if (cropDataError) {
+      return (
+        <div className="gp-container">
+          <style>{responsiveStyles}</style>
+          <div style={{ color: "#b72b2b", textAlign: "center", marginTop: "2rem" }}>
+            Error loading plant data: {String(cropDataError)}
+          </div>
+        </div>
+      );
+    }
+
+    if (!cropData) {
+      return (
+        <div className="gp-container">
+          <style>{responsiveStyles}</style>
+          <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>
+            No plant data available.
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div className="gp-container">
         <style>{responsiveStyles}</style>
 
-        <button   className="gp-back-btn"
-  onClick={() => (window.location.href = "https://www.spokengarden.com")}
->
-    ← Back to Home</button>
+        <button
+          className="gp-back-btn"
+          onClick={() => (window.location.href = "https://www.spokengarden.com")}
+        >
+          ← Back to Home
+        </button>
 
         <div className="gp-flex-center">
-          {/* Wrap the search inputs in a form so pressing Enter / Return / Go submits */}
           <form
             className="gp-form-col"
             role="region"
@@ -322,7 +331,9 @@ Plan what to grow, when to sow with your frost date, grow zone look-up, specific
               handleSearch();
             }}
           >
-            <h1 style={{ fontSize: "1.25rem", marginBottom: "0.6rem", color: "#2d6a4f", textAlign: "center" }}>🌱 Find Seeds and Plants to Grow Next </h1>
+            <h1 style={{ fontSize: "1.25rem", marginBottom: "0.6rem", color: "#2d6a4f", textAlign: "center" }}>
+              🌱 Find Seeds and Plants to Grow Next
+            </h1>
 
             {/* Plant Name Search */}
             <label className="gp-label">
@@ -331,7 +342,7 @@ Plan what to grow, when to sow with your frost date, grow zone look-up, specific
                 type="text"
                 value={cropName}
                 placeholder="Type a plant name (e.g. radish, zinnia)…"
-                onChange={e => setCropName(e.target.value)}
+                onChange={(e) => setCropName(e.target.value)}
                 className="gp-input"
                 autoFocus
               />
@@ -340,7 +351,7 @@ Plan what to grow, when to sow with your frost date, grow zone look-up, specific
             {/* Toggle Advanced Filters */}
             <button
               type="button"
-              onClick={() => setShowAdvancedFilters(prev => !prev)}
+              onClick={() => setShowAdvancedFilters((prev) => !prev)}
               className="gp-toggle-advanced"
               style={{
                 background: "#eaf4ec",
@@ -439,8 +450,10 @@ Plan what to grow, when to sow with your frost date, grow zone look-up, specific
               </div>
             )}
 
-            {/* Find Plants Button - submit the form (pressing Enter/Return/Go will also submit) */}
-            <button className="gp-find-btn" type="submit">Find Plants</button>
+            {/* Find Plants Button */}
+            <button className="gp-find-btn" type="submit">
+              Find Plants
+            </button>
           </form>
         </div>
 
@@ -453,19 +466,25 @@ Plan what to grow, when to sow with your frost date, grow zone look-up, specific
                   {totalCount} Plant{totalCount !== 1 ? "s" : ""} Found
                 </h2>
                 <div style={{ marginTop: "0.3rem", fontSize: "0.95rem", color: "#375e4e" }}>
-                  Flowers: {flowerCount} &nbsp;|&nbsp; Vegetables: {vegetableCount} &nbsp;|&nbsp; Herbs: {herbCount} &nbsp;|&nbsp; Bulbs: {bulbCount}
+                  Flowers: {flowerCount} &nbsp;|&nbsp; Vegetables: {vegetableCount} &nbsp;|&nbsp; 
+                  Herbs: {herbCount} &nbsp;|&nbsp; Bulbs: {bulbCount}
                 </div>
               </div>
             )}
 
-            {/* Group headers shown in a centered row, each group box stacks header + list */}
+            {/* Group headers */}
             <div className="gp-groups-row" role="list">
-              {["flower", "vegetable", "herb", "bulb"].map(group => (
+              {["flower", "vegetable", "herb", "bulb"].map((group) =>
                 groupedCrops[group].length > 0 ? (
                   <div key={group} className="gp-group-box" role="listitem">
                     <div
                       onClick={() => toggleGroup(group)}
-                      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleGroup(group); } }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          toggleGroup(group);
+                        }
+                      }}
                       tabIndex={0}
                       className="gp-group-header"
                       style={{ outline: "none" }}
@@ -474,8 +493,7 @@ Plan what to grow, when to sow with your frost date, grow zone look-up, specific
                       aria-controls={`gp-group-${group}`}
                     >
                       <span style={{ fontSize: "0.95rem" }}>
-                        {group === "flower" ? "Flowers" : group === "herb" ? "Herbs" : group === "bulb" ? "Bulbs" : "Vegetables"}
-                        {" "}({groupedCrops[group].length})
+                        {getGroupLabel(group)} ({groupedCrops[group].length})
                       </span>
                       <span style={{ fontSize: "1.05em" }}>
                         {expandedGroups[group] ? "▲" : "▼"}
@@ -493,18 +511,20 @@ Plan what to grow, when to sow with your frost date, grow zone look-up, specific
                     )}
                   </div>
                 ) : null
-              ))}
+              )}
             </div>
 
             {filteredCrops.length === 0 && (
-              <div className="gp-empty">
-                No crops found for your search.
-              </div>
+              <div className="gp-empty">No crops found for your search.</div>
             )}
           </>
         )}
 
-        {loading && <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "1.5rem" }}>Loading...</div>}
+        {loading && (
+          <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "1.5rem" }}>
+            Loading...
+          </div>
+        )}
       </div>
     );
   }
