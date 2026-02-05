@@ -180,6 +180,12 @@ export default function GardenPlannerApp() {
       if (groups[type]) groups[type].push([cName, cData]);
       else groups.other.push([cName, cData]);
     });
+
+  // Sort each group alphabetically by crop name
+  Object.keys(groups).forEach((key) => {
+    groups[key].sort((a, b) => a[0].localeCompare(b[0]));
+  });
+    
     return groups;
   }, [filteredCrops]);
 
