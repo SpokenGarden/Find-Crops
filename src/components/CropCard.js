@@ -21,7 +21,7 @@ function getIconForLabel(label) {
 // ===== VERSION CONTROL =====
 // Define which sections are allowed per version
 const VERSION_SECTIONS = {
-  lite: ["Basics"],  // Lite version: only Basics (Type, Grow Zone, Kind, etc.) + Buy Now
+  lite: ["Basics", "Sowing",],  // Lite version: only Basics (Type, Grow Zone, Kind, etc.), Sowing + Buy Now
   full: ["Basics", "Sowing", "Growth", "Harvest", "Care"]  // Full version: all sections + Buy Now
 };
 
