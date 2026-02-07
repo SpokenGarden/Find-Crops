@@ -21,7 +21,7 @@ function getIconForLabel(label) {
 // ===== NEW: VERSION CONTROL =====
 // Define which sections are allowed per version
 const VERSION_SECTIONS = {
-  light: ["Basics"],  // Light version: only Basics (Type, Grow Zone, Kind, etc.)
+  lite: ["Basics", "Sowing"],  // Lite version: only Basics and Sowing (Type, Grow Zone, Kind, etc.)
   full: ["Basics", "Sowing", "Growth", "Harvest", "Care"]  // Full version: all sections
 };
 
@@ -56,7 +56,7 @@ export default function CropCard({ cropName, version = "full" }) {
       }
     });
   } else {
-    // ===== NEW: Remove Links sections for light version =====
+    // ===== NEW: Remove Links sections for lite version =====
     ["Link", "Links"].forEach(linkKey => {
       delete displayData[linkKey];
     });
@@ -95,9 +95,9 @@ export default function CropCard({ cropName, version = "full" }) {
   ];
 
   // ===== UPDATED: Collapse logic based on version =====
-  // In light mode, always show all available sections (no collapse)
+  // In lite mode, always show all available sections (no collapse)
   // In full mode, show first 2 sections in collapsed mode
-  const defaultSectionsToShow = version === "light" ? sortedSectionEntries.length : 2;
+  const defaultSectionsToShow = version === "lite" ? sortedSectionEntries.length : 2;
   const visibleSectionEntries = expanded
     ? sortedSectionEntries
     : sortedSectionEntries.slice(0, defaultSectionsToShow);
