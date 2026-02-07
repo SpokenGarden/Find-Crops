@@ -18,15 +18,15 @@ function getIconForLabel(label) {
   return icons[label] || "🔹";
 }
 
-// ===== NEW: VERSION CONTROL =====
+// ===== VERSION CONTROL =====
 // Define which sections are allowed per version
 const VERSION_SECTIONS = {
-  lite: ["Basics", "Sowing"],  // Lite version: only Basics and Sowing (Type, Grow Zone, Kind, etc.)
-  full: ["Basics", "Sowing", "Growth", "Harvest", "Care"]  // Full version: all sections
+  lite: ["Basics"],  // Lite version: only Basics (Type, Grow Zone, Kind, etc.) + Buy Now
+  full: ["Basics", "Sowing", "Growth", "Harvest", "Care"]  // Full version: all sections + Buy Now
 };
 
 // Accepts new nested data structure as cropData
-// ===== NEW: Added version prop with default "full" =====
+// Added version prop with default "full"
 export default function CropCard({ cropName, version = "full" }) {
   const [expanded, setExpanded] = useState(false);
   const { cropData, loading, error } = useCropData();
@@ -39,28 +39,21 @@ export default function CropCard({ cropName, version = "full" }) {
   let displayData = { ...cropData[cropName] };
   let buyNowUrl = "";
   
-  // ===== UPDATED: Only process Buy Now link in full version =====
-  if (version === "full") {
-    ["Link", "Links"].forEach(linkKey => {
-      if (displayData[linkKey]) {
-        const linkFields = Array.isArray(displayData[linkKey]) ? displayData[linkKey] : [];
-        const buyNowField = linkFields.find(
-          (field) =>
-            typeof field.label === "string" &&
-            field.label.trim().toLowerCase() === "buy now" &&
-            typeof field.value === "string" &&
-            /^https?:\/\//i.test(field.value.trim())
-        );
-        if (buyNowField) buyNowUrl = buyNowField.value.trim();
-        delete displayData[linkKey];
-      }
-    });
-  } else {
-    // ===== NEW: Remove Links sections for lite version =====
-    ["Link", "Links"].forEach(linkKey => {
+  // ===== UPDATED: Process Buy Now link in BOTH versions =====
+  ["Link", "Links"].forEach(linkKey => {
+    if (displayData[linkKey]) {
+      const linkFields = Array.isArray(displayData[linkKey]) ? displayData[linkKey] : [];
+      const buyNowField = linkFields.find(
+        (field) =>
+          typeof field.label === "string" &&
+          field.label.trim().toLowerCase() === "buy now" &&
+          typeof field.value === "string" &&
+          /^https?:\/\//i.test(field.value.trim())
+      );
+      if (buyNowField) buyNowUrl = buyNowField.value.trim();
       delete displayData[linkKey];
-    });
-  }
+    }
+  });
 
   // Style cropName for italicizing text in parentheses
   const styleCropName = (name) => {
@@ -75,26 +68,26 @@ export default function CropCard({ cropName, version = "full" }) {
     );
   };
 
-  // ===== NEW: Get allowed sections based on version =====
+  // Get allowed sections based on version
   const allowedSections = VERSION_SECTIONS[version] || VERSION_SECTIONS.full;
 
   // Section order: prefer showing Basics, Sowing, Growth, Harvest, Care, then others
   const preferredOrder = ["Basics", "Sowing", "Growth", "Harvest", "Care"];
   const allSections = Object.keys(displayData);
   
-  // ===== UPDATED: Filter sections based on version =====
+  // Filter sections based on version
   const sortedSectionEntries = [
     ...preferredOrder
-      .filter(section => allowedSections.includes(section))  // ===== NEW: Only allowed sections =====
+      .filter(section => allowedSections.includes(section))  // Only allowed sections
       .map(section => [section, displayData[section]])
       .filter(([section, data]) => Array.isArray(data) && data.length > 0),
     ...allSections
-      .filter(section => !preferredOrder.includes(section) && allowedSections.includes(section))  // ===== NEW: Filter by allowed =====
+      .filter(section => !preferredOrder.includes(section) && allowedSections.includes(section))  // Filter by allowed
       .map(section => [section, displayData[section]])
       .filter(([section, data]) => Array.isArray(data) && data.length > 0)
   ];
 
-  // ===== UPDATED: Collapse logic based on version =====
+  // Collapse logic based on version
   // In lite mode, always show all available sections (no collapse)
   // In full mode, show first 2 sections in collapsed mode
   const defaultSectionsToShow = version === "lite" ? sortedSectionEntries.length : 2;
@@ -202,7 +195,7 @@ export default function CropCard({ cropName, version = "full" }) {
         {renderSections(leftSections)}
         {renderSections(rightSections)}
       </div>
-      {/* ===== UPDATED: Only show Expand/Collapse Button in full version ===== */}
+      {/* Only show Expand/Collapse Button in full version */}
       {version === "full" && sortedSectionEntries.length > defaultSectionsToShow && (
         <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 4 }}>
           <button
@@ -228,8 +221,8 @@ export default function CropCard({ cropName, version = "full" }) {
           </button>
         </div>
       )}
-      {/* ===== UPDATED: Buy Now button - only in full version ===== */}
-      {version === "full" && buyNowUrl && (
+      {/* ===== UPDATED: Buy Now button - available in BOTH versions ===== */}
+      {buyNowUrl && (
         <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 8 }}>
           <a
             href={buyNowUrl}
