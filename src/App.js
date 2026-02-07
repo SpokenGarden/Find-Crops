@@ -55,7 +55,7 @@ const responsiveStyles = `
   .gp-group-item { margin: 0.6rem 0; }
   .gp-empty { text-align:center; color:#9aa5a0; margin-top:1.5rem; }
   .gp-version-badge { display: inline-block; padding: 0.3rem 0.7rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700; margin-left: 0.5rem; vertical-align: middle; }
-  .gp-version-light { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+  .gp-version-lite { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
   .gp-version-full { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
   
   @media (min-width: 760px) {
@@ -107,11 +107,11 @@ const getGroupLabel = (group) => {
 
 // ===== MAIN COMPONENT =====
 export default function GardenPlannerApp() {
-  // ===== NEW: VERSION CONTROL =====
+  // ===== VERSION CONTROL =====
   // Change this to "full" for the complete version with all plant data sections
-  // "lite" = shows only Basics and Sowing section
-  // "full" = shows all sections (Basics, Sowing, Growth, Harvest, Care, Buy Now links)
-  const [appVersion, setAppVersion] = useState("light");
+  // "lite" = shows only Basics section + Buy Now
+  // "full" = shows all sections (Basics, Sowing, Growth, Harvest, Care) + Buy Now
+  const [appVersion, setAppVersion] = useState("lite");
   
   // UI state
   const [screen, setScreen] = useState("search");
@@ -372,19 +372,19 @@ useEffect(() => {
           >
             <h1 style={{ fontSize: "1.25rem", marginBottom: "0.6rem", color: "#2d6a4f", textAlign: "center" }}>
               🌱 Find Seeds and Plants to Grow Next
-              {/* ===== NEW: VERSION BADGE ===== */}
+              {/* ===== VERSION BADGE ===== */}
               <span className={`gp-version-badge ${appVersion === "lite" ? "gp-version-lite" : "gp-version-full"}`}>
                 {appVersion === "lite" ? "Lite" : "Full"}
               </span>
             </h1>
 
-            {/* ===== NEW: OPTIONAL VERSION TOGGLE FOR TESTING ===== */}
+            {/* ===== OPTIONAL VERSION TOGGLE FOR TESTING ===== */}
             {/* Uncomment this section if you want to test switching between versions */}
             {/*
             <div style={{ marginBottom: "1rem", textAlign: "center" }}>
               <button
                 type="button"
-                onClick={() => setAppVersion(v => v === "light" ? "full" : "lite")}
+                onClick={() => setAppVersion(v => v === "lite" ? "full" : "lite")}
                 style={{
                   padding: "0.4rem 0.8rem",
                   fontSize: "0.85rem",
@@ -570,7 +570,7 @@ useEffect(() => {
                       <ul id={`gp-group-${group}`} className="gp-group-list" aria-live="polite">
                         {groupedCrops[group].map(([cName, cData]) => (
                           <li key={cName} className="gp-group-item">
-                            {/* ===== NEW: PASS VERSION PROP TO CROPCARD ===== */}
+                            {/* ===== PASS VERSION PROP TO CROPCARD ===== */}
                             <CropCard cropName={cName} cropData={cData} version={appVersion} />
                           </li>
                         ))}
