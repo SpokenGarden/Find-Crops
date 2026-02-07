@@ -54,6 +54,9 @@ const responsiveStyles = `
   .gp-group-list { list-style: none; padding-left: 0; margin-top: 0.6rem; margin-left: auto; margin-right: auto; width: 100%; max-width: 720px; box-sizing: border-box; }
   .gp-group-item { margin: 0.6rem 0; }
   .gp-empty { text-align:center; color:#9aa5a0; margin-top:1.5rem; }
+  .gp-version-badge { display: inline-block; padding: 0.3rem 0.7rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700; margin-left: 0.5rem; vertical-align: middle; }
+  .gp-version-light { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+  .gp-version-full { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
   
   @media (min-width: 760px) {
     .gp-form-col { padding: 1rem 1.2rem; }
@@ -104,6 +107,12 @@ const getGroupLabel = (group) => {
 
 // ===== MAIN COMPONENT =====
 export default function GardenPlannerApp() {
+  // ===== NEW: VERSION CONTROL =====
+  // Change this to "full" for the complete version with all plant data sections
+  // "light" = shows only Basics section
+  // "full" = shows all sections (Basics, Sowing, Growth, Harvest, Care, Buy Now links)
+  const [appVersion, setAppVersion] = useState("light");
+  
   // UI state
   const [screen, setScreen] = useState("search");
   const [dropdown1Open, setDropdown1Open] = useState(false);
@@ -363,7 +372,34 @@ useEffect(() => {
           >
             <h1 style={{ fontSize: "1.25rem", marginBottom: "0.6rem", color: "#2d6a4f", textAlign: "center" }}>
               🌱 Find Seeds and Plants to Grow Next
+              {/* ===== NEW: VERSION BADGE ===== */}
+              <span className={`gp-version-badge ${appVersion === "light" ? "gp-version-light" : "gp-version-full"}`}>
+                {appVersion === "light" ? "Light" : "Full"}
+              </span>
             </h1>
+
+            {/* ===== NEW: OPTIONAL VERSION TOGGLE FOR TESTING ===== */}
+            {/* Uncomment this section if you want to test switching between versions */}
+            {/*
+            <div style={{ marginBottom: "1rem", textAlign: "center" }}>
+              <button
+                type="button"
+                onClick={() => setAppVersion(v => v === "light" ? "full" : "light")}
+                style={{
+                  padding: "0.4rem 0.8rem",
+                  fontSize: "0.85rem",
+                  backgroundColor: "#e9ecef",
+                  color: "#2d6a4f",
+                  border: "1px solid #2d6a4f",
+                  borderRadius: "6px",
+                  cursor: "pointer",
+                  fontWeight: 600
+                }}
+              >
+                Switch to {appVersion === "light" ? "Full" : "Light"} Version
+              </button>
+            </div>
+            */}
 
             {/* Plant Name Search */}
             <label className="gp-label">
@@ -534,7 +570,8 @@ useEffect(() => {
                       <ul id={`gp-group-${group}`} className="gp-group-list" aria-live="polite">
                         {groupedCrops[group].map(([cName, cData]) => (
                           <li key={cName} className="gp-group-item">
-                            <CropCard cropName={cName} cropData={cData} />
+                            {/* ===== NEW: PASS VERSION PROP TO CROPCARD ===== */}
+                            <CropCard cropName={cName} cropData={cData} version={appVersion} />
                           </li>
                         ))}
                       </ul>
