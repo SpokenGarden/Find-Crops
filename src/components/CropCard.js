@@ -18,8 +18,16 @@ function getIconForLabel(label) {
   return icons[label] || "🔹";
 }
 
+// ===== NEW: VERSION CONTROL =====
+// Define which sections are allowed per version
+const VERSION_SECTIONS = {
+  light: ["Basics"],  // Light version: only Basics (Type, Grow Zone, Kind, etc.)
+  full: ["Basics", "Sowing", "Growth", "Harvest", "Care"]  // Full version: all sections
+};
+
 // Accepts new nested data structure as cropData
-export default function CropCard({ cropName }) {
+// ===== NEW: Added version prop with default "full" =====
+export default function CropCard({ cropName, version = "full" }) {
   const [expanded, setExpanded] = useState(false);
   const { cropData, loading, error } = useCropData();
 
@@ -30,20 +38,29 @@ export default function CropCard({ cropName }) {
   // Use the cropData for the specific crop
   let displayData = { ...cropData[cropName] };
   let buyNowUrl = "";
-  ["Link", "Links"].forEach(linkKey => {
-    if (displayData[linkKey]) {
-      const linkFields = Array.isArray(displayData[linkKey]) ? displayData[linkKey] : [];
-      const buyNowField = linkFields.find(
-        (field) =>
-          typeof field.label === "string" &&
-          field.label.trim().toLowerCase() === "buy now" &&
-          typeof field.value === "string" &&
-          /^https?:\/\//i.test(field.value.trim())
-      );
-      if (buyNowField) buyNowUrl = buyNowField.value.trim();
+  
+  // ===== UPDATED: Only process Buy Now link in full version =====
+  if (version === "full") {
+    ["Link", "Links"].forEach(linkKey => {
+      if (displayData[linkKey]) {
+        const linkFields = Array.isArray(displayData[linkKey]) ? displayData[linkKey] : [];
+        const buyNowField = linkFields.find(
+          (field) =>
+            typeof field.label === "string" &&
+            field.label.trim().toLowerCase() === "buy now" &&
+            typeof field.value === "string" &&
+            /^https?:\/\//i.test(field.value.trim())
+        );
+        if (buyNowField) buyNowUrl = buyNowField.value.trim();
+        delete displayData[linkKey];
+      }
+    });
+  } else {
+    // ===== NEW: Remove Links sections for light version =====
+    ["Link", "Links"].forEach(linkKey => {
       delete displayData[linkKey];
-    }
-  });
+    });
+  }
 
   // Style cropName for italicizing text in parentheses
   const styleCropName = (name) => {
@@ -58,21 +75,29 @@ export default function CropCard({ cropName }) {
     );
   };
 
+  // ===== NEW: Get allowed sections based on version =====
+  const allowedSections = VERSION_SECTIONS[version] || VERSION_SECTIONS.full;
+
   // Section order: prefer showing Basics, Sowing, Growth, Harvest, Care, then others
   const preferredOrder = ["Basics", "Sowing", "Growth", "Harvest", "Care"];
   const allSections = Object.keys(displayData);
+  
+  // ===== UPDATED: Filter sections based on version =====
   const sortedSectionEntries = [
     ...preferredOrder
+      .filter(section => allowedSections.includes(section))  // ===== NEW: Only allowed sections =====
       .map(section => [section, displayData[section]])
       .filter(([section, data]) => Array.isArray(data) && data.length > 0),
     ...allSections
-      .filter(section => !preferredOrder.includes(section))
+      .filter(section => !preferredOrder.includes(section) && allowedSections.includes(section))  // ===== NEW: Filter by allowed =====
       .map(section => [section, displayData[section]])
       .filter(([section, data]) => Array.isArray(data) && data.length > 0)
   ];
 
-  // Collapse logic: show first 2 sections in collapsed mode, all when expanded
-  const defaultSectionsToShow = 2;
+  // ===== UPDATED: Collapse logic based on version =====
+  // In light mode, always show all available sections (no collapse)
+  // In full mode, show first 2 sections in collapsed mode
+  const defaultSectionsToShow = version === "light" ? sortedSectionEntries.length : 2;
   const visibleSectionEntries = expanded
     ? sortedSectionEntries
     : sortedSectionEntries.slice(0, defaultSectionsToShow);
@@ -140,6 +165,32 @@ export default function CropCard({ cropName }) {
           box-sizing: border-box;
           overflow: visible;
         }
+        .crop-card-header {
+          display: flex;
+          align-items: center;
+          margin-bottom: 12px;
+        }
+        .crop-card-title {
+          color: #155943;
+          font-weight: 700;
+          font-size: 1.13rem;
+          letter-spacing: 0.5px;
+          flex: 1;
+        }
+        .crop-card-sections {
+          display: flex;
+          gap: 1.5rem;
+          flex-wrap: wrap;
+        }
+        .crop-card-section {
+          flex: 1 1 45%;
+          min-width: 200px;
+        }
+        @media (max-width: 640px) {
+          .crop-card-section {
+            flex: 1 1 100%;
+          }
+        }
       `}</style>
       {/* Card header */}
       <div className="crop-card-header">
@@ -151,8 +202,8 @@ export default function CropCard({ cropName }) {
         {renderSections(leftSections)}
         {renderSections(rightSections)}
       </div>
-      {/* Expand/Collapse Button */}
-      {sortedSectionEntries.length > defaultSectionsToShow && (
+      {/* ===== UPDATED: Only show Expand/Collapse Button in full version ===== */}
+      {version === "full" && sortedSectionEntries.length > defaultSectionsToShow && (
         <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 4 }}>
           <button
             onClick={() => setExpanded(v => !v)}
@@ -177,8 +228,8 @@ export default function CropCard({ cropName }) {
           </button>
         </div>
       )}
-      {/* Buy Now button if exists */}
-      {buyNowUrl && (
+      {/* ===== UPDATED: Buy Now button - only in full version ===== */}
+      {version === "full" && buyNowUrl && (
         <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 8 }}>
           <a
             href={buyNowUrl}
