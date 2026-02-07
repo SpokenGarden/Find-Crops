@@ -380,7 +380,7 @@ useEffect(() => {
 
             {/* ===== OPTIONAL VERSION TOGGLE FOR TESTING ===== */}
             {/* Uncomment this section if you want to test switching between versions */}
-            {/*
+            
             <div style={{ marginBottom: "1rem", textAlign: "center" }}>
               <button
                 type="button"
@@ -399,7 +399,7 @@ useEffect(() => {
                 Switch to {appVersion === "lite" ? "Full" : "Lite"} Version
               </button>
             </div>
-            */}
+            
 
             {/* Plant Name Search */}
             <label className="gp-label">
