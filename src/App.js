@@ -109,7 +109,7 @@ const getGroupLabel = (group) => {
 export default function GardenPlannerApp() {
   // ===== NEW: VERSION CONTROL =====
   // Change this to "full" for the complete version with all plant data sections
-  // "light" = shows only Basics section
+  // "lite" = shows only Basics and Sowing section
   // "full" = shows all sections (Basics, Sowing, Growth, Harvest, Care, Buy Now links)
   const [appVersion, setAppVersion] = useState("light");
   
@@ -373,8 +373,8 @@ useEffect(() => {
             <h1 style={{ fontSize: "1.25rem", marginBottom: "0.6rem", color: "#2d6a4f", textAlign: "center" }}>
               🌱 Find Seeds and Plants to Grow Next
               {/* ===== NEW: VERSION BADGE ===== */}
-              <span className={`gp-version-badge ${appVersion === "light" ? "gp-version-light" : "gp-version-full"}`}>
-                {appVersion === "light" ? "Light" : "Full"}
+              <span className={`gp-version-badge ${appVersion === "lite" ? "gp-version-lite" : "gp-version-full"}`}>
+                {appVersion === "lite" ? "Lite" : "Full"}
               </span>
             </h1>
 
@@ -384,7 +384,7 @@ useEffect(() => {
             <div style={{ marginBottom: "1rem", textAlign: "center" }}>
               <button
                 type="button"
-                onClick={() => setAppVersion(v => v === "light" ? "full" : "light")}
+                onClick={() => setAppVersion(v => v === "light" ? "full" : "lite")}
                 style={{
                   padding: "0.4rem 0.8rem",
                   fontSize: "0.85rem",
@@ -396,7 +396,7 @@ useEffect(() => {
                   fontWeight: 600
                 }}
               >
-                Switch to {appVersion === "light" ? "Full" : "Light"} Version
+                Switch to {appVersion === "lite" ? "Full" : "Lite"} Version
               </button>
             </div>
             */}
