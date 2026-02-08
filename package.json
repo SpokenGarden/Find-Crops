@@ -2,7 +2,7 @@
   "name": "Dibby-Grow-Buddy Plant Finder",
   "version": "1.0.0",
   "private": true, 
-  "homepage": "https://spokengarden.com/app",
+  "homepage": ".",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
