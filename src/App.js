@@ -58,9 +58,88 @@ const responsiveStyles = `
   .gp-version-lite { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
   .gp-version-full { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
   
+  /* ===== DIBBY BANNER STYLES ===== */
+  .gp-dibby-banner { 
+    background: #eef7f0; 
+    border: 1px solid #dbeeda; 
+    border-radius: 10px; 
+    padding: 0.8rem 1.2rem; 
+    margin-bottom: 1.2rem; 
+    display: flex; 
+    align-items: center; 
+    gap: 1rem; 
+    box-shadow: 0 2px 8px rgba(45,106,79,0.08);
+  }
+  .gp-dibby-banner-image { 
+    width: 80px; 
+    height: 80px; 
+    object-fit: cover; 
+    border-radius: 8px; 
+    border: 2px solid #dbeeda;
+    flex-shrink: 0;
+  }
+  .gp-dibby-banner-content { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.3rem; 
+  }
+  .gp-dibby-banner-title { 
+    font-size: 1rem; 
+    font-weight: 700; 
+    color: #2d6a4f; 
+    margin: 0; 
+  }
+  .gp-dibby-banner-subtitle { 
+    font-size: 0.85rem; 
+    color: #4a6b5a; 
+    margin: 0; 
+  }
+  .gp-dibby-banner-btn { 
+    background: #2d6a4f; 
+    color: white; 
+    padding: 0.5rem 1rem; 
+    border: none; 
+    border-radius: 8px; 
+    font-weight: 700; 
+    font-size: 0.9rem; 
+    cursor: pointer; 
+    text-decoration: none; 
+    white-space: nowrap; 
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+  .gp-dibby-banner-btn:hover { 
+    background: #246149; 
+  }
+  
+  @media (max-width: 640px) {
+    .gp-dibby-banner { 
+      flex-direction: column; 
+      text-align: center; 
+      padding: 1rem; 
+    }
+    .gp-dibby-banner-image { 
+      width: 100px; 
+      height: 100px; 
+    }
+    .gp-dibby-banner-content { 
+      align-items: center; 
+    }
+    .gp-dibby-banner-btn { 
+      align-self: center; 
+      width: 100%; 
+      max-width: 200px; 
+    }
+  }
+  
   @media (min-width: 760px) {
     .gp-form-col { padding: 1rem 1.2rem; }
     .gp-group-list { max-width: 720px; }
+    .gp-dibby-banner-image { 
+      width: 100px; 
+      height: 100px; 
+    }
   }
 `;
 
@@ -359,6 +438,27 @@ useEffect(() => {
         >
           ← Back to Home
         </button>
+
+        {/* ===== DIBBY BANNER ===== */}
+        <div className="gp-dibby-banner">
+          <img 
+            src="/images/dibby-yellow.jpg" 
+            alt="The Dibby seed planting tool" 
+            className="gp-dibby-banner-image"
+          />
+          <div className="gp-dibby-banner-content">
+            <h2 className="gp-dibby-banner-title">🌱 Get Perfect Planting Depths with The Dibby!</h2>
+            <p className="gp-dibby-banner-subtitle">Little Dibby & Dibby XL • 6 Colors Available</p>
+          </div>
+          <a 
+            href="https://amzn.to/4apJtyN" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="gp-dibby-banner-btn"
+          >
+            Shop on Amazon →
+          </a>
+        </div>
 
         <div className="gp-flex-center">
           <form
