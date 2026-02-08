@@ -459,7 +459,7 @@ useEffect(() => {
         {/* ===== DIBBY BANNER ===== */}
         <div className="gp-dibby-banner">
           <img 
-            src="/images/dibby-yellow.jpg" 
+            src="./images/dibby-yellow.jpg" 
             alt="The Dibby seed planting tool" 
             className="gp-dibby-banner-image"
           />
