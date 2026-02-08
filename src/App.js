@@ -63,16 +63,17 @@ const responsiveStyles = `
     background: #eef7f0; 
     border: 1px solid #dbeeda; 
     border-radius: 10px; 
-    padding: 0.8rem 1.2rem; 
+    padding: 0.5rem 1rem;
     margin-bottom: 1.2rem; 
     display: flex; 
-    align-items: center; 
+    align-items: center;
     gap: 1rem; 
     box-shadow: 0 2px 8px rgba(45,106,79,0.08);
+    min-height: 70px;
   }
   .gp-dibby-banner-image { 
-    width: 80px; 
-    height: 80px; 
+    width: 55px;
+    height: 55px;
     object-fit: cover; 
     border-radius: 8px; 
     border: 2px solid #dbeeda;
@@ -82,32 +83,38 @@ const responsiveStyles = `
     flex: 1; 
     display: flex; 
     flex-direction: column; 
-    gap: 0.3rem; 
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.2rem;
   }
   .gp-dibby-banner-title { 
-    font-size: 1rem; 
+    font-size: 0.92rem;
     font-weight: 700; 
     color: #2d6a4f; 
     margin: 0; 
+    line-height: 1.3;
   }
   .gp-dibby-banner-subtitle { 
-    font-size: 0.85rem; 
+    font-size: 0.78rem;
     color: #4a6b5a; 
     margin: 0; 
+    line-height: 1.3;
   }
   .gp-dibby-banner-btn { 
     background: #2d6a4f; 
     color: white; 
-    padding: 0.5rem 1rem; 
+    padding: 0.4rem 0.85rem;
     border: none; 
     border-radius: 8px; 
     font-weight: 700; 
-    font-size: 0.9rem; 
+    font-size: 0.85rem;
     cursor: pointer; 
     text-decoration: none; 
     white-space: nowrap; 
     transition: background 0.2s;
-    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
   }
   .gp-dibby-banner-btn:hover { 
     background: #246149; 
@@ -117,29 +124,39 @@ const responsiveStyles = `
     .gp-dibby-banner { 
       flex-direction: column; 
       text-align: center; 
-      padding: 1rem; 
+      padding: 0.8rem; 
+      min-height: auto;
     }
     .gp-dibby-banner-image { 
-      width: 100px; 
-      height: 100px; 
+      width: 80px;
+      height: 80px; 
     }
     .gp-dibby-banner-content { 
       align-items: center; 
     }
     .gp-dibby-banner-btn { 
-      align-self: center; 
       width: 100%; 
-      max-width: 200px; 
+      max-width: 200px;
+      justify-content: center;
+    }
+  }
+  
+  @media (min-width: 641px) and (max-width: 959px) {
+    .gp-dibby-banner-image { 
+      width: 60px;
+      height: 60px; 
+    }
+    .gp-dibby-banner-title {
+      font-size: 0.88rem;
+    }
+    .gp-dibby-banner-subtitle {
+      font-size: 0.75rem;
     }
   }
   
   @media (min-width: 760px) {
     .gp-form-col { padding: 1rem 1.2rem; }
     .gp-group-list { max-width: 720px; }
-    .gp-dibby-banner-image { 
-      width: 100px; 
-      height: 100px; 
-    }
   }
 `;
 
