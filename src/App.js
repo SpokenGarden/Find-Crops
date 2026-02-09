@@ -120,27 +120,39 @@ const responsiveStyles = `
     background: #246149; 
   }
   
+  /* ===== MOBILE: SUPER COMPACT BANNER ===== */
   @media (max-width: 640px) {
     .gp-dibby-banner { 
-      flex-direction: column; 
-      text-align: center; 
-      padding: 0.8rem; 
+      padding: 0.4rem 0.6rem;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
       min-height: auto;
+      border-radius: 8px;
     }
     .gp-dibby-banner-image { 
-      width: 80px;
-      height: 80px; 
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
     }
-    .gp-dibby-banner-content { 
-      align-items: center; 
+    .gp-dibby-banner-content {
+      gap: 0.1rem;
+    }
+    .gp-dibby-banner-title { 
+      font-size: 0.75rem;
+      line-height: 1.2;
+    }
+    .gp-dibby-banner-subtitle { 
+      font-size: 0.65rem;
+      line-height: 1.2;
     }
     .gp-dibby-banner-btn { 
-      width: 100%; 
-      max-width: 200px;
-      justify-content: center;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.7rem;
+      border-radius: 6px;
     }
   }
   
+  /* ===== TABLET: MEDIUM SIZE ===== */
   @media (min-width: 641px) and (max-width: 959px) {
     .gp-dibby-banner-image { 
       width: 60px;
