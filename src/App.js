@@ -117,7 +117,7 @@ const responsiveStyles = `
     flex-shrink: 0;
   }
   .gp-dibby-banner-btn:hover { 
-    background: #246149; 
+    background: #05b210; 
   }
   
   /* ===== MOBILE: SUPER COMPACT BANNER ===== */
