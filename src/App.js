@@ -216,10 +216,10 @@ const getGroupLabel = (group) => {
 // ===== MAIN COMPONENT =====
 export default function GardenPlannerApp() {
   // ===== VERSION CONTROL =====
-  // Change this to "full" for the complete version with all plant data sections
-  // "lite" = shows only Basics section + Buy Now
-  // "full" = shows all sections (Basics, Sowing, Growth, Harvest, Care) + Buy Now
-  const [appVersion, setAppVersion] = useState("lite");
+  // Change this to "growing" for the complete version with Growth and Care sections
+  // "sowing" = shows Basics + Sowing sections + Buy Now
+  // "growing" = shows Growth + Care sections + Buy Now
+  const [appVersion, setAppVersion] = useState("sowing");
   
   // UI state
   const [screen, setScreen] = useState("search");
@@ -502,18 +502,16 @@ useEffect(() => {
             <h1 style={{ fontSize: "1.25rem", marginBottom: "0.6rem", color: "#2d6a4f", textAlign: "center" }}>
               🌱 Find Seeds and Plants to Grow Next
               {/* ===== VERSION BADGE ===== */}
-              <span className={`gp-version-badge ${appVersion === "lite" ? "gp-version-lite" : "gp-version-full"}`}>
-                {appVersion === "lite" ? "Lite" : "Full"}
+              <span className={`gp-version-badge ${appVersion === "sowing" ? "gp-version-lite" : "gp-version-full"}`}>
+                {appVersion === "sowing" ? "Sowing" : "Growing"}
               </span>
             </h1>
 
-            {/* ===== OPTIONAL VERSION TOGGLE FOR TESTING ===== */}
-            {/* Uncomment this section if you want to test switching between versions */}
-            
+            {/* ===== VERSION TOGGLE FOR TESTING ===== */}
             <div style={{ marginBottom: "1rem", textAlign: "center" }}>
               <button
                 type="button"
-                onClick={() => setAppVersion(v => v === "lite" ? "full" : "lite")}
+                onClick={() => setAppVersion(v => v === "sowing" ? "growing" : "sowing")}
                 style={{
                   padding: "0.4rem 0.8rem",
                   fontSize: "0.85rem",
@@ -525,10 +523,9 @@ useEffect(() => {
                   fontWeight: 600
                 }}
               >
-                Switch to {appVersion === "lite" ? "Full" : "Lite"} Version
+                Switch to {appVersion === "sowing" ? "Growing" : "Sowing"} Version
               </button>
             </div>
-            
 
             {/* Plant Name Search */}
             <label className="gp-label">
