@@ -216,10 +216,10 @@ const getGroupLabel = (group) => {
 // ===== MAIN COMPONENT =====
 export default function GardenPlannerApp() {
   // ===== VERSION CONTROL =====
-  // Change this to "growing" for the complete version with Growth and Care sections
-  // "sowing" = shows Basics + Sowing sections + Buy Now
-  // "growing" = shows Growth + Care sections + Buy Now
-  const [appVersion, setAppVersion] = useState("sowing");
+  // Change this to "grow" for the complete version with Growth and Care sections
+  // "sow" = shows Basics + Sowing sections + Buy Now
+  // "grow" = shows Growth + Care sections + Buy Now
+  const [appVersion, setAppVersion] = useState("sow");
   
   // UI state
   const [screen, setScreen] = useState("search");
@@ -502,28 +502,63 @@ useEffect(() => {
             <h1 style={{ fontSize: "1.25rem", marginBottom: "0.6rem", color: "#2d6a4f", textAlign: "center" }}>
               🌱 Find Seeds and Plants to Grow Next
               {/* ===== VERSION BADGE ===== */}
-              <span className={`gp-version-badge ${appVersion === "sowing" ? "gp-version-lite" : "gp-version-full"}`}>
-                {appVersion === "sowing" ? "Sowing" : "Growing"}
+              <span className={`gp-version-badge ${appVersion === "sow" ? "gp-version-lite" : "gp-version-full"}`}>
+                {appVersion === "sow" ? "Sow" : "Grow"}
               </span>
             </h1>
 
-            {/* ===== VERSION TOGGLE FOR TESTING ===== */}
-            <div style={{ marginBottom: "1rem", textAlign: "center" }}>
+            {/* ===== TWO BUTTON VERSION TOGGLE ===== */}
+            <div style={{ 
+              marginBottom: "1rem", 
+              textAlign: "center",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5rem"
+            }}>
               <button
                 type="button"
-                onClick={() => setAppVersion(v => v === "sowing" ? "growing" : "sowing")}
+                onClick={() => setAppVersion("sow")}
                 style={{
-                  padding: "0.4rem 0.8rem",
-                  fontSize: "0.85rem",
-                  backgroundColor: "#e9ecef",
-                  color: "#2d6a4f",
-                  border: "1px solid #2d6a4f",
-                  borderRadius: "6px",
+                  padding: "0.5rem 1.2rem",
+                  fontSize: "0.9rem",
+                  backgroundColor: appVersion === "sow" ? "#2d6a4f" : "#e9ecef",
+                  color: appVersion === "sow" ? "white" : "#2d6a4f",
+                  border: `2px solid ${appVersion === "sow" ? "#2d6a4f" : "#2d6a4f"}`,
+                  borderRadius: "8px",
                   cursor: "pointer",
-                  fontWeight: 600
+                  fontWeight: 700,
+                  transition: "all 0.2s"
                 }}
               >
-                Switch to {appVersion === "sowing" ? "Growing" : "Sowing"} Version
+                Sow
+              </button>
+              
+              <span style={{ 
+                color: "#666", 
+                fontSize: "0.85rem",
+                fontWeight: 500,
+                padding: "0 0.2rem"
+              }}>
+                or
+              </span>
+              
+              <button
+                type="button"
+                onClick={() => setAppVersion("grow")}
+                style={{
+                  padding: "0.5rem 1.2rem",
+                  fontSize: "0.9rem",
+                  backgroundColor: appVersion === "grow" ? "#2d6a4f" : "#e9ecef",
+                  color: appVersion === "grow" ? "white" : "#2d6a4f",
+                  border: `2px solid ${appVersion === "grow" ? "#2d6a4f" : "#2d6a4f"}`,
+                  borderRadius: "8px",
+                  cursor: "pointer",
+                  fontWeight: 700,
+                  transition: "all 0.2s"
+                }}
+              >
+                Grow
               </button>
             </div>
 
