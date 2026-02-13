@@ -21,13 +21,13 @@ function getIconForLabel(label) {
 // ===== VERSION CONTROL =====
 // Define which sections are allowed per version
 const VERSION_SECTIONS = {
-  sowing: ["Basics", "Sowing"],  // Sowing version: Basics + Sowing + Buy Now
-  growing: ["Growth", "Care"]     // Growing version: Growth + Care + Buy Now
+  sow: ["Basics", "Sowing"],  // Sow version: Basics + Sowing + Buy Now
+  grow: ["Growth", "Care"]     // Grow version: Growth + Care + Buy Now
 };
 
 // Accepts new nested data structure as cropData
-// Added version prop with default "sowing"
-export default function CropCard({ cropName, version = "sowing" }) {
+// Added version prop with default "sow"
+export default function CropCard({ cropName, version = "sow" }) {
   const [expanded, setExpanded] = useState(false);
   const { cropData, loading, error } = useCropData();
 
@@ -69,7 +69,7 @@ export default function CropCard({ cropName, version = "sowing" }) {
   };
 
   // Get allowed sections based on version
-  const allowedSections = VERSION_SECTIONS[version] || VERSION_SECTIONS.sowing;
+  const allowedSections = VERSION_SECTIONS[version] || VERSION_SECTIONS.sow;
 
   // Section order: prefer showing Basics, Sowing, Growth, Harvest, Care, then others
   const preferredOrder = ["Basics", "Sowing", "Growth", "Harvest", "Care"];
@@ -88,9 +88,9 @@ export default function CropCard({ cropName, version = "sowing" }) {
   ];
 
   // Collapse logic based on version
-  // In sowing mode, always show all available sections (no collapse needed - only 2 sections)
-  // In growing mode, show first 2 sections in collapsed mode (if there are more sections)
-  const defaultSectionsToShow = version === "sowing" ? sortedSectionEntries.length : 2;
+  // In sow mode, always show all available sections (no collapse needed - only 2 sections)
+  // In grow mode, show first 2 sections in collapsed mode (if there are more sections)
+  const defaultSectionsToShow = version === "sow" ? sortedSectionEntries.length : 2;
   const visibleSectionEntries = expanded
     ? sortedSectionEntries
     : sortedSectionEntries.slice(0, defaultSectionsToShow);
@@ -195,8 +195,8 @@ export default function CropCard({ cropName, version = "sowing" }) {
         {renderSections(leftSections)}
         {renderSections(rightSections)}
       </div>
-      {/* Only show Expand/Collapse Button in growing version if there are more sections */}
-      {version === "growing" && sortedSectionEntries.length > defaultSectionsToShow && (
+      {/* Only show Expand/Collapse Button in grow version if there are more sections */}
+      {version === "grow" && sortedSectionEntries.length > defaultSectionsToShow && (
         <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 4 }}>
           <button
             onClick={() => setExpanded(v => !v)}
