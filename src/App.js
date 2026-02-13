@@ -500,7 +500,11 @@ useEffect(() => {
             }}
           >
             <h1 style={{ fontSize: "1.25rem", marginBottom: "0.6rem", color: "#2d6a4f", textAlign: "center" }}>
-              🌱 Find Seeds and Plants to Grow Next
+              🌱 Starting Seeds or Caring for Plants?
+  <br />
+  <span style={{ fontSize: "0.85rem", fontWeight: "400", color: "#4a6b5a" }}>
+    Search by plant name or category below!
+  </span>
               {/* ===== VERSION BADGE ===== */}
               <span className={`gp-version-badge ${appVersion === "sow" ? "gp-version-lite" : "gp-version-full"}`}>
                 {appVersion === "sow" ? "Sow" : "Grow"}
