@@ -234,7 +234,7 @@ console.log("📦 Display Data:", displayData);
         {/* ===== NEW: Plant Image in Upper Right Corner ===== */}
         {plantImage && (
           <img 
-            src={`/images/${plantImage}`}
+            src={`images/${plantImage}`}
             alt={cropName}
             className="crop-card-plant-image"
             onError={(e) => {
