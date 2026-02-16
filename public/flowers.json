@@ -1,0 +1,4146 @@
+{
+  "Crop Name": {
+    "Object": [
+      {
+        "label": "Label",
+        "value": "Value"
+      }
+    ]
+  },
+  "African Daisy (Dimorphiteca sinuata)": {
+    "Image": [
+      {
+        "label": "Photo",
+        "value": "flowers/african-daisy.jpg"
+      }
+    ],
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring or Fall"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inche"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 21"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "60 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Low"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/AfroDaisy"
+      }
+    ]
+  },
+  "African Marigold (Tagetes erecta)": {
+    "Image": [
+      {
+        "label": "Photo",
+        "value": "flowers/marigold.jpg"
+      }
+    ],
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "5 to 7"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "75 to 95"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer to Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/AfricanMarigoldsEB"
+      }
+    ]
+  },
+  "Ageratum (Ageratum houstonianum)": {
+    "Image": [
+      {
+        "label": "Photo",
+        "value": "flowers/ageratum.jpg"
+      }
+    ],
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "8-10 ks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 10 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 10"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/Ageratums"
+      }
+    ]
+  },
+  "Alyssum (Lobularia maritima)": {
+    "Image": [
+      {
+        "label": "Photo",
+        "value": "flowers/alyssum.jpg"
+      }
+    ],
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "4 to 6 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1 to 2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/16 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 10 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Spring through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/Alyssums"
+      }
+    ]
+  },
+  "Amaranth (Amaranthus hypochondriacus)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/16 inches"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "3 to 10"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "90 to 110"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/Amaranths"
+      }
+    ]
+  },
+  "Aster (Callistephus sp.)": {
+    "Image": [
+      {
+        "label": "Photo",
+        "value": "flowers/aster.jpg"
+      }
+    ],
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 21"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "90 to 120"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBAsters"
+      }
+    ]
+  },
+  "Bachelor Button (Centaurea cyanus)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Mature Height",
+        "value": "30 to 36 inches"
+      },
+      {
+        "label": "Mature Width",
+        "value": "8 to 12 inches"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Spring through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/3YFe6Mh"
+      }
+    ]
+  },
+  "Balsam Impatiens (Impatiens balsamina)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "2-4 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 21"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 70"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/BalsamImpatiens"
+      }
+    ]
+  },
+  "Bells of Ireland (Molucella laevis)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "21 to 25"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "90 to 110"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/BellsOfIreland"
+      }
+    ]
+  },
+  "Billy Button (Craspedia sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "2-4 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "14 to 21"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertile, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBBillyButton"
+      }
+    ]
+  },
+  "Black-eyed Susan (Rudbeckia hirta)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Biennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "2-4 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Stratify (Cold)"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 21"
+      },
+      {
+        "label": "Mature Height",
+        "value": "12 to 27 inches"
+      },
+      {
+        "label": "Mature Width",
+        "value": "8 to 12 inches"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Spring through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich moist well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/BEyedSusan"
+      }
+    ]
+  },
+  "Black-eyed Susan Vine (Thunbergia alata)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "2-3 wks before last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Stratify (Cold+Moisture)"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 21"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/BESVine"
+      }
+    ]
+  },
+  "Calendula (Calendula officinalis)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "3-4 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 10 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Spring and Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining, but can tolerate poor soils"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCalendulas"
+      }
+    ]
+  },
+  "Canterbury Bells (Campanula medium)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Biennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 to 15 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "14 to 21"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Spring and Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/CanterburyBells"
+      }
+    ]
+  },
+  "Cape Daisy (Osteospermum ecklonis)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "8-10 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "10 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 21"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 80"
+      },
+      {
+        "label": "Mature Height",
+        "value": "10 to 14 inches"
+      },
+      {
+        "label": "Mature Width",
+        "value": "10 to 12 inches"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Spring to Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBShastas"
+      }
+    ]
+  },
+  "Carnation (Dianthus caryophyllus)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 10 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCarnations"
+      }
+    ]
+  },
+  "Celosia (Celosia plumosa)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "2-4 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "10 to 24 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCelosia"
+      }
+    ]
+  },
+  "Coleus (Solenostemon scutellarioides)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "4, 5, 6, 7, 8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 10 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 15"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "NA"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Spring through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertilie, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBColeus"
+      }
+    ]
+  },
+  "Columbine (Aquilegia caerulea)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "NA"
+      },
+      {
+        "label": "Outdoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Cold Stratification"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 10 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "21 to 28"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer to Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertilie, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBColumbine"
+      }
+    ]
+  },
+  "Coneflower (Echinacea sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "10-12 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "2-4 wks before last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Cold Stratification"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "10 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 21"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertile, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBConeflowerSeeds"
+      }
+    ]
+  },
+  "Coreopsis (Coreopsis lanceolata)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks before last frost"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertilie, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBPerennialCoreopsis"
+      }
+    ]
+  },
+  "Cornflower (Centaurea cyanus)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "60 to 90"
+      }
+    ],
+    "Harvest": [
+      {
+        "label": "Harvest Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertilie, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/3YFe6Mh"
+      }
+    ]
+  },
+  "Cosmos (Cosmos bipinnatus)": {
+    "Image": [
+      {
+        "label": "Photo",
+        "value": "flowers/cosmos.jpg"
+      }
+    ],
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "9 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Low"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertilie, well-draining, but can tolerate poor soil"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBCosmos"
+      }
+    ]
+  },
+  "Dahlia (Dahlia variabilis)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "8-10 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "2-4 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "8 to 11"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "NA"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/4bExCvy"
+      }
+    ]
+  },
+  "Dusty Miller (Cineria martima)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "8-10 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "10 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 20"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "55"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertile, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBDustyMiller"
+      }
+    ]
+  },
+  "Eucalyptus (Eucalyptus cinerea)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "10-12 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "2-4 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "24 to 48 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "14 to 21"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "120 to 150"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Spring through Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertilie, well-draining, but can tolerate poor soil"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBEucalyptus"
+      }
+    ]
+  },
+  "Forget Me Not (Myosotis alpestris)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks before last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "5 to 10"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 80"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Spring"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "High"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertile, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBForgetMeNot"
+      }
+    ]
+  },
+  "Foxglove (Digitalis pupurea)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring or Summer"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 inches"
+      },
+      {
+        "label": "Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 12"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "360+"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertile, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBFoxglove"
+      }
+    ]
+  },
+  "French Marigold (Tagetes patula)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "50 to 70"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Low"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertile, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBFrenchMarigolds"
+      }
+    ]
+  },
+  "Gaillardia or Blanket Flower (Gaillardia sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "5-6 wks before last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 to 24 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 20"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "After first year"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer to Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Low, once established"
+      },
+      {
+        "label": "Soil",
+        "value": "Well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/BlanketFlowerEB"
+      }
+    ]
+  },
+  "Gazania (Gazania splendens)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "90 to 110"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Low to Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBGazania"
+      }
+    ]
+  },
+  "Gomphrena (Gomphrena globosa)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "2-4 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Mature Height",
+        "value": "16 to 20 inches"
+      },
+      {
+        "label": "Mature Width",
+        "value": "8 to 12 inches"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "80 to 100"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/GomphrenaPingPong"
+      }
+    ]
+  },
+  "Hollyhock (Alcea rosea)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12"
+      },
+      {
+        "label": "Kind",
+        "value": "Biennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "8-10 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks before last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "soak over night"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "18 to 36 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14 days"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "18 to 21 months (biennial)"
+      },
+      {
+        "label": "Mature Height",
+        "value": "Up to 96 inches"
+      },
+      {
+        "label": "Mature Width",
+        "value": "Up to 36 inches"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBHollyHocks"
+      }
+    ]
+  },
+  "Impatiens (Impatiens walleriana)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 10 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 21"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "70 to 80"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Spring through Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/ImpatiensEB"
+      }
+    ]
+  },
+  "Larkspur (Delphinium consolida)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Cold Stratification"
+      },
+      {
+        "label": "Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "10 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 21"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "85 to 100"
+      },
+      {
+        "label": "Flower Season",
+        "value": "90 to 120"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Fertile, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/LarkspurEB"
+      }
+    ]
+  },
+  "Mexican Sunflower (Tithonia rotundifolia)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/2 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 to 18 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "80 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Mid-Summer to Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Well-draining, fertile"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/MexicanSunflowerEB"
+      }
+    ]
+  },
+  "Milkweed (Asclepias tuberosa)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "2-4 wks before last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Cold Stratification"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "15 to 18 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 21"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "90 to 120"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Low, once established"
+      },
+      {
+        "label": "Soil",
+        "value": "Well-draining, fertile"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/MilkweedsEB"
+      }
+    ]
+  },
+  "Moonflower (Ipomoea alba)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1- 2 after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Scarification, Soaking"
+      },
+      {
+        "label": "Depth",
+        "value": "1 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 to 18 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 21"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "65 to 80"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Well-draining, fertile"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/MoonFlowerEB"
+      }
+    ]
+  },
+  "Morning Glory (Ipomoea nil)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Scarification, Soaking"
+      },
+      {
+        "label": "Depth",
+        "value": "1/2 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "4 to 6 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 20"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Well-draining, fertile"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/MorningGloryEB"
+      }
+    ]
+  },
+  "Nasturtium (Tropaeolum majus)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "2-4 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Soak"
+      },
+      {
+        "label": "Depth",
+        "value": "1/2 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14 days"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "28 to 42"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Spring through Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Well-draining, fertile"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/4fVGW0w"
+      }
+    ]
+  },
+  "Nicotiana": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "12 to 15"
+      }
+    ]
+  },
+  "Orlaya": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      }
+    ]
+  },
+  "Painted Daisy": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks before last frost"
+      }
+    ]
+  },
+  "Pansy (Viola x wittrockiana)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "8-10 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "10-12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "10 to 14"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60-90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Spring through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/PansiesEB"
+      }
+    ]
+  },
+  "Penstemon (Penstemon palmeri)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Cold Stratification"
+      },
+      {
+        "label": "Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12 inches"
+      }
+    ]
+  },
+  "Petunia (Petunia x hybrida)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring or Fall"
+      },
+      {
+        "label": "Indoors",
+        "value": "10-12 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "NA"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/8 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "10-15 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 21"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "80 to 105"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Spring to Late Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Well-draining, fertile"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/EBPetuniaSeeds"
+      }
+    ]
+  },
+  "Phlox": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "2-4 wks before last frost"
+      }
+    ]
+  },
+  "Poppy (Papaver sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring or Fall"
+      },
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "Cold Stratification"
+      },
+      {
+        "label": "Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 8 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "12 to 20"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "60 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Low"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/PoppySeeds-EB"
+      }
+    ]
+  },
+  "Portulaca": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      }
+    ]
+  },
+  "Salpiglossis": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "8-10 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks before last frost"
+      }
+    ]
+  },
+  "Salvia or Sage (Salvia sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "8-10 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "12 to 15"
+      }
+    ]
+  },
+  "Scabiosa": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "14 to 17"
+      }
+    ]
+  },
+  "Shasta Daisy": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "2-4 wks before last frost"
+      }
+    ]
+  },
+  "Snapdragons (Antirrhinum majus)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "4, 5, 6, 7, 8, 9"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "8-10 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "9-12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Flower",
+        "value": "120"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Spring through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Well-draining, fertile"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/SnapdraonsEB"
+      }
+    ]
+  },
+  "Statice (Limonium sinuatum)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Indoors",
+        "value": "8-10 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "2-4 wks after last frost"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "12-18 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "5 to 14"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "85-110"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Low to Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/StaticeEB"
+      }
+    ]
+  },
+  "Stock": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "8-10 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      }
+    ]
+  },
+  "Strawflower": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "6-8 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "2-4 wks after last frost"
+      }
+    ]
+  },
+  "Sunflower (Helianthus annuus)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "2-4 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/2 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "8 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 10"
+      },
+      {
+        "label": "Days to Harvest",
+        "value": "70 to 120"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/SunflowersEB"
+      }
+    ]
+  },
+  "Sweet Alyssum (Lobularia maritma)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Fall or Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks before last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/16 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 10 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 14"
+      },
+      {
+        "label": "Days to Maturity",
+        "value": "60 to 90"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Spring through Fall"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full to Partial Shade"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "Rich, moist, well-draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/SweetAlyssumEB"
+      }
+    ]
+  },
+  "Sweet Pea": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
+      }
+    ]
+  },
+  "Sweet William": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "8-10 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      }
+    ]
+  },
+  "Verbena (Verbena sp.)": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "10-12 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "2-4 wks before last frost"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "14 to 21"
+      }
+    ]
+  },
+  "Viola": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "8-10 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "4-6 wks before last frost"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "12 to 14"
+      }
+    ]
+  },
+  "Yarrow": {
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Kind",
+        "value": "Perennial"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "Indoors",
+        "value": "8-10 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "2-4 wks after last frost"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "11 to 15"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "90 to 120"
+      }
+    ]
+  },
+  "Zinnia (Zinna elegans)": {
+    "Image": [
+      {
+        "label": "Photo",
+        "value": "flowers/zinnia.jpg"
+      }
+    ],
+    "Basics": [
+      {
+        "label": "Type",
+        "value": "flower"
+      },
+      {
+        "label": "Hardy Zones",
+        "value": "3, 4, 5, 6, 7, 8, 9, 10"
+      },
+      {
+        "label": "Kind",
+        "value": "Annual"
+      }
+    ],
+    "Sowing": [
+      {
+        "label": "When",
+        "value": "Spring"
+      },
+      {
+        "label": "Indoors",
+        "value": "4-6 wks before last frost"
+      },
+      {
+        "label": "Outdoors",
+        "value": "1-2 wks after last frost"
+      },
+      {
+        "label": "Seed Treatments",
+        "value": "None"
+      },
+      {
+        "label": "Depth",
+        "value": "1/4 inch"
+      },
+      {
+        "label": "Spacing",
+        "value": "6 to 12 inches"
+      }
+    ],
+    "Growth": [
+      {
+        "label": "Days to Germination",
+        "value": "7 to 10"
+      },
+      {
+        "label": "Mature Height",
+        "value": "Up to 48+ inches"
+      },
+      {
+        "label": "Mature Width",
+        "value": "8 to 12 inches"
+      },
+      {
+        "label": "Days to Flower",
+        "value": "55 to 80"
+      },
+      {
+        "label": "Flower Season",
+        "value": "Summer"
+      }
+    ],
+    "Care": [
+      {
+        "label": "Sun",
+        "value": "Full Sun"
+      },
+      {
+        "label": "Water",
+        "value": "Average"
+      },
+      {
+        "label": "Soil",
+        "value": "rich moist well draining"
+      }
+    ],
+    "Links": [
+      {
+        "label": "Buy Now",
+        "value": "https://bit.ly/4cZRPfE"
+      }
+    ]
+  }
+}
