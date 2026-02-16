@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState
+              } from "react";
 import { useCropData } from "../hooks/useCropData";
 
 // Optional: icon helper (customize as you wish)
@@ -52,6 +53,12 @@ export default function CropCard({ cropName, version = "sow" }) {
     }
     delete displayData.Image; // Remove Image section from display
   }
+
+  // ===== ADD THESE DEBUG LINES: =====
+console.log("🌸 Crop Name:", cropName);
+console.log("🖼️ Plant Image:", plantImage);
+console.log("📁 Full Path:", `./images/${plantImage}`);
+console.log("📦 Display Data:", displayData);
   
   // ===== UPDATED: Process Buy Now link in BOTH versions =====
   ["Link", "Links"].forEach(linkKey => {
@@ -227,7 +234,7 @@ export default function CropCard({ cropName, version = "sow" }) {
         {/* ===== NEW: Plant Image in Upper Right Corner ===== */}
         {plantImage && (
           <img 
-            src={`./images/${plantImage}`}
+            src={`/images/${plantImage}`}
             alt={cropName}
             className="crop-card-plant-image"
             onError={(e) => {
