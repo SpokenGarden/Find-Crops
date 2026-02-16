@@ -38,6 +38,20 @@ export default function CropCard({ cropName, version = "sow" }) {
   // Use the cropData for the specific crop
   let displayData = { ...cropData[cropName] };
   let buyNowUrl = "";
+  let plantImage = ""; // ===== NEW: Variable to store plant image =====
+  
+  // ===== NEW: Extract plant image from data =====
+  if (displayData.Image && Array.isArray(displayData.Image)) {
+    const imageField = displayData.Image.find(
+      (field) =>
+        typeof field.label === "string" &&
+        field.label.trim().toLowerCase() === "photo"
+    );
+    if (imageField && imageField.value) {
+      plantImage = imageField.value.trim();
+    }
+    delete displayData.Image; // Remove Image section from display
+  }
   
   // ===== UPDATED: Process Buy Now link in BOTH versions =====
   ["Link", "Links"].forEach(linkKey => {
@@ -174,14 +188,32 @@ export default function CropCard({ cropName, version = "sow" }) {
           display: flex;
           gap: 1.5rem;
           flex-wrap: wrap;
+          position: relative;
         }
         .crop-card-section {
           flex: 1 1 45%;
           min-width: 200px;
         }
+        /* ===== NEW: Plant Image Styling ===== */
+        .crop-card-plant-image {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 90px;
+          height: 90px;
+          border-radius: 12px;
+          object-fit: cover;
+          border: 3px solid #d0ede1;
+          box-shadow: 0 2px 8px rgba(34,74,66,0.15);
+        }
         @media (max-width: 640px) {
           .crop-card-section {
             flex: 1 1 100%;
+          }
+          /* ===== NEW: Smaller image on mobile ===== */
+          .crop-card-plant-image {
+            width: 70px;
+            height: 70px;
           }
         }
       `}</style>
@@ -192,6 +224,19 @@ export default function CropCard({ cropName, version = "sow" }) {
       </div>
       {/* Two columns for sections */}
       <div className="crop-card-sections">
+        {/* ===== NEW: Plant Image in Upper Right Corner ===== */}
+        {plantImage && (
+          <img 
+            src={`./images/${plantImage}`}
+            alt={cropName}
+            className="crop-card-plant-image"
+            onError={(e) => {
+              // Hide image if it fails to load
+              e.target.style.display = 'none';
+            }}
+          />
+        )}
+        
         {renderSections(leftSections)}
         {renderSections(rightSections)}
       </div>
