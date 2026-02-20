@@ -23,7 +23,7 @@ function getIconForLabel(label) {
 // Define which sections are allowed per version
 const VERSION_SECTIONS = {
   sow: ["Basics", "Sowing"],  // Sow version: Basics + Sowing + Buy Now
-  grow: ["Growth", "Care"]     // Grow version: Growth + Care + Buy Now
+  grow: ["Basics", "Care"]     // Grow version: Growth + Care + Buy Now
 };
 
 // Accepts new nested data structure as cropData
