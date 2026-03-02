@@ -49,12 +49,6 @@ export default function CropCard({ cropName, version = "sow" }) {
     delete displayData.Image;
   }
 
-  // DEBUG: Remove or keep as needed
-  // console.log("🌸 Crop Name:", cropName);
-  // console.log("🖼️ Plant Image:", plantImage);
-  // console.log("📁 Full Path:", `./images/${plantImage}`);
-  // console.log("📦 Display Data:", displayData);
-
   ["Link", "Links"].forEach(linkKey => {
     if (displayData[linkKey]) {
       const linkFields = Array.isArray(displayData[linkKey]) ? displayData[linkKey] : [];
@@ -144,8 +138,8 @@ export default function CropCard({ cropName, version = "sow" }) {
     ));
   }
 
-  // ===== DEFAULT PLACEHOLDER IMAGE (put this file in public/images/) =====
-  const defaultImage = "flowers/default-flower.png"; // should be present in public/images/
+  // ===== DEFAULT PLACEHOLDER IMAGE (put this file in public/images/flowers/) =====
+  const defaultImage = "default-flower.png"; // should be present in public/images/flowers/
 
   return (
     <div className="crop-card">
@@ -170,6 +164,7 @@ export default function CropCard({ cropName, version = "sow" }) {
         .crop-card-header {
           display: flex;
           align-items: center;
+          justify-content: space-between; /* Make title and image go left/right */
           margin-bottom: 12px;
         }
         .crop-card-title {
@@ -179,21 +174,7 @@ export default function CropCard({ cropName, version = "sow" }) {
           letter-spacing: 0.5px;
           flex: 1;
         }
-        .crop-card-sections {
-          display: flex;
-          gap: 1.5rem;
-          flex-wrap: wrap;
-          position: relative;
-          padding-right: 110px; /* Added: clear image area */
-        }
-        .crop-card-section {
-          flex: 1 1 45%;
-          min-width: 200px;
-        }
         .crop-card-plant-image {
-          position: absolute;
-          top: 0;
-          right: 0;
           width: 90px;
           height: 90px;
           border-radius: 12px;
@@ -201,17 +182,30 @@ export default function CropCard({ cropName, version = "sow" }) {
           border: 3px solid #d0ede1;
           box-shadow: 0 2px 8px rgba(34,74,66,0.15);
           background: #fff;
+          margin-left: 18px;   /* Space from the crop name */
+        }
+        .crop-card-sections {
+          display: flex;
+          gap: 1.5rem;
+          flex-wrap: wrap;
+          position: relative;
+          padding-right: 0; /* Reset: no need for space on right */
+          padding-top: 0;   /* Reset: no need for space above */
+        }
+        .crop-card-section {
+          flex: 1 1 45%;
+          min-width: 200px;
         }
         @media (max-width: 640px) {
-          .crop-card-section {
-            flex: 1 1 100%;
-          }
-          .crop-card-sections {
-            padding-right: 0;
+          .crop-card-header {
+            flex-direction: column;
+            align-items: flex-start;
           }
           .crop-card-plant-image {
             width: 70px;
             height: 70px;
+            margin-left: 0;
+            margin-top: 8px;
           }
         }
       `}</style>
@@ -219,23 +213,22 @@ export default function CropCard({ cropName, version = "sow" }) {
       <div className="crop-card-header">
         <span style={{ fontSize: "1.7rem", marginRight: 10 }}>🌱</span>
         <span className="crop-card-title">{styleCropName(cropName)}</span>
+        <img
+          src={plantImage
+            ? `images/flowers/${plantImage}`
+            : `images/flowers/default-flower.png`}
+          alt={cropName}
+          className="crop-card-plant-image"
+          onError={e => {
+            if (!e.target.src.endsWith("default-flower.png")) {
+              e.target.onerror = null;
+              e.target.src = "images/flowers/default-flower.png";
+            }
+          }}
+        />
       </div>
-      {/* ===== Plant Image in Upper Right Corner ===== */}
+      {/* Info sections */}
       <div className="crop-card-sections">
-       <img
-  src={plantImage
-    ? `images/flowers/${plantImage}`
-    : `images/flowers/default-flower.png`}
-  alt={cropName}
-  className="crop-card-plant-image"
-  onError={(e) => {
-    // Prevent endless fallback loop:
-    if (!e.target.src.endsWith("default-flower.png")) {
-      e.target.onerror = null;
-      e.target.src = "images/flowers/default-flower.png";
-    }
-  }}
-/>
         {renderSections(leftSections)}
         {renderSections(rightSections)}
       </div>
