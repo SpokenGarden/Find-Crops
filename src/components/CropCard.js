@@ -125,8 +125,8 @@ export default function CropCard({ cropName, version = "sow" }) {
           listStyle: "none"
         }}>
           {Array.isArray(fields) &&
-            fields.map(({ label, value }) => (
-              <li key={label} style={{ marginBottom: 6, display: "flex", alignItems: "center" }}>
+            fields.map(({ label, value }, idx) => (
+              <li key={`${label}-${value}-${idx}`} style={{ marginBottom: 6, display: "flex", alignItems: "center" }}>
                 <span style={{ fontSize: "1.1em", marginRight: 7 }}>{getIconForLabel(label)}</span>
                 <span style={{
                   fontWeight: 600,
@@ -145,7 +145,7 @@ export default function CropCard({ cropName, version = "sow" }) {
   }
 
   // ===== DEFAULT PLACEHOLDER IMAGE (put this file in public/images/) =====
-  const defaultImage = "default-flower.png"; // should be present in public/images/
+  const defaultImage = "flowers/default-flower.png"; // should be present in public/images/
 
   return (
     <div className="crop-card">
@@ -222,16 +222,20 @@ export default function CropCard({ cropName, version = "sow" }) {
       </div>
       {/* ===== Plant Image in Upper Right Corner ===== */}
       <div className="crop-card-sections">
-        <img 
-          src={plantImage ? `images/${plantImage}` : `images/${defaultImage}`}
-          alt={cropName}
-          className="crop-card-plant-image"
-          onError={(e) => {
-            // Use default image if crop's image fails
-            e.target.onerror = null;
-            e.target.src = `images/${defaultImage}`;
-          }}
-        />
+       <img
+  src={plantImage
+    ? `images/flowers/${plantImage}`
+    : `images/flowers/default-flower.png`}
+  alt={cropName}
+  className="crop-card-plant-image"
+  onError={(e) => {
+    // Prevent endless fallback loop:
+    if (!e.target.src.endsWith("default-flower.png")) {
+      e.target.onerror = null;
+      e.target.src = "images/flowers/default-flower.png";
+    }
+  }}
+/>
         {renderSections(leftSections)}
         {renderSections(rightSections)}
       </div>
