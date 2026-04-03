@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { filterCrops } from "./utils/filterCrops";
 import { buildSowingCalendar } from "./utils/sowingCalendar";
 import CropCard from "./components/CropCard";
@@ -166,7 +166,13 @@ const responsiveStyles = `
     }
   }
   
-  @media (min-width: 760px) {
+  .gp-mode-selector { width: 100%; max-width: 360px; margin: 0 auto 0.8rem auto; text-align: center; }
+  .gp-mode-selector h1 { font-size: 1.25rem; margin-bottom: 0.5rem; color: #2d6a4f; }
+  .gp-mode-selector-subtitle { font-size: 0.85rem; font-weight: 400; color: #4a6b5a; }
+  .gp-mode-btn-row { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.5rem; }
+  .gp-mode-btn { padding: 0.5rem 1.2rem; font-size: 0.9rem; border: 2px solid #2d6a4f; border-radius: 8px; cursor: pointer; font-weight: 700; transition: all 0.2s; }
+  .gp-mode-btn-active { background: #2d6a4f; color: white; }
+  .gp-mode-btn-inactive { background: #e9ecef; color: #2d6a4f; }
     .gp-form-col { padding: 1rem 1.2rem; }
     .gp-group-list { max-width: 720px; }
   }
@@ -265,7 +271,8 @@ useEffect(() => {
       category: "all",
       sunRequirement: "all",
       waterNeed: "all",
-      soilPreference: "all"
+      soilPreference: "all",
+      mode: appVersion
     });
 
     const filtered = matches.map((crop) => [crop.name, crop._raw || crop]);
@@ -292,7 +299,8 @@ useEffect(() => {
         category,
         sunRequirement,
         waterNeed,
-        soilPreference
+        soilPreference,
+        mode: appVersion
       });
 
       const filtered = matches.map((crop) => [crop.name, crop._raw || crop]);
@@ -305,6 +313,18 @@ useEffect(() => {
       setExpandedGroups({ flower: false, vegetable: false, herb: false, bulb: false });
     }, 150);
   };
+
+// Re-run search whenever the user switches Sow/Grow mode
+const isModeFirstRender = useRef(true);
+useEffect(() => {
+  if (isModeFirstRender.current) {
+    isModeFirstRender.current = false;
+    return;
+  }
+  if (cropData) {
+    handleSearch();
+  }
+}, [appVersion]);
 
   const toggleGroup = (group) => {
     setExpandedGroups((prev) => ({
@@ -489,7 +509,46 @@ useEffect(() => {
           </a>
         </div>
 
-        <div className="gp-flex-center">
+        <div className="gp-flex-center" style={{ flexDirection: "column", alignItems: "center" }}>
+
+          {/* ===== SOW / GROW MODE SELECTOR — OUTSIDE & ABOVE THE CARD ===== */}
+          <div className="gp-mode-selector">
+            <h1 className="gp-mode-selector" style={{ fontSize: "1.25rem", marginBottom: "0.3rem", color: "#2d6a4f" }}>
+              🌱 Starting Seeds or Caring for Plants?
+              <br />
+              <span className="gp-mode-selector-subtitle">
+                Search by plant name or category below!
+              </span>
+              {/* Version badge */}
+              <span className={`gp-version-badge ${appVersion === "sow" ? "gp-version-lite" : "gp-version-full"}`}>
+                {appVersion === "sow" ? "Sow" : "Grow"}
+              </span>
+            </h1>
+
+            {/* Mode toggle buttons */}
+            <div className="gp-mode-btn-row">
+              <button
+                type="button"
+                className={`gp-mode-btn ${appVersion === "sow" ? "gp-mode-btn-active" : "gp-mode-btn-inactive"}`}
+                onClick={() => setAppVersion("sow")}
+                aria-pressed={appVersion === "sow"}
+              >
+                Sow
+              </button>
+              <span style={{ color: "#666", fontSize: "0.85rem", fontWeight: 500, padding: "0 0.2rem" }}>
+                or
+              </span>
+              <button
+                type="button"
+                className={`gp-mode-btn ${appVersion === "grow" ? "gp-mode-btn-active" : "gp-mode-btn-inactive"}`}
+                onClick={() => setAppVersion("grow")}
+                aria-pressed={appVersion === "grow"}
+              >
+                Grow
+              </button>
+            </div>
+          </div>
+
           <form
             className="gp-form-col"
             role="region"
@@ -499,73 +558,6 @@ useEffect(() => {
               handleSearch();
             }}
           >
-            <h1 style={{ fontSize: "1.25rem", marginBottom: "0.6rem", color: "#2d6a4f", textAlign: "center" }}>
-              🌱 Starting Seeds or Caring for Plants?
-  <br />
-  <span style={{ fontSize: "0.85rem", fontWeight: "400", color: "#4a6b5a" }}>
-    Search by plant name or category below!
-  </span>
-              {/* ===== VERSION BADGE ===== */}
-              <span className={`gp-version-badge ${appVersion === "sow" ? "gp-version-lite" : "gp-version-full"}`}>
-                {appVersion === "sow" ? "Sow" : "Grow"}
-              </span>
-            </h1>
-
-            {/* ===== TWO BUTTON VERSION TOGGLE ===== */}
-            <div style={{ 
-              marginBottom: "1rem", 
-              textAlign: "center",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "0.5rem"
-            }}>
-              <button
-                type="button"
-                onClick={() => setAppVersion("sow")}
-                style={{
-                  padding: "0.5rem 1.2rem",
-                  fontSize: "0.9rem",
-                  backgroundColor: appVersion === "sow" ? "#2d6a4f" : "#e9ecef",
-                  color: appVersion === "sow" ? "white" : "#2d6a4f",
-                  border: `2px solid ${appVersion === "sow" ? "#2d6a4f" : "#2d6a4f"}`,
-                  borderRadius: "8px",
-                  cursor: "pointer",
-                  fontWeight: 700,
-                  transition: "all 0.2s"
-                }}
-              >
-                Sow
-              </button>
-              
-              <span style={{ 
-                color: "#666", 
-                fontSize: "0.85rem",
-                fontWeight: 500,
-                padding: "0 0.2rem"
-              }}>
-                or
-              </span>
-              
-              <button
-                type="button"
-                onClick={() => setAppVersion("grow")}
-                style={{
-                  padding: "0.5rem 1.2rem",
-                  fontSize: "0.9rem",
-                  backgroundColor: appVersion === "grow" ? "#2d6a4f" : "#e9ecef",
-                  color: appVersion === "grow" ? "white" : "#2d6a4f",
-                  border: `2px solid ${appVersion === "grow" ? "#2d6a4f" : "#2d6a4f"}`,
-                  borderRadius: "8px",
-                  cursor: "pointer",
-                  fontWeight: 700,
-                  transition: "all 0.2s"
-                }}
-              >
-                Grow
-              </button>
-            </div>
-
             {/* Plant Name Search */}
             <label className="gp-label">
               Plant Name Search:
