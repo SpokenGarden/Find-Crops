@@ -2,7 +2,7 @@ import React from "react";
 
 const BackHomeButton = ({ onClick, style = {} }) => (
   <button
-    onClick={onClick}
+    onClick={onClick || (() => (window.location.href = "https://www.spokengarden.com"))}
     style={{
       display: "inline-block",
       background: "#b7e4c7",

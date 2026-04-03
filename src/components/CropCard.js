@@ -18,8 +18,13 @@ function getIconForLabel(label) {
   return icons[label] || "🔹";
 }
 
-// Accepts new nested data structure as cropData
-export default function CropCard({ cropName }) {
+// ===== VERSION CONTROL =====
+const VERSION_SECTIONS = {
+  sow: ["Basics", "Sowing"],  // Sow version: Basics + Sowing + Buy Now
+  grow: ["Basics", "Care"]     // Grow version: Growth + Care + Buy Now
+};
+
+export default function CropCard({ cropName, version = "sow" }) {
   const [expanded, setExpanded] = useState(false);
   const { cropData, loading, error } = useCropData();
 
@@ -27,9 +32,29 @@ export default function CropCard({ cropName }) {
   if (error) return <div className="crop-card">Error loading crop data: {error.message}</div>;
   if (!cropData || !cropData[cropName]) return <div className="crop-card">No data available for this crop.</div>;
 
-  // Use the cropData for the specific crop
   let displayData = { ...cropData[cropName] };
   let buyNowUrl = "";
+  let plantImage = ""; // ===== Variable to store plant image =====
+
+  // ===== Extract plant image from data =====
+  if (displayData.Image && Array.isArray(displayData.Image)) {
+    const imageField = displayData.Image.find(
+      (field) =>
+        typeof field.label === "string" &&
+        field.label.trim().toLowerCase() === "photo"
+    );
+    if (imageField && imageField.value) {
+      plantImage = imageField.value.trim();
+    }
+    delete displayData.Image;
+  }
+
+  // DEBUG: Remove or keep as needed
+  // console.log("🌸 Crop Name:", cropName);
+  // console.log("🖼️ Plant Image:", plantImage);
+  // console.log("📁 Full Path:", `./images/${plantImage}`);
+  // console.log("📦 Display Data:", displayData);
+
   ["Link", "Links"].forEach(linkKey => {
     if (displayData[linkKey]) {
       const linkFields = Array.isArray(displayData[linkKey]) ? displayData[linkKey] : [];
@@ -45,10 +70,9 @@ export default function CropCard({ cropName }) {
     }
   });
 
-  // Style cropName for italicizing text in parentheses
   const styleCropName = (name) => {
     const match = name.match(/^(.+?)\s\((.+?)\)$/);
-    if (!match) return name; // If no parentheses, return name as-is
+    if (!match) return name;
     const mainName = match[1];
     const italicText = match[2];
     return (
@@ -58,31 +82,31 @@ export default function CropCard({ cropName }) {
     );
   };
 
-  // Section order: prefer showing Basics, Sowing, Growth, Harvest, Care, then others
+  const allowedSections = VERSION_SECTIONS[version] || VERSION_SECTIONS.sow;
+
   const preferredOrder = ["Basics", "Sowing", "Growth", "Harvest", "Care"];
   const allSections = Object.keys(displayData);
+
   const sortedSectionEntries = [
     ...preferredOrder
+      .filter(section => allowedSections.includes(section))
       .map(section => [section, displayData[section]])
       .filter(([section, data]) => Array.isArray(data) && data.length > 0),
     ...allSections
-      .filter(section => !preferredOrder.includes(section))
+      .filter(section => !preferredOrder.includes(section) && allowedSections.includes(section))
       .map(section => [section, displayData[section]])
       .filter(([section, data]) => Array.isArray(data) && data.length > 0)
   ];
 
-  // Collapse logic: show first 2 sections in collapsed mode, all when expanded
-  const defaultSectionsToShow = 2;
+  const defaultSectionsToShow = version === "sow" ? sortedSectionEntries.length : 2;
   const visibleSectionEntries = expanded
     ? sortedSectionEntries
     : sortedSectionEntries.slice(0, defaultSectionsToShow);
 
-  // Split sections for two-column layout
   const mid = Math.ceil(visibleSectionEntries.length / 2);
   const leftSections = visibleSectionEntries.slice(0, mid);
   const rightSections = visibleSectionEntries.slice(mid);
 
-  // Render all sections dynamically
   function renderSections(sections) {
     return sections.map(([section, fields]) => (
       <div key={section} className="crop-card-section">
@@ -101,12 +125,12 @@ export default function CropCard({ cropName }) {
           listStyle: "none"
         }}>
           {Array.isArray(fields) &&
-            fields.map(({ label, value }) => (
-              <li key={label} style={{ marginBottom: 6, display: "flex", alignItems: "center" }}>
+            fields.map(({ label, value }, idx) => (
+              <li key={`${label}-${value}-${idx}`} style={{ marginBottom: 6, display: "flex", alignItems: "center" }}>
                 <span style={{ fontSize: "1.1em", marginRight: 7 }}>{getIconForLabel(label)}</span>
                 <span style={{
                   fontWeight: 600,
-                  fontSize: "1.23rem",
+                  fontSize: "1rem",
                   letterSpacing: 0.5,
                   flex: 1
                 }}>
@@ -119,6 +143,9 @@ export default function CropCard({ cropName }) {
       </div>
     ));
   }
+
+  // ===== DEFAULT PLACEHOLDER IMAGE (put this file in public/images/) =====
+  const defaultImage = "flowers/default-flower.png"; // should be present in public/images/
 
   return (
     <div className="crop-card">
@@ -140,19 +167,80 @@ export default function CropCard({ cropName }) {
           box-sizing: border-box;
           overflow: visible;
         }
+        .crop-card-header {
+          display: flex;
+          align-items: center;
+          margin-bottom: 12px;
+        }
+        .crop-card-title {
+          color: #155943;
+          font-weight: 700;
+          font-size: 1.13rem;
+          letter-spacing: 0.5px;
+          flex: 1;
+        }
+        .crop-card-sections {
+          display: flex;
+          gap: 1.5rem;
+          flex-wrap: wrap;
+          position: relative;
+          padding-right: 110px; /* Added: clear image area */
+        }
+        .crop-card-section {
+          flex: 1 1 45%;
+          min-width: 200px;
+        }
+        .crop-card-plant-image {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 90px;
+          height: 90px;
+          border-radius: 12px;
+          object-fit: cover;
+          border: 3px solid #d0ede1;
+          box-shadow: 0 2px 8px rgba(34,74,66,0.15);
+          background: #fff;
+        }
+        @media (max-width: 640px) {
+          .crop-card-section {
+            flex: 1 1 100%;
+          }
+          .crop-card-sections {
+            padding-right: 0;
+          }
+          .crop-card-plant-image {
+            width: 70px;
+            height: 70px;
+          }
+        }
       `}</style>
       {/* Card header */}
       <div className="crop-card-header">
         <span style={{ fontSize: "1.7rem", marginRight: 10 }}>🌱</span>
         <span className="crop-card-title">{styleCropName(cropName)}</span>
       </div>
-      {/* Two columns for sections */}
+      {/* ===== Plant Image in Upper Right Corner ===== */}
       <div className="crop-card-sections">
+       <img
+  src={plantImage
+    ? `images/flowers/${plantImage}`
+    : `images/flowers/default-flower.png`}
+  alt={cropName}
+  className="crop-card-plant-image"
+  onError={(e) => {
+    // Prevent endless fallback loop:
+    if (!e.target.src.endsWith("default-flower.png")) {
+      e.target.onerror = null;
+      e.target.src = "images/flowers/default-flower.png";
+    }
+  }}
+/>
         {renderSections(leftSections)}
         {renderSections(rightSections)}
       </div>
-      {/* Expand/Collapse Button */}
-      {sortedSectionEntries.length > defaultSectionsToShow && (
+      {/* Only show Expand/Collapse Button in grow version if there are more sections */}
+      {version === "grow" && sortedSectionEntries.length > defaultSectionsToShow && (
         <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 4 }}>
           <button
             onClick={() => setExpanded(v => !v)}
@@ -177,7 +265,7 @@ export default function CropCard({ cropName }) {
           </button>
         </div>
       )}
-      {/* Buy Now button if exists */}
+      {/* Buy Now button */}
       {buyNowUrl && (
         <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 8 }}>
           <a
