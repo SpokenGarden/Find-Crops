@@ -314,7 +314,9 @@ useEffect(() => {
     }, 150);
   };
 
-// Re-run search whenever the user switches Sow/Grow mode
+// Re-run search whenever the user switches Sow/Grow mode.
+// deps intentionally limited to [appVersion]: handleSearch closes over latest state
+// values at call-time; cropData is guarded inside; adding either would cause spurious runs.
 const isModeFirstRender = useRef(true);
 useEffect(() => {
   if (isModeFirstRender.current) {
@@ -513,7 +515,7 @@ useEffect(() => {
 
           {/* ===== SOW / GROW MODE SELECTOR — OUTSIDE & ABOVE THE CARD ===== */}
           <div className="gp-mode-selector">
-            <h1 className="gp-mode-selector" style={{ fontSize: "1.25rem", marginBottom: "0.3rem", color: "#2d6a4f" }}>
+            <h1>
               🌱 Starting Seeds or Caring for Plants?
               <br />
               <span className="gp-mode-selector-subtitle">
