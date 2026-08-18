@@ -40,6 +40,7 @@ function getIconForLabel(label) {
     Water: "💧",
     Soil: "🪨",
     "Hardy Zones": "🗺️",
+    "Hardiness Zones": "🗺️",
     "Days to Harvest": "🗓️",
     "Days to Maturity or Harvest": "🗓️",
     "Days to Germination": "⏳",
@@ -54,6 +55,12 @@ function getIconForLabel(label) {
   };
   return icons[label] || "🔹";
 }
+
+const LABEL_DISPLAY_MAP = {
+  "Hardy Zones": "Hardiness Zones",
+};
+
+const BASICS_HIDDEN_LABELS = new Set(["Type"]);
 
 function getCardId(cropName) {
   return `crop-card-${cropName.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
@@ -102,7 +109,7 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated }) {
   const cardId = useMemo(() => getCardId(cropName), [cropName]);
   const sessionKey = `${CARD_STATE_KEY}:${version}:${cropName}`;
   const [secondaryExpanded, setSecondaryExpanded] = useState(() =>
-    getStoredValue(sessionKey, true, "sessionStorage")
+    getStoredValue(sessionKey, false, "sessionStorage")
   );
   const lastSessionKeyRef = useRef(sessionKey);
   const [isFavorite, setIsFavorite] = useState(() => {
@@ -114,7 +121,7 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated }) {
   useEffect(() => {
     if (lastSessionKeyRef.current !== sessionKey) {
       lastSessionKeyRef.current = sessionKey;
-      setSecondaryExpanded(getStoredValue(sessionKey, true, "sessionStorage"));
+      setSecondaryExpanded(getStoredValue(sessionKey, false, "sessionStorage"));
       return;
     }
     setStoredValue(sessionKey, secondaryExpanded, "sessionStorage");
@@ -233,19 +240,24 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated }) {
     );
   };
 
-  const renderFieldList = (fields) => (
+  const renderFieldList = (fields, hiddenLabels = null) => (
     <ul className="crop-card-field-list">
-      {fields.map(({ label, value }, idx) => (
-        <li key={`${label}-${value}-${idx}`} className="crop-card-field-item">
-          <span className="crop-card-field-icon" aria-hidden="true">
-            {getIconForLabel(label)}
-          </span>
-          <span className="crop-card-field-copy">
-            <span className="crop-card-field-label">{label}</span>
-            <span className="crop-card-field-value">{value}</span>
-          </span>
-        </li>
-      ))}
+      {fields
+        .filter(({ label }) => !hiddenLabels || !hiddenLabels.has(label))
+        .map(({ label, value }, idx) => {
+          const displayLabel = LABEL_DISPLAY_MAP[label] || label;
+          return (
+            <li key={`${label}-${value}-${idx}`} className="crop-card-field-item">
+              <span className="crop-card-field-icon" aria-hidden="true">
+                {getIconForLabel(displayLabel)}
+              </span>
+              <span className="crop-card-field-copy">
+                <span className="crop-card-field-label">{displayLabel}</span>
+                <span className="crop-card-field-value">{value}</span>
+              </span>
+            </li>
+          );
+        })}
     </ul>
   );
 
@@ -505,11 +517,11 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated }) {
         .crop-card-buy-link {
           background: ${version === "grow" ? "#1f7a47" : "#228B22"};
           color: #fff;
-          padding: 0.7em 1.15em;
+          padding: 0.5em 0.85em;
           border-radius: 12px;
           border: none;
           font-weight: 800;
-          font-size: 0.94rem;
+          font-size: 0.88rem;
           text-decoration: none;
           box-shadow: 0 2px 6px rgba(34,74,66,0.08);
           transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -617,7 +629,7 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated }) {
           {basicsFields.length > 0 && (
             <section className="crop-card-section" aria-label="Basics">
               {renderSectionHeader("Basics")}
-              {renderFieldList(basicsFields)}
+              {renderFieldList(basicsFields, BASICS_HIDDEN_LABELS)}
             </section>
           )}
 
