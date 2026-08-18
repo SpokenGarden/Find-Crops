@@ -179,39 +179,53 @@ export default function CropCard({ cropName, version = "sow" }) {
           letter-spacing: 0.5px;
           flex: 1;
         }
+        .crop-card-top {
+          display: flex;
+          gap: 1rem;
+          align-items: flex-start;
+          margin-bottom: 0.8rem;
+        }
+        .crop-card-plant-image {
+          width: 180px;
+          height: 180px;
+          flex-shrink: 0;
+          border-radius: 14px;
+          object-fit: cover;
+          border: 3px solid #d0ede1;
+          box-shadow: 0 2px 10px rgba(34,74,66,0.18);
+          background: #fff;
+        }
         .crop-card-sections {
           display: flex;
-          gap: 1.5rem;
+          gap: 0.75rem;
           flex-wrap: wrap;
-          position: relative;
-          padding-right: 110px; /* Added: clear image area */
+          flex: 1;
+          min-width: 0;
         }
         .crop-card-section {
           flex: 1 1 45%;
-          min-width: 200px;
-        }
-        .crop-card-plant-image {
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 90px;
-          height: 90px;
+          min-width: 160px;
+          background: rgba(255,255,255,0.72);
+          border: 1px solid #c4e8d4;
           border-radius: 12px;
-          object-fit: cover;
-          border: 3px solid #d0ede1;
-          box-shadow: 0 2px 8px rgba(34,74,66,0.15);
-          background: #fff;
+          padding: 0.7rem 0.9rem;
+          box-shadow: 0 1px 4px rgba(34,74,66,0.06);
         }
         @media (max-width: 640px) {
-          .crop-card-section {
-            flex: 1 1 100%;
-          }
-          .crop-card-sections {
-            padding-right: 0;
+          .crop-card-top {
+            flex-direction: column;
+            align-items: center;
           }
           .crop-card-plant-image {
-            width: 70px;
-            height: 70px;
+            width: 160px;
+            height: 160px;
+            align-self: center;
+          }
+          .crop-card-sections {
+            width: 100%;
+          }
+          .crop-card-section {
+            flex: 1 1 100%;
           }
         }
       `}</style>
@@ -220,24 +234,25 @@ export default function CropCard({ cropName, version = "sow" }) {
         <span style={{ fontSize: "1.7rem", marginRight: 10 }}>🌱</span>
         <span className="crop-card-title">{styleCropName(cropName)}</span>
       </div>
-      {/* ===== Plant Image in Upper Right Corner ===== */}
-      <div className="crop-card-sections">
-       <img
-  src={plantImage
-    ? `images/flowers/${plantImage}`
-    : `images/flowers/default-flower.png`}
-  alt={cropName}
-  className="crop-card-plant-image"
-  onError={(e) => {
-    // Prevent endless fallback loop:
-    if (!e.target.src.endsWith("default-flower.png")) {
-      e.target.onerror = null;
-      e.target.src = "images/flowers/default-flower.png";
-    }
-  }}
-/>
-        {renderSections(leftSections)}
-        {renderSections(rightSections)}
+      {/* Plant image + info sections side by side on desktop, stacked on mobile */}
+      <div className="crop-card-top">
+        <img
+          src={plantImage
+            ? `images/flowers/${plantImage}`
+            : `images/flowers/default-flower.png`}
+          alt={cropName}
+          className="crop-card-plant-image"
+          onError={(e) => {
+            if (!e.target.src.endsWith("default-flower.png")) {
+              e.target.onerror = null;
+              e.target.src = "images/flowers/default-flower.png";
+            }
+          }}
+        />
+        <div className="crop-card-sections">
+          {renderSections(leftSections)}
+          {renderSections(rightSections)}
+        </div>
       </div>
       {/* Only show Expand/Collapse Button in grow version if there are more sections */}
       {version === "grow" && sortedSectionEntries.length > defaultSectionsToShow && (
