@@ -174,6 +174,7 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated }) {
   });
 
   const basicsFields = Array.isArray(displayData.Basics) ? displayData.Basics : [];
+  const visibleBasicsFields = basicsFields.filter(({ label }) => !BASICS_HIDDEN_LABELS.has(label));
   const secondaryGroups =
     version === "grow"
       ? ["Growth", "Harvest", "Care"]
@@ -240,11 +241,9 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated }) {
     );
   };
 
-  const renderFieldList = (fields, hiddenLabels = null) => (
+  const renderFieldList = (fields) => (
     <ul className="crop-card-field-list">
-      {fields
-        .filter(({ label }) => !hiddenLabels || !hiddenLabels.has(label))
-        .map(({ label, value }, idx) => {
+      {fields.map(({ label, value }, idx) => {
           const displayLabel = LABEL_DISPLAY_MAP[label] || label;
           return (
             <li key={`${label}-${value}-${idx}`} className="crop-card-field-item">
@@ -626,10 +625,10 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated }) {
         </div>
 
         <div className="crop-card-body">
-          {basicsFields.length > 0 && (
+          {visibleBasicsFields.length > 0 && (
             <section className="crop-card-section" aria-label="Basics">
               {renderSectionHeader("Basics")}
-              {renderFieldList(basicsFields, BASICS_HIDDEN_LABELS)}
+              {renderFieldList(visibleBasicsFields)}
             </section>
           )}
 
