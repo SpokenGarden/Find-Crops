@@ -18,6 +18,7 @@ export function useCropData() {
   const [cropData, setCropData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [lastUpdated, setLastUpdated] = useState(null);
 
   useEffect(() => {
     let mounted = true;
@@ -34,6 +35,17 @@ export function useCropData() {
           }
         }
 
+        const lastModifiedDates = responses
+          .map((response) => response.headers.get("last-modified"))
+          .filter(Boolean)
+          .map((value) => new Date(value))
+          .filter((date) => !Number.isNaN(date.getTime()));
+
+        const freshestLastModified =
+          lastModifiedDates.length > 0
+            ? new Date(Math.max(...lastModifiedDates.map((date) => date.getTime()))).toISOString()
+            : null;
+
         const jsons = await Promise.all(responses.map((r) => r.json()));
 
         // Merge objects into one map: all files should be objects { cropName: cropData }
@@ -41,6 +53,7 @@ export function useCropData() {
 
         if (mounted) {
           setCropData(merged);
+          setLastUpdated(freshestLastModified);
           setLoading(false);
         }
       } catch (e) {
@@ -55,5 +68,5 @@ export function useCropData() {
     return () => { mounted = false; };
   }, []);
 
-  return { cropData, loading, error };
+  return { cropData, loading, error, lastUpdated };
 }
