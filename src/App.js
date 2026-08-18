@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { filterCrops } from "./utils/filterCrops";
 import { buildSowingCalendar } from "./utils/sowingCalendar";
 import CropCard from "./components/CropCard";
@@ -55,7 +55,30 @@ const responsiveStyles = `
   .gp-group-header:focus { outline: 3px solid rgba(45,106,79,0.15); }
   .gp-group-list { list-style: none; padding-left: 0; margin-top: 0.6rem; margin-left: auto; margin-right: auto; width: 100%; max-width: 720px; box-sizing: border-box; }
   .gp-group-item { margin: 0.6rem 0; }
-  .gp-empty { text-align:center; color:#9aa5a0; margin-top:1.5rem; }
+  .gp-empty {
+    max-width: 540px;
+    margin: 1.5rem auto 0;
+    padding: 1rem 1.1rem;
+    text-align: center;
+    color: #466757;
+    background: #f6fbf7;
+    border: 1px solid #dbeeda;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(17,24,39,0.04);
+  }
+  .gp-empty h3 { margin: 0 0 0.35rem 0; color: #2d6a4f; font-size: 1rem; }
+  .gp-empty p { margin: 0; font-size: 0.95rem; line-height: 1.5; }
+  .gp-empty-actions { display: flex; justify-content: center; gap: 0.65rem; flex-wrap: wrap; margin-top: 0.85rem; }
+  .gp-empty-btn {
+    border: 1px solid #bddfcd;
+    background: #ffffff;
+    color: #245a45;
+    border-radius: 999px;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
   .gp-version-badge { display: inline-block; padding: 0.3rem 0.7rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700; margin-left: 0.5rem; vertical-align: middle; }
   .gp-version-lite { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
   .gp-version-full { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
@@ -137,7 +160,7 @@ const responsiveStyles = `
   flex: 1 1 0;
   width: 50%;
   padding: 0.85rem 0.75rem;       /* bigger click area */
-  font-size: 1.1rem;             /* ~same as your h1 size */
+  font-size: 1.02rem;             /* ~same as your h1 size */
   line-height: 1.1;
   border-radius: 12px;
   cursor: pointer;
@@ -145,6 +168,11 @@ const responsiveStyles = `
   border: 2px solid #2d6a4f;
   transition: transform 0.06s ease, background 0.2s ease, color 0.2s ease;
   border-width: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  align-items: flex-start;
+  text-align: left;
 }
 
 /* Remove the "or" gap effect; let the container handle separation */
@@ -160,6 +188,54 @@ const responsiveStyles = `
 .gp-mode-btn-inactive {
   background: rgba(45, 106, 79, 0.06);
   color: #2d6a4f;
+}
+.gp-mode-btn-title { font-size: 1rem; }
+.gp-mode-btn-copy { font-size: 0.74rem; font-weight: 700; opacity: 0.9; }
+.gp-loading-grid {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+.gp-loading-card {
+  background: linear-gradient(135deg, #f3fcf7 0%, #e6f9ee 100%);
+  border-radius: 22px;
+  border: 1px solid #d0ede1;
+  padding: 1rem;
+  box-shadow: 0 4px 16px rgba(34,74,66,0.08);
+}
+.gp-loading-card-top {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.gp-loading-media,
+.gp-loading-line {
+  position: relative;
+  overflow: hidden;
+  background: #dfeee4;
+}
+.gp-loading-media::after,
+.gp-loading-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+  animation: gpShimmer 1.3s infinite;
+}
+.gp-loading-media {
+  width: 182px;
+  flex: 0 0 182px;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+}
+.gp-loading-lines { flex: 1; display: grid; gap: 0.7rem; }
+.gp-loading-line { height: 14px; border-radius: 999px; }
+.gp-loading-line-lg { height: 20px; width: 60%; }
+.gp-loading-line-md { width: 82%; }
+.gp-loading-line-sm { width: 48%; }
+@keyframes gpShimmer {
+  100% { transform: translateX(100%); }
 }
 
 @media (min-width: 760px) {
@@ -188,6 +264,15 @@ const responsiveStyles = `
   .gp-mode-panel {
     padding: 0.9rem 0.85rem;
     border-radius: 14px;
+  }
+  .gp-loading-card-top {
+    flex-direction: column;
+  }
+  .gp-loading-media {
+    width: 100%;
+    max-width: 240px;
+    flex-basis: auto;
+    align-self: center;
   }
 }
 /* ===== DIBBY BANNER STYLES (used inside modal) ===== */
@@ -257,6 +342,27 @@ const responsiveStyles = `
   background: #05b210;
 }
 `;
+
+function LoadingCards({ count = 3 }) {
+  return (
+    <div className="gp-loading-grid" aria-hidden="true">
+      {Array.from({ length: count }).map((_, index) => (
+        <div key={`skeleton-${index}`} className="gp-loading-card">
+          <div className="gp-loading-card-top">
+            <div className="gp-loading-media" />
+            <div className="gp-loading-lines">
+              <div className="gp-loading-line gp-loading-line-lg" />
+              <div className="gp-loading-line gp-loading-line-md" />
+              <div className="gp-loading-line" />
+              <div className="gp-loading-line gp-loading-line-sm" />
+              <div className="gp-loading-line gp-loading-line-md" />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 // ===== UTILITY FUNCTIONS =====
 const getCropType = (cData) => {
@@ -335,6 +441,7 @@ export default function GardenPlannerApp() {
 
   // ===== DIBBY PROMO POPUP (once per week) =====
   const [showDibbyAd, setShowDibbyAd] = useState(false);
+  const hasInitializedResults = useRef(false);
 
 useEffect(() => {
   if (!isBrowser) return;
@@ -353,11 +460,19 @@ useEffect(() => {
 }, []);
 
   // Get crop data
-  const { cropData, loading: cropDataLoading, error: cropDataError } = useCropData();
+  const { cropData, loading: cropDataLoading, error: cropDataError, lastUpdated } = useCropData();
 
-// Auto-populate results when crop data loads for the first time
-useEffect(() => {
-  if (cropData && filteredCrops.length === 0) {
+  const runFilter = useCallback(({
+    cropNameValue = cropName,
+    zoneValue = zone,
+    categoryValue = category,
+    sunRequirementValue = sunRequirement,
+    waterNeedValue = waterNeed,
+    soilPreferenceValue = soilPreference,
+    modeValue = appVersion
+  } = {}) => {
+    if (!cropData) return [];
+
     const cropArray = Object.entries(cropData).map(([name, data]) => ({
       name,
       ...data,
@@ -365,52 +480,91 @@ useEffect(() => {
     }));
 
     const matches = filterCrops(cropArray, {
-      cropName: "",
-      zone: "",
-      category: "all",
-      sunRequirement: "all",
-      waterNeed: "all",
-      soilPreference: "all",
-      mode: appVersion
+      cropName: cropNameValue,
+      zone: zoneValue,
+      category: categoryValue,
+      sunRequirement: sunRequirementValue,
+      waterNeed: waterNeedValue,
+      soilPreference: soilPreferenceValue,
+      mode: modeValue
     });
 
-    const filtered = matches.map((crop) => [crop.name, crop._raw || crop]);
-    setFilteredCrops(filtered);
+    setFilteredCrops(matches.map((crop) => [crop.name, crop._raw || crop]));
     setSowingCalendar(buildSowingCalendar(matches));
+    setExpandedGroups({ flower: false, vegetable: false, herb: false, bulb: false });
+    return matches;
+  }, [
+    appVersion,
+    category,
+    cropData,
+    cropName,
+    setSowingCalendar,
+    soilPreference,
+    sunRequirement,
+    waterNeed,
+    zone
+  ]);
+
+// Auto-populate results when crop data loads for the first time
+useEffect(() => {
+  if (cropData && !hasInitializedResults.current) {
+    hasInitializedResults.current = true;
+    runFilter({
+      cropNameValue: "",
+      zoneValue: "",
+      categoryValue: "all",
+      sunRequirementValue: "all",
+      waterNeedValue: "all",
+      soilPreferenceValue: "all",
+      modeValue: appVersion
+    });
   }
-}, [cropData]); // Only run when cropData changes
+}, [cropData, runFilter]); // Only populate once when crop data arrives
   
   // ===== HANDLERS =====
   const handleSearch = () => {
     if (!cropData) return;
     setLoading(true);
+    const searchValues = {
+      cropNameValue: cropName,
+      zoneValue: zone,
+      categoryValue: category,
+      sunRequirementValue: sunRequirement,
+      waterNeedValue: waterNeed,
+      soilPreferenceValue: soilPreference,
+      modeValue: appVersion
+    };
 
     setTimeout(() => {
-      const cropArray = Object.entries(cropData).map(([name, data]) => ({
-        name,
-        ...data,
-        _raw: data
-      }));
-
-      const matches = filterCrops(cropArray, {
-        cropName,
-        zone,
-        category,
-        sunRequirement,
-        waterNeed,
-        soilPreference,
-        mode: appVersion
-      });
-
-      const filtered = matches.map((crop) => [crop.name, crop._raw || crop]);
-
-      setFilteredCrops(filtered);
-      setSowingCalendar(buildSowingCalendar(matches));
+      runFilter(searchValues);
       setLoading(false);
-
-      // Reset group expansion to all collapsed
-      setExpandedGroups({ flower: false, vegetable: false, herb: false, bulb: false });
     }, 150);
+  };
+
+  const clearFilters = () => {
+    setCropName("");
+    setZone("");
+    setCategory("all");
+    setFrostDate("");
+    setSunRequirement("all");
+    setWaterNeed("all");
+    setSoilPreference("all");
+    setShowAdvancedFilters(false);
+    if (cropData) {
+      setLoading(true);
+      window.setTimeout(() => {
+        runFilter({
+          cropNameValue: "",
+          zoneValue: "",
+          categoryValue: "all",
+          sunRequirementValue: "all",
+          waterNeedValue: "all",
+          soilPreferenceValue: "all",
+          modeValue: appVersion
+        });
+        setLoading(false);
+      }, 150);
+    }
   };
 
 // Re-run search whenever the user switches Sow/Grow mode.
@@ -549,9 +703,10 @@ useEffect(() => {
       return (
         <div className="gp-container">
           <style>{responsiveStyles}</style>
-          <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "2rem" }}>
-            Loading plant data...
+          <div style={{ color: "#5f7b6d", textAlign: "center", marginTop: "1.2rem", fontWeight: 700 }}>
+            Loading plant cards...
           </div>
+          <LoadingCards />
         </div>
       );
     }
@@ -679,7 +834,8 @@ useEffect(() => {
                 onClick={() => setAppVersion("sow")}
                 aria-pressed={appVersion === "sow"}
               >
-                Sow
+                <span className="gp-mode-btn-title">Sow Mode</span>
+                <span className="gp-mode-btn-copy">Seed-starting windows, depth, and spacing</span>
               </button>
               <span style={{ display: "none" }}>or</span>
               <button
@@ -688,7 +844,8 @@ useEffect(() => {
                 onClick={() => setAppVersion("grow")}
                 aria-pressed={appVersion === "grow"}
               >
-                Grow
+                <span className="gp-mode-btn-title">Grow Mode</span>
+                <span className="gp-mode-btn-copy">Growth, harvest, and care details</span>
               </button>
             </div>
           </div>
@@ -873,7 +1030,12 @@ useEffect(() => {
                         {groupedCrops[group].map(([cName, cData]) => (
                           <li key={cName} className="gp-group-item">
                             {/* ===== PASS VERSION PROP TO CROPCARD ===== */}
-                            <CropCard cropName={cName} cropData={cData} version={appVersion} />
+                            <CropCard
+                              cropName={cName}
+                              cropData={cData}
+                              version={appVersion}
+                              lastUpdated={lastUpdated}
+                            />
                           </li>
                         ))}
                       </ul>
@@ -884,15 +1046,35 @@ useEffect(() => {
             </div>
 
             {filteredCrops.length === 0 && (
-              <div className="gp-empty">No crops found for your search.</div>
+              <div className="gp-empty" role="status">
+                <h3>No plants matched those filters</h3>
+                <p>
+                  Try switching between Sow and Grow mode, clearing one filter, or using a broader plant name.
+                </p>
+                <div className="gp-empty-actions">
+                  <button type="button" className="gp-empty-btn" onClick={clearFilters}>
+                    Clear filters
+                  </button>
+                  <button
+                    type="button"
+                    className="gp-empty-btn"
+                    onClick={() => setShowAdvancedFilters((prev) => !prev)}
+                  >
+                    {showAdvancedFilters ? "Hide advanced filters" : "Adjust advanced filters"}
+                  </button>
+                </div>
+              </div>
             )}
           </>
         )}
 
         {loading && (
-          <div style={{ color: "#b7b7b7", textAlign: "center", marginTop: "1.5rem" }}>
-            Loading...
-          </div>
+          <>
+            <div style={{ color: "#5f7b6d", textAlign: "center", marginTop: "1.2rem", fontWeight: 700 }}>
+              Refreshing your plant matches...
+            </div>
+            <LoadingCards />
+          </>
         )}
       </div>
     );
