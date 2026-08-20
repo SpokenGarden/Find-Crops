@@ -143,10 +143,15 @@ export default function AuthModal({ onClose, initialMode = "signin" }) {
     setBusy(true);
     try {
       if (mode === "signup") {
-        const { error: err } = await signUp(email.trim(), password);
+        const { data, error: err } = await signUp(email.trim(), password);
         if (err) {
           setError(err.message);
+        } else if (data?.session) {
+          // Supabase confirmed immediately (email verification disabled)
+          setSuccessMsg("Account created! You're now signed in.");
+          setTimeout(() => onClose(), 1200);
         } else {
+          // Email verification required
           setSuccessMsg("Account created! Check your email to confirm, then sign in.");
           setMode("signin");
           setPassword("");

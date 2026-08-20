@@ -503,8 +503,8 @@ export default function GardenPlannerApp() {
         setShowFavorites(false);
       }
     };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    document.addEventListener("pointerdown", handler);
+    return () => document.removeEventListener("pointerdown", handler);
   }, [showAccountMenu, showFavorites]);
 
   // Crop search state with persistence

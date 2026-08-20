@@ -88,12 +88,14 @@ const styles = `
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.fav-item-type {
-  font-size: 0.78rem;
-  color: #4a6b5a;
+.fav-item-detail {
+  font-size: 0.76rem;
+  color: #6b8f7a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .fav-remove-btn {
-  background: none;
   border: 1px solid #c4ddd0;
   color: #b72b2b;
   border-radius: 999px;
@@ -109,7 +111,7 @@ const styles = `
 `;
 
 export default function FavoritesList({ onClose, onNeedsAuth }) {
-  const { favorites, toggleFavorite, count } = useFavorites();
+  const { favorites, removeFavoriteById, count } = useFavorites();
 
   // Group by vendor
   const groups = useMemo(() => {
@@ -131,8 +133,8 @@ export default function FavoritesList({ onClose, onNeedsAuth }) {
     });
   }, [favorites]);
 
-  const handleRemove = async (cropName, payload) => {
-    const result = await toggleFavorite(cropName, payload);
+  const handleRemove = async (itemId) => {
+    const result = await removeFavoriteById(itemId);
     if (result && result.needsAuth && onNeedsAuth) onNeedsAuth();
   };
 
@@ -168,26 +170,30 @@ export default function FavoritesList({ onClose, onNeedsAuth }) {
             groups.map(([vendor, items]) => (
               <div key={vendor} className="fav-vendor-group">
                 <div className="fav-vendor-label">{vendor}</div>
-                {items.map(({ itemId, item_name, item_type, payload }) => (
+                {items.map(({ itemId, item_name, item_type, payload }) => {
+                    const kind = Array.isArray(payload?.Basics)
+                      ? (payload.Basics.find((f) => f.label?.toLowerCase() === "kind")?.value || null)
+                      : null;
+                    const detail = kind || (item_type ? item_type.charAt(0).toUpperCase() + item_type.slice(1) : null);
+                    return (
                   <div key={itemId} className="fav-item">
                     <div className="fav-item-info">
                       <span className="fav-item-name" title={item_name}>{item_name}</span>
-                      {item_type && (
-                        <span className="fav-item-type">
-                          {item_type.charAt(0).toUpperCase() + item_type.slice(1)}
-                        </span>
+                      {detail && (
+                        <span className="fav-item-detail">{detail}</span>
                       )}
                     </div>
                     <button
                       type="button"
                       className="fav-remove-btn"
-                      onClick={() => handleRemove(item_name, payload)}
+                      onClick={() => handleRemove(itemId)}
                       aria-label={`Remove ${item_name} from favorites`}
                     >
                       Remove
                     </button>
                   </div>
-                ))}
+                    );
+                  })}
               </div>
             ))
           )}

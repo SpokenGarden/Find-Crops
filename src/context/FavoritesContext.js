@@ -2,26 +2,6 @@ import React, { createContext, useContext, useState, useEffect, useCallback } fr
 import { supabase } from "../supabaseClient";
 import { useAuth } from "./AuthContext";
 
-const LOCAL_KEY = "favoriteCrops";
-
-// ---------------------------------------------------------------------------
-// Helpers for localStorage fallback (logged-out users)
-// ---------------------------------------------------------------------------
-const getLocalFavorites = () => {
-  try {
-    const raw = window.localStorage.getItem(LOCAL_KEY);
-    return raw ? JSON.parse(raw) : {};
-  } catch {
-    return {};
-  }
-};
-
-const setLocalFavorites = (obj) => {
-  try {
-    window.localStorage.setItem(LOCAL_KEY, JSON.stringify(obj));
-  } catch {}
-};
-
 function makeItemId(cropName) {
   return String(cropName || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
@@ -73,7 +53,7 @@ export function FavoritesProvider({ children }) {
   // Load favorites whenever auth state changes
   useEffect(() => {
     if (!user) {
-      setFavorites(getLocalFavorites());
+      setFavorites({});
       return;
     }
 
@@ -124,25 +104,16 @@ export function FavoritesProvider({ children }) {
 
   /**
    * Toggle a favorite.
-   * Returns { needsAuth: true } when user is not logged in and crop is not yet favorited.
+   * Returns { needsAuth: true } when user is not logged in.
    */
   const toggleFavorite = useCallback(
     async (cropName, cropData) => {
       const itemId = makeItemId(cropName);
       const alreadyFavorited = Boolean(favorites[itemId]);
 
-      // ---- Logged-out: localStorage only, no add ----
+      // ---- Logged-out: always require auth ----
       if (!user) {
-        if (alreadyFavorited) {
-          const local = getLocalFavorites();
-          const next = { ...local };
-          delete next[itemId];
-          setLocalFavorites(next);
-          setFavorites(next);
-        } else {
-          return { needsAuth: true };
-        }
-        return {};
+        return { needsAuth: true };
       }
 
       // ---- Logged-in: Supabase ----
@@ -197,8 +168,37 @@ export function FavoritesProvider({ children }) {
     [user, favorites]
   );
 
+  /**
+   * Remove a favorite directly by its stable itemId (no re-derivation from name).
+   * Returns { needsAuth: true } when user is not logged in.
+   */
+  const removeFavoriteById = useCallback(
+    async (itemId) => {
+      if (!user) return { needsAuth: true };
+      if (!supabase) return {};
+
+      const { error } = await supabase
+        .from("favorites")
+        .delete()
+        .eq("user_id", user.id)
+        .eq("item_id", itemId);
+
+      if (!error) {
+        setFavorites((prev) => {
+          const next = { ...prev };
+          delete next[itemId];
+          return next;
+        });
+      } else {
+        console.error("removeFavoriteById error:", error.message);
+      }
+      return {};
+    },
+    [user]
+  );
+
   return (
-    <FavoritesContext.Provider value={{ favorites, isFavorite, toggleFavorite, count, loading }}>
+    <FavoritesContext.Provider value={{ favorites, isFavorite, toggleFavorite, removeFavoriteById, count, loading }}>
       {children}
     </FavoritesContext.Provider>
   );
