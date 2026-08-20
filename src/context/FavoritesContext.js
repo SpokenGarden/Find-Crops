@@ -1,43 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 import { supabase } from "../supabaseClient";
 import { useAuth } from "./AuthContext";
-
-function makeItemId(cropName) {
-  return String(cropName || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-}
-
-function extractVendor(cropData) {
-  if (!cropData) return null;
-  for (const key of ["Link", "Links"]) {
-    const fields = cropData[key];
-    if (Array.isArray(fields)) {
-      const buyNow = fields.find(
-        (f) =>
-          typeof f.label === "string" &&
-          f.label.trim().toLowerCase() === "buy now" &&
-          typeof f.value === "string" &&
-          /^https?:\/\//i.test(f.value.trim())
-      );
-      if (buyNow) {
-        try {
-          return new URL(buyNow.value.trim()).hostname.replace(/^www\./, "");
-        } catch {
-          return null;
-        }
-      }
-    }
-  }
-  return null;
-}
-
-function extractItemType(cropData) {
-  if (!cropData) return null;
-  if (Array.isArray(cropData.Basics)) {
-    const t = cropData.Basics.find((f) => f.label && f.label.toLowerCase() === "type");
-    if (t && t.value) return String(t.value).toLowerCase();
-  }
-  return null;
-}
+import { buildFavoritePayload, makeItemId, normalizeFavoriteRecord } from "../utils/favorites";
 
 // ---------------------------------------------------------------------------
 // Context
@@ -79,12 +43,13 @@ export function FavoritesProvider({ children }) {
         } else {
           const map = {};
           (data || []).forEach((row) => {
-            map[row.item_id] = {
-              item_name: row.item_name,
-              item_type: row.item_type,
-              vendor: row.vendor,
-              payload: row.payload,
-              created_at: row.created_at,
+            const normalized = normalizeFavoriteRecord(row);
+            map[normalized.item_id] = {
+              item_name: normalized.item_name,
+              item_type: normalized.item_type,
+              vendor: normalized.vendor,
+              payload: normalized.payload,
+              created_at: normalized.created_at,
             };
           });
           setFavorites(map);
@@ -138,13 +103,14 @@ export function FavoritesProvider({ children }) {
           console.error("toggleFavorite delete error:", error.message);
         }
       } else {
+        const payload = buildFavoritePayload(cropName, cropData);
         const row = {
           user_id: user.id,
           item_id: itemId,
-          item_name: cropName,
-          item_type: extractItemType(cropData),
-          vendor: extractVendor(cropData),
-          payload: cropData ? JSON.parse(JSON.stringify(cropData)) : null,
+          item_name: payload.favoriteMeta.itemName,
+          item_type: payload.favoriteMeta.itemType,
+          vendor: payload.favoriteMeta.vendor,
+          payload,
         };
 
         const { error } = await supabase
@@ -152,13 +118,15 @@ export function FavoritesProvider({ children }) {
           .upsert(row, { onConflict: "user_id,item_id" });
 
         if (!error) {
+          const normalized = normalizeFavoriteRecord(row);
           setFavorites((prev) => ({
             ...prev,
             [itemId]: {
-              item_name: row.item_name,
-              item_type: row.item_type,
-              vendor: row.vendor,
-              payload: row.payload,
+              item_name: normalized.item_name,
+              item_type: normalized.item_type,
+              vendor: normalized.vendor,
+              payload: normalized.payload,
+              created_at: normalized.created_at,
             },
           }));
         } else {

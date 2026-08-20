@@ -51,34 +51,38 @@ const styles = `
   padding: 1.4rem 0.5rem;
   font-size: 0.9rem;
 }
-.fav-vendor-group {
-  margin-bottom: 0.9rem;
-}
-.fav-vendor-label {
-  font-size: 0.77rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #4a6b5a;
-  border-bottom: 1px solid #e0ede5;
-  padding-bottom: 0.25rem;
-  margin-bottom: 0.4rem;
-}
 .fav-item {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
   gap: 0.6rem;
   padding: 0.45rem 0.5rem;
   border-radius: 8px;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.45rem;
+  border: 1px solid #e0ede5;
+  background: #fbfefc;
 }
 .fav-item:hover { background: #f4fbf6; }
+.fav-item-media {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex: 0 0 56px;
+  background: linear-gradient(180deg, #edf5ef 0%, #d8eadf 100%);
+  border: 1px solid #d0ede1;
+}
+.fav-item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .fav-item-info {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 0.18rem;
   min-width: 0;
+  flex: 1 1 auto;
 }
 .fav-item-name {
   font-weight: 700;
@@ -91,11 +95,17 @@ const styles = `
 .fav-item-detail {
   font-size: 0.76rem;
   color: #6b8f7a;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.fav-item-actions {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex: 0 0 auto;
 }
 .fav-remove-btn {
+  background: #ffffff;
   border: 1px solid #c4ddd0;
   color: #b72b2b;
   border-radius: 999px;
@@ -110,27 +120,40 @@ const styles = `
 .fav-remove-btn:hover { background: #fff0f0; border-color: #e07070; }
 `;
 
+const IMAGE_BASE = `${process.env.PUBLIC_URL || ""}/images/flowers`;
+const DEFAULT_IMAGE = `${IMAGE_BASE}/default-flower.png`;
+
+function toTitleCase(value) {
+  return String(value || "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
+function buildDetailLines(meta) {
+  const summary = [
+    meta.itemType ? toTitleCase(meta.itemType) : null,
+    meta.kind,
+  ].filter(Boolean);
+  const additional = [
+    meta.hardinessZones ? `Zones ${meta.hardinessZones}` : null,
+    meta.season,
+    meta.sun ? `Sun: ${meta.sun}` : null,
+    meta.water ? `Water: ${meta.water}` : null,
+    meta.soil ? `Soil: ${meta.soil}` : null,
+  ].filter(Boolean);
+
+  return [...(summary.length ? [summary.join(" • ")] : []), ...additional].slice(0, 3);
+}
+
 export default function FavoritesList({ onClose, onNeedsAuth }) {
   const { favorites, removeFavoriteById, count } = useFavorites();
 
-  // Group by vendor
-  const groups = useMemo(() => {
-    const grouped = {};
-    Object.entries(favorites).forEach(([itemId, fav]) => {
-      const key = fav.vendor || "Other";
-      if (!grouped[key]) grouped[key] = [];
-      grouped[key].push({ itemId, ...fav });
-    });
-    // Sort entries within each group alphabetically
-    Object.values(grouped).forEach((arr) =>
-      arr.sort((a, b) => a.item_name.localeCompare(b.item_name))
-    );
-    // Sort group keys: named vendors first, "Other" last
-    return Object.entries(grouped).sort(([a], [b]) => {
-      if (a === "Other") return 1;
-      if (b === "Other") return -1;
-      return a.localeCompare(b);
-    });
+  const items = useMemo(() => {
+    return Object.entries(favorites)
+      .map(([itemId, favorite]) => ({ itemId, ...favorite }))
+      .sort((a, b) => a.item_name.localeCompare(b.item_name));
   }, [favorites]);
 
   const handleRemove = async (itemId) => {
@@ -167,35 +190,48 @@ export default function FavoritesList({ onClose, onNeedsAuth }) {
               </p>
             </div>
           ) : (
-            groups.map(([vendor, items]) => (
-              <div key={vendor} className="fav-vendor-group">
-                <div className="fav-vendor-label">{vendor}</div>
-                {items.map(({ itemId, item_name, item_type, payload }) => {
-                    const kind = Array.isArray(payload?.Basics)
-                      ? (payload.Basics.find((f) => f.label?.toLowerCase() === "kind")?.value || null)
-                      : null;
-                    const detail = kind || (item_type ? item_type.charAt(0).toUpperCase() + item_type.slice(1) : null);
-                    return (
-                  <div key={itemId} className="fav-item">
-                    <div className="fav-item-info">
-                      <span className="fav-item-name" title={item_name}>{item_name}</span>
-                      {detail && (
-                        <span className="fav-item-detail">{detail}</span>
-                      )}
-                    </div>
+            items.map((favorite) => {
+              const meta = favorite.payload?.favoriteMeta || {};
+              const detailLines = buildDetailLines(meta);
+              const imageSrc = meta.image ? `${IMAGE_BASE}/${meta.image}` : DEFAULT_IMAGE;
+              return (
+                <div key={favorite.itemId} className="fav-item">
+                  <div className="fav-item-media" aria-hidden="true">
+                    <img
+                      src={imageSrc}
+                      alt=""
+                      className="fav-item-image"
+                      loading="lazy"
+                      decoding="async"
+                      onError={(event) => {
+                        if (!event.target.src.endsWith("default-flower.png")) {
+                          event.target.onerror = null;
+                          event.target.src = DEFAULT_IMAGE;
+                        }
+                      }}
+                    />
+                  </div>
+                  <div className="fav-item-info">
+                    <span className="fav-item-name" title={favorite.item_name}>{favorite.item_name}</span>
+                    {detailLines.map((line) => (
+                      <span key={`${favorite.itemId}-${line}`} className="fav-item-detail">
+                        {line}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="fav-item-actions">
                     <button
                       type="button"
                       className="fav-remove-btn"
-                      onClick={() => handleRemove(itemId)}
-                      aria-label={`Remove ${item_name} from favorites`}
+                      onClick={() => handleRemove(favorite.itemId)}
+                      aria-label={`Remove ${favorite.item_name} from favorites`}
                     >
                       Remove
                     </button>
                   </div>
-                    );
-                  })}
-              </div>
-            ))
+                </div>
+              );
+            })
           )}
         </div>
       </div>
