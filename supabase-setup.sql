@@ -2,6 +2,8 @@
 -- Find-Crops: Supabase setup  (run once in the SQL editor)
 -- ============================================================
 
+create extension if not exists "pgcrypto";
+
 -- 1.  Create the favorites table
 create table if not exists public.favorites (
   id          uuid primary key default gen_random_uuid(),
@@ -26,6 +28,11 @@ create policy "Users can view their own favorites"
 
 create policy "Users can insert their own favorites"
   on public.favorites for insert
+  with check (auth.uid() = user_id);
+
+create policy "Users can update their own favorites"
+  on public.favorites for update
+  using (auth.uid() = user_id)
   with check (auth.uid() = user_id);
 
 create policy "Users can delete their own favorites"

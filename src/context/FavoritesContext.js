@@ -53,11 +53,13 @@ export function FavoritesProvider({ children }) {
   // Load favorites whenever auth state changes
   useEffect(() => {
     if (!user) {
+      setLoading(false);
       setFavorites({});
       return;
     }
 
     if (!supabase) {
+      setLoading(false);
       setFavorites({});
       return;
     }
