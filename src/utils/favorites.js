@@ -132,8 +132,8 @@ export function normalizeFavoriteRecord(row) {
     unslugifyItemId(itemId);
   const buyNowUrl = cleanString(existingMeta.buyNowUrl) || getBuyLink(cropData);
   const vendor =
-    cleanString(row?.vendor) ||
-    cleanString(existingMeta.vendor) ||
+    normalizeVendorHost(row?.vendor) ||
+    normalizeVendorHost(existingMeta.vendor) ||
     normalizeVendorHost(buyNowUrl);
   const normalizedPayload = {
     ...cropData,

@@ -131,8 +131,7 @@ function toTitleCase(value) {
     .join(" ");
 }
 
-function buildDetailLines(favorite) {
-  const meta = favorite?.payload?.favoriteMeta || {};
+function buildDetailLines(meta) {
   const summary = [
     meta.itemType ? toTitleCase(meta.itemType) : null,
     meta.kind,
@@ -192,46 +191,46 @@ export default function FavoritesList({ onClose, onNeedsAuth }) {
             </div>
           ) : (
             items.map((favorite) => {
-             const meta = favorite.payload?.favoriteMeta || {};
-             const detailLines = buildDetailLines(favorite);
-             const imageSrc = meta.image ? `${IMAGE_BASE}/${meta.image}` : DEFAULT_IMAGE;
-             return (
-               <div key={favorite.itemId} className="fav-item">
-                 <div className="fav-item-media" aria-hidden="true">
-                   <img
-                     src={imageSrc}
-                     alt=""
-                     className="fav-item-image"
-                     loading="lazy"
-                     decoding="async"
-                     onError={(event) => {
-                       if (!event.target.src.endsWith("default-flower.png")) {
-                         event.target.onerror = null;
-                         event.target.src = DEFAULT_IMAGE;
-                       }
-                     }}
-                   />
-                 </div>
-                 <div className="fav-item-info">
-                   <span className="fav-item-name" title={favorite.item_name}>{favorite.item_name}</span>
-                   {detailLines.map((line) => (
-                     <span key={`${favorite.itemId}-${line}`} className="fav-item-detail">
-                       {line}
-                     </span>
-                   ))}
-                 </div>
-                 <div className="fav-item-actions">
-                   <button
-                     type="button"
-                     className="fav-remove-btn"
-                     onClick={() => handleRemove(favorite.itemId)}
-                     aria-label={`Remove ${favorite.item_name} from favorites`}
-                   >
-                     Remove
-                   </button>
-                 </div>
-               </div>
-             );
+              const meta = favorite.payload?.favoriteMeta || {};
+              const detailLines = buildDetailLines(meta);
+              const imageSrc = meta.image ? `${IMAGE_BASE}/${meta.image}` : DEFAULT_IMAGE;
+              return (
+                <div key={favorite.itemId} className="fav-item">
+                  <div className="fav-item-media" aria-hidden="true">
+                    <img
+                      src={imageSrc}
+                      alt=""
+                      className="fav-item-image"
+                      loading="lazy"
+                      decoding="async"
+                      onError={(event) => {
+                        if (!event.target.src.endsWith("default-flower.png")) {
+                          event.target.onerror = null;
+                          event.target.src = DEFAULT_IMAGE;
+                        }
+                      }}
+                    />
+                  </div>
+                  <div className="fav-item-info">
+                    <span className="fav-item-name" title={favorite.item_name}>{favorite.item_name}</span>
+                    {detailLines.map((line) => (
+                      <span key={`${favorite.itemId}-${line}`} className="fav-item-detail">
+                        {line}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="fav-item-actions">
+                    <button
+                      type="button"
+                      className="fav-remove-btn"
+                      onClick={() => handleRemove(favorite.itemId)}
+                      aria-label={`Remove ${favorite.item_name} from favorites`}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              );
             })
           )}
         </div>
