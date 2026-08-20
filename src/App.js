@@ -10,6 +10,7 @@ import AuthModal from "./components/AuthModal";
 import FavoritesList from "./components/FavoritesList";
 import { useAuth } from "./context/AuthContext";
 import { useFavorites } from "./hooks/useFavorites";
+import { useOutsideClick } from "./hooks/useOutsideClick";
 
 // ===== LOCAL STORAGE HELPERS =====
 const isBrowser = typeof window !== "undefined";
@@ -492,20 +493,8 @@ export default function GardenPlannerApp() {
   const accountMenuRef = useRef(null);
   const favPanelRef = useRef(null);
 
-  // Close account menu / favorites panel on outside click
-  useEffect(() => {
-    if (!showAccountMenu && !showFavorites) return;
-    const handler = (e) => {
-      if (accountMenuRef.current && !accountMenuRef.current.contains(e.target)) {
-        setShowAccountMenu(false);
-      }
-      if (favPanelRef.current && !favPanelRef.current.contains(e.target)) {
-        setShowFavorites(false);
-      }
-    };
-    document.addEventListener("pointerdown", handler);
-    return () => document.removeEventListener("pointerdown", handler);
-  }, [showAccountMenu, showFavorites]);
+  useOutsideClick(accountMenuRef, () => setShowAccountMenu(false), showAccountMenu);
+  useOutsideClick(favPanelRef, () => setShowFavorites(false), showFavorites);
 
   // Crop search state with persistence
   const [zone, setZone] = usePersistentState("zone", "");
