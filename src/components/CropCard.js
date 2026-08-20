@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useCropData } from "../hooks/useCropData";
+import { useFavorites } from "../hooks/useFavorites";
 
 const isBrowser = typeof window !== "undefined";
-const FAVORITES_KEY = "favoriteCrops";
 const CARD_STATE_KEY = "cropCardSecondaryState";
 const IMAGE_BASE = `${process.env.PUBLIC_URL || ""}/images/flowers`;
 const DEFAULT_IMAGE = `${IMAGE_BASE}/default-flower.png`;
@@ -77,7 +77,7 @@ function formatLastUpdated(lastUpdated) {
   });
 }
 
-function CropCardWithData({ cropName, version }) {
+function CropCardWithData({ cropName, version, onNeedsAuth }) {
   const { cropData, loading, error, lastUpdated } = useCropData();
 
   if (loading) {
@@ -101,11 +101,12 @@ function CropCardWithData({ cropName, version }) {
       cropData={cropData?.[cropName]}
       version={version}
       lastUpdated={lastUpdated}
+      onNeedsAuth={onNeedsAuth}
     />
   );
 }
 
-function CropCardContent({ cropName, cropData, version = "sow", lastUpdated }) {
+function CropCardContent({ cropName, cropData, version = "sow", lastUpdated, onNeedsAuth }) {
   const cardId = useMemo(() => getCardId(cropName), [cropName]);
 
   const normalizedCropKey = useMemo(
@@ -124,16 +125,9 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated }) {
     setStoredValue(sessionKey, secondaryExpanded, "sessionStorage");
   }, [sessionKey, secondaryExpanded]);
 
-  const [isFavorite, setIsFavorite] = useState(() => {
-    const favorites = getStoredValue(FAVORITES_KEY, {});
-    return Boolean(favorites[cropName]);
-  });
+  const { isFavorite: isFav, toggleFavorite } = useFavorites();
+  const isFavorite = isFav(cropName);
   const [shareMessage, setShareMessage] = useState("");
-
-  useEffect(() => {
-    const favorites = getStoredValue(FAVORITES_KEY, {});
-    setIsFavorite(Boolean(favorites[cropName]));
-  }, [cropName]);
 
   useEffect(() => {
     if (!shareMessage) return undefined;
@@ -189,17 +183,9 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated }) {
   const secondaryLabel = version === "grow" ? "Growing" : "Sowing";
   const lastUpdatedLabel = formatLastUpdated(lastUpdated);
 
-  const toggleFavorite = () => {
-    const favorites = getStoredValue(FAVORITES_KEY, {});
-    const nextFavorite = !favorites[cropName];
-    const nextFavorites = { ...favorites };
-    if (nextFavorite) {
-      nextFavorites[cropName] = true;
-    } else {
-      delete nextFavorites[cropName];
-    }
-    setStoredValue(FAVORITES_KEY, nextFavorites);
-    setIsFavorite(nextFavorite);
+  const handleToggleFavorite = async () => {
+    const result = await toggleFavorite(cropName, cropData);
+    if (result && result.needsAuth && onNeedsAuth) onNeedsAuth();
   };
 
   const handleShare = async () => {
@@ -372,8 +358,9 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated }) {
           transform: translateY(1px);
         }
         .crop-card-action-btn.is-favorite {
-          background: #fff4da;
-          border-color: #efc86f;
+          background: #fff0f2;
+          border-color: #e07070;
+          color: #c0392b;
         }
         .crop-card-share-note {
           color: #456858;
@@ -588,12 +575,12 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated }) {
           <button
             type="button"
             className={`crop-card-action-btn ${isFavorite ? "is-favorite" : ""}`}
-            onClick={toggleFavorite}
+            onClick={handleToggleFavorite}
             aria-pressed={isFavorite}
-            aria-label={`${isFavorite ? "Remove" : "Save"} ${cropName} as a favorite`}
+            aria-label={isFavorite ? `Remove ${cropName} from Favorites` : `Save ${cropName} to Favorites`}
+            title={isFavorite ? "Remove from Favorites" : "Save to Favorites"}
           >
-            <span aria-hidden="true">{isFavorite ? "★" : "☆"}</span>
-            <span>{isFavorite ? "Saved" : "Save"}</span>
+            <span aria-hidden="true" style={{ fontSize: "1.05rem" }}>{isFavorite ? "♥" : "♡"}</span>
           </button>
           <button
             type="button"
@@ -698,7 +685,7 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated }) {
   );
 }
 
-export default function CropCard({ cropName, cropData, version = "sow", lastUpdated }) {
+export default function CropCard({ cropName, cropData, version = "sow", lastUpdated, onNeedsAuth }) {
   if (cropData) {
     return (
       <CropCardContent
@@ -706,9 +693,10 @@ export default function CropCard({ cropName, cropData, version = "sow", lastUpda
         cropData={cropData}
         version={version}
         lastUpdated={lastUpdated}
+        onNeedsAuth={onNeedsAuth}
       />
     );
   }
 
-  return <CropCardWithData cropName={cropName} version={version} />;
+  return <CropCardWithData cropName={cropName} version={version} onNeedsAuth={onNeedsAuth} />;
 }

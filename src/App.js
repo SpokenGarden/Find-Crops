@@ -6,6 +6,10 @@ import ToolsAndSupplies from "./components/ToolsAndSupplies";
 import PlantingVideos from "./components/PlantingVideos";
 import { useCropData } from "./hooks/useCropData";
 import dibbyYellow from "./images/dibby-yellow.jpg";
+import AuthModal from "./components/AuthModal";
+import FavoritesList from "./components/FavoritesList";
+import { useAuth } from "./context/AuthContext";
+import { useFavorites } from "./hooks/useFavorites";
 
 // ===== LOCAL STORAGE HELPERS =====
 const isBrowser = typeof window !== "undefined";
@@ -49,6 +53,65 @@ const responsiveStyles = `
   .gp-input, .gp-select { width: 100%; padding: 0.45rem 0.6rem; border-radius: 8px; border: 1px solid #e6e6e6; font-size: 0.95rem; margin-top: 0.25rem; box-sizing: border-box; }
   .gp-find-btn { margin-top: 0.9rem; width: 100%; padding: 0.6rem; background: #2d6a4f; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 0.98rem; }
   .gp-toggle-advanced { margin: 0.5rem 0; }
+  /* ===== ACCOUNT TRIGGER ===== */
+  .gp-account-trigger {
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(45,106,79,0.3);
+    border-radius: 10px;
+    padding: 0.38rem 0.7rem;
+    color: #2d6a4f;
+    font-weight: 700;
+    font-size: 0.87rem;
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative;
+  }
+  .gp-account-trigger:hover { background: #eef7f0; }
+  .gp-account-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #dbeeda;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(17,24,39,0.12);
+    overflow: hidden;
+    min-width: 160px;
+    z-index: 8000;
+  }
+  .gp-account-menu-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #2d6a4f;
+    cursor: pointer;
+  }
+  .gp-account-menu-item:hover { background: #eef7f0; }
+  .gp-account-menu-divider { height: 1px; background: #e5f0ea; margin: 0.15rem 0; }
+  /* ===== FAVORITES BUTTON in groups row ===== */
+  .gp-fav-btn-wrap { position: relative; display: flex; flex-direction: column; align-items: center; }
+  .gp-fav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.45rem 0.8rem;
+    background: #fff0f2;
+    border: 1px solid #e07070;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #a0272a;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+  .gp-fav-btn:hover, .gp-fav-btn:focus { background: #ffe5e8; border-color: #c0392b; outline: none; }
+  .gp-fav-btn:focus-visible { outline: 3px solid rgba(192,57,43,0.25); }
   .gp-groups-row { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; align-items: flex-start; margin-top: 1rem; margin-bottom: 1rem; }
   .gp-group-box { display: flex; flex-direction: column; align-items: center; width: auto; min-width: 120px; }
   .gp-group-header { display: inline-flex; align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0.45rem 0.8rem; background: #eef7f0; border: 1px solid #dbeeda; border-radius: 10px; cursor: pointer; box-sizing: border-box; font-weight: 700; color: #2d6a4f; min-width: 0; white-space: nowrap; }
@@ -419,6 +482,30 @@ export default function GardenPlannerApp() {
   const [dropdown2Open, setDropdown2Open] = useState(false);
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // ===== AUTH / FAVORITES STATE =====
+  const { user, signOut } = useAuth();
+  const { count: favCount } = useFavorites();
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [showAccountMenu, setShowAccountMenu] = useState(false);
+  const [showFavorites, setShowFavorites] = useState(false);
+  const accountMenuRef = useRef(null);
+  const favPanelRef = useRef(null);
+
+  // Close account menu / favorites panel on outside click
+  useEffect(() => {
+    if (!showAccountMenu && !showFavorites) return;
+    const handler = (e) => {
+      if (accountMenuRef.current && !accountMenuRef.current.contains(e.target)) {
+        setShowAccountMenu(false);
+      }
+      if (favPanelRef.current && !favPanelRef.current.contains(e.target)) {
+        setShowFavorites(false);
+      }
+    };
+    document.addEventListener("pointerdown", handler);
+    return () => document.removeEventListener("pointerdown", handler);
+  }, [showAccountMenu, showFavorites]);
 
   // Crop search state with persistence
   const [zone, setZone] = usePersistentState("zone", "");
@@ -812,7 +899,52 @@ useEffect(() => {
         <div className="gp-flex-center" style={{ flexDirection: "column", alignItems: "center" }}>
 
           {/* ===== SOW / GROW MODE SELECTOR — OUTSIDE & ABOVE THE CARD ===== */}
-        <div className="gp-mode-panel">
+        <div className="gp-mode-panel" style={{ position: "relative" }}>
+          {/* ===== ACCOUNT TRIGGER (top-right of hero card) ===== */}
+          <div style={{ position: "absolute", top: "0.7rem", right: "0.9rem" }} ref={accountMenuRef}>
+            {user ? (
+              <div style={{ position: "relative" }}>
+                <button
+                  type="button"
+                  className="gp-account-trigger"
+                  aria-expanded={showAccountMenu}
+                  onClick={() => setShowAccountMenu((v) => !v)}
+                >
+                  My Account ▾
+                </button>
+                {showAccountMenu && (
+                  <div className="gp-account-menu" role="menu">
+                    <button
+                      type="button"
+                      className="gp-account-menu-item"
+                      role="menuitem"
+                      onClick={() => { setShowFavorites(true); setShowAccountMenu(false); }}
+                    >
+                      ❤️ Favorites ({favCount})
+                    </button>
+                    <div className="gp-account-menu-divider" />
+                    <button
+                      type="button"
+                      className="gp-account-menu-item"
+                      role="menuitem"
+                      onClick={() => { signOut(); setShowAccountMenu(false); }}
+                    >
+                      Sign out
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button
+                type="button"
+                className="gp-account-trigger"
+                onClick={() => setShowAuthModal(true)}
+              >
+                Sign in
+              </button>
+            )}
+          </div>
+
           <div className="gp-mode-selector">
             <h1>
               🌱 Starting Seeds or Caring for Plants?
@@ -1035,6 +1167,7 @@ useEffect(() => {
                               cropData={cData}
                               version={appVersion}
                               lastUpdated={lastUpdated}
+                              onNeedsAuth={() => setShowAuthModal(true)}
                             />
                           </li>
                         ))}
@@ -1043,6 +1176,34 @@ useEffect(() => {
                   </div>
                 ) : null
               )}
+
+              {/* ===== FAVORITES BUTTON — end of groups row ===== */}
+              <div className="gp-group-box gp-fav-btn-wrap" role="listitem" ref={favPanelRef}>
+                <button
+                  type="button"
+                  className="gp-fav-btn"
+                  aria-expanded={showFavorites}
+                  aria-controls="gp-favorites-panel"
+                  onClick={() => {
+                    if (!user) {
+                      setShowAuthModal(true);
+                    } else {
+                      setShowFavorites((v) => !v);
+                    }
+                  }}
+                >
+                  <span>❤️ Favorites ({favCount})</span>
+                  <span style={{ fontSize: "1.05em" }}>{showFavorites ? "▲" : "▼"}</span>
+                </button>
+                {showFavorites && (
+                  <div id="gp-favorites-panel">
+                    <FavoritesList
+                      onClose={() => setShowFavorites(false)}
+                      onNeedsAuth={() => { setShowFavorites(false); setShowAuthModal(true); }}
+                    />
+                  </div>
+                )}
+              </div>
             </div>
 
             {filteredCrops.length === 0 && (
@@ -1075,6 +1236,11 @@ useEffect(() => {
             </div>
             <LoadingCards />
           </>
+        )}
+
+        {/* ===== AUTH MODAL ===== */}
+        {showAuthModal && (
+          <AuthModal onClose={() => setShowAuthModal(false)} />
         )}
       </div>
     );
