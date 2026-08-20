@@ -94,8 +94,15 @@ const responsiveStyles = `
   }
   .gp-account-menu-item:hover { background: #eef7f0; }
   .gp-account-menu-divider { height: 1px; background: #e5f0ea; margin: 0.15rem 0; }
-  /* ===== FAVORITES BUTTON in groups row ===== */
-  .gp-fav-btn-wrap { position: relative; display: flex; flex-direction: column; align-items: center; }
+  /* ===== FAVORITES ACTIONS ROW (below Find Plants, above results) ===== */
+  .gp-fav-actions-row {
+    display: flex;
+    justify-content: center;
+    margin: 0.75rem auto 0.25rem auto;
+    max-width: 360px;
+  }
+  /* ===== FAVORITES BUTTON ===== */
+  .gp-fav-btn-wrap { position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; }
   .gp-fav-btn {
     display: inline-flex;
     align-items: center;
@@ -1103,6 +1110,36 @@ useEffect(() => {
           </form>
         </div>
 
+        {/* ===== FAVORITES ACTIONS ROW — below Find Plants, above results ===== */}
+        <div className="gp-fav-actions-row">
+          <div className="gp-fav-btn-wrap" ref={favPanelRef}>
+            <button
+              type="button"
+              className="gp-fav-btn"
+              aria-expanded={showFavorites ? "true" : "false"}
+              aria-controls="gp-favorites-panel"
+              onClick={() => {
+                if (!user) {
+                  setShowAuthModal(true);
+                } else {
+                  setShowFavorites((v) => !v);
+                }
+              }}
+            >
+              <span>❤️ Favorites ({favCount})</span>
+              <span style={{ fontSize: "1.05em" }}>{showFavorites ? "▲" : "▼"}</span>
+            </button>
+            {showFavorites && (
+              <div id="gp-favorites-panel">
+                <FavoritesList
+                  onClose={() => setShowFavorites(false)}
+                  onNeedsAuth={() => { setShowFavorites(false); setShowAuthModal(true); }}
+                />
+              </div>
+            )}
+          </div>
+        </div>
+
         {/* Results area */}
         {!loading && (
           <>
@@ -1165,34 +1202,6 @@ useEffect(() => {
                   </div>
                 ) : null
               )}
-
-              {/* ===== FAVORITES BUTTON — end of groups row ===== */}
-              <div className="gp-group-box gp-fav-btn-wrap" role="listitem" ref={favPanelRef}>
-                <button
-                  type="button"
-                  className="gp-fav-btn"
-                  aria-expanded={showFavorites}
-                  aria-controls="gp-favorites-panel"
-                  onClick={() => {
-                    if (!user) {
-                      setShowAuthModal(true);
-                    } else {
-                      setShowFavorites((v) => !v);
-                    }
-                  }}
-                >
-                  <span>❤️ Favorites ({favCount})</span>
-                  <span style={{ fontSize: "1.05em" }}>{showFavorites ? "▲" : "▼"}</span>
-                </button>
-                {showFavorites && (
-                  <div id="gp-favorites-panel">
-                    <FavoritesList
-                      onClose={() => setShowFavorites(false)}
-                      onNeedsAuth={() => { setShowFavorites(false); setShowAuthModal(true); }}
-                    />
-                  </div>
-                )}
-              </div>
             </div>
 
             {filteredCrops.length === 0 && (
