@@ -93,63 +93,86 @@ const responsiveStyles = `
     cursor: pointer;
   }
   .gp-account-menu-item:hover { background: #eef7f0; }
-  .gp-account-menu-divider { height: 1px; background: #e5f0ea; margin: 0.15rem 0; }
-  /* ===== FAVORITES ACTIONS ROW (below Find Plants, above results) ===== */
-  .gp-fav-actions-row {
-    display: flex;
-    justify-content: center;
-    margin: 0.75rem auto 0.25rem auto;
-    max-width: 360px;
+  .gp-account-menu-divider { height: 1px; background: #05b210; margin: 0.15rem 0; }
+/* ===== FAVORITES ACTIONS ROW (below Find Plants, above results) ===== */
+.gp-fav-actions-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0 0.75rem;
+  box-sizing: border-box;
+  margin: 0.75rem auto 0.25rem auto;
+}
+
+.gp-fav-btn-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* ===== FAVORITES BUTTON ===== */
+.gp-fav-btn-wrap {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible;
+  max-width: 100%;
+}
+
+.gp-fav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.45rem 0.8rem;
+  background: #fff0f2;
+  border: 1px solid #e07070;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #a0272a;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+.gp-fav-btn:hover, .gp-fav-btn:focus { background: #ffe5e8; border-color: #c0392b; outline: none; }
+.gp-fav-btn:focus-visible { outline: 3px solid rgba(192,57,43,0.25); }
+
+/* ===== Favorites dropdown panel positioning ===== */
+#gp-favorites-panel {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92vw, 420px);
+  z-index: 9999;
+}
+
+
+/* Mobile hardening */
+@media (max-width: 768px) {
+  .gp-favorites-panel,
+  .gp-fav-panel {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: calc(100vw - 24px);
+    max-width: calc(100vw - 24px);
+    min-width: 0;
   }
-  /* ===== FAVORITES BUTTON ===== */
-  .gp-fav-btn-wrap { position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; }
-  .gp-fav-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-    padding: 0.45rem 0.8rem;
-    background: #fff0f2;
-    border: 1px solid #e07070;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 700;
-    color: #a0272a;
-    font-size: 0.95rem;
-    white-space: nowrap;
-  }
-  .gp-fav-btn:hover, .gp-fav-btn:focus { background: #ffe5e8; border-color: #c0392b; outline: none; }
-  .gp-fav-btn:focus-visible { outline: 3px solid rgba(192,57,43,0.25); }
-  .gp-groups-row { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; align-items: flex-start; margin-top: 1rem; margin-bottom: 1rem; }
-  .gp-group-box { display: flex; flex-direction: column; align-items: center; width: auto; min-width: 120px; }
-  .gp-group-header { display: inline-flex; align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0.45rem 0.8rem; background: #eef7f0; border: 1px solid #dbeeda; border-radius: 10px; cursor: pointer; box-sizing: border-box; font-weight: 700; color: #2d6a4f; min-width: 0; white-space: nowrap; }
-  .gp-group-header:focus { outline: 3px solid rgba(45,106,79,0.15); }
-  .gp-group-list { list-style: none; padding-left: 0; margin-top: 0.6rem; margin-left: auto; margin-right: auto; width: 100%; max-width: 720px; box-sizing: border-box; }
-  .gp-group-item { margin: 0.6rem 0; }
-  .gp-empty {
-    max-width: 540px;
-    margin: 1.5rem auto 0;
-    padding: 1rem 1.1rem;
-    text-align: center;
-    color: #466757;
-    background: #f6fbf7;
-    border: 1px solid #dbeeda;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(17,24,39,0.04);
-  }
-  .gp-empty h3 { margin: 0 0 0.35rem 0; color: #2d6a4f; font-size: 1rem; }
-  .gp-empty p { margin: 0; font-size: 0.95rem; line-height: 1.5; }
-  .gp-empty-actions { display: flex; justify-content: center; gap: 0.65rem; flex-wrap: wrap; margin-top: 0.85rem; }
-  .gp-empty-btn {
-    border: 1px solid #bddfcd;
-    background: #ffffff;
-    color: #245a45;
-    border-radius: 999px;
-    padding: 0.55rem 0.9rem;
-    font-size: 0.9rem;
-    font-weight: 700;
-    cursor: pointer;
-  }
+}
+
+/* Prevent accidental horizontal page scroll */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Prevent accidental horizontal page scroll */
+html, body {
+  overflow-x: hidden;
+}
   .gp-version-badge { display: inline-block; padding: 0.3rem 0.7rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700; margin-left: 0.5rem; vertical-align: middle; }
   .gp-version-lite { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
   .gp-version-full { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
@@ -175,7 +198,7 @@ const responsiveStyles = `
   position: relative;
 }
 .gp-modal { min-height: 140px; }
-}
+
 .gp-modal {
   width: 100%;
   max-width: 760px;
@@ -216,7 +239,7 @@ const responsiveStyles = `
   align-items: center;
   justify-content: center;
   gap: 0;                         /* looks like one segmented control */
-  width: 100%;
+  width: auto;
   max-width: 360px;               /* matches gp-form-col max-width */
   margin: 0.75rem auto 0 auto;
   padding: 6px;
@@ -229,7 +252,7 @@ const responsiveStyles = `
 /* Make each button fill half the row */
 .gp-mode-btn {
   flex: 1 1 0;
-  width: 50%;
+  width: auto;
   padding: 0.85rem 0.75rem;       /* bigger click area */
   font-size: 1.02rem;             /* ~same as your h1 size */
   line-height: 1.1;
@@ -308,11 +331,34 @@ const responsiveStyles = `
 @keyframes gpShimmer {
   100% { transform: translateX(100%); }
 }
+.gp-group-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gp-group-item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
 @media (min-width: 760px) {
   .gp-form-col { padding: 1rem 1.2rem; }
   .gp-group-list { max-width: 720px; }
+}    
+.gp-group-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
+
+.gp-group-item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 
 /* ===== MODE SELECTOR PANEL (planter-finder style separation) ===== */
 .gp-mode-panel {
@@ -345,6 +391,8 @@ const responsiveStyles = `
     flex-basis: auto;
     align-self: center;
   }
+
+
 }
 /* ===== DIBBY BANNER STYLES (used inside modal) ===== */
 .gp-dibby-banner {
@@ -412,6 +460,176 @@ const responsiveStyles = `
 .gp-dibby-banner-btn:hover {
   background: #05b210;
 }
+/* --- HARD RESET: keep category row centered --- */
+.gp-groups-row {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  flex-wrap: wrap !important;
+  align-items: flex-start !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.gp-group-box {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: auto !important;
+  min-width: 120px !important;
+}
+/* --- RESTORE CATEGORY BUTTON LOOK --- */
+.gp-group-header {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0.6rem !important;
+  padding: 0.45rem 0.8rem !important;
+  background: #eef7f0 !important;
+  border: 1px solid #dbeeda !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  font-weight: 700 !important;
+  color: #2d6a4f !important;
+  min-width: 0 !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+.gp-group-header:hover,
+.gp-group-header:focus {
+  background: #e7f4eb !important;
+  border-color: #cfe7d3 !important;
+  outline: none !important;
+}
+
+.gp-group-header:focus-visible {
+  outline: 3px solid rgba(45,106,79,0.15) !important;
+}
+html, body, #root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.gp-container {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .gp-container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .gp-mode-selector,
+  .gp-mode-btn-row,
+  .gp-form-col,
+  .gp-group-list {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  .gp-mode-btn {
+    min-width: auto;
+  }
+
+  /* Keep crop cards tidy on mobile */
+  .gp-group-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .gp-group-item {
+    margin: 0;
+    padding: 0;
+  }
+@media (max-width: 768px) {
+  .gp-mode-panel { padding-left: 8px; padding-right: 8px; overflow: hidden; }
+  .gp-mode-selector h1 { font-size: 1.05rem; line-height: 1.2; }
+  .gp-account-trigger { font-size: 0.8rem; padding: 0.3rem 0.5rem; }
+  .gp-mode-selector { padding-right: 0; }
+}
+
+@media (max-width: 768px) {
+  .gp-mode-panel {
+    width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 20px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .gp-mode-btn-row {
+    padding: 3px !important;
+    gap: 4px !important;
+    border-radius: 12px !important;
+  }
+
+  .gp-mode-btn {
+    padding: 0.55rem 0.5rem !important;
+    border-radius: 10px !important;
+    border-width: 1.5px !important;
+  }
+
+  .gp-mode-btn-title {
+    font-size: 0.94rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .gp-mode-btn-copy {
+    font-size: 0.70rem !important;
+    line-height: 1.1 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Center and contain the whole top panel */
+  .gp-mode-panel {
+    width: calc(100% - 16px) !important;
+    max-width: calc(100% - 16px) !important;
+    margin: 0 auto 1rem auto !important;
+    padding: 0.75rem 0.6rem !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* Force equal-width Sow/Grow columns */
+  .gp-mode-btn-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 3px !important;
+    box-sizing: border-box !important;
+  }
+
+  .gp-mode-btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 0.56rem 0.5rem !important;
+  }
+}
+
+}
+
+
 `;
 
 function LoadingCards({ count = 3 }) {
@@ -839,6 +1057,7 @@ useEffect(() => {
       } catch {}
       setShowDibbyAd(false);
     }}
+
   >
     <div className="gp-modal" onClick={(e) => e.stopPropagation()}>
       <button

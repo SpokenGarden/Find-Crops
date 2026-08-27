@@ -27,10 +27,17 @@ export function AuthProvider({ children }) {
     return () => subscription.unsubscribe();
   }, []);
 
-  const signUp = async (email, password) => {
-    if (!supabase) return { error: { message: "Supabase not configured." } };
-    return supabase.auth.signUp({ email, password });
-  };
+const signUp = async (email, password) => {
+  if (!supabase) return { error: { message: "Supabase not configured." } };
+
+  return supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      emailRedirectTo: "https://www.spokengarden.com/app/"
+    }
+  });
+};
 
   const signIn = async (email, password) => {
     if (!supabase) return { error: { message: "Supabase not configured." } };

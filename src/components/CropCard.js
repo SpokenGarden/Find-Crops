@@ -438,9 +438,15 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated, onN
           gap: 0.7rem;
         }
         .crop-card-field-item {
+          list-style: none;
+          margin-left: 0;
+          padding-left: 0;
           display: flex;
           align-items: flex-start;
           gap: 0.65rem;
+        }
+        .crop-card-field-item::marker {
+  content: "";
         }
         .crop-card-field-icon {
           width: 1.5rem;
