@@ -470,8 +470,7 @@ const getGroupLabel = (group) => {
   const labels = {
     flower: "Flowers",
     vegetable: "Vegetables",
-    herb: "Herbs",
-    bulb: "Bulbs"
+    herb: "Herbs"
   };
   return labels[group] || group;
 };
@@ -518,9 +517,14 @@ export default function GardenPlannerApp() {
   const [expandedGroups, setExpandedGroups] = useState({
     flower: false,
     vegetable: false,
-    herb: false,
-    bulb: false,
+    herb: false
   });
+
+  useEffect(() => {
+    if (category === "bulb") {
+      setCategory("all");
+    }
+  }, [category, setCategory]);
 
   // ===== DIBBY PROMO POPUP (once per week) =====
   const [showDibbyAd, setShowDibbyAd] = useState(false);
@@ -572,10 +576,12 @@ useEffect(() => {
       mode: modeValue
     });
 
-    setFilteredCrops(matches.map((crop) => [crop.name, crop._raw || crop]));
-    setSowingCalendar(buildSowingCalendar(matches));
-    setExpandedGroups({ flower: false, vegetable: false, herb: false, bulb: false });
-    return matches;
+    const nonBulbMatches = matches.filter((crop) => getCropType(crop._raw || crop) !== "bulb");
+
+    setFilteredCrops(nonBulbMatches.map((crop) => [crop.name, crop._raw || crop]));
+    setSowingCalendar(buildSowingCalendar(nonBulbMatches));
+    setExpandedGroups({ flower: false, vegetable: false, herb: false });
+    return nonBulbMatches;
   }, [
     appVersion,
     category,
@@ -673,7 +679,7 @@ useEffect(() => {
 
   // ===== COMPUTED VALUES =====
   const groupedCrops = useMemo(() => {
-    const groups = { flower: [], vegetable: [], herb: [], bulb: [], other: [] };
+    const groups = { flower: [], vegetable: [], herb: [], other: [] };
     filteredCrops.forEach(([cName, cData]) => {
       const type = getCropType(cData);
       if (groups[type]) groups[type].push([cName, cData]);
@@ -692,7 +698,6 @@ useEffect(() => {
   const flowerCount = groupedCrops.flower.length;
   const vegetableCount = groupedCrops.vegetable.length;
   const herbCount = groupedCrops.herb.length;
-  const bulbCount = groupedCrops.bulb.length;
 
   // ===== RENDER HOME SCREEN =====
   if (screen === "home") {
@@ -1057,7 +1062,6 @@ useEffect(() => {
                     <option value="flower">Flowers</option>
                     <option value="herb">Herbs</option>
                     <option value="vegetable">Vegetables</option>
-                    <option value="bulb">Bulbs</option>
                   </select>
                 </label>
                 <label className="gp-label">
@@ -1150,14 +1154,14 @@ useEffect(() => {
                 </h2>
                 <div style={{ marginTop: "0.3rem", fontSize: "0.95rem", color: "#375e4e" }}>
                   Flowers: {flowerCount} &nbsp;|&nbsp; Vegetables: {vegetableCount} &nbsp;|&nbsp; 
-                  Herbs: {herbCount} &nbsp;|&nbsp; Bulbs: {bulbCount}
+                  Herbs: {herbCount}
                 </div>
               </div>
             )}
 
             {/* Group headers */}
             <div className="gp-groups-row" role="list">
-              {["flower", "vegetable", "herb", "bulb"].map((group) =>
+              {["flower", "vegetable", "herb"].map((group) =>
                 groupedCrops[group].length > 0 ? (
                   <div key={group} className="gp-group-box" role="listitem">
                     <div
