@@ -3,7 +3,6 @@
 export function filterCrops(crops, filters) {
   const {
     cropName,
-    mode,         // "sow" | "grow" – gates results by Sowing vs Care data
     zone,
     category,
     sunRequirement,
@@ -27,20 +26,8 @@ export function filterCrops(crops, filters) {
     return val && val.trim().toLowerCase() !== "na";
   }
 
-  // Helper: returns true if the section array has at least one meaningful (non-NA) value
-  function hasMeaningfulData(section) {
-    if (!Array.isArray(section) || section.length === 0) return false;
-    return section.some(item => isValidValue(item.value || ""));
-  }
-
   return crops.filter(crop => {
-    // MODE GATING: applied first so it always restricts results, even for cropName searches.
-    // Sow mode: crop must have meaningful Sowing info.
-    // Grow mode: crop must have meaningful Care info.
-    if (mode === "sow" && !hasMeaningfulData(crop.Sowing)) return false;
-    if (mode === "grow" && !hasMeaningfulData(crop.Care)) return false;
-
-    // CROP NAME/KEYWORD SEARCH: if provided, match by name only (mode gate already applied above)
+    // CROP NAME/KEYWORD SEARCH: if provided, match by name only.
     if (cropName && cropName.trim() !== "") {
       const cropDisplay =
         crop.displayName ||

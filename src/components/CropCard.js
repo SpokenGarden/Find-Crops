@@ -77,7 +77,7 @@ function formatLastUpdated(lastUpdated) {
   });
 }
 
-function CropCardWithData({ cropName, version, onNeedsAuth }) {
+function CropCardWithData({ cropName, onNeedsAuth }) {
   const { cropData, loading, error, lastUpdated } = useCropData();
 
   if (loading) {
@@ -99,27 +99,39 @@ function CropCardWithData({ cropName, version, onNeedsAuth }) {
     <CropCardContent
       cropName={cropName}
       cropData={cropData?.[cropName]}
-      version={version}
       lastUpdated={lastUpdated}
       onNeedsAuth={onNeedsAuth}
     />
   );
 }
 
-function CropCardContent({ cropName, cropData, version = "sow", lastUpdated, onNeedsAuth }) {
+function CropCardContent({ cropName, cropData, lastUpdated, onNeedsAuth }) {
   const cardId = useMemo(() => getCardId(cropName), [cropName]);
 
   const normalizedCropKey = useMemo(
     () => String(cropName || "").trim().toLowerCase(),
     [cropName]
   );
-  const sessionKey = `${CARD_STATE_KEY}:${version}:${normalizedCropKey}`;
+  const sessionKey = `${CARD_STATE_KEY}:${normalizedCropKey}`;
+  const legacySowSessionKey = `${CARD_STATE_KEY}:sow:${normalizedCropKey}`;
+  const legacyGrowSessionKey = `${CARD_STATE_KEY}:grow:${normalizedCropKey}`;
 
   const [secondaryExpanded, setSecondaryExpanded] = useState(false);
 
   useEffect(() => {
-    setSecondaryExpanded(getStoredValue(sessionKey, false, "sessionStorage"));
-  }, [sessionKey]);
+    const currentStored = getStoredValue(sessionKey, null, "sessionStorage");
+    if (typeof currentStored === "boolean") {
+      setSecondaryExpanded(currentStored);
+      return;
+    }
+    const legacySowStored = getStoredValue(legacySowSessionKey, null, "sessionStorage");
+    if (typeof legacySowStored === "boolean") {
+      setSecondaryExpanded(legacySowStored);
+      return;
+    }
+    const legacyGrowStored = getStoredValue(legacyGrowSessionKey, null, "sessionStorage");
+    setSecondaryExpanded(typeof legacyGrowStored === "boolean" ? legacyGrowStored : false);
+  }, [legacyGrowSessionKey, legacySowSessionKey, sessionKey]);
 
   useEffect(() => {
     setStoredValue(sessionKey, secondaryExpanded, "sessionStorage");
@@ -172,15 +184,10 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated, onN
 
   const basicsFields = Array.isArray(displayData.Basics) ? displayData.Basics : [];
   const visibleBasicsFields = basicsFields.filter(({ label }) => !BASICS_HIDDEN_LABELS.has(label));
-  const secondaryGroups =
-    version === "grow"
-      ? ["Growth", "Harvest", "Care"]
-          .map((section) => ({ section, fields: displayData[section] }))
-          .filter(({ fields }) => Array.isArray(fields) && fields.length > 0)
-      : [{ section: "Sowing", fields: displayData.Sowing }].filter(
-          ({ fields }) => Array.isArray(fields) && fields.length > 0
-        );
-  const secondaryLabel = version === "grow" ? "Growing" : "Sowing";
+  const secondaryGroups = ["Sowing", "Growth", "Harvest", "Care"]
+    .map((section) => ({ section, fields: displayData[section] }))
+    .filter(({ fields }) => Array.isArray(fields) && fields.length > 0);
+  const secondaryLabel = "Planting & Care";
   const lastUpdatedLabel = formatLastUpdated(lastUpdated);
 
   const handleToggleFavorite = async () => {
@@ -193,7 +200,7 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated, onN
     const shareUrl = `${window.location.href.split("#")[0]}#${cardId}`;
     const shareData = {
       title: `${cropName} • Dibby Grow Buddy`,
-      text: `Check out ${cropName} in ${version === "grow" ? "Grow" : "Sow"} mode.`,
+      text: `Check out ${cropName} in Find-Crops.`,
       url: shareUrl,
     };
 
@@ -317,9 +324,9 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated, onN
           display: inline-flex;
           align-items: center;
           gap: 0.35rem;
-          background: ${version === "grow" ? "#e2f2e6" : "#fff5dc"};
+          background: #eaf6ee;
           color: #245a45;
-          border: 1px solid ${version === "grow" ? "#b8dec3" : "#efd7a5"};
+          border: 1px solid #b8dec3;
           border-radius: 999px;
           padding: 0.26rem 0.62rem;
         }
@@ -504,7 +511,7 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated, onN
           font-size: 0.77rem;
         }
         .crop-card-buy-link {
-          background: ${version === "grow" ? "#1f7a47" : "#228B22"};
+          background: #228b22;
           color: #fff;
           padding: 0.5em 0.85em;
           border-radius: 12px;
@@ -564,9 +571,9 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated, onN
             <span className="crop-card-title">{styleCropName(cropName)}</span>
             <span className="crop-card-subtitle">
               <span className="crop-card-mode-pill">
-                {version === "grow" ? "Grow mode" : "Sow mode"}
+                Unified mode
               </span>
-              <span>{version === "grow" ? "Care tips at a glance" : "Seed-starting details at a glance"}</span>
+              <span>Sowing and care details at a glance</span>
             </span>
           </div>
         </div>
@@ -676,8 +683,8 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated, onN
               margin: "0.5rem auto 0"
             }}
           >
-            <span aria-hidden="true">{version === "grow" ? "🪴" : "🛒"}</span>
-            <span>{version === "grow" ? "Shop Grow Supplies" : "Shop Seeds & Supplies"}</span>
+            <span aria-hidden="true">🛒</span>
+            <span>Shop Seeds & Supplies</span>
           </a>
         )}
       </div>
@@ -685,18 +692,17 @@ function CropCardContent({ cropName, cropData, version = "sow", lastUpdated, onN
   );
 }
 
-export default function CropCard({ cropName, cropData, version = "sow", lastUpdated, onNeedsAuth }) {
+export default function CropCard({ cropName, cropData, lastUpdated, onNeedsAuth }) {
   if (cropData) {
     return (
       <CropCardContent
         cropName={cropName}
         cropData={cropData}
-        version={version}
         lastUpdated={lastUpdated}
         onNeedsAuth={onNeedsAuth}
       />
     );
   }
 
-  return <CropCardWithData cropName={cropName} version={version} onNeedsAuth={onNeedsAuth} />;
+  return <CropCardWithData cropName={cropName} onNeedsAuth={onNeedsAuth} />;
 }

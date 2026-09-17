@@ -1,0 +1,52 @@
+.top-plant-banner {
+  width: 100%;
+  margin: 0 0 1rem;
+}
+
+.top-plant-banner-track {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+  gap: 0.55rem;
+}
+
+.top-plant-banner-item {
+  border: 1px solid #d3e8da;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: #245a45;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.top-plant-banner-item:hover,
+.top-plant-banner-item:focus-visible {
+  border-color: #2d6a4f;
+  background: #eef7f0;
+  outline: 2px solid rgba(45, 106, 79, 0.22);
+  outline-offset: 2px;
+}
+
+.top-plant-banner-item.is-active {
+  border-color: #2d6a4f;
+  background: #e9f4ed;
+}
+
+.top-plant-banner-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid #d3e8da;
+}
+
+.top-plant-banner-name {
+  width: 100%;
+  font-size: 0.74rem;
+  line-height: 1.2;
+  text-align: center;
+}
