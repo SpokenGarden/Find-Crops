@@ -189,18 +189,6 @@ const responsiveStyles = `
   padding: 1rem;
   z-index: 9999;
 }
-
-.gp-modal {
-  width: 100%;
-  max-width: 760px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 18px 60px rgba(0,0,0,0.25);
-  padding: 0.9rem;
-  position: relative;
-}
-.gp-modal { min-height: 140px; }
-}
 .gp-modal {
   width: 100%;
   max-width: 760px;
@@ -464,6 +452,7 @@ export default function GardenPlannerApp() {
   // ===== DIBBY PROMO POPUP (once per week) =====
   const [showDibbyAd, setShowDibbyAd] = useState(false);
   const hasInitializedResults = useRef(false);
+  const searchTimeoutRef = useRef(null);
 
 useEffect(() => {
   if (!isBrowser) return;
@@ -553,9 +542,13 @@ useEffect(() => {
       soilPreferenceValue: soilPreference
     };
 
-    setTimeout(() => {
+    if (searchTimeoutRef.current) {
+      window.clearTimeout(searchTimeoutRef.current);
+    }
+    searchTimeoutRef.current = window.setTimeout(() => {
       runFilter(searchValues);
       setLoading(false);
+      searchTimeoutRef.current = null;
     }, 150);
   };
 
@@ -570,7 +563,10 @@ useEffect(() => {
     setShowAdvancedFilters(false);
     if (cropData) {
       setLoading(true);
-      window.setTimeout(() => {
+      if (searchTimeoutRef.current) {
+        window.clearTimeout(searchTimeoutRef.current);
+      }
+      searchTimeoutRef.current = window.setTimeout(() => {
         runFilter({
           cropNameValue: "",
           zoneValue: "",
@@ -580,6 +576,7 @@ useEffect(() => {
           soilPreferenceValue: "all"
         });
         setLoading(false);
+        searchTimeoutRef.current = null;
       }, 150);
     }
   };
@@ -590,9 +587,18 @@ useEffect(() => {
     [filteredCrops]
   );
   const totalCount = filteredCrops.length;
-  const flowerCount = filteredCrops.filter(([, cData]) => getCropType(cData) === "flower").length;
-  const vegetableCount = filteredCrops.filter(([, cData]) => getCropType(cData) === "vegetable").length;
-  const herbCount = filteredCrops.filter(([, cData]) => getCropType(cData) === "herb").length;
+  const { flowerCount, vegetableCount, herbCount } = useMemo(() => {
+    return filteredCrops.reduce(
+      (counts, [, cData]) => {
+        const type = getCropType(cData);
+        if (type === "flower") counts.flowerCount += 1;
+        if (type === "vegetable") counts.vegetableCount += 1;
+        if (type === "herb") counts.herbCount += 1;
+        return counts;
+      },
+      { flowerCount: 0, vegetableCount: 0, herbCount: 0 }
+    );
+  }, [filteredCrops]);
 
   const featuredBannerCrops = useMemo(() => {
     if (!cropData) return [];
@@ -612,11 +618,12 @@ useEffect(() => {
       .filter(([, data]) => getCropType(data) !== "bulb")
       .map(([name, data]) => ({ name, data }));
     const normalizedMap = new Map(nonBulbEntries.map((entry) => [entry.name.toLowerCase(), entry]));
+    const preferredNameSet = new Set(preferredNames.map((name) => name.toLowerCase()));
     const prioritized = preferredNames
       .map((name) => normalizedMap.get(name.toLowerCase()))
       .filter(Boolean);
     const remaining = nonBulbEntries.filter(
-      (entry) => !preferredNames.some((name) => name.toLowerCase() === entry.name.toLowerCase())
+      (entry) => !preferredNameSet.has(entry.name.toLowerCase())
     );
     return [...prioritized, ...remaining].slice(0, 10);
   }, [cropData]);
@@ -630,7 +637,10 @@ useEffect(() => {
     setSoilPreference("all");
     setShowAdvancedFilters(false);
     setLoading(true);
-    window.setTimeout(() => {
+    if (searchTimeoutRef.current) {
+      window.clearTimeout(searchTimeoutRef.current);
+    }
+    searchTimeoutRef.current = window.setTimeout(() => {
       runFilter({
         cropNameValue: selectedCropName,
         zoneValue: "",
@@ -640,8 +650,17 @@ useEffect(() => {
         soilPreferenceValue: "all"
       });
       setLoading(false);
+      searchTimeoutRef.current = null;
     }, 150);
-  }, [runFilter, setCategory, setSoilPreference, setSunRequirement, setWaterNeed, setZone]);
+  }, [runFilter, setCategory, setCropName, setLoading, setShowAdvancedFilters, setSoilPreference, setSunRequirement, setWaterNeed, setZone]);
+
+  useEffect(() => {
+    return () => {
+      if (searchTimeoutRef.current) {
+        window.clearTimeout(searchTimeoutRef.current);
+      }
+    };
+  }, []);
 
   // ===== RENDER HOME SCREEN =====
   if (screen === "home") {
@@ -1086,17 +1105,18 @@ useEffect(() => {
             )}
 
             {sortedFilteredCrops.length > 0 && (
-              <div className="gp-results-grid" aria-live="polite">
+              <ul className="gp-results-grid" aria-live="polite" style={{ listStyle: "none", padding: 0 }}>
                 {sortedFilteredCrops.map(([cName, cData]) => (
-                  <CropCard
-                    key={cName}
-                    cropName={cName}
-                    cropData={cData}
-                    lastUpdated={lastUpdated}
-                    onNeedsAuth={() => setShowAuthModal(true)}
-                  />
+                  <li key={cName}>
+                    <CropCard
+                      cropName={cName}
+                      cropData={cData}
+                      lastUpdated={lastUpdated}
+                      onNeedsAuth={() => setShowAuthModal(true)}
+                    />
+                  </li>
                 ))}
-              </div>
+              </ul>
             )}
 
             {filteredCrops.length === 0 && (

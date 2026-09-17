@@ -113,12 +113,25 @@ function CropCardContent({ cropName, cropData, lastUpdated, onNeedsAuth }) {
     [cropName]
   );
   const sessionKey = `${CARD_STATE_KEY}:${normalizedCropKey}`;
+  const legacySowSessionKey = `${CARD_STATE_KEY}:sow:${normalizedCropKey}`;
+  const legacyGrowSessionKey = `${CARD_STATE_KEY}:grow:${normalizedCropKey}`;
 
   const [secondaryExpanded, setSecondaryExpanded] = useState(false);
 
   useEffect(() => {
-    setSecondaryExpanded(getStoredValue(sessionKey, false, "sessionStorage"));
-  }, [sessionKey]);
+    const currentStored = getStoredValue(sessionKey, null, "sessionStorage");
+    if (typeof currentStored === "boolean") {
+      setSecondaryExpanded(currentStored);
+      return;
+    }
+    const legacySowStored = getStoredValue(legacySowSessionKey, null, "sessionStorage");
+    if (typeof legacySowStored === "boolean") {
+      setSecondaryExpanded(legacySowStored);
+      return;
+    }
+    const legacyGrowStored = getStoredValue(legacyGrowSessionKey, null, "sessionStorage");
+    setSecondaryExpanded(typeof legacyGrowStored === "boolean" ? legacyGrowStored : false);
+  }, [legacyGrowSessionKey, legacySowSessionKey, sessionKey]);
 
   useEffect(() => {
     setStoredValue(sessionKey, secondaryExpanded, "sessionStorage");

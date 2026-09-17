@@ -18,7 +18,7 @@ export default function TopPlantBanner({ crops = [], activeCropName = "", onSear
   if (!crops.length) return null;
 
   return (
-    <div className="top-plant-banner" aria-label="Featured plant shortcuts">
+    <nav className="top-plant-banner" aria-label="Featured plant shortcuts">
       <div className="top-plant-banner-track">
         {crops.map(({ name, data }) => {
           const photoFileName = getPhotoFileName(data);
@@ -37,7 +37,7 @@ export default function TopPlantBanner({ crops = [], activeCropName = "", onSear
             >
               <img
                 src={imageSrc}
-                alt={name}
+                alt=""
                 className="top-plant-banner-thumb"
                 loading="lazy"
                 decoding="async"
@@ -53,6 +53,6 @@ export default function TopPlantBanner({ crops = [], activeCropName = "", onSear
           );
         })}
       </div>
-    </div>
+    </nav>
   );
 }
