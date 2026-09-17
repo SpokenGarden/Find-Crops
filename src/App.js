@@ -4,6 +4,7 @@ import { buildSowingCalendar } from "./utils/sowingCalendar";
 import CropCard from "./components/CropCard";
 import ToolsAndSupplies from "./components/ToolsAndSupplies";
 import PlantingVideos from "./components/PlantingVideos";
+import TopPlantBanner from "./components/TopPlantBanner";
 import { useCropData } from "./hooks/useCropData";
 import dibbyYellow from "./images/dibby-yellow.jpg";
 import AuthModal from "./components/AuthModal";
@@ -46,13 +47,40 @@ const usePersistentState = (key, initialValue) => {
 
 // ===== STYLES =====
 const responsiveStyles = `
-  .gp-container { max-width: 980px; margin: 0 auto; padding: 1.2rem; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+  .gp-container { max-width: 1100px; margin: 0 auto; padding: 1.2rem; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color: #20392f; }
+  .gp-app-shell { display: grid; gap: 1rem; }
+  .gp-hero-shell {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    border: 1px solid #d6eadf;
+    border-radius: 22px;
+    padding: 1.1rem 1rem;
+    background: linear-gradient(180deg, #f5fbf8 0%, #eef7f2 100%);
+    box-shadow: 0 16px 36px rgba(22, 48, 37, 0.08);
+  }
+  .gp-hero-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.9rem; }
+  .gp-hero-title { margin: 0; font-size: 1.55rem; line-height: 1.2; color: #1f4d3b; font-weight: 800; letter-spacing: -0.01em; }
+  .gp-hero-subtitle { margin: 0.5rem 0 0; color: #355e4d; font-size: 0.96rem; line-height: 1.5; max-width: 600px; }
+  .gp-quick-nav { display: inline-flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.8rem; }
+  .gp-chip-btn {
+    border: 1px solid #bad8ca;
+    background: #ffffff;
+    color: #265845;
+    border-radius: 999px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.84rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .gp-chip-btn:hover, .gp-chip-btn:focus-visible { background: #eaf5ef; border-color: #2d6a4f; outline: none; }
   .gp-back-btn { background: transparent; border: none; color: #2d6a4f; font-weight: 700; margin-bottom: 0.8rem; cursor: pointer; }
   .gp-flex-center { display: flex; justify-content: center; }
-  .gp-form-col { width: 100%; max-width: 360px; background: #ffffff; border-radius: 12px; padding: 0.9rem 1rem; box-shadow: 0 6px 18px rgba(17,24,39,0.06); margin: 0 auto; }
+  .gp-form-col { width: 100%; max-width: 100%; background: #ffffff; border-radius: 16px; padding: 0.95rem 1rem; box-shadow: 0 6px 18px rgba(17,24,39,0.06); margin: 0 auto; border: 1px solid #deeee5; }
   .gp-label { display: block; margin-bottom: 0.6rem; color: #2d6a4f; font-weight: 600; font-size: 0.95rem; }
   .gp-input, .gp-select { width: 100%; padding: 0.45rem 0.6rem; border-radius: 8px; border: 1px solid #e6e6e6; font-size: 0.95rem; margin-top: 0.25rem; box-sizing: border-box; }
   .gp-find-btn { margin-top: 0.9rem; width: 100%; padding: 0.6rem; background: #2d6a4f; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 0.98rem; }
+  .gp-results-grid { display: grid; gap: 0.9rem; margin-top: 1rem; }
   .gp-toggle-advanced { margin: 0.5rem 0; }
   /* ===== ACCOUNT TRIGGER ===== */
   .gp-account-trigger {
@@ -150,9 +178,6 @@ const responsiveStyles = `
     font-weight: 700;
     cursor: pointer;
   }
-  .gp-version-badge { display: inline-block; padding: 0.3rem 0.7rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700; margin-left: 0.5rem; vertical-align: middle; }
-  .gp-version-lite { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
-  .gp-version-full { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
   /* ===== MODAL (for Dibby promo) ===== */
 .gp-modal-overlay {
   position: fixed;
@@ -206,62 +231,6 @@ const responsiveStyles = `
 .gp-modal-close:hover {
   background: rgba(0,0,0,0.12);
 }
-   
-  .gp-mode-selector { width: 100%; max-width: 360px; margin: 0 auto 0.8rem auto; text-align: center; }
-  .gp-mode-selector h1 { font-size: 1.25rem; margin-bottom: 0.5rem; color: #2d6a4f; }
-  .gp-mode-selector-subtitle { font-size: 0.85rem; font-weight: 400; color: #4a6b5a; }
-/* ===== MODE BUTTON ROW: match search card width + larger buttons ===== */
-.gp-mode-btn-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;                         /* looks like one segmented control */
-  width: 100%;
-  max-width: 360px;               /* matches gp-form-col max-width */
-  margin: 0.75rem auto 0 auto;
-  padding: 6px;
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(45, 106, 79, 0.22);
-  border-radius: 16px;
-  box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
-}
-
-/* Make each button fill half the row */
-.gp-mode-btn {
-  flex: 1 1 0;
-  width: 50%;
-  padding: 0.85rem 0.75rem;       /* bigger click area */
-  font-size: 1.02rem;             /* ~same as your h1 size */
-  line-height: 1.1;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: 900;
-  border: 2px solid #2d6a4f;
-  transition: transform 0.06s ease, background 0.2s ease, color 0.2s ease;
-  border-width: 2px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  align-items: flex-start;
-  text-align: left;
-}
-
-/* Remove the "or" gap effect; let the container handle separation */
-.gp-mode-btn:active {
-  transform: scale(0.99);
-}
-
-.gp-mode-btn-active {
-  background: #2d6a4f;
-  color: #ffffff;
-}
-
-.gp-mode-btn-inactive {
-  background: rgba(45, 106, 79, 0.06);
-  color: #2d6a4f;
-}
-.gp-mode-btn-title { font-size: 1rem; }
-.gp-mode-btn-copy { font-size: 0.74rem; font-weight: 700; opacity: 0.9; }
 .gp-loading-grid {
   display: grid;
   gap: 0.9rem;
@@ -312,30 +281,10 @@ const responsiveStyles = `
 @media (min-width: 760px) {
   .gp-form-col { padding: 1rem 1.2rem; }
   .gp-group-list { max-width: 720px; }
-}
-
-/* ===== MODE SELECTOR PANEL (planter-finder style separation) ===== */
-.gp-mode-panel {
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto 1rem auto;
-  padding: 1.2rem 1.25rem;
-  border-radius: 16px;
-  background: linear-gradient(180deg, #f3f6fb 0%, #eef7f0 100%);
-  border: 1px solid rgba(45, 106, 79, 0.18);
-  box-shadow: 0 10px 28px rgba(17, 24, 39, 0.08);
-}
-
-.gp-mode-panel .gp-mode-selector {
-  max-width: none;
-  margin: 0;
+.gp-results-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
-  .gp-mode-panel {
-    padding: 0.9rem 0.85rem;
-    border-radius: 14px;
-  }
   .gp-loading-card-top {
     flex-direction: column;
   }
@@ -344,6 +293,12 @@ const responsiveStyles = `
     max-width: 240px;
     flex-basis: auto;
     align-self: center;
+  }
+  .gp-hero-head {
+    flex-direction: column;
+  }
+  .gp-hero-title {
+    font-size: 1.35rem;
   }
 }
 /* ===== DIBBY BANNER STYLES (used inside modal) ===== */
@@ -466,23 +421,8 @@ const getCropType = (cData) => {
   return "other";
 };
 
-const getGroupLabel = (group) => {
-  const labels = {
-    flower: "Flowers",
-    vegetable: "Vegetables",
-    herb: "Herbs"
-  };
-  return labels[group] || group;
-};
-
 // ===== MAIN COMPONENT =====
 export default function GardenPlannerApp() {
-  // ===== VERSION CONTROL =====
-  // Change this to "grow" for the complete version with Growth and Care sections
-  // "sow" = shows Basics + Sowing sections + Buy Now
-  // "grow" = shows Growth + Care sections + Buy Now
-  const [appVersion, setAppVersion] = useState("sow");
-  
   // UI state
   const [screen, setScreen] = useState("search");
   const [dropdown1Open, setDropdown1Open] = useState(false);
@@ -514,11 +454,6 @@ export default function GardenPlannerApp() {
   // Non-persistent state
   const [filteredCrops, setFilteredCrops] = useState([]);
   const [cropName, setCropName] = useState("");
-  const [expandedGroups, setExpandedGroups] = useState({
-    flower: false,
-    vegetable: false,
-    herb: false
-  });
 
   useEffect(() => {
     if (category === "bulb") {
@@ -555,8 +490,7 @@ useEffect(() => {
     categoryValue = category,
     sunRequirementValue = sunRequirement,
     waterNeedValue = waterNeed,
-    soilPreferenceValue = soilPreference,
-    modeValue = appVersion
+    soilPreferenceValue = soilPreference
   } = {}) => {
     if (!cropData) return [];
 
@@ -572,18 +506,15 @@ useEffect(() => {
       category: categoryValue,
       sunRequirement: sunRequirementValue,
       waterNeed: waterNeedValue,
-      soilPreference: soilPreferenceValue,
-      mode: modeValue
+      soilPreference: soilPreferenceValue
     });
 
     const nonBulbMatches = matches.filter((crop) => getCropType(crop._raw || crop) !== "bulb");
 
     setFilteredCrops(nonBulbMatches.map((crop) => [crop.name, crop._raw || crop]));
     setSowingCalendar(buildSowingCalendar(nonBulbMatches));
-    setExpandedGroups({ flower: false, vegetable: false, herb: false });
     return nonBulbMatches;
   }, [
-    appVersion,
     category,
     cropData,
     cropName,
@@ -604,8 +535,7 @@ useEffect(() => {
       categoryValue: "all",
       sunRequirementValue: "all",
       waterNeedValue: "all",
-      soilPreferenceValue: "all",
-      modeValue: appVersion
+      soilPreferenceValue: "all"
     });
   }
 }, [cropData, runFilter]); // Only populate once when crop data arrives
@@ -620,8 +550,7 @@ useEffect(() => {
       categoryValue: category,
       sunRequirementValue: sunRequirement,
       waterNeedValue: waterNeed,
-      soilPreferenceValue: soilPreference,
-      modeValue: appVersion
+      soilPreferenceValue: soilPreference
     };
 
     setTimeout(() => {
@@ -648,56 +577,71 @@ useEffect(() => {
           categoryValue: "all",
           sunRequirementValue: "all",
           waterNeedValue: "all",
-          soilPreferenceValue: "all",
-          modeValue: appVersion
+          soilPreferenceValue: "all"
         });
         setLoading(false);
       }, 150);
     }
   };
 
-// Re-run search whenever the user switches Sow/Grow mode.
-// deps intentionally limited to [appVersion]: handleSearch closes over latest state
-// values at call-time; cropData is guarded inside; adding either would cause spurious runs.
-const isModeFirstRender = useRef(true);
-useEffect(() => {
-  if (isModeFirstRender.current) {
-    isModeFirstRender.current = false;
-    return;
-  }
-  if (cropData) {
-    handleSearch();
-  }
-}, [appVersion]);
-
-  const toggleGroup = (group) => {
-    setExpandedGroups((prev) => ({
-      ...prev,
-      [group]: !prev[group]
-    }));
-  };
-
   // ===== COMPUTED VALUES =====
-  const groupedCrops = useMemo(() => {
-    const groups = { flower: [], vegetable: [], herb: [], other: [] };
-    filteredCrops.forEach(([cName, cData]) => {
-      const type = getCropType(cData);
-      if (groups[type]) groups[type].push([cName, cData]);
-      else groups.other.push([cName, cData]);
-    });
-
-  // Sort each group alphabetically by crop name
-  Object.keys(groups).forEach((key) => {
-    groups[key].sort((a, b) => a[0].localeCompare(b[0]));
-  });
-    
-    return groups;
-  }, [filteredCrops]);
-
+  const sortedFilteredCrops = useMemo(
+    () => [...filteredCrops].sort((a, b) => a[0].localeCompare(b[0])),
+    [filteredCrops]
+  );
   const totalCount = filteredCrops.length;
-  const flowerCount = groupedCrops.flower.length;
-  const vegetableCount = groupedCrops.vegetable.length;
-  const herbCount = groupedCrops.herb.length;
+  const flowerCount = filteredCrops.filter(([, cData]) => getCropType(cData) === "flower").length;
+  const vegetableCount = filteredCrops.filter(([, cData]) => getCropType(cData) === "vegetable").length;
+  const herbCount = filteredCrops.filter(([, cData]) => getCropType(cData) === "herb").length;
+
+  const featuredBannerCrops = useMemo(() => {
+    if (!cropData) return [];
+    const preferredNames = [
+      "Sunflower",
+      "Zinnia",
+      "Basil",
+      "Lavender",
+      "Marigold",
+      "Tomato",
+      "Pepper",
+      "Lettuce",
+      "Cucumber",
+      "Dill"
+    ];
+    const nonBulbEntries = Object.entries(cropData)
+      .filter(([, data]) => getCropType(data) !== "bulb")
+      .map(([name, data]) => ({ name, data }));
+    const normalizedMap = new Map(nonBulbEntries.map((entry) => [entry.name.toLowerCase(), entry]));
+    const prioritized = preferredNames
+      .map((name) => normalizedMap.get(name.toLowerCase()))
+      .filter(Boolean);
+    const remaining = nonBulbEntries.filter(
+      (entry) => !preferredNames.some((name) => name.toLowerCase() === entry.name.toLowerCase())
+    );
+    return [...prioritized, ...remaining].slice(0, 10);
+  }, [cropData]);
+
+  const handleBannerSearch = useCallback((selectedCropName) => {
+    setCropName(selectedCropName);
+    setZone("");
+    setCategory("all");
+    setSunRequirement("all");
+    setWaterNeed("all");
+    setSoilPreference("all");
+    setShowAdvancedFilters(false);
+    setLoading(true);
+    window.setTimeout(() => {
+      runFilter({
+        cropNameValue: selectedCropName,
+        zoneValue: "",
+        categoryValue: "all",
+        sunRequirementValue: "all",
+        waterNeedValue: "all",
+        soilPreferenceValue: "all"
+      });
+      setLoading(false);
+    }, 150);
+  }, [runFilter, setCategory, setSoilPreference, setSunRequirement, setWaterNeed, setZone]);
 
   // ===== RENDER HOME SCREEN =====
   if (screen === "home") {
@@ -748,7 +692,7 @@ useEffect(() => {
                 <div className="gp-dropdown-text">
                   <p>
                     All in one place, find what plants to sow or plant! Know when to sow or plant indoors or outdoors and what season. 
-                    Get the right seed sowing and bulb planting depth and much more! For flowers, vegetables, bulbs, and herbs!
+                    Get the right seed sowing depth and much more for flowers, vegetables, and herbs.
                     <br /><br />
                     Plan what to grow, when to sow with your frost date, grow zone look-up, specific planting depths and spacings, and a whole lot more.
                   </p>
@@ -897,92 +841,73 @@ useEffect(() => {
   </div>
 )}
 
-        <div className="gp-flex-center" style={{ flexDirection: "column", alignItems: "center" }}>
-
-          {/* ===== SOW / GROW MODE SELECTOR — OUTSIDE & ABOVE THE CARD ===== */}
-        <div className="gp-mode-panel" style={{ position: "relative" }}>
-          {/* ===== ACCOUNT TRIGGER (top-right of hero card) ===== */}
-          <div style={{ position: "absolute", top: "0.7rem", right: "0.9rem" }} ref={accountMenuRef}>
-            {user ? (
-              <div style={{ position: "relative" }}>
-                <button
-                  type="button"
-                  className="gp-account-trigger"
-                  aria-expanded={showAccountMenu}
-                  onClick={() => setShowAccountMenu((v) => !v)}
-                >
-                  My Account ▾
-                </button>
-                {showAccountMenu && (
-                  <div className="gp-account-menu" role="menu">
+        <div className="gp-app-shell">
+          <div className="gp-hero-shell">
+            <div className="gp-hero-head">
+              <div>
+                <h1 className="gp-hero-title">🌱 Find-Crops Plant Finder</h1>
+                <p className="gp-hero-subtitle">
+                  Search flowers, vegetables, and herbs in one streamlined mode. Use featured plant thumbnails or refine with advanced filters.
+                </p>
+                <div className="gp-quick-nav">
+                  <button type="button" className="gp-chip-btn" onClick={() => setScreen("tools")}>
+                    Tools & Supplies
+                  </button>
+                  <button type="button" className="gp-chip-btn" onClick={() => setScreen("videos")}>
+                    Planting Videos
+                  </button>
+                </div>
+              </div>
+              <div ref={accountMenuRef} style={{ position: "relative" }}>
+                {user ? (
+                  <div style={{ position: "relative" }}>
                     <button
                       type="button"
-                      className="gp-account-menu-item"
-                      role="menuitem"
-                      onClick={() => { setShowFavorites(true); setShowAccountMenu(false); }}
+                      className="gp-account-trigger"
+                      aria-expanded={showAccountMenu}
+                      onClick={() => setShowAccountMenu((v) => !v)}
                     >
-                      ❤️ Favorites ({favCount})
+                      My Account ▾
                     </button>
-                    <div className="gp-account-menu-divider" />
-                    <button
-                      type="button"
-                      className="gp-account-menu-item"
-                      role="menuitem"
-                      onClick={() => { signOut(); setShowAccountMenu(false); }}
-                    >
-                      Sign out
-                    </button>
+                    {showAccountMenu && (
+                      <div className="gp-account-menu" role="menu">
+                        <button
+                          type="button"
+                          className="gp-account-menu-item"
+                          role="menuitem"
+                          onClick={() => { setShowFavorites(true); setShowAccountMenu(false); }}
+                        >
+                          ❤️ Favorites ({favCount})
+                        </button>
+                        <div className="gp-account-menu-divider" />
+                        <button
+                          type="button"
+                          className="gp-account-menu-item"
+                          role="menuitem"
+                          onClick={() => { signOut(); setShowAccountMenu(false); }}
+                        >
+                          Sign out
+                        </button>
+                      </div>
+                    )}
                   </div>
+                ) : (
+                  <button
+                    type="button"
+                    className="gp-account-trigger"
+                    onClick={() => setShowAuthModal(true)}
+                  >
+                    Sign in
+                  </button>
                 )}
               </div>
-            ) : (
-              <button
-                type="button"
-                className="gp-account-trigger"
-                onClick={() => setShowAuthModal(true)}
-              >
-                Sign in
-              </button>
-            )}
-          </div>
-
-          <div className="gp-mode-selector">
-            <h1>
-              🌱 Starting Seeds or Caring for Plants?
-              <br />
-              <span className="gp-mode-selector-subtitle">
-                Search by plant name or category below!
-              </span>
-              {/* Version badge */}
-              <span className={`gp-version-badge ${appVersion === "sow" ? "gp-version-lite" : "gp-version-full"}`}>
-                {appVersion === "sow" ? "Sow" : "Grow"}
-              </span>
-            </h1>
-
-            {/* Mode toggle buttons */}
-            <div className="gp-mode-btn-row">
-              <button
-                type="button"
-                className={`gp-mode-btn ${appVersion === "sow" ? "gp-mode-btn-active" : "gp-mode-btn-inactive"}`}
-                onClick={() => setAppVersion("sow")}
-                aria-pressed={appVersion === "sow"}
-              >
-                <span className="gp-mode-btn-title">Sow Mode</span>
-                <span className="gp-mode-btn-copy">Seed-starting windows, depth, and spacing</span>
-              </button>
-              <span style={{ display: "none" }}>or</span>
-              <button
-                type="button"
-                className={`gp-mode-btn ${appVersion === "grow" ? "gp-mode-btn-active" : "gp-mode-btn-inactive"}`}
-                onClick={() => setAppVersion("grow")}
-                aria-pressed={appVersion === "grow"}
-              >
-                <span className="gp-mode-btn-title">Grow Mode</span>
-                <span className="gp-mode-btn-copy">Growth, harvest, and care details</span>
-              </button>
             </div>
-          </div>
-        </div>
+
+            <TopPlantBanner
+              crops={featuredBannerCrops}
+              activeCropName={cropName}
+              onSearchCrop={handleBannerSearch}
+            />
 
           <form
             className="gp-form-col"
@@ -1112,6 +1037,7 @@ useEffect(() => {
               Find Plants
             </button>
           </form>
+          </div>
         </div>
 
         {/* ===== FAVORITES ACTIONS ROW — below Find Plants, above results ===== */}
@@ -1159,60 +1085,25 @@ useEffect(() => {
               </div>
             )}
 
-            {/* Group headers */}
-            <div className="gp-groups-row" role="list">
-              {["flower", "vegetable", "herb"].map((group) =>
-                groupedCrops[group].length > 0 ? (
-                  <div key={group} className="gp-group-box" role="listitem">
-                    <div
-                      onClick={() => toggleGroup(group)}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter" || e.key === " ") {
-                          e.preventDefault();
-                          toggleGroup(group);
-                        }
-                      }}
-                      tabIndex={0}
-                      className="gp-group-header"
-                      style={{ outline: "none" }}
-                      aria-expanded={expandedGroups[group]}
-                      role="button"
-                      aria-controls={`gp-group-${group}`}
-                    >
-                      <span style={{ fontSize: "0.95rem" }}>
-                        {getGroupLabel(group)} ({groupedCrops[group].length})
-                      </span>
-                      <span style={{ fontSize: "1.05em" }}>
-                        {expandedGroups[group] ? "▲" : "▼"}
-                      </span>
-                    </div>
-
-                    {expandedGroups[group] && (
-                      <ul id={`gp-group-${group}`} className="gp-group-list" aria-live="polite">
-                        {groupedCrops[group].map(([cName, cData]) => (
-                          <li key={cName} className="gp-group-item">
-                            {/* ===== PASS VERSION PROP TO CROPCARD ===== */}
-                            <CropCard
-                              cropName={cName}
-                              cropData={cData}
-                              version={appVersion}
-                              lastUpdated={lastUpdated}
-                              onNeedsAuth={() => setShowAuthModal(true)}
-                            />
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                ) : null
-              )}
-            </div>
+            {sortedFilteredCrops.length > 0 && (
+              <div className="gp-results-grid" aria-live="polite">
+                {sortedFilteredCrops.map(([cName, cData]) => (
+                  <CropCard
+                    key={cName}
+                    cropName={cName}
+                    cropData={cData}
+                    lastUpdated={lastUpdated}
+                    onNeedsAuth={() => setShowAuthModal(true)}
+                  />
+                ))}
+              </div>
+            )}
 
             {filteredCrops.length === 0 && (
               <div className="gp-empty" role="status">
                 <h3>No plants matched those filters</h3>
                 <p>
-                  Try switching between Sow and Grow mode, clearing one filter, or using a broader plant name.
+                  Try clearing one filter, searching by a broader plant name, or selecting a featured plant above.
                 </p>
                 <div className="gp-empty-actions">
                   <button type="button" className="gp-empty-btn" onClick={clearFilters}>
